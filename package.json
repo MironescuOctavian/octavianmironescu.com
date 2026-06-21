@@ -34,5 +34,9 @@
   },
   "overrides": {
     "vite": "^7"
+  },
+  "optionalDependencies": {
+    "@voidzero-dev/vite-plus-linux-x64-gnu": "0.2.1",
+    "@rolldown/binding-linux-x64-gnu": "1.0.3"
   }
 }

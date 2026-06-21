@@ -17,3 +17,11 @@ peerDependencyRules:
     vite: '*'
     vitest: '*'
 packageImportMethod: copy
+supportedArchitectures:
+  os:
+    - win32
+    - linux
+  cpu:
+    - x64
+    - arm64
+

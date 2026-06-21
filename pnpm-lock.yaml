@@ -245,6 +245,13 @@ importers:
       wrangler:
         specifier: ^4.103.0
         version: 4.103.0
+    optionalDependencies:
+      '@rolldown/binding-linux-x64-gnu':
+        specifier: 1.0.3
+        version: 1.0.3
+      '@voidzero-dev/vite-plus-linux-x64-gnu':
+        specifier: 0.2.1
+        version: 0.2.1
 
 packages:
 
