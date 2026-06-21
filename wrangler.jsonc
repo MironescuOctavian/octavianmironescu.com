@@ -12,5 +12,8 @@
       "pattern": "www.octavianmironescu.com",
       "custom_domain": true
     }
-  ]
+  ],
+  "assets": {
+    "directory": "./dist"
+  }
 }

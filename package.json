@@ -9,9 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/mdx": "^6.0.3",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
@@ -19,7 +21,8 @@
     "sharp": "^0.34.3"
   },
   "devDependencies": {
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "wrangler": "^4.103.0"
   },
   "devEngines": {
     "packageManager": {
@@ -27,5 +30,8 @@
       "version": "11.8.0",
       "onFail": "download"
     }
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
