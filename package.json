@@ -21,6 +21,7 @@
     "sharp": "^0.34.3"
   },
   "devDependencies": {
+    "@types/node": "^26.0.0",
     "vite-plus": "catalog:",
     "wrangler": "^4.103.0"
   },
