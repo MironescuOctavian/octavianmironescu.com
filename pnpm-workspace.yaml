@@ -16,3 +16,4 @@ peerDependencyRules:
   allowedVersions:
     vite: '*'
     vitest: '*'
+packageImportMethod: copy
