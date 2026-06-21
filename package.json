@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=25.2.1"
   },
   "scripts": {
     "dev": "astro dev",
@@ -34,9 +34,5 @@
   },
   "overrides": {
     "vite": "^7"
-  },
-  "optionalDependencies": {
-    "@voidzero-dev/vite-plus-linux-x64-gnu": "0.2.1",
-    "@rolldown/binding-linux-x64-gnu": "1.0.3"
   }
 }
