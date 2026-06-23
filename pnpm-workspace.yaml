@@ -29,8 +29,19 @@ supportedArchitectures:
   cpu:
     - x64
     - arm64
+minimumReleaseAge: 4320 # Minutes = 3 Days
 minimumReleaseAgeExclude:
-  - '@astrojs/markdown-satteri@0.3.1'
-  - astro@7.0.0
-  - '@astrojs/markdown-satteri@0.3.2'
-  - astro@7.0.2
+  - "pnpm"
+  - "astro"
+  - "@astrojs/*"
+  - "@rimelight/*"
+  - vite-plus
+  - "@voidzero-dev/*"
+  - oxlint
+  - "@oxlint/*"
+  - oxlint-tsgolint
+  - "@oxlint-tsgolint/*"
+  - oxfmt
+  - "@oxfmt/*"
+  - vitest
+  - "@vitest/*"
