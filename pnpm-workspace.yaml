@@ -16,7 +16,12 @@ peerDependencyRules:
   allowedVersions:
     vite: '*'
     vitest: '*'
+saveExact: true
 packageImportMethod: copy
+strictSsl: true
+preferWorkspacePackages: true
+linkWorkspacePackages: true
+saveWorkspaceProtocol: false
 supportedArchitectures:
   os:
     - win32
@@ -24,4 +29,8 @@ supportedArchitectures:
   cpu:
     - x64
     - arm64
-
+minimumReleaseAgeExclude:
+  - '@astrojs/markdown-satteri@0.3.1'
+  - astro@7.0.0
+  - '@astrojs/markdown-satteri@0.3.2'
+  - astro@7.0.2
