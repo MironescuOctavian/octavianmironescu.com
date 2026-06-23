@@ -1,34 +1,8 @@
-allowBuilds:
-  esbuild: true
-  sharp: true
-  workerd: true
-catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vitest: 4.1.9
-  vite-plus: latest
-overrides:
-  vite: 'catalog:'
-  vitest: 'catalog:'
-peerDependencyRules:
-  allowAny:
-    - vite
-    - vitest
-  allowedVersions:
-    vite: '*'
-    vitest: '*'
+configDependencies:
+  "@pnpm/pacquet": 0.11.9
 saveExact: true
 packageImportMethod: copy
 strictSsl: true
-preferWorkspacePackages: true
-linkWorkspacePackages: true
-saveWorkspaceProtocol: false
-supportedArchitectures:
-  os:
-    - win32
-    - linux
-  cpu:
-    - x64
-    - arm64
 minimumReleaseAge: 4320 # Minutes = 3 Days
 minimumReleaseAgeExclude:
   - "pnpm"
@@ -45,3 +19,29 @@ minimumReleaseAgeExclude:
   - "@oxfmt/*"
   - vitest
   - "@vitest/*"
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@latest
+  vitest: 4.1.9
+  vite-plus: latest
+overrides:
+  kysely: "0.28.17"
+  ws: "^8.21.0"
+  esbuild: "0.28.1"
+  yaml: "^2.8.3"
+  js-yaml: "^4.1.2"
+  undici: "7.28.0"
+  vite: "catalog:"
+  vitest: "catalog:"
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: "*"
+    vitest: "*"
+allowBuilds:
+  better-sqlite3: true
+  esbuild: true
+  sharp: true
+  vue-demi: true
+  workerd: true
