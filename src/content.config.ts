@@ -17,4 +17,18 @@ const blog = defineCollection({
 		}),
 });
 
-export const collections = { blog };
+const legal = defineCollection({
+	// Load Markdown and MDX files in the `src/content/legal/` directory.
+	loader: glob({ base: './src/content/legal', pattern: '**/*.{md,mdx}' }),
+	// Type-check frontmatter using a schema
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			// Transform string to Date object
+			pubDate: z.coerce.date(),
+			updatedDate: z.coerce.date().optional(),
+		}),
+});
+export const collections = { blog,legal };
+
