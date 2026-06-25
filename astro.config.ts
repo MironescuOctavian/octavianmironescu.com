@@ -1,20 +1,18 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
-
 import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://octavianmironescu.com',
   integrations: [mdx(), sitemap()],
-
-  fonts: [
+    fonts: [
       {
           provider: fontProviders.fontsource(),
           name: "Noto Sans",
           cssVariable: "--font-sans",
-          fallbacks: ["sans-serif"]
+            fallbacks: ["sans-serif"]
       },
       {
           provider: fontProviders.fontsource(),
@@ -29,6 +27,6 @@ export default defineConfig({
           fallbacks: ["monospace"]
       },
 	],
-
-  adapter: cloudflare(),
+    output: 'server',
+    adapter: cloudflare(),
 });
