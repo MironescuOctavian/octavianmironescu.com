@@ -27,6 +27,14 @@ export default defineConfig({
           fallbacks: ["monospace"]
       },
 	],
+    i18n: {
+        locales: ["en", "ro", "pt-br"],
+        defaultLocale: "en",
+        routing: {
+            prefixDefaultLocale: true,
+            redirectToDefaultLocale: true
+        }
+    },
     output: 'server',
     adapter: cloudflare(),
 });
