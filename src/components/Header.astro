@@ -1,16 +1,33 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+// defaultLocale is "en"
+const homeURL = getRelativeLocaleUrl("en", "/");
+const blogURL = getRelativeLocaleUrl("en", "/blog");
+const legalURL = getRelativeLocaleUrl("en", "/legal");
+const aboutURL = getRelativeLocaleUrl("en", "/about");
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 ---
 
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/legal">Legal</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="/">	<a href={homeURL}>{t('nav.home')}</a>
+			</HeaderLink>
+			<HeaderLink href="/blog">	<a href={blogURL}>{t('nav.blog')}</a>
+			</HeaderLink>
+			<HeaderLink href="/legal">	<a href={legalURL}>{t('nav.legal')}</a>
+			</HeaderLink>
+			<HeaderLink href="/about">	<a href={aboutURL}>{t('nav.about')}</a>
+			</HeaderLink>
 
 		</div>
 		<div class="social-links">

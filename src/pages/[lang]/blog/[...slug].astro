@@ -1,0 +1,18 @@
+---
+import { getEntry, render } from 'astro:content';
+
+const { lang,slug } = Astro.params;
+const page = await getEntry('blog', `${lang}/${slug}`);
+
+if (!page){
+    return Astro.redirect('/404');
+}
+
+const formattedDate = page.data.pubDate.toLocaleString(lang);
+const { Content} = await render(page);
+
+---
+
+<h1> {page.data.title}</h1>
+<p>by {page.data.author} • {formattedDate} </p>
+<Content/>
