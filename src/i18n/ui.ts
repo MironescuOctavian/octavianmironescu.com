@@ -4,6 +4,8 @@ export const languages = {
     "pt-br": 'Português',
 };
 
+export const langArray = ["en", "ro", "pt-br"];
+
 export const defaultLang = 'en';
 
 export const ui = {

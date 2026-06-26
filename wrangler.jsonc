@@ -13,6 +13,9 @@
       "custom_domain": true
     }
   ],
+  "vars":{
+    "CONSTRUCTION_MODE": true
+  },
   "assets": {
     "directory": "./dist"
   }
