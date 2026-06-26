@@ -6,17 +6,17 @@
   "routes": [
     {
       "pattern": "octavianmironescu.com",
-      "custom_domain": true
+      "custom_domain": true,
     },
     {
       "pattern": "www.octavianmironescu.com",
-      "custom_domain": true
-    }
+      "custom_domain": true,
+    },
   ],
-  "vars":{
-    "CONSTRUCTION_MODE": true
+  "vars": {
+    "CONSTRUCTION_MODE": true,
   },
   "assets": {
-    "directory": "./dist"
-  }
+    "directory": "./dist",
+  },
 }
