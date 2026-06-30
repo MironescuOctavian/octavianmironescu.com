@@ -21,7 +21,10 @@
     "typescript": "6.0.3"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "1.2.3",
     "@types/node": "26.0.0",
+    "@unocss/astro": "66.7.3",
+    "unocss": "66.7.3",
     "vite-plus": "catalog:",
     "wrangler": "4.103.0"
   },

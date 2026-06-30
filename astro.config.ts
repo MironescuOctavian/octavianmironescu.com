@@ -2,11 +2,12 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
+import UnoCSS from '@unocss/astro';
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://octavianmironescu.com",
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), UnoCSS()],
   fonts: [
     {
       provider: fontProviders.fontsource(),
