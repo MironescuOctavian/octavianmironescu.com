@@ -3,8 +3,6 @@
   "include": [".astro/types.d.ts", "**/*", "./worker-configuration.d.ts"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "verbatimModuleSyntax": true,
-    "strictNullChecks": true,
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -12,6 +10,7 @@
       {
         "name": "@astrojs/ts-plugin"
       }
-    ]
+    ],
+    "jsx" : "preserve"
   }
 }
