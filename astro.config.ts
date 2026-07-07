@@ -1,13 +1,13 @@
 import mdx from "@astrojs/mdx";
+import { ui } from "@rimelight/ui/integrations";
 import sitemap from "@astrojs/sitemap";
 import {defineConfig, fontProviders, memoryCache} from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
-import UnoCSS from "@unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://octavianmironescu.com",
-  integrations: [mdx(), sitemap(), UnoCSS()],
+  integrations: [mdx(), sitemap(), ui()],
   fonts: [
     {
       provider: fontProviders.fontsource(),
