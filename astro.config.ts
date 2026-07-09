@@ -1,7 +1,7 @@
 import mdx from "@astrojs/mdx";
 import { ui } from "@rimelight/ui/integrations";
 import sitemap from "@astrojs/sitemap";
-import {defineConfig, fontProviders, memoryCache} from "astro/config";
+import {defineConfig, fontProviders} from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
@@ -41,17 +41,19 @@ export default defineConfig({
       fallbackType: "rewrite",
     },
   },
-  cache: {
-    provider: memoryCache()
-  },
-  routeRules: {
-    "/api/[...path]": {
-      swr: 600 // 10 minutes stale-while-revalidate
-    },
-    "/[...path]": {
-      maxAge: 300 // 5 minutes cache
-    }
-  },
+  // TODO: Re-enable caching once Astro/Cloudflare adapter immutable headers issue is resolved.
+  // Cache headers can be configured at the Cloudflare level via _headers or wrangler.jsonc instead.
+  // cache: {
+  //   provider: memoryCache()
+  // },
+  // routeRules: {
+  //   "/api/[...path]": {
+  //     swr: 600
+  //   },
+  //   "/[...path]": {
+  //     maxAge: 300
+  //   }
+  // },
   output: "server",
   adapter: cloudflare(),
 });

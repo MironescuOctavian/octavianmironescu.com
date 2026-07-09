@@ -5,7 +5,7 @@ const { lang,slug } = Astro.params;
 const page = await getEntry('blog', `${lang}/${slug}`);
 
 if (!page){
-    return Astro.redirect('/404');
+    return Astro.rewrite('/404');
 }
 
 const formattedDate = page.data.pubDate.toLocaleString(lang);

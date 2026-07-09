@@ -1,9 +1,9 @@
 ---
 import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro";
-
+import RLABHeader from "@rimelight/ui/components/astro/RLAHeader.astro";
+import RLANavigationMenu from "@rimelight/ui/components/astro/RLANavigationMenu.astro";
 
 // defaultLocale is "en"
 const homeURL = getRelativeLocaleUrl("en", "/");
@@ -16,25 +16,28 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
----
 
-<header class="m-0 px-4 bg-white shadow-[0_2px_8px_rgba(var(--black),0.05)]">
-	<nav class="flex items-center justify-between">
-		<h2 class="m-0 text-1em"><a href="/" class="no-underline">{SITE_TITLE}</a></h2>
-		<div class="internal-links flex">
-			<HeaderLink href="/"><a href={homeURL} class="py-4 px-2 text-[var(--black)] border-b-4 border-b-solid border-b-transparent no-underline">{t('nav.home')}</a>
-			</HeaderLink>
-			<HeaderLink href="/blog"><a href={blogURL} class="py-4 px-2 text-[var(--black)] border-b-4 border-b-solid border-b-transparent no-underline">{t('nav.blog')}</a>
-			</HeaderLink>
-			<HeaderLink href="/legal"><a href={legalURL} class="py-4 px-2 text-[var(--black)] border-b-4 border-b-solid border-b-transparent no-underline">{t('nav.legal')}</a>
-			</HeaderLink>
-			<HeaderLink href="/about"><a href={aboutURL} class="py-4 px-2 text-[var(--black)] border-b-4 border-b-solid border-b-transparent no-underline">{t('nav.about')}</a>
-			</HeaderLink>
-		</div>
-		<div class="social-links flex max-sm:hidden">
-			<RLAButton href="https://m.webtoo.ls/@astro" leadingIcon="i-logos-astro-icon" variant="ghost" size="xl"/>
-			<RLAButton href="https://twitter.com/astrodotbuild" leadingIcon="i-logos-x" variant="ghost" size="xl"/>
-			<RLAButton href="https://github.com/withastro/astro" leadingIcon="i-logos-github-icon" variant="ghost" size="xl"/>
-		</div>
-	</nav>
-</header>
+const items = [
+	{label: t('nav.home'), href: homeURL },
+	{label: t('nav.blog') , description: "Blog stuff" , href: blogURL },
+	{label: t('nav.legal'), description: "Legal Stuff" , href: legalURL },
+	{label: t('nav.about'), description: "Information about the webiste" , href: aboutURL },
+]
+
+---
+<RLABHeader hideOnScroll="true" fixed="true">
+	<!-- Left Slot: Brand/Title (scales down on small mobile viewports) -->
+	<h2 slot="left" class="m-0 text-sm sm:text-base md:text-lg">
+		<a href="/" class="no-underline">{SITE_TITLE}</a>
+	</h2>
+	<!-- Center Slot: Navigation Links (with responsive font sizes and padding) -->
+	<div slot="center" class="internal-links flex items-center">
+		<RLANavigationMenu items ={items} />
+	</div>
+	<!-- Right Slot: Social Links (automatically hides on small viewports) -->
+	<div slot="right" class="social-links flex max-sm:hidden">
+		<RLAButton href="https://m.webtoo.ls/@astro" leadingIcon="i-logos-astro-icon" variant="ghost" size="xl"/>
+		<RLAButton href="https://twitter.com/astrodotbuild" leadingIcon="i-logos-x" variant="ghost" size="xl"/>
+		<RLAButton href="https://github.com/withastro/astro" leadingIcon="i-logos-github-icon" variant="ghost" size="xl"/>
+	</div>
+</RLABHeader>

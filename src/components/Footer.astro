@@ -2,19 +2,22 @@
 import LanguagePicker from "@/components/LanguagePicker.astro";
 const today = new Date();
 import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro";
-
+import RLAFooter from "@rimelight/ui/components/astro/RLAFooter.astro";
 ---
 
-<footer class="py-8 pb-24 px-4 bg-[linear-gradient(var(--gray-gradient))_no-repeat] text-[rgb(var(--gray))] text-center">
-	&copy; {today.getFullYear()} Mironescu Octavian. All rights reserved.
-	<div class="social-links flex justify-center gap-4 mt-4">
+<RLAFooter contain={true}>
+	<!-- Left Slot: Copyright Info (bottom on mobile, left on desktop) -->
+	<div slot="left" class="text-sm opacity-80 text-center lg:text-left">
+		&copy; {today.getFullYear()} Mironescu Octavian. All rights reserved.
+	</div>
+	<!-- Center Slot: Social Links (middle on mobile, center on desktop) -->
+	<div slot="center" class="social-links flex justify-center gap-4">
 		<RLAButton href="https://m.webtoo.ls/@astro" leadingIcon="i-mastodon-icon" variant="ghost" size="xl" />
-		<RLAButton href="https://twitter.com/astrodotbuild" leadingIcon="i-logos-x" variant="ghost" size="xl"/>
+		<RLAButton href="https://twitter.com/astrodotbuild" leadingIcon="i-logos-x" variant="ghost" size="xl" />
 		<RLAButton href="https://github.com/withastro/astro" leadingIcon="i-logos-github-icon" variant="ghost" size="xl" />
 	</div>
-	<div>
-		<a>
-			<LanguagePicker />
-		</a>
+	<!-- Right Slot: Language Picker (top on mobile, right on desktop) -->
+	<div slot="right" class="flex justify-center lg:justify-end">
+		<LanguagePicker />
 	</div>
-</footer>
+</RLAFooter>
