@@ -1,12 +1,26 @@
 ---
-import { languages } from "@/i18n/ui.ts";
+import { languages } from "#config/i18n.config.ts";
+import { getRelativeLocaleUrl } from "@rimelight/i18n";
+
+const languageLabels: Record<string, string> = {
+  en: "English",
+  ro: "Română",
+  "pt-br": "Português"
+};
+
+const currentPath = Astro.url.pathname.replace(/^\/[^/]+/, "") || "/";
 ---
 
 <ul>
-    {Object.entries(languages).map(([lang, label]) => (
-        <li>
-            <a href={`/${lang}/`}>{label}</a>
-        </li>
-    ))}
+  {
+    languages.map((lang) => (
+      <li>
+        <a href={getRelativeLocaleUrl(lang, currentPath)}>
+          {languageLabels[lang] || lang}
+        </a>
+      </li>
+    ))
+  }
 </ul>
+
 

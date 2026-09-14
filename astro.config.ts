@@ -1,59 +1,84 @@
-import mdx from "@astrojs/mdx";
-import { ui } from "@rimelight/ui/integrations";
-import sitemap from "@astrojs/sitemap";
-import {defineConfig, fontProviders} from "astro/config";
-import cloudflare from "@astrojs/cloudflare";
+import en from "./src/translations/en.json"
+import ro from "./src/translations/ro.json"
+import ptBr from "./src/translations/pt-br.json"
+import mdx from "@astrojs/mdx"
+import { ui } from "@rimelight/ui"
+import { i18n } from "@rimelight/i18n"
+import sitemap from "@astrojs/sitemap"
+import { defineConfig, fontProviders } from "astro/config"
+import cloudflare from "@astrojs/cloudflare"
+import solid from "@astrojs/solid-js"
+import { cacheCloudflare } from "@astrojs/cloudflare/cache"
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://octavianmironescu.com",
-  integrations: [mdx(), sitemap(), ui()],
+  prefetch: {
+    prefetchAll: true
+  },
+
+  output: "server",
+  session: false,
+  adapter: cloudflare(),
+  cache: {
+    provider: cacheCloudflare()
+  },
+  routeRules: {
+    "/api/[...path]": {
+      swr: 600 // 10 minutes stale-while-revalidate
+    },
+    "/[...path]": {
+      maxAge: 300 // 5 minutes cache
+    }
+  },
+
   fonts: [
     {
       provider: fontProviders.fontsource(),
       name: "Noto Sans",
       cssVariable: "--font-sans",
-      fallbacks: ["sans-serif"],
+      fallbacks: ["sans-serif"]
     },
     {
       provider: fontProviders.fontsource(),
       name: "Noto Serif",
       cssVariable: "--font-serif",
-      fallbacks: ["serif"],
+      fallbacks: ["serif"]
     },
     {
       provider: fontProviders.fontsource(),
       name: "JetBrains Mono",
       cssVariable: "--font-mono",
-      fallbacks: ["monospace"],
-    },
+      fallbacks: ["monospace"]
+    }
   ],
-  i18n: {
-    locales: ["en", "ro", "pt-br"],
-    defaultLocale: "en",
-    fallback: {
-      ro: "en",
-      "pt-br": "en",
-    },
-    routing: {
-      prefixDefaultLocale: true,
-      redirectToDefaultLocale: true,
-      fallbackType: "rewrite",
-    },
+
+  image: {
+    domains: ["octavianmironescu.com"],
+    layout: "constrained",
+    responsiveStyles: true
   },
-  // TODO: Re-enable caching once Astro/Cloudflare adapter immutable headers issue is resolved.
-  // Cache headers can be configured at the Cloudflare level via _headers or wrangler.jsonc instead.
-  // cache: {
-  //   provider: memoryCache()
-  // },
-  // routeRules: {
-  //   "/api/[...path]": {
-  //     swr: 600
-  //   },
-  //   "/[...path]": {
-  //     maxAge: 300
-  //   }
-  // },
-  output: "server",
-  adapter: cloudflare(),
-});
+
+  markdown: {
+    syntaxHighlight: "prism"
+  },
+
+  integrations: [
+    mdx(),
+    sitemap(),
+    solid({
+      include: ["**/solid/**", "**/*.tsx"]
+    })
+  ],
+
+  vite: {
+    plugins: [
+      ui(),
+      i18n({
+        locales: ["en", "ro", "pt-br"],
+        defaultLocale: "en",
+        prefixDefaultLocale: true,
+        translations: { en, ro, "pt-br": ptBr }
+      })
+    ]
+  }
+})

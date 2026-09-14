@@ -1,22 +1,35 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "octavianmironescu-dot-com",
-  "compatibility_date": "2026-05-01",
-  "compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
+  "compatibility_date": "2026-08-27",
+  "cache": {
+    "enabled": true
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  },
   "routes": [
     {
       "pattern": "octavianmironescu.com",
-      "custom_domain": true,
+      "custom_domain": true
     },
     {
       "pattern": "www.octavianmironescu.com",
-      "custom_domain": true,
-    },
+      "custom_domain": true
+    }
   ],
   "vars": {
-    "CONSTRUCTION_MODE": true,
+    "CONSTRUCTION_MODE": false
   },
   "assets": {
-    "directory": "./dist",
-  },
+    "directory": "./dist"
+  }
 }

@@ -1,47 +1,11 @@
-configDependencies:
-  "@pnpm/pacquet": 0.11.9
+audit:
+  level: low
 saveExact: true
-packageImportMethod: copy
-strictSsl: true
-minimumReleaseAge: 4320 # Minutes = 3 Days
+minimumReleaseAgeStrict: true
 minimumReleaseAgeExclude:
-  - "pnpm"
-  - "astro"
-  - "@astrojs/*"
   - "@rimelight/*"
-  - vite-plus
-  - "@voidzero-dev/*"
-  - oxlint
-  - "@oxlint/*"
-  - oxlint-tsgolint
-  - "@oxlint-tsgolint/*"
-  - oxfmt
-  - "@oxfmt/*"
-  - vitest
-  - "@vitest/*"
-catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vitest: 4.1.9
-  vite-plus: latest
 overrides:
-  kysely: "0.28.17"
-  ws: "^8.21.0"
-  esbuild: "0.28.1"
-  yaml: "^2.8.3"
-  js-yaml: "^4.1.2"
-  undici: "7.28.0"
-  vite: "catalog:"
-  vitest: "catalog:"
-peerDependencyRules:
-  allowAny:
-    - vite
-    - vitest
-  allowedVersions:
-    vite: "*"
-    vitest: "*"
+  # Vulnerability Fixes
 allowBuilds:
-  better-sqlite3: true
   esbuild: true
-  sharp: true
-  vue-demi: true
   workerd: true

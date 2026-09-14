@@ -1,0 +1,16 @@
+﻿{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "legal": "Legal",
+    "about": "About"
+  },
+  "legal": {
+    "lastUpdatedOn": "Last updated on"
+  },
+  "languages": {
+    "en": "English",
+    "ro": "Română",
+    "pt-br": "Português"
+  }
+}

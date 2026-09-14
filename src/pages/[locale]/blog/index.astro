@@ -1,19 +1,21 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '../../../components/BaseHead.astro';
-import Footer from '../../../components/Footer.astro';
-import FormattedDate from '../../../components/FormattedDate.astro';
-import Header from '../../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts.ts';
+import BaseHead from '#components/BaseHead.astro';
+import Footer from '#components/Footer.astro';
+import FormattedDate from '#components/FormattedDate.astro';
+import Header from '#components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '#consts.ts';
+import { getLocale, getRelativeLocaleUrl, getHtmlLang } from '@rimelight/i18n';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const activeLocale = Astro.params["locale"] || getLocale();
+const posts = (await getCollection('blog'))
+  .filter((post) => post.id.startsWith(`${activeLocale}/`))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={getHtmlLang()}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -92,19 +94,22 @@ const posts = (await getCollection('blog')).sort(
 			<section>
 				<ul>
 					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
+						posts.map((post) => {
+							const slug = post.id.replace(new RegExp(`^${activeLocale}/`), '');
+							return (
+								<li>
+									<a href={getRelativeLocaleUrl(`/blog/${slug}/`)}>
+										{post.data.heroImage && (
+											<Image width={720} height={360} src={post.data.heroImage} alt="" />
+										)}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</a>
+								</li>
+							);
+						})
 					}
 				</ul>
 			</section>

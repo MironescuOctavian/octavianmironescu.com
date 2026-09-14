@@ -1,31 +1,24 @@
 ---
-import { SITE_TITLE } from '../consts';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import RLAButton from "@rimelight/ui/components/astro/RLAButton.astro";
-import RLABHeader from "@rimelight/ui/components/astro/RLAHeader.astro";
-import RLANavigationMenu from "@rimelight/ui/components/astro/RLANavigationMenu.astro";
+import { SITE_TITLE } from '#consts.ts';
+import { t, getRelativeLocaleUrl } from '@rimelight/i18n';
+import RLAButton from "@rimelight/ui/components/button/RLAButton.astro";
+import RLAHeader from "@rimelight/ui/components/header/RLAHeader.astro";
+import RLANavigationMenu from "@rimelight/ui/components/navigation-menu/RLANavigationMenu.astro";
 
-// defaultLocale is "en"
-const homeURL = getRelativeLocaleUrl("en", "/");
-const blogURL = getRelativeLocaleUrl("en", "/blog");
-const legalURL = getRelativeLocaleUrl("en", "/legal");
-const aboutURL = getRelativeLocaleUrl("en", "/about");
-
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
+const homeURL = getRelativeLocaleUrl("/");
+const blogURL = getRelativeLocaleUrl("/blog");
+const legalURL = getRelativeLocaleUrl("/legal");
+const aboutURL = getRelativeLocaleUrl("/about");
 
 const items = [
-	{label: t('nav.home'), href: homeURL },
-	{label: t('nav.blog') , description: "Blog stuff" , href: blogURL },
-	{label: t('nav.legal'), description: "Legal Stuff" , href: legalURL },
-	{label: t('nav.about'), description: "Information about the webiste" , href: aboutURL },
+	{ label: t('nav.home'), href: homeURL },
+	{ label: t('nav.blog'), description: "Blog stuff", href: blogURL },
+	{ label: t('nav.legal'), description: "Legal Stuff", href: legalURL },
+	{ label: t('nav.about'), description: "Information about the website", href: aboutURL },
 ]
 
 ---
-<RLABHeader hideOnScroll="true" fixed="true">
+<RLAHeader hideOnScroll="true" fixed="true">
 	<!-- Left Slot: Brand/Title (scales down on small mobile viewports) -->
 	<h2 slot="left" class="m-0 text-sm sm:text-base md:text-lg">
 		<a href="/" class="no-underline">{SITE_TITLE}</a>
@@ -40,4 +33,4 @@ const items = [
 		<RLAButton href="https://twitter.com/astrodotbuild" leadingIcon="i-logos-x" variant="ghost" size="xl"/>
 		<RLAButton href="https://github.com/withastro/astro" leadingIcon="i-logos-github-icon" variant="ghost" size="xl"/>
 	</div>
-</RLABHeader>
+</RLAHeader>

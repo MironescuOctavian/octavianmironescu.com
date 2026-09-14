@@ -1,27 +1,39 @@
-# build output
-dist/
-# generated types
-.astro/
+# OS files
+.DS_Store
+Thumbs.db
 
-# dependencies
+# IDE
+.idea/
+.vscode/
+.zed/
+
+# Dependencies
 node_modules/
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Astro
+.astro/
 
+# Environment Variables
+*.env*
+!.env.example
 
-# environment variables
-.env
-.env.production
+# Outputs
+dist/
 
-# macOS-specific files
-.DS_Store
+# Testing
+reports/
+coverage/
+playwright-report/
+test-results/
 
-# jetbrains setting folder
-.idea/
+# Logs
+logs/
+*.log*
+*.cpuprofile
+
+# Misc
+*.local
+*.tsbuildinfo
 
 # Cloudflare
 .wrangler/
@@ -30,3 +42,7 @@ pnpm-debug.log*
 worker-configuration.d.ts
 .cache/
 
+# Drizzle
+server/db/drizzle/*.json
+server/db/drizzle/_journal.json
+server/db/drizzle/*_draft.sql

@@ -1,10 +1,9 @@
 ---
-import AppLayout from '@/layouts/AppLayout.astro';
+import AppLayout from '#layouts/AppLayout.astro';
 
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getRelativeLocaleUrl } from '@rimelight/i18n';
 
-// defaultLocale is "en"
-const aboutURL = getRelativeLocaleUrl("en", "about");
+const aboutURL = getRelativeLocaleUrl("about");
 ---
 <AppLayout>
 	<a href="/get-started/">Come on!</a>

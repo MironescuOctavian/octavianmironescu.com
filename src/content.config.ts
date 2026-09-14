@@ -1,6 +1,6 @@
-import { defineCollection } from "astro:content";
-import { glob } from "astro/loaders";
-import { z } from "astro/zod";
+import { defineCollection } from "astro:content"
+import { glob } from "astro/loaders"
+import { z } from "astro/zod"
 
 const blog = defineCollection({
   // Load Markdown and MDX files in the `src/content/blog/` directory.
@@ -14,9 +14,9 @@ const blog = defineCollection({
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       heroImage: z.optional(image()),
-      author: z.string().optional(),
-    }),
-});
+      author: z.string().optional()
+    })
+})
 
 const legal = defineCollection({
   // Load Markdown and MDX files in the `src/content/legal/` directory.
@@ -28,7 +28,7 @@ const legal = defineCollection({
       description: z.string(),
       // Transform string to Date object
       pubDate: z.coerce.date(),
-      updatedDate: z.coerce.date().optional(),
-    }),
-});
-export const collections = { blog, legal };
+      updatedDate: z.coerce.date().optional()
+    })
+})
+export const collections = { blog, legal }
