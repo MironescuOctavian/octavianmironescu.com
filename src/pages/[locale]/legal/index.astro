@@ -1,5 +1,4 @@
 ---
-
 import { getCollection } from 'astro:content';
 import AppLayout from '#layouts/AppLayout.astro';
 import FormattedDate from "#components/FormattedDate.astro";
@@ -9,32 +8,27 @@ const activeLocale = Astro.params["locale"] || getLocale();
 const legalPolicies = (await getCollection('legal')).filter((policy) =>
   policy.id.startsWith(`${activeLocale}/`)
 );
-
 ---
 
-<AppLayout>
-    <main>
-        <section>
-            <ul>
-                {
-                    legalPolicies.map((policy) => {
-                        const slug = policy.id.replace(new RegExp(`^${activeLocale}/`), '');
-                        return (
-                            <li>
-                                <a href={getRelativeLocaleUrl(`/legal/${slug}/`)}>
-                                    <h4 class="title">{policy.data.title}</h4>
-                                </a>
-                                <p class="date">
-                                    <FormattedDate date={policy.data.pubDate} />
-                                </p>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
-        </section>
-    </main>
-
-
-
+<AppLayout title="Legal" description="Legal policies and information">
+    <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <h1 class="text-3xl font-bold mb-6">Legal</h1>
+        <ul class="flex flex-col gap-4 list-none p-0 m-0">
+            {
+                legalPolicies.map((policy) => {
+                    const slug = policy.id.replace(new RegExp(`^${activeLocale}/`), '');
+                    return (
+                        <li class="border-b border-neutral-200 pb-4">
+                            <a href={getRelativeLocaleUrl(`/legal/${slug}/`)} class="hover:text-primary transition-colors font-medium text-lg">
+                                <h2 class="text-xl font-semibold m-0">{policy.data.title}</h2>
+                            </a>
+                            <p class="text-sm text-neutral-500 m-0 mt-1">
+                                <FormattedDate date={policy.data.pubDate} />
+                            </p>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
 </AppLayout>

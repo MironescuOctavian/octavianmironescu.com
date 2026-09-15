@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import AppLayout from '#layouts/AppLayout.astro';
+import FormattedDate from '#components/FormattedDate.astro';
 
 const { locale, slug } = Astro.params;
 const page = await getEntry('legal', `${locale}/${slug}`);
@@ -11,36 +12,19 @@ if (!page) {
 
 const { Content } = await render(page);
 ---
-<style>
-    main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-    }
-    .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-    }
-    .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-    }
-    .title h1 {
-        margin: 0 0 0.5em 0;
-    }
-    .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-    }
-    .last-updated-on {
-        font-style: italic;
-    }
-</style>
-<AppLayout {...page.data}>
-    <Content />
+
+<AppLayout title={page.data.title} description={page.data.description}>
+    <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <header class="border-b border-neutral-200 pb-6 mb-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-2">{page.data.title}</h1>
+            {page.data.pubDate && (
+                <p class="text-sm text-neutral-500">
+                    <FormattedDate date={page.data.pubDate} />
+                </p>
+            )}
+        </header>
+        <article class="prose max-w-none leading-relaxed">
+            <Content />
+        </article>
+    </div>
 </AppLayout>

@@ -1,0 +1,33 @@
+{
+  "api-catalog": [
+    {
+      "rel": "self",
+      "href": "/.well-known/api-catalog",
+      "type": "application/linkset+json"
+    },
+    {
+      "rel": "service-desc",
+      "href": "/openapi.json",
+      "type": "application/openapi+json",
+      "title": "Marcelo Caldart Filho API"
+    },
+    {
+      "rel": "alternate",
+      "href": "/sitemap.xml",
+      "type": "application/xml",
+      "title": "Sitemap"
+    },
+    {
+      "rel": "alternate",
+      "href": "/rss.xml",
+      "type": "application/rss+xml",
+      "title": "RSS Feed"
+    },
+    {
+      "rel": "llms",
+      "href": "/llms.txt",
+      "type": "text/plain",
+      "title": "LLMs.txt"
+    }
+  ]
+}
