@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "octavianmironescu-dot-com",
+  "main": "./src/fetch.ts",
   "compatibility_date": "2026-08-27",
   "cache": {
     "enabled": true

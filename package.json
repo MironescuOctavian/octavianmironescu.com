@@ -32,7 +32,8 @@
     "astro": "astro",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro build && wrangler dev",
+    "profile": "astro build && wrangler check startup",
     "check": "pnpm audit && wrangler types && vp check --fix && astro check"
   },
   "dependencies": {
@@ -45,6 +46,7 @@
     "@rimelight/seo": "0.0.4",
     "@rimelight/ui": "0.0.47",
     "astro": "7.3.2",
+    "hono": "4.13.7",
     "solid-js": "1.9.15",
     "wrangler": "4.131.1"
   },
