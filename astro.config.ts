@@ -1,6 +1,7 @@
 import mdx from "@astrojs/mdx"
 import { defineConfig } from "astro/config"
 import { rimelightAstroConfig } from "@rimelight/config/astro"
+import { languages } from "#config/i18n.config"
 
 export default defineConfig(
   rimelightAstroConfig({
@@ -8,7 +9,10 @@ export default defineConfig(
     solid: true,
     ui: true,
     security: true,
-    i18n: true,
+    i18n: {
+      locales: languages,
+      defaultLocale: "en"
+    },
     integrations: [mdx()]
   })
 )
