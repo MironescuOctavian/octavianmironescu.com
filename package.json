@@ -55,7 +55,7 @@
     "@iconify-json/logos": "1.2.14",
     "@iconify-json/lucide": "1.2.132",
     "@iconify-json/mdi": "1.2.3",
-    "@rimelight/config": "0.0.13",
+    "@rimelight/config": "0.0.14",
     "@types/node": "26.5.1",
     "typescript": "6.0.3",
     "unocss": "66.10.4",
