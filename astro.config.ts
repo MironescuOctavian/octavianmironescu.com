@@ -2,6 +2,7 @@ import { languages } from "#config/i18n.config"
 import mdx from "@astrojs/mdx"
 import { defineConfig } from "astro/config"
 import { rimelightAstroConfig } from "@rimelight/config/astro"
+import { languages } from "#config/i18n.config"
 
 export default defineConfig(
   rimelightAstroConfig({
