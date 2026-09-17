@@ -28,7 +28,7 @@
     }
   ],
   "vars": {
-    "CONSTRUCTION_MODE": false
+    "CONSTRUCTION_MODE": "false"
   },
   "assets": {
     "directory": "./dist"
