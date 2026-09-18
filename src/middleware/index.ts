@@ -1,4 +1,4 @@
-import { construction } from "#middleware/construction.ts"
+import { construction } from "@rimelight/security/middleware"
 import { sequence } from "astro/middleware"
 
-export const onRequest = sequence(construction)
+export const onRequest = sequence(construction())

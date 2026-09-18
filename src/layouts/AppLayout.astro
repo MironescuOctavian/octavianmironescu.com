@@ -3,8 +3,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts";
 import BaseHead from "#components/BaseHead.astro";
 import Header from "#components/Header.astro";
 import Footer from "#components/Footer.astro";
+import RLAMain from "@rimelight/ui/components/main/RLAMain.astro";
+import RLAScrollToTop from "@rimelight/ui/components/scroll-to-top/RLAScrollToTop.astro";
 import { getHtmlLang, currentLocale } from "@rimelight/i18n";
-import '#styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 
 const locale = Astro.params["locale"];
 if (locale) {
@@ -13,14 +21,16 @@ if (locale) {
 ---
 <!doctype html>
 <html lang={getHtmlLang()}>
-
 <head>
-
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={title} description={description} />
+    <slot name="head" />
 </head>
-<body>
-<Header/>
-<slot/>
+<body class="isolate">
+<Header />
+<RLAMain>
+    <slot />
+</RLAMain>
 <Footer />
+<RLAScrollToTop showProgress={true} />
 </body>
 </html>

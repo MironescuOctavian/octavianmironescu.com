@@ -1,0 +1,16 @@
+---
+import AppLayout from "#layouts/AppLayout.astro"
+
+Astro.response.status = 403
+Astro.response.statusText = "Forbidden"
+---
+
+<AppLayout title="403 - Forbidden" description="You do not have permission to access this resource.">
+    <div class="max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
+        <h1 class="text-4xl sm:text-6xl font-extrabold mb-4">403</h1>
+        <p class="text-lg text-neutral-500 mb-8">
+            You do not have permission to access this resource.
+        </p>
+        <a href="/" class="text-primary hover:underline font-medium">Return to Home</a>
+    </div>
+</AppLayout>

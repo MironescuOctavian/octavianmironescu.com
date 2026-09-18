@@ -1,12 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '#components/BaseHead.astro';
-import Footer from '#components/Footer.astro';
+import AppLayout from '#layouts/AppLayout.astro';
 import FormattedDate from '#components/FormattedDate.astro';
-import Header from '#components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '#consts.ts';
-import { getLocale, getRelativeLocaleUrl, getHtmlLang } from '@rimelight/i18n';
+import { getLocale, getRelativeLocaleUrl } from '@rimelight/i18n';
 
 const activeLocale = Astro.params["locale"] || getLocale();
 const posts = (await getCollection('blog'))
@@ -14,106 +12,33 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<!doctype html>
-<html lang={getHtmlLang()}>
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
+<AppLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+		<section>
+			<ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none p-0 m-0">
+				{
+					posts.map((post, idx) => {
+						const slug = post.id.replace(new RegExp(`^${activeLocale}/`), '');
+						return (
+							<li class={idx === 0 ? "col-span-full text-center mb-4" : ""}>
+								<a href={getRelativeLocaleUrl(`/blog/${slug}/`)} class="group block no-underline text-inherit">
+									{post.data.heroImage && (
+										<div class="overflow-hidden rounded-xl mb-3 shadow-sm group-hover:shadow-md transition-shadow">
+											<Image width={720} height={360} src={post.data.heroImage} alt="" class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+										</div>
+									)}
+									<h3 class="text-xl sm:text-2xl font-semibold m-0 group-hover:text-primary transition-colors">
+										{post.data.title}
+									</h3>
+									<p class="text-sm text-neutral-500 m-0 mt-1">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						);
+					})
 				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => {
-							const slug = post.id.replace(new RegExp(`^${activeLocale}/`), '');
-							return (
-								<li>
-									<a href={getRelativeLocaleUrl(`/blog/${slug}/`)}>
-										{post.data.heroImage && (
-											<Image width={720} height={360} src={post.data.heroImage} alt="" />
-										)}
-										<h4 class="title">{post.data.title}</h4>
-										<p class="date">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
-									</a>
-								</li>
-							);
-						})
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+			</ul>
+		</section>
+	</div>
+</AppLayout>
