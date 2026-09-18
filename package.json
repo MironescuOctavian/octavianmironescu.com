@@ -37,28 +37,28 @@
     "check": "pnpm audit && wrangler types && vp check --fix && astro check"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "14.3.1",
+    "@astrojs/cloudflare": "14.3.2",
     "@astrojs/mdx": "8.0.1",
     "@astrojs/solid-js": "7.0.2",
-    "@rimelight/i18n": "0.0.16",
-    "@rimelight/security": "0.0.17",
-    "@rimelight/seo": "0.0.12",
-    "@rimelight/ui": "0.0.56",
-    "astro": "7.3.2",
+    "@rimelight/i18n": "0.0.17",
+    "@rimelight/security": "0.0.19",
+    "@rimelight/seo": "0.0.13",
+    "@rimelight/ui": "0.0.57",
+    "astro": "7.3.3",
     "hono": "4.13.8",
     "solid-js": "1.9.15",
-    "wrangler": "4.132.0"
+    "wrangler": "4.134.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@astrojs/ts-plugin": "1.10.11",
+    "@astrojs/ts-plugin": "1.10.12",
     "@iconify-json/logos": "1.2.14",
-    "@iconify-json/lucide": "1.2.132",
+    "@iconify-json/lucide": "1.2.133",
     "@iconify-json/mdi": "1.2.3",
-    "@rimelight/config": "0.0.14",
-    "@types/node": "26.5.1",
+    "@rimelight/config": "0.0.15",
+    "@types/node": "26.6.1",
     "typescript": "6.0.3",
-    "unocss": "66.10.4",
+    "unocss": "66.10.5",
     "vite-plus": "0.3.2"
   },
   "engines": {
