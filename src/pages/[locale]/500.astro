@@ -1,19 +1,24 @@
 ---
-import AppLayout from '#layouts/AppLayout.astro';
+import AppLayout from "#layouts/AppLayout.astro";
+import AppError from "#components/app/AppError.astro";
 
 interface Props {
-    error: unknown;
+	error?: unknown;
 }
 
 const { error } = Astro.props;
+
+Astro.response.status = 500;
+Astro.response.statusText = "Internal Server Error";
 ---
 
 <AppLayout title="500 - Server Error" description="An error occurred">
-    <div class="max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
-        <h1 class="text-4xl sm:text-6xl font-extrabold mb-4">500</h1>
-        <p class="text-lg text-neutral-500 mb-8">
-            {error instanceof Error ? error.message : "Unknown error"}
-        </p>
-        <a href="/" class="text-primary hover:underline font-medium">Return to Home</a>
-    </div>
+	<AppError
+		code={500}
+		title="Internal Server Error"
+		description={error instanceof Error ? error.message : "An unexpected error occurred on the server."}
+		actions={[
+			{ label: "Go to Home Page", href: "/", variant: "solid", color: "primary", icon: "i-lucide-home" }
+		]}
+	/>
 </AppLayout>

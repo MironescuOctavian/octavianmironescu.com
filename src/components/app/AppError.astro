@@ -1,0 +1,155 @@
+---
+import RLABadge from "@rimelight/ui/components/badge/RLABadge.astro";
+import RLAButton from "@rimelight/ui/components/button/RLAButton.astro";
+import RLAIcon from "@rimelight/ui/components/icon/RLAIcon.astro";
+import type { ButtonProps } from "@rimelight/ui/components/button/button.ts";
+import type { BadgeProps } from "@rimelight/ui/components/badge/badge.ts";
+import type { ThemeColor } from "@rimelight/ui/types.ts";
+
+export interface Action {
+	label: string;
+	href: string;
+	variant?: ButtonProps["variant"];
+	color?: ThemeColor;
+	icon?: string;
+}
+
+export interface Props {
+	code: number;
+	title: string;
+	description: string;
+	userEmail?: string;
+	requiredRole?: string;
+	actions?: Action[];
+}
+
+const {
+	code,
+	title,
+	description,
+	userEmail,
+	requiredRole,
+	actions = [
+		{ label: "Go to Home Page", href: "/", variant: "solid", color: "primary", icon: "i-lucide-home" }
+	]
+} = Astro.props;
+
+interface StatusThemeConfig {
+	icon: string;
+	iconBoxClass: string;
+	dotClass: string;
+	badgeColor: BadgeProps["color"];
+}
+
+const statusConfig: Record<number, StatusThemeConfig> = {
+	400: {
+		icon: "i-lucide-alert-circle",
+		iconBoxClass: "border-warning/30 bg-warning/10 text-warning",
+		dotClass: "bg-warning",
+		badgeColor: "warning"
+	},
+	401: {
+		icon: "i-lucide-lock",
+		iconBoxClass: "border-warning/30 bg-warning/10 text-warning",
+		dotClass: "bg-warning",
+		badgeColor: "warning"
+	},
+	403: {
+		icon: "i-lucide-shield-alert",
+		iconBoxClass: "border-error/30 bg-error/10 text-error",
+		dotClass: "bg-error",
+		badgeColor: "error"
+	},
+	404: {
+		icon: "i-lucide-file-question",
+		iconBoxClass: "border-primary/30 bg-primary/10 text-primary",
+		dotClass: "bg-primary",
+		badgeColor: "primary"
+	},
+	500: {
+		icon: "i-lucide-server-crash",
+		iconBoxClass: "border-error/30 bg-error/10 text-error",
+		dotClass: "bg-error",
+		badgeColor: "error"
+	}
+};
+
+const defaultConfig: StatusThemeConfig = {
+	icon: "i-lucide-shield-alert",
+	iconBoxClass: "border-error/30 bg-error/10 text-error",
+	dotClass: "bg-error",
+	badgeColor: "error"
+};
+
+const config = statusConfig[code] || defaultConfig;
+---
+
+<div class="relative min-h-[calc(100vh-8rem)] w-full flex items-center justify-center p-4 sm:p-6 lg:p-8 overflow-hidden">
+	<div class="relative w-full max-w-lg z-10">
+		<div class="relative backdrop-blur-2xl bg-neutral-50/80 dark:bg-neutral-900/80 border border-default shadow-2xl rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center gap-6 overflow-hidden">
+			
+			<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-default bg-muted/40 backdrop-blur-md">
+				<span class={`inline-flex rounded-full size-2 ${config.dotClass}`}></span>
+				<span class="text-xs font-mono font-bold tracking-wide uppercase text-highlighted/90">
+					HTTP STATUS {code}
+				</span>
+			</div>
+
+			<div class={`size-16 rounded-2xl border ${config.iconBoxClass} flex items-center justify-center shadow-sm`}>
+				<RLAIcon name={config.icon} class="size-8" />
+			</div>
+
+			<div class="flex flex-col gap-2 max-w-md">
+				<h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-highlighted">
+					{title}
+				</h1>
+				<p class="text-sm text-muted leading-relaxed">
+					{description}
+				</p>
+			</div>
+
+			{(userEmail || requiredRole) && (
+				<div class="w-full rounded-2xl border border-default/80 bg-muted/20 backdrop-blur-sm p-4 flex flex-col gap-2.5 text-xs text-left">
+					{userEmail && (
+						<div class="flex items-center justify-between gap-3">
+							<span class="text-muted font-medium flex items-center gap-1.5">
+								<RLAIcon name="i-lucide-user" class="size-3.5 text-muted/80" />
+								Signed in as:
+							</span>
+							<span class="font-mono font-semibold text-highlighted truncate max-w-[220px]">
+								{userEmail}
+							</span>
+						</div>
+					)}
+					{userEmail && requiredRole && <div class="h-px w-full bg-neutral-200/50 dark:bg-neutral-800/50"></div>}
+					{requiredRole && (
+						<div class="flex items-center justify-between gap-3">
+							<span class="text-muted font-medium flex items-center gap-1.5">
+								<RLAIcon name="i-lucide-shield" class="size-3.5 text-muted/80" />
+								Required Privilege:
+							</span>
+							<RLABadge variant="subtle" color="primary" class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
+								{requiredRole}
+							</RLABadge>
+						</div>
+					)}
+				</div>
+			)}
+
+			<div class="flex flex-col sm:flex-row items-center gap-3 w-full mt-1">
+				{actions.map((act) => (
+					<RLAButton
+						href={act.href}
+						variant={act.variant || "solid"}
+						color={act.color || "primary"}
+						leadingIcon={act.icon}
+						class="w-full justify-center py-2.5 font-semibold"
+					>
+						{act.label}
+					</RLAButton>
+				))}
+			</div>
+
+		</div>
+	</div>
+</div>

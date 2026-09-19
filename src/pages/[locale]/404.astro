@@ -1,13 +1,18 @@
 ---
-import AppLayout from "#layouts/AppLayout.astro"
+import AppLayout from "#layouts/AppLayout.astro";
+import AppError from "#components/app/AppError.astro";
+
+Astro.response.status = 404;
+Astro.response.statusText = "Not Found";
 ---
 
 <AppLayout title="404 - Not Found" description="Page not found">
-    <div class="max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
-        <h1 class="text-4xl sm:text-6xl font-extrabold mb-4">404</h1>
-        <p class="text-lg text-neutral-500 mb-8">
-            Page has not been found.
-        </p>
-        <a href="/" class="text-primary hover:underline font-medium">Return to Home</a>
-    </div>
+	<AppError
+		code={404}
+		title="Page Not Found"
+		description="Page has not been found."
+		actions={[
+			{ label: "Go to Home Page", href: "/", variant: "solid", color: "primary", icon: "i-lucide-home" }
+		]}
+	/>
 </AppLayout>
