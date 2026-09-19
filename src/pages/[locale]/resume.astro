@@ -4,104 +4,262 @@ import "virtual:uno.css";
 
 <div class="flex flex-row">
   <!-- Left Section -->
-  <div class="flex flex-col gap-6 px-xl py-24">
+  <aside class="flex flex-col gap-6 px-xl py-24">
     <!-- Intro Section -->
-    <div class="flex flex-col gap-4">
-      <div class="flex justify-center">
-        <img src="https://placehold.co/128x128" alt="Placeholder" />
-      </div>
-      <div class="flex flex-col">
-        <div class="flex justify-center">
+    <section class="flex flex-col items-center gap-4">
+      <!-- Name & Profession -->
+      <header class="flex flex-col gap-4 items-center">
+        <img src="https://placehold.co/128x128" alt="Placeholder"/>
+        <div class="flex flex-col text-center">
           <h3 class="text-3xl font-bold">Mironescu Octavian</h3>
-        </div>
-        <div class="flex justify-center">
           <span class="text-lg text-gray">Software Developer</span>
         </div>
-      </div>
-      <div class="flex justify-center">
-        <a href="/contact" class="text-green">AVAILABLE FOR HIRE</a>
-      </div>
-      <div class="flex justify-center gap-4">
-        <a href="https://www.linkedin.com/in/octavian-mironescu-a605b921a/">LinkedIn</a>
-        <a href="https://github.com/MironescuOctavian">GitHub</a>
-      </div>
-    </div>
+      </header>
+      <!--Availability to work -->
+      <a href="/contact" class="text-green">AVAILABLE FOR HIRE</a>
+      <!--Links for working-->
+      <ul class="flex justify-center gap-4">
+        <li class="i-mdi-linkedin text-2xl" href="https://www.linkedin.com/in/octavian-mironescu-a605b921a/"/>
+        <li class="i-mdi-github text-2xl" href="https://github.com/MironescuOctavian"/>
+      </ul>
+    </section>
 
     <!-- About Me Section -->
-    <div class="flex flex-col gap-xs">
-      <div class="flex flex-row gap-2">
-        <span>Icon</span>
-        <h4>ABOUT ME</h4>
-      </div>
-      <hr />
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">Gender</span>
-        <span>Male</span>
-      </div>
-      <hr />
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">Pronouns</span>
-        <span>He / Him</span>
-      </div>
-      <hr />
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">Nationality</span>
-        <span>Romanian</span>
-      </div>
+    <section class="flex flex-col gap-xs">
+      <header class="flex flex-col gap-2">
+        <div class="flex flex-row gap-2 items-center">
+          <span class="i-mdi-account text-base"/>
+          <h3 class="font-bold text-sm">ABOUT ME</h3>
+        </div>
+        <hr/>
+      </header>
 
-      <hr />
+      <ul class="flex flex-col gap-2 text-sm" >
+        <li class="flex flex-col gap-2">
+          <div class="flex flex-row gap-2 justify-between">
+            <span class="font-bold">Gender</span>
+            <span class="text-gray">Male</span>
+          </div>
+          <hr/>
+        </li>
 
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">Age</span>
-        <span>27</span>
-      </div>
+        <li class="flex flex-col gap-2 ">
+          <div class="flex flex-row gap-2 justify-between">
+            <span class="font-bold">Pronouns</span>
+            <span class="text-gray">He/Him</span>
+          </div>
+          <hr/>
+        </li>
+        <li class="flex flex-col gap-2">
+          <div class="flex flex-row gap-2 justify-between">
+            <span class="font-bold">Nationality</span>
+            <span class="text-gray">Romanian</span>
+          </div>
+          <hr/>
+        </li>
+        <li class="flex flex-col gap-2">
+          <div class="flex flex-row gap-2 justify-between">
+            <span class="font-bold">Age</span>
+            <span class="text-gray">27</span>
+          </div>
+          <hr/>
+        </li>
+        <li class="flex flex-row justify-between">
+          <span class="font-bold">Location</span>
+          <a href="https://en.wikipedia.org/wiki/Bucharest" class="flex flex-row gap-2">
+            <span class="i-mdi-google-maps"/>
+            <span class="text-gray">Bucharest,Romania</span>
+            <span class="i-mdi-launch"/>
+          </a>
+        </li>
 
-      <hr />
+      </ul>
 
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">Location</span>
-        <a href="https://en.wikipedia.org/wiki/Bucharest" class="flex flex-row gap-2">
-        <span>Icon</span>
-        <span>Bucharest,Romania</span>
-        <span>Icon</span>
-        </a>
-      </div>
-
-    </div>
+    </section>
     <!-- LANAGUAGES SECTION -->
-    <div class = "flex flex-col gap-xs">
-      <div class="flex flex-row gap-2">
-        <span class="text-gray">Icon</span>
-        <h4 class="text-gray">LANGUAGES</h4>
-      </div>
-
-      <hr />
-
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">Romanian</span>
-        <span >Fluent</span>
-      </div>
-
-      <hr />
-
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">English</span>
-        <span >Fluent</span>
-      </div>
-
-      <hr />
-
-      <div class="flex flex-row justify-between">
-        <span class="text-gray">German</span>
-        <span >Basic</span>
-      </div>
-    </div>
-  </div>
-
+    <section class = "flex flex-col gap-xs">
+      <header class="flex flex-col gap-2">
+        <div class="flex flex-row gap-2 items-center">
+          <span class="text-gray i-mdi-translate text-base"/>
+          <h4 class="font-bold text-sm">LANGUAGES</h4>
+        </div>
+        <hr />
+      </header>
+      <ul class="flex flex-col gap-2 text-sm" >
+        <li class="flex flex-col gap-2">
+          <div class="flex flex-row gap-2 justify-between">
+            <span class="font-bold">Romanian</span>
+            <span class="text-gray">Fluent</span>
+          </div>
+          <hr/>
+        </li>
+        <li class="flex flex-col gap-2">
+          <div class="flex flex-row gap-2 justify-between">
+            <span class="font-bold">English</span>
+            <span class="text-gray">Fluent</span>
+          </div>
+          <hr/>
+        </li>
+        <li class="flex flex-row justify-between">
+          <span class="font-bold">German</span>
+          <span class="text-gray">Basic</span>
+        </li>
+      </ul>
+    </section>
+  </aside>
+  <!-- Right Section -->
   <div>
-    RIGHT
-    <div>
-      VERY BIG TEXT
+    <div class="flex flex-col gap-6 px-xl py-24">
+      <!-- Intro Section -->
     </div>
+    <section>
+      <div class="flex flex-col justify-center gap-4">
+        <div class="flex justify-center">
+          <h2 class="text-6xl font-bold">Hey! I'm Octavian Mironescu</h2>
+        </div>
+        <div class="flex justify-center">
+          <h3 class="text-2xl text-gray">I'm a Java & Web Software Developer.</h3>
+        </div>
+        <div class="flex justify-center gap-8">
+          <a class="i-mdi-linkedin" href="https://www.linkedin.com/in/octavian-mironescu-a605b921a/"/>
+          <a class="i-mdi-github" href="https://github.com/MironescuOctavian"/>
+        </div>
+      </div>
+    </section>
+    <div class="flex flex-row">
+      <!-- Skill Section -->
+    </div>
+    <div class="flex flex-col gap-md">
+      <h2 class="text-3xl font-bold text-white tracking-tight">Skills</h2>
+      <hr class="border-t w-full" />
+    </div>
+    <hr />
+    <!-- Java Dev Section -->
+    <div class="flex flex-row gap-4">
+    <div class="flex flex-row">
+      <div class="flex flex-col gap-4">
+      <div class="flex flex-row gap-4">
+          <span class="i-logos-java text-2xl" />
+          <h3 class="text-md font-bold uppercase tracking-wider text-white">Java Software Developer</h3>
+      </div>
+        <p> Designing, building, and maintaining enterprise-level applications and backend services using the Java programming language and its vast ecosystem. </p>
+      </div>
+    </div>
+
+
+    <!-- Web Dev Section -->
+    <div class="flex flex-row">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-row gap-4">
+          <span class="i-mdi-application-brackets-outline text-2xl" />
+          <h3 class="text-md font-bold uppercase tracking-wider text-white">Web Software Developer</h3>
+        </div>
+        <p> Building fast, responsive, and secure web applications using modern standard architectures, framework integration, and performance optimization techniques. </p>
+      </div>
+    </div>
+
+    <!-- Design Section -->
+    <div class="flex flex-row">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-row gap-4">
+          <span class="i-mdi:palette text-2xl" />
+          <h3 class="text-md font-bold uppercase tracking-wider text-white">Design Philosophies</h3>
+        </div>
+        <p> Focusing on accessible user experiences, interface detail, smooth interactive feedback loops, and visually consistent modular systems.</p>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Technologies & Tools Section -->
+    <section class="flex flex-col gap-4">
+      <h2 class="text-3xl font-bold text-white tracking-tight">Technologies & Tools</h2>
+      <hr class="border-t w-full" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- LANGUAGES & FRAMEWORKS -->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-white">LANGUAGES & FRAMEWORKS</h3>
+          <ul class="flex flex-col gap-3 list-none p-0 m-0">
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-java text-base shrink-0" />
+              <span>Java</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-spring-icon text-base shrink-0" />
+              <span>Spring Boot</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-typescript-icon text-base shrink-0" />
+              <span>TypeScript</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-vue text-base shrink-0" />
+              <span>Vue</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-solidjs-icon text-base shrink-0" />
+              <span>SolidJS</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-unocss text-base shrink-0" />
+              <span>UnoCSS</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DEVELOPMENT ENVIRONMENT -->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-white">DEVELOPMENT ENVIRONMENT</h3>
+          <ul class="flex flex-col gap-3 list-none p-0 m-0">
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-intellij-idea text-base shrink-0" />
+              <span>IntelliJ</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-visual-studio-code text-base shrink-0" />
+              <span>Visual Studio</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-webstorm text-base shrink-0" />
+              <span>WebStorm</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- BUILD & PACKAGE -->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-white">BUILD & PACKAGE</h3>
+          <ul class="flex flex-col gap-3 list-none p-0 m-0">
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-gradle text-base shrink-0" />
+              <span>Gradle</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-vitejs text-base shrink-0" />
+              <span>Vite-plus</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-pnpm text-base shrink-0" />
+              <span>pnpm</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DEPLOYMENT -->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-white">DEPLOYMENT</h3>
+          <ul class="flex flex-col gap-3 list-none p-0 m-0">
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-docker-icon text-base shrink-0" />
+              <span>Docker</span>
+            </li>
+            <li class="flex items-center gap-2.5 text-sm font-medium text-white">
+              <span class="i-logos-cloudflare-icon text-base shrink-0" />
+              <span>Cloudflare</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
