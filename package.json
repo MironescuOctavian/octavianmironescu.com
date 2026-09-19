@@ -58,7 +58,6 @@
     "@rimelight/config": "0.0.15",
     "@types/node": "26.6.1",
     "typescript": "6.0.3",
-    "unocss": "66.10.5",
     "vite-plus": "0.3.2"
   },
   "engines": {
