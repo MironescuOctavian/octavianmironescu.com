@@ -1,10 +1,9 @@
 import { Hono } from "hono"
 import { cf } from "@astrojs/cloudflare/hono"
 import { security, devOnly, ratelimit, construction } from "@rimelight/security/middleware"
-import { authMiddleware } from "@rimelight/auth/middleware"
-import { auth } from "@rimelight/auth"
+import { auth } from "@rimelight/auth/middleware"
 import api from "#api"
-import { i18n } from "@rimelight/i18n/hono"
+import { i18n } from "@rimelight/i18n/middleware"
 import { getRelativeLocaleUrl } from "@rimelight/i18n"
 import { astro } from "astro/hono"
 
@@ -17,8 +16,7 @@ app.use(devOnly)
 app.use(ratelimit())
 app.use(construction())
 app.use(
-  authMiddleware({
-    auth,
+  auth({
     roleGuards: {
       "/admin": ["admin", "owner"]
     }
