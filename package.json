@@ -55,7 +55,6 @@
     "@iconify-json/lucide": "1.2.133",
     "@iconify-json/mdi": "1.2.3",
     "@rimelight/config": "0.0.20",
-    "@types/node": "26.6.1",
     "typescript": "6.0.3",
     "vite-plus": "0.3.2"
   },
