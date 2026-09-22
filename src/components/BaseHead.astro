@@ -3,6 +3,7 @@ import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
 import { Font } from 'astro:assets';
+import { createSecurityHead } from "@rimelight/security";
 import UIHead from '@rimelight/ui/components/head/UIHead.astro';
 
 interface Props {
@@ -30,6 +31,7 @@ const { title = SITE_TITLE, description = '', image = FallbackImage } = Astro.pr
 />
 <meta name="generator" content={Astro.generator} />
 
+<Fragment set:html={createSecurityHead().html} />
 <UIHead />
 <Font cssVariable="--font-sans" preload={true} />
 <Font cssVariable="--font-serif" preload={true} />

@@ -1,45 +1,77 @@
 ---
-import Locke from '../../assets/Locke.jpg';
+import AppLayout from "#layouts/AppLayout.astro";
+import RLACard from "@rimelight/ui/components/card/RLACard.astro";
+import RLAFormField from "@rimelight/ui/components/form-field/RLAFormField.astro";
+import RLAInput from "@rimelight/ui/components/input/RLAInput.astro";
+import RLAButton from "@rimelight/ui/components/button/RLAButton.astro";
+import RLACheckbox from "@rimelight/ui/components/checkbox/RLACheckbox.astro";
+import RLALogo from "@rimelight/ui/components/logo/RLALogo.astro";
+
+const redirect = Astro.url.searchParams.get("redirect") || "/";
+const isError = Astro.url.searchParams.get("error") === "invalid";
 ---
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Under Construction</title>
-</head>
-<body class="relative items-center justify-center flex bg-linear-to-bl from-violet-500 to-fuchsia-500 min-h-screen overflow-hidden">
-<img class="absolute inset-0 h-full w-full object-cover blur-[3px] scale-105"
-     src={Locke.src}
-     width={Locke.width}
-     height={Locke.height}
-     alt="A c*$@5r champion"
-/>
-<div class="relative flex flex-col items-center justify-center gap-6">
-    <a href="https://youtu.be/BnnbP7pCIvQ" class="absolute top-2 right-3">
-        <button class="border-white text-light-gray hover:border-transparent hover:bg-blend-darken hover:text-white active:bg-white ...">Something!</button>
-    </a>
-    <h1 class="text-center text-7xl text-white text-shadow-lg/15 text-wrap w-full max-w-2xl px-4">UNDER CONSTRUCTION</h1>
-    <p class="text-center text-2xl text-white text-shadow-lg/15 ">Ready when it's ready.</p>
-    <div class="flex flex-row justify-center gap-6">
-        <a class= "border-2 border-solid rounded-full border-white p-2" href="https://m.webtoo.ls/@astro" target="_blank">
-            <div class="i-mdi-mastodon text-white text-7xl"/>
-            <span class="sr-only">Follow Astro on Mastodon</span>
-        </a>
 
-        <a class="border-2 border-solid rounded-full border-white p-2" href="https://twitter.com/astrodotbuild" target="_blank">
-            <div class="i-mdi-twitter text-white text-7xl"/>
-            <span class="sr-only">Follow Astro on Twitter</span>
-        </a>
+<AppLayout
+  title="Under Construction"
+  description="This website is under construction."
+>
+  <div class="flex min-h-screen flex-col items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md space-y-6 text-center">
+      <div class="flex flex-col items-center gap-4">
+        <RLALogo class="h-12 w-auto" variant="logomark" />
+        <h1 class="m-0 text-3xl font-bold tracking-tight sm:text-4xl">
+          THIS WEBSITE IS UNDER CONSTRUCTION
+        </h1>
+        <p class="m-0 text-neutral-400 text-sm">
+          If you have access, please enter the passphrase.
+        </p>
+      </div>
 
-        <a class="border-2 border-solid rounded-full border-white p-2" href="https://github.com/withastro/astro" target="_blank">
-            <div class="i-mdi-github text-white text-7xl"/>
-            <span class="sr-only">Go to Astro's GitHub repo</span>
-        </a>
+      <RLACard class="text-left w-full">
+        {isError && (
+          <div class="mb-4 rounded-md border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-400" role="alert">
+            Invalid credentials. Please try again.
+          </div>
+        )}
+
+        <!-- Native Server-Side Form POST (Zero Client JavaScript) -->
+        <form method="POST" action="/api/construction-guest" class="flex flex-col gap-4">
+          <input type="hidden" name="redirect" value={redirect} />
+
+          <RLAFormField
+            label="Passphrase"
+            required
+          >
+            <RLAInput
+              id="construction-passphrase-input"
+              type="password"
+              name="passphrase"
+              placeholder="Enter passphrase..."
+              class="w-full"
+              required
+              autofocus
+              autocomplete="current-password"
+            />
+          </RLAFormField>
+
+          <RLACheckbox
+            id="construction-remember-me-checkbox"
+            name="rememberMe"
+            label="Remember me"
+            checked
+          />
+
+          <RLAButton
+            type="submit"
+            color="primary"
+            variant="solid"
+            block
+            class="w-full mt-2"
+          >
+            Sign In
+          </RLAButton>
+        </form>
+      </RLACard>
     </div>
-    <p class="text-white text-shadow-lg/10 m-5">Copyright @OctavianMironescu</p>
-</div>
-
-
-</body>
-</html>
+  </div>
+</AppLayout>
