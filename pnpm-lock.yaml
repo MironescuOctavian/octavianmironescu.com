@@ -301,8 +301,8 @@ importers:
         specifier: 1.2.3
         version: 1.2.3
       '@rimelight/config':
-        specifier: 0.0.24
-        version: 0.0.24(f81d6a180f6c6e6c22a8414196f67d65)
+        specifier: 0.0.25
+        version: 0.0.25(f81d6a180f6c6e6c22a8414196f67d65)
       '@types/node':
         specifier: 26.6.2
         version: 26.6.2
@@ -1673,18 +1673,18 @@ packages:
     resolution: {integrity: sha512-kzKLru3LNouiKD8FKOt//c1pyqqKSi9Ovl/ztvzm7FOZbeoQP+nWk+JUHUvOXuDOQ4S1aiCJIkW6/ohWxrceRg==}
     engines: {node: '>=26.8.2'}
 
-  '@rimelight/config@0.0.24':
-    resolution: {integrity: sha512-7lEruCeO1tGTTeASwMhsqJhgH++CKV0NymXVuShxbN3p4Rp5Xt+AC1z21Sjv/TLZ/qvnbnTHtlcIaOmnMen0Eg==}
+  '@rimelight/config@0.0.25':
+    resolution: {integrity: sha512-AeoTFq1EgTjfYTWCyX/I0w9lahkcME+aUgHrB5vjZLROaKly9y0OkdWjonw0Pn6SyYfUxgYsWfTMbOZQAjImyg==}
     engines: {node: '>=26.8.2'}
     peerDependencies:
       '@astrojs/cloudflare': '>=14.0.0'
       '@astrojs/solid-js': '>=7.0.0'
-      '@rimelight/auth': 0.0.16
-      '@rimelight/cms': 0.0.23
-      '@rimelight/i18n': 0.0.23
-      '@rimelight/security': 0.0.27
-      '@rimelight/seo': 0.0.20
-      '@rimelight/ui': 0.0.63
+      '@rimelight/auth': 0.0.17
+      '@rimelight/cms': 0.0.25
+      '@rimelight/i18n': 0.0.24
+      '@rimelight/security': 0.0.29
+      '@rimelight/seo': 0.0.21
+      '@rimelight/ui': 0.0.64
       astro: '>=7.0.0'
       drizzle-kit: '>=0.30.0'
     peerDependenciesMeta:
@@ -4842,7 +4842,7 @@ snapshots:
 
   '@rimelight/auth@0.0.17': {}
 
-  '@rimelight/config@0.0.24(f81d6a180f6c6e6c22a8414196f67d65)':
+  '@rimelight/config@0.0.25(f81d6a180f6c6e6c22a8414196f67d65)':
     optionalDependencies:
       '@astrojs/cloudflare': 14.3.2(@types/node@26.6.2)(astro@7.3.3(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.6.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(wrangler@4.136.1(@types/node@26.6.2))(yaml@2.9.1)
       '@astrojs/solid-js': 7.0.2(@types/node@26.6.2)(esbuild@0.28.2)(jiti@2.7.0)(solid-js@1.9.15)(supports-color@10.2.2)(tsx@4.23.13)(yaml@2.9.1)
