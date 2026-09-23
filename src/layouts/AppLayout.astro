@@ -1,36 +1,79 @@
 ---
-import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts";
-import BaseHead from "#components/BaseHead.astro";
+import { createSeoHead } from "@rimelight/seo/head";
+import { createSecurityHead } from "@rimelight/security/head";
+import { createUiHead } from "@rimelight/ui/head";
 import Header from "#components/Header.astro";
 import Footer from "#components/Footer.astro";
 import RLAMain from "@rimelight/ui/components/main/RLAMain.astro";
 import RLAScrollToTop from "@rimelight/ui/components/scroll-to-top/RLAScrollToTop.astro";
-import { getHtmlLang, currentLocale } from "@rimelight/i18n";
+import { siteConfig } from "virtual:rimelight/seo";
+import { Font } from 'astro:assets';
+import { getHtmlLang, getOgLocale, getLanguageAlternates, currentLocale } from '@rimelight/i18n';
 
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
+  is404?: boolean;
+  robots?: string;
+  languageAlternates?: Array<{ hreflang: string; href: string }>;
+  ogImageSrc?: string;
+  ogImageAlt?: string;
+  favicon?: string;
 }
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const {
+  title,
+  description,
+  noindex,
+  is404,
+  robots,
+  languageAlternates = getLanguageAlternates(Astro.url.pathname, siteConfig.url),
+  ogImageSrc,
+  ogImageAlt,
+  favicon
+} = Astro.props as Props;
 
 const locale = Astro.params["locale"];
 if (locale) {
   currentLocale.set(locale);
 }
+
+const seo = createSeoHead({
+  title,
+  description,
+  config: siteConfig,
+  ogLocale: getOgLocale(),
+  rssFeed: { href: '/rss.xml', title: siteConfig.name },
+  favicon,
+  noindex,
+  is404,
+  robots,
+  languageAlternates,
+  ogImage: ogImageSrc ? { src: ogImageSrc, alt: ogImageAlt || '' } : undefined,
+  url: Astro.url.href,
+  canonical: Astro.url.href
+});
+const security = createSecurityHead();
+const ui = createUiHead();
 ---
 <!doctype html>
 <html lang={getHtmlLang()}>
-<head>
-    <BaseHead title={title} description={description} />
+  <head>
+    <Fragment set:html={seo.html} />
+    <Fragment set:html={security.html} />
+    <Fragment set:html={ui.html} />
+    <Font cssVariable="--font-sans" />
+    <Font cssVariable="--font-serif" />
+    <Font cssVariable="--font-mono" />
     <slot name="head" />
-</head>
-<body class="isolate">
-<Header />
-<RLAMain>
-    <slot />
-</RLAMain>
-<Footer />
-<RLAScrollToTop showProgress={true} />
-</body>
+  </head>
+  <body class="isolate">
+    <Header />
+    <RLAMain>
+      <slot />
+    </RLAMain>
+    <Footer />
+    <RLAScrollToTop showProgress={true} />
+  </body>
 </html>

@@ -1,16 +1,18 @@
 ---
-import AppLayout from "#layouts/AppLayout.astro"
+import AppLayout from "#layouts/AppLayout.astro";
+import AppError from "#components/app/AppError.astro";
 
-Astro.response.status = 401
-Astro.response.statusText = "Unauthorized"
+Astro.response.status = 401;
+Astro.response.statusText = "Unauthorized";
 ---
 
 <AppLayout title="401 - Unauthorized" description="Authentication is required to access this page.">
-    <div class="max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
-        <h1 class="text-4xl sm:text-6xl font-extrabold mb-4">401</h1>
-        <p class="text-lg text-neutral-500 mb-8">
-            Authentication is required to access this page.
-        </p>
-        <a href="/" class="text-primary hover:underline font-medium">Return to Home</a>
-    </div>
+	<AppError
+		code={401}
+		title="Authentication Required"
+		description="Authentication is required to access this page."
+		actions={[
+			{ label: "Go to Home Page", href: "/", variant: "solid", color: "primary", icon: "i-lucide-home" }
+		]}
+	/>
 </AppLayout>

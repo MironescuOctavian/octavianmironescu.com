@@ -32,10 +32,12 @@ export default defineConfig(
         "/api",
         "/dev",
         "/og",
-        "/open-graph"
+        "/open-graph",
+        "/auth"
       ]
     },
     solid: true,
+    auth: true,
     ui: true,
     security: true,
     i18n: {

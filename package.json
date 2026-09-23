@@ -40,29 +40,28 @@
     "@astrojs/cloudflare": "14.3.2",
     "@astrojs/mdx": "8.0.1",
     "@astrojs/solid-js": "7.0.2",
-    "@rimelight/i18n": "0.0.17",
-    "@rimelight/security": "0.0.19",
-    "@rimelight/seo": "0.0.13",
-    "@rimelight/ui": "0.0.57",
+    "@rimelight/auth": "0.0.17",
+    "@rimelight/i18n": "0.0.24",
+    "@rimelight/security": "0.0.29",
+    "@rimelight/seo": "0.0.21",
+    "@rimelight/ui": "0.0.64",
     "astro": "7.3.3",
     "hono": "4.13.8",
     "solid-js": "1.9.15",
-    "wrangler": "4.134.0"
+    "wrangler": "4.136.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@astrojs/ts-plugin": "1.10.12",
     "@iconify-json/logos": "1.2.14",
-    "@iconify-json/lucide": "1.2.133",
+    "@iconify-json/lucide": "1.2.135",
     "@iconify-json/mdi": "1.2.3",
-    "@rimelight/config": "0.0.15",
-    "@types/node": "26.6.1",
+    "@rimelight/config": "0.0.25",
+    "@types/node": "26.6.2",
     "typescript": "6.0.3",
-    "unocss": "66.10.5",
-    "vite-plus": "0.3.2"
+    "vite-plus": "0.3.3"
   },
   "engines": {
     "node": ">=26.8.2"
   },
-  "packageManager": "pnpm@12.4.2"
+  "packageManager": "pnpm@12.5.1"
 }
