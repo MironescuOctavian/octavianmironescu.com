@@ -76,6 +76,163 @@ const languagesSpoken: languages[] = [
     value: "Basic"
   }
 ]
+
+interface Skill {
+  title: string;
+  icon: string;
+  description: string;
+}
+
+const skills: Skill[] = [
+  {
+    title: "Java Software Developer",
+    icon: "i-mdi-coffee",
+    description: "Designing, building, and maintaining enterprise-level applications and backend services using the Java programming language and its vast ecosystem."
+  },
+  {
+    title: "Web Software Developer",
+    icon: "i-mdi-application-brackets-outline",
+    description: "Building fast, responsive, and secure web applications using modern standard architectures, framework integration, and performance optimization techniques."
+  },
+  {
+    title: "Design Philosophies",
+    icon: "i-mdi:palette",
+    description: "Focusing on accessible user experiences, interface detail, smooth interactive feedback loops, and visually consistent modular systems."
+  }
+]
+
+interface TechItem {
+  name: string;
+  icon: string;
+}
+
+interface TechCategory {
+  title: string;
+  items: TechItem[];
+}
+
+const techCategories: TechCategory[] = [
+  {
+    title: "LANGUAGES & FRAMEWORKS",
+    items: [
+      { name: "Java", icon: "i-logos-java" },
+      { name: "Spring Boot", icon: "i-logos-spring-icon" },
+      { name: "TypeScript", icon: "i-logos-typescript-icon" },
+      { name: "Vue", icon: "i-logos-vue" },
+      { name: "SolidJS", icon: "i-logos-solidjs-icon" },
+      { name: "UnoCSS", icon: "i-logos-unocss" }
+    ]
+  },
+  {
+    title: "DEVELOPMENT ENVIRONMENT",
+    items: [
+      { name: "IntelliJ", icon: "i-logos-intellij-idea" },
+      { name: "Visual Studio", icon: "i-logos-visual-studio-code" },
+      { name: "WebStorm", icon: "i-logos-webstorm" }
+    ]
+  },
+  {
+    title: "BUILD & PACKAGE",
+    items: [
+      { name: "Gradle", icon: "i-logos-gradle" },
+      { name: "Vite-plus", icon: "i-logos-vitejs" },
+      { name: "pnpm", icon: "i-logos-pnpm" }
+    ]
+  },
+  {
+    title: "DEPLOYMENT",
+    items: [
+      { name: "Docker", icon: "i-logos-docker-icon" },
+      { name: "Cloudflare", icon: "i-logos-cloudflare-icon" }
+    ]
+  }
+]
+
+interface Experience {
+  period: string;
+  role: string;
+  location?: string;
+  tags?: string[];
+  summary: string;
+  responsibilities?: string[];
+}
+
+const experiences: Experience[] = [
+  {
+    period: "June 2022 - November 2022",
+    role: "Junior Progammer @ Property Pass",
+    location: "Utrecht, Netherlands - Remote",
+    tags: ["Kotlin", "Java", "Spring Boot", "MongoDB", "GraphQL"],
+    summary: "Developed, built and maintained the application behind the company's website that handled real estate passports for commercial real estate owners.",
+    responsibilities: [
+      "Development of a spring-boot based Application written in Kotlin related to real estate commerce.",
+      "Creating and managing data in a MongoDB cluster.",
+      "Writing aggregation pipelines for MongoDB data for analytics breakdowns for stakeholders.",
+      "Refactoring project documentation"
+    ]
+  },
+  {
+    period: "May 2023 - January 2024",
+    role: "Junior Progammer @ CoruScript",
+    location: "Bucharest, Romania - On-site/Remote",
+    tags: ["Java", "Spring Boot", "Amazon Web Services", "PostgreSQL"],
+    summary: "Developed the backend part of the website of a platform that offers services for building applications based on the clients needs.",
+    responsibilities: [
+      "Developed, tested and maintained the company's website application built with Java and Spring.",
+      "Maintained and wrote pipelines for the cloud architecture using AWB."
+    ]
+  },
+  {
+    period: "February 2024 - Present",
+    role: "Freelancing",
+    location: "Bucharest, Romania - On-site/Remote",
+    summary: "Wrote, tested, and maintained software, websites for various clients on a contract basis."
+  }
+]
+
+interface Education {
+  period: string;
+  degree: string;
+  institution: string;
+}
+
+const educationList: Education[] = [
+  {
+    period: "2021 - 2023",
+    degree: "Masters Degree in Computer Science",
+    institution: "OVID - Universitea Ovidius Constanta"
+  },
+  {
+    period: "2018 - 2021",
+    degree: "Bachelors Degree in Computer Science",
+    institution: "OVID - Universitea Ovidius Constanta"
+  }
+]
+
+interface Project {
+  title: string;
+  role: string;
+  tags?: string[];
+  description?: string;
+  href?: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Discord Automation Bot",
+    role: "2024 - Developer & Maintainer",
+    tags: ["Java", "Discord Developer Portal"]
+  }
+]
+
+interface Certification {
+  title: string;
+  issuer: string;
+  date?: string;
+  credentialUrl?: string;
+}
+
+const certifications: Certification[] = []
 ---
 <AppLayout>
   <div class="flex flex-col md:flex-row gap-xl">
@@ -107,34 +264,15 @@ const languagesSpoken: languages[] = [
         </header>
 
         <div class="flex flex-row gap-4">
-
-          <!-- Java Dev Cards -->
+          {skills.map((skill) => (
             <div class="flex flex-col gap-4 text-gray">
               <div class="flex flex-row gap-4">
-                <span class="i-mdi-coffee text-2xl text-green-600"/>
-                <h3 class="text-md font-bold uppercase tracking-wider text-white">Java Software Developer</h3>
+                <span class:list={['text-2xl text-green-600', skill.icon]} />
+                <h3 class="text-md font-bold uppercase tracking-wider text-white">{skill.title}</h3>
               </div>
-              <p class="text-sm"> Designing, building, and maintaining enterprise-level applications and backend services using the Java programming language and its vast ecosystem. </p>
+              <p class="text-sm">{skill.description}</p>
             </div>
-
-          <!-- Web Dev Cards -->
-            <div class="flex flex-col gap-4 text-gray">
-              <div class="flex flex-row gap-4">
-                <span class="i-mdi-application-brackets-outline text-2xl text-green-600" />
-                <h3 class="text-md font-bold uppercase tracking-wider text-white">Web Software Developer</h3>
-              </div>
-              <p class="text-sm"> Building fast, responsive, and secure web applications using modern standard architectures, framework integration, and performance optimization techniques. </p>
-            </div>
-
-          <!-- Design Cards -->
-            <div class="flex flex-col gap-4 text-gray">
-              <div class="flex flex-row gap-4">
-                <span class="i-mdi:palette text-2xl text-green-600" />
-                <h3 class="text-md font-bold uppercase tracking-wider text-white">Design Philosophies</h3>
-              </div>
-              <p class="text-sm"> Focusing on accessible user experiences, interface detail, smooth interactive feedback loops, and visually consistent modular systems.</p>
-            </div>
-
+          ))}
         </div>
       </section>
 
@@ -143,90 +281,19 @@ const languagesSpoken: languages[] = [
         <h2 class="text-3xl font-bold text-white tracking-tight">Technologies & Tools</h2>
         <hr class="border-t w-full" />
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          <!-- LANGUAGES & FRAMEWORKS -->
-          <div class="flex flex-col gap-4">
-            <h3 class="text-md font-bold uppercase tracking-wider text-white">LANGUAGES & FRAMEWORKS</h3>
-            <ul class="flex flex-col gap-3 list-none p-0 m-0">
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-java text-base shrink-0" />
-                <span class="text-sm">Java</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-spring-icon text-base shrink-0" />
-                <span class="text-sm">Spring Boot</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-typescript-icon text-base shrink-0" />
-                <span class="text-sm">TypeScript</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-vue text-base shrink-0" />
-                <span class="text-sm">Vue</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-solidjs-icon text-base shrink-0" />
-                <span class="text-sm">SolidJS</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-unocss text-base shrink-0" />
-                <span class="text-sm">UnoCSS</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- DEVELOPMENT ENVIRONMENT -->
-          <div class="flex flex-col gap-4">
-            <h3 class="text-md font-bold uppercase tracking-wider text-white">DEVELOPMENT ENVIRONMENT</h3>
-            <ul class="flex flex-col gap-3 list-none p-0 m-0">
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-intellij-idea text-base shrink-0" />
-                <span class="text-sm">IntelliJ</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-visual-studio-code text-base shrink-0" />
-                <span class="text-sm">Visual Studio</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-webstorm text-base shrink-0" />
-                <span class="text-sm">WebStorm</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- BUILD & PACKAGE -->
-          <div class="flex flex-col gap-4">
-            <h3 class="text-md font-bold uppercase tracking-wider text-white">BUILD & PACKAGE</h3>
-            <ul class="flex flex-col gap-3 list-none p-0 m-0">
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-gradle text-base shrink-0" />
-                <span class="text-sm">Gradle</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-vitejs text-base shrink-0" />
-                <span class="text-sm">Vite-plus</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-pnpm text-base shrink-0" />
-                <span class="text-sm">pnpm</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- DEPLOYMENT -->
-          <div class="flex flex-col gap-4">
-            <h3 class="text-md font-bold uppercase tracking-wider text-white">DEPLOYMENT</h3>
-            <ul class="flex flex-col gap-3 list-none p-0 m-0">
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-docker-icon text-base shrink-0" />
-                <span class="text-sm">Docker</span>
-              </li>
-              <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
-                <span class="i-logos-cloudflare-icon text-base shrink-0" />
-                <span class="text-sm">Cloudflare</span>
-              </li>
-            </ul>
-          </div>
+          {techCategories.map((category) => (
+            <div class="flex flex-col gap-4">
+              <h3 class="text-md font-bold uppercase tracking-wider text-white">{category.title}</h3>
+              <ul class="flex flex-col gap-3 list-none p-0 m-0">
+                {category.items.map((item) => (
+                  <li class="flex items-center gap-2.5 text-sm font-medium text-gray">
+                    <span class:list={['text-base shrink-0', item.icon]} />
+                    <span class="text-sm">{item.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -237,82 +304,48 @@ const languagesSpoken: languages[] = [
           <hr class="border-t w-full" />
         </header>
 
-        <!-- Job 1 -->
-        <div class="text-sm">
-          <span class="text-gray">June 2022 - November 2022</span>
-          <h3 class="font-bold text-md">Junior Progammer @ Property Pass</h3>
-          <span class="text-gray">Utrecht, Netherlands - Remote</span>
-          <ul class="flex flex-row items-center gap-2 p-x-2 ">
-            <li class="bg-green-900 text-green-400 p-1 rounded">Kotlin</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">Java</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">Spring Boot</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">MongoDB</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">GraphQL</li>
-          </ul>
-          <h4 class="font-bold text-gray">Summary:</h4>
-          <p class="text-gray"> Developed, built and maintained the application behind the company's website that handled real estate passports for commercial real estate owners.</p>
-          <h4 class="font-bold text-gray">Responsibilities:</h4>
-          <ul class="flex flex-col px-6 gap-2 list-disc">
-            <li class="text-sm text-gray">Development of a spring-boot based Application written in Kotlin related to real estate commerce.</li>
-            <li class="text-sm text-gray">Creating and managing data in a MongoDB cluster.</li>
-            <li class="text-sm text-gray">Writing aggregation pipelines for MongoDB data for analytics breakdowns for stakeholders.</li>
-            <li class="text-sm text-gray">Refactoring project documentation</li>
-          </ul>
-
-        </div>
-
-        <!-- Job 2 -->
-        <div class="text-sm">
-          <span class="text-gray">May 2023 - January 2024</span>
-          <h3 class="font-bold text-md">Junior Progammer @ CoruScript</h3>
-          <span class="text-gray">Bucharest, Romania - On-site/Remote</span>
-          <ul class="flex flex-row items-center gap-2 p-x-2 ">
-            <li class="bg-green-900 text-green-400 p-1 rounded">Java</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">Spring Boot</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">Amazon Web Services</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">PostgreSQL</li>
-          </ul>
-          <h4 class="font-bold text-gray">Summary:</h4>
-          <p class="text-gray"> Developed the backend part of the website of a platform that offers services for building applications based on the clients needs.</p>
-          <h4 class="font-bold text-gray">Responsibilities:</h4>
-          <ul class="flex flex-col px-6 gap-2 list-disc">
-            <li class="text-sm text-gray">Developed, tested and maintained the company's website application built with Java and Spring.</li>
-            <li class="text-sm text-gray">Maintained and wrote pipelines for the cloud architecture using AWB.</li>
-          </ul>
-
-        </div>
-
-        <!-- Job 3 -->
-        <div class="text-sm">
-          <span class="text-gray">February 2024 - Present</span>
-          <h3 class="font-bold text-md">Freelancing</h3>
-          <span class="text-gray">Bucharest, Romania - On-site/Remote</span>
-          <h4 class="font-bold text-gray">Summary:</h4>
-          <p class="text-gray  ">Wrote, tested, and maintained software, websites for various clients on a contract basis.</p>
-
-        </div>
+        {experiences.map((experience) => (
+          <div class="text-sm">
+            <span class="text-gray">{experience.period}</span>
+            <h3 class="font-bold text-md">{experience.role}</h3>
+            {experience.location && <span class="text-gray">{experience.location}</span>}
+            {experience.tags && experience.tags.length > 0 && (
+              <ul class="flex flex-row items-center gap-2 p-x-2">
+                {experience.tags.map((tag) => (
+                  <li class="bg-green-900 text-green-400 p-1 rounded">{tag}</li>
+                ))}
+              </ul>
+            )}
+            <h4 class="font-bold text-gray">Summary:</h4>
+            <p class="text-gray">{experience.summary}</p>
+            {experience.responsibilities && experience.responsibilities.length > 0 && (
+              <>
+                <h4 class="font-bold text-gray">Responsibilities:</h4>
+                <ul class="flex flex-col px-6 gap-2 list-disc">
+                  {experience.responsibilities.map((responsibility) => (
+                    <li class="text-sm text-gray">{responsibility}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        ))}
       </section>
 
       <!-- Education Section -->
       <section class="flex flex-col gap-4">
-      <header class="flex flex-col gap-4">
-        <h2 class="text-3xl font-bold text-white tracking-tight">Education</h2>
-        <hr class="border-t w-full" />
-      </header>
+        <header class="flex flex-col gap-4">
+          <h2 class="text-3xl font-bold text-white tracking-tight">Education</h2>
+          <hr class="border-t w-full" />
+        </header>
 
-        <!-- Masters Degree-->
-        <div class="flex flex-col text-gray text-sm">
-          <span>2021 - 2023</span>
-          <h3 class="font-bold text-md">Masters Degree in Computer Science</h3>
-          <span>OVID - Universitea Ovidius Constanta</span>
-        </div>
-
-        <!-- Bachelors Degree-->
-        <div class="flex flex-col text-gray text-sm">
-          <span>2018 - 2021</span>
-          <h3 class="font-bold text-md">Bachelors Degree in Computer Science</h3>
-          <span>OVID - Universitea Ovidius Constanta</span>
-        </div>
+        {educationList.map((education) => (
+          <div class="flex flex-col text-gray text-sm">
+            <span>{education.period}</span>
+            <h3 class="font-bold text-md">{education.degree}</h3>
+            <span>{education.institution}</span>
+          </div>
+        ))}
       </section>
 
       <!-- Projects Section -->
@@ -322,16 +355,19 @@ const languagesSpoken: languages[] = [
           <hr class="border-t w-full" />
         </header>
 
-        <!-- Discord Bot Project -->
-        <div class="flex flex-col text-gray text-sm">
-          <h3 class="text-md font-bold text-white">Discord Automation Bot</h3>
-          <span>2024 - Developer & Maintainer</span>
-          <ul class="flex flex-row items-center gap-2 p-x-2 ">
-            <li class="bg-green-900 text-green-400 p-1 rounded">Java</li>
-            <li class="bg-green-900 text-green-400 p-1 rounded">Discord Developer Portal</li>
-          </ul>
-
-        </div>
+        {projects.map((project) => (
+          <div class="flex flex-col text-gray text-sm">
+            <h3 class="text-md font-bold text-white">{project.title}</h3>
+            <span>{project.role}</span>
+            {project.tags && project.tags.length > 0 && (
+              <ul class="flex flex-row items-center gap-2 p-x-2">
+                {project.tags.map((tag) => (
+                  <li class="bg-green-900 text-green-400 p-1 rounded">{tag}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
       </section>
 
       <!-- Certifications Section -->
@@ -341,6 +377,13 @@ const languagesSpoken: languages[] = [
           <hr class="border-t w-full" />
         </header>
 
+        {certifications.map((certification) => (
+          <div class="flex flex-col text-gray text-sm">
+            <h3 class="text-md font-bold text-white">{certification.title}</h3>
+            <span>{certification.issuer}</span>
+            {certification.date && <span>{certification.date}</span>}
+          </div>
+        ))}
       </section>
     </div>
 
