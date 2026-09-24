@@ -7,14 +7,16 @@ import RLANavigationMenu from "@rimelight/ui/components/navigation-menu/RLANavig
 
 const homeURL = getRelativeLocaleUrl("/");
 const blogURL = getRelativeLocaleUrl("/blog");
+const resumeURL = getRelativeLocaleUrl("/resume");
 const legalURL = getRelativeLocaleUrl("/legal");
 const aboutURL = getRelativeLocaleUrl("/about");
 
 const items = [
 	{ label: t('nav.home'), href: homeURL },
 	{ label: t('nav.blog'), description: "Blog stuff", href: blogURL },
-	{ label: t('nav.legal'), description: "Legal Stuff", href: legalURL },
-	{ label: t('nav.about'), description: "Information about the website", href: aboutURL },
+  { label: t('nav.resume'), description: "Information about myself", href: resumeURL },
+  { label: t('nav.legal'), description: "Legal Stuff", href: legalURL },
+  { label: t('nav.about'), description: "Information about the website", href: aboutURL }
 ]
 
 ---

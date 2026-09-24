@@ -33,5 +33,12 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS"
-  }
+  },
+  "r2_buckets": [
+    {
+      "binding": "BLOB",
+      "bucket_name": "octavianmironescu-dot-com",
+      "remote": true
+    }
+  ]
 }
