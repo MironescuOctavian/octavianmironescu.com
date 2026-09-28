@@ -237,27 +237,3 @@ const languageOptions: LanguageOption[] = languages.map((lang) => ({
   }
 </style>
 
-<script define:vars={{ themeOptions }}>
-  const ICON_MAP = Object.fromEntries(themeOptions.map((o) => [o.value, o.icon]));
-
-  function syncThemeIcon() {
-    const select = document.getElementById("theme-select");
-    const icon = document.getElementById("theme-select-icon");
-    if (!select || !icon) return;
-
-    function update() {
-      const newIcon = ICON_MAP[select.value];
-      if (!newIcon) return;
-      // Remove all previous icon classes, then add the correct one
-      Object.values(ICON_MAP).forEach((cls) => icon.classList.remove(cls));
-      icon.classList.add(newIcon);
-    }
-
-    update();
-    select.addEventListener("change", update);
-  }
-
-  // Run on initial load and after Astro view transitions
-  syncThemeIcon();
-  document.addEventListener("astro:after-swap", syncThemeIcon);
-</script>

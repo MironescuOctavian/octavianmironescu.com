@@ -29,6 +29,7 @@ interface AboutMe {
 }
 
 const age = (d => d.getFullYear() - 1999 - (d.getMonth() < 7 || (d.getMonth() === 7 && d.getDate() < 10) ? 1 : 0))(new Date());
+
 const aboutMeDetails: AboutMe[] = [
   {
     label: "Gender",
