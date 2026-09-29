@@ -12,10 +12,6 @@ import en from "./src/i18n/en.json"
 import ro from "./src/i18n/ro.json"
 import ptBr from "./src/i18n/pt-br.json"
 
-const securityOptions = {
-  domain: "octavianmironescu.com"
-}
-
 export default defineConfig({
   ...rimelightConfig(),
   plugins: [
@@ -81,7 +77,7 @@ export default defineConfig({
       ]
     }),
 
-    security(securityOptions),
+    security({ domain: "octavianmironescu.com" }),
 
     auth(),
 
