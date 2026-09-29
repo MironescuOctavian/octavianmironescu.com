@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "description": "Octa's WIP SITE",
+  "keywords": [
+    "solid",
+    "typescript"
+  ],
   "homepage": "https://octavianmironescu.com",
   "bugs": {
     "url": "https://github.com/MironescuOctavian/octavianmironescu.com/issues"
@@ -22,43 +26,47 @@
       "./src/*.ts",
       "./src/*.tsx",
       "./src/*/index.ts",
-      "./src/*/index.tsx",
-      "./src/*/index.astro"
+      "./src/*/index.tsx"
     ]
   },
   "scripts": {
     "prepare": "vp config",
     "generate-types": "wrangler types",
-    "astro": "astro",
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && wrangler dev",
-    "profile": "astro build && wrangler check startup",
-    "check": "pnpm audit && wrangler types && vp check --fix && astro check"
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp build && wrangler dev",
+    "profile": "vp build && wrangler check startup",
+    "check": "pnpm audit && wrangler types && vp check --fix"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "14.3.3",
-    "@astrojs/mdx": "8.0.2",
-    "@astrojs/solid-js": "7.0.2",
-    "@rimelight/auth": "0.0.17",
-    "@rimelight/i18n": "0.0.24",
-    "@rimelight/security": "0.0.29",
-    "@rimelight/seo": "0.0.21",
-    "@rimelight/ui": "0.0.64",
-    "astro": "7.3.4",
+    "@cloudflare/vite-plugin": "1.60.1",
+    "@rimelight/auth": "0.0.19",
+    "@rimelight/cms": "0.0.27",
+    "@rimelight/i18n": "0.0.26",
+    "@rimelight/security": "0.0.31",
+    "@rimelight/seo": "0.0.24",
+    "@rimelight/ui": "0.0.70",
+    "@solidjs/meta": "1.0.0-next.2",
+    "@solidjs/router": "2.0.0-next.30",
+    "@solidjs/signals": "2.0.0-rc.9",
+    "@solidjs/vite-plugin": "3.0.0-next.35",
+    "@solidjs/web": "2.0.0-rc.9",
+    "drizzle-orm": "0.45.3",
     "hono": "4.13.8",
-    "solid-js": "1.9.15",
-    "wrangler": "4.136.3"
+    "solid-js": "2.0.0-rc.9",
+    "zod": "4.6.5"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
     "@iconify-json/logos": "1.2.14",
-    "@iconify-json/lucide": "1.2.136",
     "@iconify-json/mdi": "1.2.3",
-    "@rimelight/config": "0.0.25",
+    "@rimelight/config": "0.0.29",
     "@types/node": "26.6.2",
-    "typescript": "6.0.3",
-    "vite-plus": "1.0.0-rc.0"
+    "cf": "1.0.0-beta.2",
+    "drizzle-kit": "0.31.11",
+    "filesystem-routing": "0.4.0",
+    "typescript": "7.0.2",
+    "unocss": "66.10.5",
+    "vite-plus": "0.3.3"
   },
   "engines": {
     "node": ">=26.8.2"

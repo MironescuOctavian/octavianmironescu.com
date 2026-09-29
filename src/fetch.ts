@@ -1,17 +1,20 @@
 import { Hono } from "hono"
-import { cf } from "@astrojs/cloudflare/hono"
+import { handleRequest } from "virtual:solid-ssr-handler"
 import { security, devOnly, ratelimit, construction } from "@rimelight/security/middleware"
 import { auth } from "@rimelight/auth/middleware"
-import api from "#api"
 import { i18n } from "@rimelight/i18n/middleware"
 import { getRelativeLocaleUrl } from "@rimelight/i18n"
-import { astro } from "astro/hono"
+import api from "#api"
+import { rimelightSolidConfig } from "@rimelight/config/solid"
+
+const site = rimelightSolidConfig({
+  domain: "octavianmironescu.com",
+  security: {}
+})
 
 const app = new Hono<{ Bindings: Env }>()
 
-// Middlewares
-app.use(cf())
-app.use(security())
+app.use(security(site.securityOptions ?? {}))
 app.use(devOnly)
 app.use(ratelimit())
 app.use(construction())
@@ -23,14 +26,9 @@ app.use(
   })
 )
 
-// Hono API Routing
 app.route("/api", api)
-
-// Localization & Astro Pipeline
 app.use(i18n())
-app.use(astro())
 
-// Global Error Handler
 app.onError((err, c) => {
   console.error("[Hono Server Error]", err)
   const isHtml = (c.req.header("accept") || "").includes("text/html")
@@ -40,6 +38,11 @@ app.onError((err, c) => {
   return c.json({ error: "Internal Server Error", message: err.message }, 500)
 })
 
+// Fall through all unmatched requests to Solid's SSR page renderer
+app.all("*", (c) => handleRequest(c.req.raw))
+
 export default {
-  fetch: app.fetch
+  fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    return Promise.resolve(app.fetch(request, env, ctx))
+  }
 }
