@@ -1,12 +1,14 @@
 audit:
   level: low
 saveExact: true
+# autoDedupe: true
 minimumReleaseAgeStrict: true
 minimumReleaseAgeExclude:
   - "@rimelight/*"
 overrides:
   # Vulnerability Fixes
   esbuild: ">=0.25.0"
+  undici: ">=8.10.2"
 allowBuilds:
   better-sqlite3: true
   esbuild: true
