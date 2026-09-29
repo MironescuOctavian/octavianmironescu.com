@@ -5,16 +5,13 @@ import { auth } from "@rimelight/auth/middleware"
 import { i18n } from "@rimelight/i18n/middleware"
 import { getRelativeLocaleUrl } from "@rimelight/i18n"
 import api from "#api"
-import { rimelightSolidConfig } from "@rimelight/config/solid"
-
-const site = rimelightSolidConfig({
-  domain: "octavianmironescu.com",
-  security: {}
-})
+const securityOptions = {
+  domain: "octavianmironescu.com"
+}
 
 const app = new Hono<{ Bindings: Env }>()
 
-app.use(security(site.securityOptions ?? {}))
+app.use(security(securityOptions))
 app.use(devOnly)
 app.use(ratelimit())
 app.use(construction())
