@@ -9,6 +9,9 @@ import { security } from "@rimelight/security/plugin"
 import { auth } from "@rimelight/auth/plugin"
 import { i18n } from "@rimelight/i18n/plugin"
 import { rimelightSolidConfig } from "@rimelight/config/solid"
+import en from "./src/i18n/en.json"
+import ro from "./src/i18n/ro.json"
+import ptBr from "./src/i18n/pt-br.json"
 
 const site = rimelightSolidConfig({
   domain: "octavianmironescu.com",
@@ -86,7 +89,8 @@ export default defineConfig({
 
     i18n({
       locales: ["en", "ro", "pt-br"],
-      defaultLocale: "en"
+      defaultLocale: "en",
+      translations: { en, ro, "pt-br": ptBr }
     })
   ]
 })
