@@ -40,5 +40,8 @@
       "bucket_name": "octavianmironescu-dot-com",
       "remote": true
     }
-  ]
+  ],
+  "secrets": {
+    "required": ["CONSTRUCTION_PASSPHRASE"]
+  }
 }
