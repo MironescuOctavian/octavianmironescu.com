@@ -39,37 +39,37 @@
     "check": "pnpm audit && wrangler types && vp check --fix"
   },
   "dependencies": {
-    "@cloudflare/vite-plugin": "1.60.1",
-    "@rimelight/auth": "0.0.19",
-    "@rimelight/cms": "0.0.27",
-    "@rimelight/i18n": "0.0.26",
-    "@rimelight/security": "0.0.31",
-    "@rimelight/seo": "0.0.24",
-    "@rimelight/ui": "0.0.70",
+    "@cloudflare/vite-plugin": "1.61.0",
+    "@rimelight/auth": "0.0.20",
+    "@rimelight/cms": "0.0.28",
+    "@rimelight/i18n": "0.0.27",
+    "@rimelight/security": "0.0.32",
+    "@rimelight/seo": "0.0.25",
+    "@rimelight/ui": "0.0.71",
     "@solidjs/meta": "1.0.0-next.2",
     "@solidjs/router": "2.0.0-next.30",
-    "@solidjs/signals": "2.0.0-rc.9",
-    "@solidjs/vite-plugin": "3.0.0-next.35",
-    "@solidjs/web": "2.0.0-rc.9",
+    "@solidjs/signals": "2.0.0-rc.11",
+    "@solidjs/vite-plugin": "3.0.0-next.46",
+    "@solidjs/web": "2.0.0-rc.11",
     "drizzle-orm": "0.45.3",
-    "hono": "4.13.8",
-    "solid-js": "2.0.0-rc.9",
+    "hono": "4.13.10",
+    "solid-js": "2.0.0-rc.11",
     "zod": "4.6.5"
   },
   "devDependencies": {
     "@iconify-json/logos": "1.2.14",
     "@iconify-json/mdi": "1.2.3",
-    "@rimelight/config": "0.0.29",
-    "@types/node": "26.6.2",
+    "@rimelight/config": "0.0.30",
+    "@types/node": "26.6.3",
     "cf": "1.0.0-beta.2",
     "drizzle-kit": "0.31.11",
     "filesystem-routing": "0.4.0",
     "typescript": "7.0.2",
     "unocss": "66.10.5",
-    "vite-plus": "0.3.3"
+    "vite-plus": "1.0.0"
   },
   "engines": {
-    "node": ">=26.8.2"
+    "node": ">=26.10.0"
   },
   "packageManager": "pnpm@12.6.0"
 }
