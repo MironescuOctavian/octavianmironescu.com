@@ -1,32 +1,39 @@
-import { defineConfig } from "vite-plus"
-import { fileRoutes } from "filesystem-routing/vite"
-import { rimelightConfig } from "@rimelight/config/vite-plus/base"
-import { cloudflare } from "@cloudflare/vite-plugin"
-import solid from "@solidjs/vite-plugin"
-import { ui } from "@rimelight/ui/plugin"
-import { seo } from "@rimelight/seo/plugin"
-import { security } from "@rimelight/security/plugin"
-import { auth } from "@rimelight/auth/plugin"
-import { i18n } from "@rimelight/i18n/plugin"
-import en from "./src/i18n/en.json"
-import ro from "./src/i18n/ro.json"
-import ptBr from "./src/i18n/pt-br.json"
+import { defineConfig } from "vite-plus";
+import { fileRoutes } from "filesystem-routing/vite";
+import { cloudflare } from "@cloudflare/vite-plugin";
+import solid from "@solidjs/vite-plugin";
+import { ui } from "@rimelight/ui/plugin";
+import { seo } from "@rimelight/seo/plugin";
+import { security } from "@rimelight/security/plugin";
+import { auth } from "@rimelight/auth/plugin";
+import { i18n } from "@rimelight/i18n/plugin";
+import en from "./src/i18n/en.json";
+import ro from "./src/i18n/ro.json";
+import ptBr from "./src/i18n/pt-br.json";
 
 export default defineConfig({
-  ...rimelightConfig(),
+  lint: {
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+  },
+  staged: {
+    "*": "vp check --fix",
+  },
   plugins: [
     cloudflare({
       viteEnvironment: {
-        name: "ssr"
-      }
+        name: "ssr",
+      },
     }),
 
     solid({
       start: {
-        devtools: false
+        devtools: false,
       },
       ssr: true,
-      extensions: [".jsx", ".tsx"]
+      extensions: [".jsx", ".tsx"],
     }),
 
     fileRoutes({ types: true }),
@@ -36,14 +43,14 @@ export default defineConfig({
         logomark: {
           color: "https://cdn.octavianmironescu.com/logos/logomark_color.svg",
           white: "https://cdn.octavianmironescu.com/logos/logomark_white.svg",
-          black: "https://cdn.octavianmironescu.com/logos/logomark_black.svg"
+          black: "https://cdn.octavianmironescu.com/logos/logomark_black.svg",
         },
         logotype: {
           color: "https://cdn.octavianmironescu.com/logos/logotype_color.svg",
           white: "https://cdn.octavianmironescu.com/logos/logotype_white.svg",
-          black: "https://cdn.octavianmironescu.com/logos/logotype_black.svg"
-        }
-      }
+          black: "https://cdn.octavianmironescu.com/logos/logotype_black.svg",
+        },
+      },
     }),
 
     seo({
@@ -56,13 +63,13 @@ export default defineConfig({
         logo: { alt: "Octavian Mironescu" },
         favicon: { svg: "https://cdn.octavianmironescu.com/logos/logomark_color.svg" },
         appleTouchIcon: "https://cdn.octavianmironescu.com/logos/logomark_color.svg",
-        colors: { themeColor: "#ffffff", backgroundColor: "#ffffff" }
+        colors: { themeColor: "#ffffff", backgroundColor: "#ffffff" },
       },
       titleTemplate: "%s | Octavian Mironescu",
       locales: {
-        "en": "en-US",
-        "ro": "ro-RO",
-        "pt-br": "pt-BR"
+        en: "en-US",
+        ro: "ro-RO",
+        "pt-br": "pt-BR",
       },
       privatePathPrefixes: [
         "/dashboard",
@@ -73,8 +80,8 @@ export default defineConfig({
         "/dev",
         "/og",
         "/open-graph",
-        "/auth"
-      ]
+        "/auth",
+      ],
     }),
 
     security({ domain: "octavianmironescu.com" }),
@@ -84,7 +91,7 @@ export default defineConfig({
     i18n({
       locales: ["en", "ro", "pt-br"],
       defaultLocale: "en",
-      translations: { en, ro, "pt-br": ptBr }
-    })
-  ]
-})
+      translations: { en, ro, "pt-br": ptBr },
+    }),
+  ],
+});
