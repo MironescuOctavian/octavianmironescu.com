@@ -11,10 +11,12 @@ export default function HeaderLink(props: Props) {
   const isActive = () =>
     props.href === pathname() || (props.href && props.href === "/" + (subpath()?.[0] || ""));
 
+  const extraClass = typeof props.class === "string" ? props.class : "";
+
   return (
     <a
       {...props}
-      class={`${props.class || ""} ${isActive() ? "active font-bold underline" : ""} inline-block no-underline`}
+      class={`${extraClass} ${isActive() ? "active font-bold underline" : ""} inline-block no-underline`}
     >
       {props.children}
     </a>

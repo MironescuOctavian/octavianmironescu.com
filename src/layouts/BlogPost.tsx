@@ -4,10 +4,10 @@ import FormattedDate from "#components/FormattedDate.tsx";
 
 interface BlogPostProps extends ParentProps {
   title: string;
-  description?: string;
+  description?: string | undefined;
   pubDate: Date;
-  updatedDate?: Date;
-  heroImage?: string;
+  updatedDate?: Date | undefined;
+  heroImage?: string | undefined;
 }
 
 export default function BlogPost(props: BlogPostProps) {
