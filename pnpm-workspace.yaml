@@ -1,7 +1,7 @@
 audit:
   level: low
 saveExact: true
-# autoDedupe: true
+autoDedupe: true
 minimumReleaseAgeStrict: true
 minimumReleaseAgeExclude:
   - "@rimelight/*"
