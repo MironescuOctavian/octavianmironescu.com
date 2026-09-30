@@ -1,12 +1,12 @@
-import { type Component, Show } from "solid-js"
-import { useSearchParams } from "@solidjs/router"
-import AppLayout from "#layouts/AppLayout.tsx"
-import { RLCard, RLFormField, RLInput, RLButton, RLCheckbox, RLLogo } from "@rimelight/ui"
+import { type Component, Show } from "solid-js";
+import { useSearchParams } from "@solidjs/router";
+import AppLayout from "#layouts/AppLayout.tsx";
+import { RLCard, RLFormField, RLInput, RLButton, RLCheckbox, RLLogo } from "@rimelight/ui";
 
 export const ConstructionPage: Component = () => {
-  const [searchParams] = useSearchParams()
-  const redirect = () => (searchParams["redirect"] as string) || "/"
-  const isError = () => searchParams["error"] === "invalid"
+  const [searchParams] = useSearchParams();
+  const redirect = () => (searchParams["redirect"] as string) || "/";
+  const isError = () => searchParams["error"] === "invalid";
 
   return (
     <AppLayout
@@ -68,7 +68,7 @@ export const ConstructionPage: Component = () => {
         </div>
       </div>
     </AppLayout>
-  )
-}
+  );
+};
 
-export default ConstructionPage
+export default ConstructionPage;

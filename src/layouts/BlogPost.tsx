@@ -1,13 +1,13 @@
-import type { ParentProps } from "solid-js"
-import AppLayout from "#layouts/AppLayout.tsx"
-import FormattedDate from "#components/FormattedDate.tsx"
+import type { ParentProps } from "solid-js";
+import AppLayout from "#layouts/AppLayout.tsx";
+import FormattedDate from "#components/FormattedDate.tsx";
 
 interface BlogPostProps extends ParentProps {
-  title: string
-  description?: string
-  pubDate: Date
-  updatedDate?: Date
-  heroImage?: string
+  title: string;
+  description?: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
 }
 
 export default function BlogPost(props: BlogPostProps) {
@@ -46,5 +46,5 @@ export default function BlogPost(props: BlogPostProps) {
         </article>
       </div>
     </AppLayout>
-  )
+  );
 }

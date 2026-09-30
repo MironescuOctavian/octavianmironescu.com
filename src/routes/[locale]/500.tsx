@@ -1,8 +1,8 @@
-import AppLayout from "#layouts/AppLayout.tsx"
-import AppError from "#components/app/AppError.tsx"
+import AppLayout from "#layouts/AppLayout.tsx";
+import AppError from "#components/app/AppError.tsx";
 
 interface ErrorPage500Props {
-  error?: Error | undefined
+  error?: Error | undefined;
 }
 
 export default function ErrorPage500(props: ErrorPage500Props) {
@@ -26,10 +26,10 @@ export default function ErrorPage500(props: ErrorPage500Props) {
             href: "/",
             variant: "solid",
             color: "primary",
-            icon: "i-lucide-home"
-          }
+            icon: "i-lucide-home",
+          },
         ]}
       />
     </AppLayout>
-  )
+  );
 }

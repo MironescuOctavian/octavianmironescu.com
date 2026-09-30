@@ -1,5 +1,5 @@
 interface Props {
-  date: Date
+  date: Date;
 }
 
 export default function FormattedDate(props: Props) {
@@ -8,8 +8,8 @@ export default function FormattedDate(props: Props) {
       {props.date.toLocaleDateString("en-us", {
         year: "numeric",
         month: "short",
-        day: "numeric"
+        day: "numeric",
       })}
     </time>
-  )
+  );
 }

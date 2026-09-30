@@ -1,5 +1,5 @@
-import { Loading } from "solid-js"
-import { Router } from "./router"
+import { Loading } from "solid-js";
+import { Router } from "./router";
 
 export default function App() {
   return (
@@ -12,5 +12,5 @@ export default function App() {
         </Loading>
       )}
     </Router>
-  )
+  );
 }

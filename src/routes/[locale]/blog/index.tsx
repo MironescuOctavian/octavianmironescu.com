@@ -1,17 +1,17 @@
-import AppLayout from "#layouts/AppLayout.tsx"
-import FormattedDate from "#components/FormattedDate.tsx"
-import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts"
-import { getLocale, getRelativeLocaleUrl } from "@rimelight/i18n"
-import { useParams } from "@solidjs/router"
-import { getBlogPosts } from "#utils/content.ts"
+import AppLayout from "#layouts/AppLayout.tsx";
+import FormattedDate from "#components/FormattedDate.tsx";
+import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts";
+import { getLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { useParams } from "@solidjs/router";
+import { getBlogPosts } from "#utils/content.ts";
 
 export default function BlogIndexPage() {
-  const params = useParams<{ locale?: string }>()
-  const activeLocale = () => params.locale || getLocale() || "en"
+  const params = useParams<{ locale?: string }>();
+  const activeLocale = () => params.locale || getLocale() || "en";
   const posts = () =>
     getBlogPosts()
       .filter((post) => post.locale === activeLocale())
-      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return (
     <AppLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -48,5 +48,5 @@ export default function BlogIndexPage() {
         </section>
       </div>
     </AppLayout>
-  )
+  );
 }

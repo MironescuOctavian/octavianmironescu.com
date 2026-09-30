@@ -1,15 +1,15 @@
-import { getRelativeLocaleUrl, locales } from "@rimelight/i18n"
-import { useLocation } from "@solidjs/router"
+import { getRelativeLocaleUrl, locales } from "@rimelight/i18n";
+import { useLocation } from "@solidjs/router";
 
 const languageLabels: Record<string, string> = {
-  "en": "English",
-  "ro": "Română",
-  "pt-br": "Português"
-}
+  en: "English",
+  ro: "Română",
+  "pt-br": "Português",
+};
 
 export default function LanguagePicker() {
-  const location = useLocation()
-  const currentPath = () => location.pathname.replace(/^\/[^/]+/, "") || "/"
+  const location = useLocation();
+  const currentPath = () => location.pathname.replace(/^\/[^/]+/, "") || "/";
 
   return (
     <ul>
@@ -19,5 +19,5 @@ export default function LanguagePicker() {
         </li>
       ))}
     </ul>
-  )
+  );
 }

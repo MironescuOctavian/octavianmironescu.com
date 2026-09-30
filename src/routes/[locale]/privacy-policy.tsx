@@ -1,4 +1,4 @@
-import AppLayout from "#layouts/AppLayout.tsx"
+import AppLayout from "#layouts/AppLayout.tsx";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -10,5 +10,5 @@ export default function PrivacyPolicyPage() {
         </p>
       </div>
     </AppLayout>
-  )
+  );
 }

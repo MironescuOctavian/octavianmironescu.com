@@ -1,5 +1,5 @@
-import AppLayout from "#layouts/AppLayout.tsx"
-import AppError from "#components/app/AppError.tsx"
+import AppLayout from "#layouts/AppLayout.tsx";
+import AppError from "#components/app/AppError.tsx";
 
 export default function ErrorPage404() {
   return (
@@ -14,10 +14,10 @@ export default function ErrorPage404() {
             href: "/",
             variant: "solid",
             color: "primary",
-            icon: "i-lucide-home"
-          }
+            icon: "i-lucide-home",
+          },
         ]}
       />
     </AppLayout>
-  )
+  );
 }

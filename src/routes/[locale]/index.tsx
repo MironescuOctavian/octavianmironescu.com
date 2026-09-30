@@ -1,29 +1,29 @@
-import AppLayout from "#layouts/AppLayout.tsx"
+import AppLayout from "#layouts/AppLayout.tsx";
 
 // Social links configuration
 interface SocialLink {
-  icon: string
-  href: string
-  ariaLabel: string
+  icon: string;
+  href: string;
+  ariaLabel: string;
 }
 
 const socialLinks: SocialLink[] = [
   {
     icon: "i-mdi-github",
     href: "https://github.com/MironescuOctavian",
-    ariaLabel: "GitHub"
+    ariaLabel: "GitHub",
   },
   {
     icon: "i-mdi-linkedin",
     href: "https://www.linkedin.com/in/octavian-mironescu-a605b921a/",
-    ariaLabel: "LinkedIn"
+    ariaLabel: "LinkedIn",
   },
   {
     icon: "i-mdi-gmail",
     href: "mailto:omironescu@gmail.com",
-    ariaLabel: "Gmail"
-  }
-]
+    ariaLabel: "Gmail",
+  },
+];
 
 // Tech stack icon list
 const techStackIcons: string[] = [
@@ -40,15 +40,15 @@ const techStackIcons: string[] = [
   "i-logos-vite",
   "i-logos-pnpm",
   "i-logos-docker-icon",
-  "i-logos-cloudflare-icon"
-]
+  "i-logos-cloudflare-icon",
+];
 
 // "What I do" accordion items data
 interface ServiceItem {
-  icon: string
-  title: string
-  isOpen?: boolean
-  points: string[]
+  icon: string;
+  title: string;
+  isOpen?: boolean;
+  points: string[];
 }
 
 const services: ServiceItem[] = [
@@ -59,8 +59,8 @@ const services: ServiceItem[] = [
     points: [
       "Single Page Applications (SPAs)",
       "Landing pages and business websites",
-      "Portfolio websites"
-    ]
+      "Portfolio websites",
+    ],
   },
   {
     icon: "i-mdi-code-braces",
@@ -68,8 +68,8 @@ const services: ServiceItem[] = [
     points: [
       "REST APIs and backend services",
       "CLI tools and automation scripts",
-      "System design and architecture"
-    ]
+      "System design and architecture",
+    ],
   },
   {
     icon: "i-mdi-cloud-outline",
@@ -77,18 +77,18 @@ const services: ServiceItem[] = [
     points: [
       "Containerization & deployment with Docker",
       "Cloud hosting & edge deployment (Cloudflare)",
-      "CI/CD pipelines & build automation"
-    ]
-  }
-]
+      "CI/CD pipelines & build automation",
+    ],
+  },
+];
 
 // Portfolio project showcases for "My Work" section
 interface Project {
-  title: string
-  status: string
-  image: string
-  githubUrl?: string
-  previewUrl?: string
+  title: string;
+  status: string;
+  image: string;
+  githubUrl?: string;
+  previewUrl?: string;
 }
 
 const projects: Project[] = [
@@ -97,35 +97,35 @@ const projects: Project[] = [
     status: "Deployed",
     image: "https://placehold.co/600x400/101010/16a34a?text=Portfolio+Website",
     githubUrl: "https://github.com/MironescuOctavian/octavianmironescu.com",
-    previewUrl: "https://octavianmironescu.com"
+    previewUrl: "https://octavianmironescu.com",
   },
   {
     title: "Backend API Service",
     status: "In Development",
     image: "https://placehold.co/600x400/101010/16a34a?text=Backend+Services",
     githubUrl: "https://github.com/MironescuOctavian",
-    previewUrl: "https://github.com/MironescuOctavian"
+    previewUrl: "https://github.com/MironescuOctavian",
   },
   {
     title: "Full-stack Platform",
     status: "Contributor",
     image: "https://placehold.co/600x400/101010/16a34a?text=Full-stack+App",
     githubUrl: "https://github.com/MironescuOctavian",
-    previewUrl: "https://github.com/MironescuOctavian"
+    previewUrl: "https://github.com/MironescuOctavian",
   },
   {
     title: "Developer Automation Tools",
     status: "Deployed",
     image: "https://placehold.co/600x400/101010/16a34a?text=Automation+Tools",
     githubUrl: "https://github.com/MironescuOctavian",
-    previewUrl: "https://github.com/MironescuOctavian"
-  }
-]
+    previewUrl: "https://github.com/MironescuOctavian",
+  },
+];
 
 const inputClass =
-  "px-4 py-3 bg-black/40 text-white border border-green-900 rounded-xl focus:outline-none focus:border-green-500 transition-colors"
+  "px-4 py-3 bg-black/40 text-white border border-green-900 rounded-xl focus:outline-none focus:border-green-500 transition-colors";
 const projectBtnClass =
-  "flex items-center justify-center p-3 rounded-xl border border-green-900 bg-black/60 text-gray-300 hover:text-white hover:border-green-600 transition-colors"
+  "flex items-center justify-center p-3 rounded-xl border border-green-900 bg-black/60 text-gray-300 hover:text-white hover:border-green-600 transition-colors";
 
 export default function IndexPage() {
   return (
@@ -370,5 +370,5 @@ export default function IndexPage() {
         </section>
       </div>
     </AppLayout>
-  )
+  );
 }

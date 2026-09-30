@@ -1,12 +1,12 @@
-import BlogPost from "#layouts/BlogPost.tsx"
-import { useParams } from "@solidjs/router"
-import { getBlogPosts } from "#utils/content.ts"
-import ErrorPage404 from "#routes/[locale]/404.tsx"
+import BlogPost from "#layouts/BlogPost.tsx";
+import { useParams } from "@solidjs/router";
+import { getBlogPosts } from "#utils/content.ts";
+import ErrorPage404 from "#routes/[locale]/404.tsx";
 
 export default function BlogPostPage() {
-  const params = useParams<{ locale?: string; slug?: string }>()
+  const params = useParams<{ locale?: string; slug?: string }>();
   const post = () =>
-    getBlogPosts().find((p) => p.locale === params.locale && p.slug === params.slug)
+    getBlogPosts().find((p) => p.locale === params.locale && p.slug === params.slug);
 
   return (
     <>
@@ -24,5 +24,5 @@ export default function BlogPostPage() {
         <ErrorPage404 />
       )}
     </>
-  )
+  );
 }

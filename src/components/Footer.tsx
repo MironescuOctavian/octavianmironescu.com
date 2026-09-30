@@ -1,81 +1,81 @@
-import { getLocale, getRelativeLocaleUrl, locales } from "@rimelight/i18n"
-import { useLocation, useParams } from "@solidjs/router"
+import { getLocale, getRelativeLocaleUrl, locales } from "@rimelight/i18n";
+import { useLocation, useParams } from "@solidjs/router";
 
 const languageLabels: Record<string, string> = {
-  "en": "English",
-  "ro": "Română",
-  "pt-br": "Português"
-}
+  en: "English",
+  ro: "Română",
+  "pt-br": "Português",
+};
 
 interface SocialLink {
-  icon: string
-  href: string
-  ariaLabel: string
+  icon: string;
+  href: string;
+  ariaLabel: string;
 }
 
 interface FooterLink {
-  label: string
-  href: string
+  label: string;
+  href: string;
 }
 
 interface FooterLinkColumn {
-  title: string
-  links: FooterLink[]
+  title: string;
+  links: FooterLink[];
 }
 
 interface ThemeOption {
-  label: string
-  value: string
-  icon: string
+  label: string;
+  value: string;
+  icon: string;
 }
 
 interface LanguageOption {
-  code: string
-  label: string
-  href: string
+  code: string;
+  label: string;
+  href: string;
 }
 
 const socialLinks: SocialLink[] = [
   {
     icon: "i-mdi-instagram",
     href: "https://www.instagram.com/notoctamusic/",
-    ariaLabel: "Instagram"
+    ariaLabel: "Instagram",
   },
   {
     icon: "i-mdi-discord",
     href: "https://discord.com/users/402152425756295178",
-    ariaLabel: "Discord"
+    ariaLabel: "Discord",
   },
   {
     icon: "i-mdi-spotify",
     href: "https://open.spotify.com/user/goldydalion?si=598f3277e5b54442",
-    ariaLabel: "Spotify"
+    ariaLabel: "Spotify",
   },
   {
     icon: "i-mdi-github",
     href: "https://github.com/MironescuOctavian",
-    ariaLabel: "GitHub"
+    ariaLabel: "GitHub",
   },
   {
     icon: "i-mdi-linkedin",
     href: "https://www.linkedin.com/in/octavian-mironescu-a605b921a/",
-    ariaLabel: "LinkedIn"
-  }
-]
+    ariaLabel: "LinkedIn",
+  },
+];
 
 const themeOptions: ThemeOption[] = [
   { label: "System", value: "system", icon: "i-lucide-laptop" },
   { label: "White", value: "white", icon: "i-mdi:white-balance-sunny" },
-  { label: "Dark", value: "dark", icon: "i-mdi:weather-night" }
-]
+  { label: "Dark", value: "dark", icon: "i-mdi:weather-night" },
+];
 
 export default function Footer() {
-  const today = new Date()
-  const params = useParams<{ locale?: string }>()
-  const location = useLocation()
+  const today = new Date();
+  const params = useParams<{ locale?: string }>();
+  const location = useLocation();
 
-  const activeLocale = () => params.locale || getLocale() || "en"
-  const currentPath = () => location.pathname.replace(/^\/[^/]+/, "") || "/"
+  const activeLocale = () => params.locale || getLocale() || "en";
+  const currentPath = () => location.pathname.replace(/^\/[^/]+/, "") || "/";
 
   const footerLinkColumns = (): FooterLinkColumn[] => [
     {
@@ -83,31 +83,31 @@ export default function Footer() {
       links: [
         {
           label: "Branding",
-          href: getRelativeLocaleUrl(activeLocale(), "/branding")
-        }
-      ]
+          href: getRelativeLocaleUrl(activeLocale(), "/branding"),
+        },
+      ],
     },
     {
       title: "Legal",
       links: [
         {
           label: "Privacy Policy",
-          href: getRelativeLocaleUrl(activeLocale(), "/privacy-policy")
+          href: getRelativeLocaleUrl(activeLocale(), "/privacy-policy"),
         },
         {
           label: "Other Documents",
-          href: getRelativeLocaleUrl(activeLocale(), "/other-documents")
-        }
-      ]
-    }
-  ]
+          href: getRelativeLocaleUrl(activeLocale(), "/other-documents"),
+        },
+      ],
+    },
+  ];
 
   const languageOptions = (): LanguageOption[] =>
     locales.map((lang: string) => ({
       code: lang,
       label: languageLabels[lang] || lang,
-      href: getRelativeLocaleUrl(lang, currentPath())
-    }))
+      href: getRelativeLocaleUrl(lang, currentPath()),
+    }));
 
   return (
     <footer class="w-full bg-black text-gray border-t border-green-900">
@@ -192,7 +192,7 @@ export default function Footer() {
               id="footer-language-select"
               aria-label="Language selector"
               onChange={(e) => {
-                window.location.href = e.currentTarget.value
+                window.location.href = e.currentTarget.value;
               }}
               class="cursor-pointer appearance-none rounded-lg border border-green-900 bg-black py-1.5 pl-9 pr-8 text-sm font-medium text-gray hover:text-white hover:border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 transition-colors"
             >
@@ -227,5 +227,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,14 +1,14 @@
-import AppLayout from "#layouts/AppLayout.tsx"
-import FormattedDate from "#components/FormattedDate.tsx"
-import { getLocale, getRelativeLocaleUrl } from "@rimelight/i18n"
-import { useParams } from "@solidjs/router"
-import { getLegalPolicies } from "#utils/content.ts"
+import AppLayout from "#layouts/AppLayout.tsx";
+import FormattedDate from "#components/FormattedDate.tsx";
+import { getLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { useParams } from "@solidjs/router";
+import { getLegalPolicies } from "#utils/content.ts";
 
 export default function LegalIndexPage() {
-  const params = useParams<{ locale?: string }>()
-  const activeLocale = () => params.locale || getLocale() || "en"
+  const params = useParams<{ locale?: string }>();
+  const activeLocale = () => params.locale || getLocale() || "en";
   const legalPolicies = () =>
-    getLegalPolicies().filter((policy) => policy.locale === activeLocale())
+    getLegalPolicies().filter((policy) => policy.locale === activeLocale());
 
   return (
     <AppLayout title="Legal" description="Legal policies and information">
@@ -31,5 +31,5 @@ export default function LegalIndexPage() {
         </ul>
       </div>
     </AppLayout>
-  )
+  );
 }

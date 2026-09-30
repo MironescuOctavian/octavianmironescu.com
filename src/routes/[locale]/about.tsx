@@ -1,8 +1,8 @@
-import AppLayout from "#layouts/AppLayout.tsx"
-import { getRelativeLocaleUrl } from "@rimelight/i18n"
+import AppLayout from "#layouts/AppLayout.tsx";
+import { getRelativeLocaleUrl } from "@rimelight/i18n";
 
 export default function AboutPage() {
-  const aboutURL = getRelativeLocaleUrl("about")
+  const aboutURL = getRelativeLocaleUrl("about");
 
   return (
     <AppLayout title="About" description="About this website">
@@ -70,5 +70,5 @@ export default function AboutPage() {
         </p>
       </div>
     </AppLayout>
-  )
+  );
 }

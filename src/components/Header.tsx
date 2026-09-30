@@ -1,21 +1,21 @@
-import { SITE_TITLE } from "#consts.ts"
-import { t, getRelativeLocaleUrl } from "@rimelight/i18n"
-import { RLButton, RLHeader, RLNavigationMenu } from "@rimelight/ui"
+import { SITE_TITLE } from "#consts.ts";
+import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { RLButton, RLHeader, RLNavigationMenu } from "@rimelight/ui";
 
 export default function Header() {
-  const homeURL = getRelativeLocaleUrl("/")
-  const blogURL = getRelativeLocaleUrl("/blog")
-  const resumeURL = getRelativeLocaleUrl("/resume")
-  const legalURL = getRelativeLocaleUrl("/legal")
-  const aboutURL = getRelativeLocaleUrl("/about")
+  const homeURL = getRelativeLocaleUrl("/");
+  const blogURL = getRelativeLocaleUrl("/blog");
+  const resumeURL = getRelativeLocaleUrl("/resume");
+  const legalURL = getRelativeLocaleUrl("/legal");
+  const aboutURL = getRelativeLocaleUrl("/about");
 
   const items = [
     { label: t("nav.home"), href: homeURL },
     { label: t("nav.blog"), description: "Blog stuff", href: blogURL },
     { label: t("nav.resume"), description: "Information about myself", href: resumeURL },
     { label: t("nav.legal"), description: "Legal Stuff", href: legalURL },
-    { label: t("nav.about"), description: "Information about the website", href: aboutURL }
-  ]
+    { label: t("nav.about"), description: "Information about the website", href: aboutURL },
+  ];
 
   return (
     <RLHeader
@@ -56,5 +56,5 @@ export default function Header() {
         </div>
       }
     />
-  )
+  );
 }

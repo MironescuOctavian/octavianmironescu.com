@@ -1,27 +1,27 @@
-import { type Component, Show } from "solid-js"
-import { useParams } from "@solidjs/router"
-import type { JSX } from "@solidjs/web"
-import { Title, Meta } from "@solidjs/meta"
-import Header from "#components/Header.tsx"
-import Footer from "#components/Footer.tsx"
-import { RLMain, RLScrollToTop, RLToaster } from "@rimelight/ui"
-import { currentLocale } from "@rimelight/i18n"
+import { type Component, Show } from "solid-js";
+import { useParams } from "@solidjs/router";
+import type { JSX } from "@solidjs/web";
+import { Title, Meta } from "@solidjs/meta";
+import Header from "#components/Header.tsx";
+import Footer from "#components/Footer.tsx";
+import { RLMain, RLScrollToTop, RLToaster } from "@rimelight/ui";
+import { currentLocale } from "@rimelight/i18n";
 
 export interface AppLayoutProps {
-  title?: string | undefined
-  description?: string | undefined
-  noindex?: boolean | undefined
-  is404?: boolean | undefined
-  robots?: string | undefined
-  ogImageSrc?: string | undefined
-  ogImageAlt?: string | undefined
-  children?: JSX.Element | undefined
+  title?: string | undefined;
+  description?: string | undefined;
+  noindex?: boolean | undefined;
+  is404?: boolean | undefined;
+  robots?: string | undefined;
+  ogImageSrc?: string | undefined;
+  ogImageAlt?: string | undefined;
+  children?: JSX.Element | undefined;
 }
 
 export const AppLayout: Component<AppLayoutProps> = (props) => {
-  const params = useParams<{ locale?: string }>()
+  const params = useParams<{ locale?: string }>();
   if (params.locale && ["en", "ro", "pt-br"].includes(params.locale)) {
-    currentLocale.set(params.locale)
+    currentLocale.set(params.locale);
   }
 
   return (
@@ -59,7 +59,7 @@ export const AppLayout: Component<AppLayoutProps> = (props) => {
         <RLToaster />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default AppLayout
+export default AppLayout;
