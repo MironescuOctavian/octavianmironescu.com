@@ -31,12 +31,11 @@
   },
   "scripts": {
     "prepare": "vp config",
-    "generate-types": "wrangler types",
+    "generate-types": "cf workers types",
     "dev": "vp dev",
     "build": "vp build",
-    "preview": "vp build && wrangler dev",
-    "profile": "vp build && wrangler check startup",
-    "check": "pnpm audit && wrangler types && vp check --fix"
+    "preview": "vp preview",
+    "check": "pnpm audit && cf workers types && vp check --fix"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "1.61.0",
