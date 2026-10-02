@@ -89,7 +89,11 @@ export default defineConfig({
 
     security({ domain: "octavianmironescu.com" }),
 
-    auth(),
+    auth({
+      roleGuards: {
+        "/admin": ["admin", "owner"],
+      },
+    }),
 
     i18n({
       locales: ["en", "ro", "pt-br"],

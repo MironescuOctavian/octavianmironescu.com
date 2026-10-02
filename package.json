@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "1.62.3",
-    "@rimelight/auth": "0.0.22",
+    "@rimelight/auth": "0.0.23",
     "@rimelight/cms": "0.0.29",
     "@rimelight/i18n": "0.0.28",
     "@rimelight/security": "0.0.35",

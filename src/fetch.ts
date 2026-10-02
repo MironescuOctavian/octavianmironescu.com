@@ -12,13 +12,7 @@ app.use(security());
 app.use(devOnly);
 app.use(ratelimit());
 app.use(construction());
-app.use(
-  auth({
-    roleGuards: {
-      "/admin": ["admin", "owner"],
-    },
-  }),
-);
+app.use(auth());
 
 app.route("/api", api);
 app.use(i18n());
