@@ -1,5 +1,9 @@
-import { Loading } from "solid-js";
-import { Router } from "./router";
+﻿import { Loading } from "solid-js";
+import { pageRoutes } from "virtual:file-routes";
+import { createRouter } from "@solidjs/router";
+import { fileRoutes } from "@solidjs/router/fs";
+
+const Router = createRouter({ routes: fileRoutes(pageRoutes) });
 
 export default function App() {
   return (
