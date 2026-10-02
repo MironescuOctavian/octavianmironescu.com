@@ -1,7 +1,7 @@
-import { type Component, Show } from "solid-js";
+import { type Component } from "solid-js";
 import { useParams } from "@solidjs/router";
-import type { JSX } from "@solidjs/web";
-import { Title, Meta } from "@solidjs/meta";
+import { type JSX, useHead } from "@solidjs/web";
+import { createSeoHead } from "@rimelight/seo/head";
 import Header from "#components/Header.tsx";
 import Footer from "#components/Footer.tsx";
 import { RLMain, RLScrollToTop, RLToaster } from "@rimelight/ui";
@@ -24,28 +24,20 @@ export const AppLayout: Component<AppLayoutProps> = (props) => {
     currentLocale.set(params.locale);
   }
 
+  useHead(
+    () =>
+      createSeoHead({
+        title: props.title,
+        description: props.description,
+        noindex: props.noindex,
+        robots: props.robots,
+        ogImage: props.ogImageSrc
+          ? { src: props.ogImageSrc, alt: props.ogImageAlt ?? "" }
+          : undefined,
+      }).tags,
+  );
   return (
     <>
-      <Show when={props.title}>
-        <Title>{props.title}</Title>
-      </Show>
-      <Show when={props.description}>
-        <Meta name="description" content={props.description} />
-      </Show>
-      <Show when={props.noindex}>
-        <Meta name="robots" content="noindex, nofollow" />
-      </Show>
-      <Show when={props.robots}>
-        <Meta name="robots" content={props.robots} />
-      </Show>
-      <Show when={props.ogImageSrc}>
-        <Meta property="og:image" content={props.ogImageSrc} />
-        <Meta name="twitter:image" content={props.ogImageSrc} />
-      </Show>
-      <Show when={props.ogImageAlt}>
-        <Meta property="og:image:alt" content={props.ogImageAlt} />
-      </Show>
-
       <div class="isolate flex flex-col min-h-screen">
         <Header />
 

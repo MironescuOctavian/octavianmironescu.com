@@ -20,6 +20,12 @@ export default defineConfig({
     ],
     env: {
       CONSTRUCTION_MODE: bindings.text("true"),
+      DB: bindings.d1({
+        id: "5a1db703-9438-4880-9770-490548e07814",
+        dev: {
+          remote: true,
+        },
+      }),
       BLOB: bindings.r2({
         name: "octavianmironescu-dot-com",
         dev: {
