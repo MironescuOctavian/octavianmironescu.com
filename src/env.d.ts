@@ -2,7 +2,6 @@
 /// <reference types="vite-plus/client" />
 /// <reference types="@solidjs/vite-plugin/virtual-solid-manifest" />
 /// <reference types="filesystem-routing/types" />
-/// <reference types="../file-routes.d.ts" />
 
 declare module "cloudflare:workers" {
   export const env: import("../cloudflare.config").Env;
