@@ -6,11 +6,8 @@ minimumReleaseAgeStrict: true
 minimumReleaseAgeExclude:
   - "@rimelight/*"
 overrides:
-  miniflare: "5.20260926.0-alpha"
-  workerd: "1.20260926.1"
   # Vulnerability Fixes
   esbuild: ">=0.25.0"
-  undici: ">=8.10.2"
 allowBuilds:
   better-sqlite3: true
   esbuild: true
