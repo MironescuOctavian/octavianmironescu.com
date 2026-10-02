@@ -10,11 +10,6 @@ export default defineConfig({
     },
     observability: {
       enabled: true,
-      logs: {
-        enabled: true,
-        headSamplingRate: 1,
-        invocationLogs: true,
-      },
       traces: {
         enabled: true,
       },
