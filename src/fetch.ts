@@ -32,11 +32,8 @@ app.onError((err, c) => {
   return c.json({ error: "Internal Server Error", message: err.message }, 500);
 });
 
-// Fall through all unmatched requests to Solid's SSR page renderer
 app.all("*", (c) => handleRequest(c.req.raw));
 
 export default {
-  fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    return Promise.resolve(app.fetch(request, env, ctx));
-  },
+  fetch: app.fetch,
 };
