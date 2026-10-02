@@ -8,6 +8,10 @@
   "legal": {
     "lastUpdatedOn": "Last updated on"
   },
+  "blog": {
+    "title": "Octavian Mironescu",
+    "description": "Personal website of Octavian Mironescu"
+  },
   "languages": {
     "en": "English",
     "ro": "Română",

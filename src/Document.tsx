@@ -7,11 +7,7 @@ import { getHtmlLang } from "@rimelight/i18n";
 import "virtual:uno.css";
 
 export default function Document(props: ParentProps) {
-  useHead([
-    ...createSeoHead().tags,
-    ...createSecurityHead().tags,
-    ...createUiHead().tags,
-  ]);
+  useHead([...createSeoHead().tags, ...createSecurityHead().tags, ...createUiHead().tags]);
 
   return (
     <html lang={getHtmlLang()}>

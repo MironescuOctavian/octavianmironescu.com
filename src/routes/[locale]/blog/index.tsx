@@ -1,7 +1,6 @@
 import AppLayout from "#layouts/AppLayout.tsx";
 import FormattedDate from "#components/FormattedDate.tsx";
-import { SITE_DESCRIPTION, SITE_TITLE } from "#consts.ts";
-import { getLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { getLocale, getRelativeLocaleUrl, t } from "@rimelight/i18n";
 import { useParams } from "@solidjs/router";
 import { getBlogPosts } from "#utils/content.ts";
 
@@ -14,7 +13,10 @@ export default function BlogIndexPage() {
       .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return (
-    <AppLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+    <AppLayout
+      title={t("blog.title") || "Octavian Mironescu"}
+      description={t("blog.description") || "Personal website of Octavian Mironescu"}
+    >
       <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         <section>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none p-0 m-0">

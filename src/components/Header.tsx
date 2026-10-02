@@ -1,4 +1,3 @@
-import { SITE_TITLE } from "#consts.ts";
 import { t, getRelativeLocaleUrl } from "@rimelight/i18n";
 import { RLButton, RLHeader, RLNavigationMenu } from "@rimelight/ui";
 
@@ -24,7 +23,7 @@ export default function Header() {
       left={
         <h2 class="m-0 text-sm sm:text-base md:text-lg">
           <a href="/" class="no-underline">
-            {SITE_TITLE}
+            Octavian Mironescu
           </a>
         </h2>
       }
