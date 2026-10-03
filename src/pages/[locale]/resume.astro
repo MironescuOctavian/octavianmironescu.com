@@ -261,7 +261,7 @@ const certifications: Certification[] = []
       <section class="flex flex-col gap-4">
         <header class="flex flex-col gap-4">
           <h2 class="text-3xl font-bold text-white tracking-tight">Skills</h2>
-          <hr class="border-t w-full" />
+          <hr class="border-t border-green-900 w-full" />
         </header>
 
         <div class="flex flex-row gap-4">
@@ -280,7 +280,7 @@ const certifications: Certification[] = []
       <!-- Technologies & Tools Section -->
       <section class="flex flex-col gap-4">
         <h2 class="text-3xl font-bold text-white tracking-tight">Technologies & Tools</h2>
-        <hr class="border-t w-full" />
+        <hr class="border-t border-green-900 w-full" />
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {techCategories.map((category) => (
             <div class="flex flex-col gap-4">
@@ -302,7 +302,7 @@ const certifications: Certification[] = []
       <section class="flex flex-col gap-6">
         <header class="flex flex-col gap-4">
           <h2 class="text-3xl font-bold text-white tracking-tight">Experience</h2>
-          <hr class="border-t w-full" />
+          <hr class="border-t border-green-900 w-full" />
         </header>
 
         {experiences.map((experience) => (
@@ -337,7 +337,7 @@ const certifications: Certification[] = []
       <section class="flex flex-col gap-4">
         <header class="flex flex-col gap-4">
           <h2 class="text-3xl font-bold text-white tracking-tight">Education</h2>
-          <hr class="border-t w-full" />
+          <hr class="border-t border-green-900 w-full" />
         </header>
 
         {educationList.map((education) => (
@@ -353,7 +353,7 @@ const certifications: Certification[] = []
       <section class="flex flex-col gap-4">
         <header class="flex flex-col gap-4">
           <h2 class="text-3xl font-bold text-white tracking-tight">Projects</h2>
-          <hr class="border-t w-full" />
+          <hr class="border-t border-green-900 w-full" />
         </header>
 
         {projects.map((project) => (
@@ -375,7 +375,7 @@ const certifications: Certification[] = []
       <section class="flex flex-col gap-4">
         <header class="flex flex-col gap-4">
           <h2 class="text-3xl font-bold text-white tracking-tight">Certifications</h2>
-          <hr class="border-t w-full" />
+          <hr class="border-t border-green-900 w-full" />
         </header>
 
         {certifications.map((certification) => (
@@ -422,7 +422,7 @@ const certifications: Certification[] = []
             <span class="i-mdi-account text-base"/>
             <h2 id="resume-sidebar-about-me" class="font-bold text-sm">ABOUT ME</h2>
           </div>
-          <hr/>
+          <hr class="border-green-900"/>
         </header>
 
         <dl class="flex flex-col gap-2 text-sm">
@@ -438,7 +438,7 @@ const certifications: Certification[] = []
                   </a>
                 </dd>
               </div>
-              <hr/>
+              <hr class="border-green-900"/>
             </>
           ))}
         </dl>
@@ -451,7 +451,7 @@ const certifications: Certification[] = []
             <span class="text-gray i-mdi-translate text-base"/>
             <h4 id="resume-sidebar-languages" class="font-bold text-sm">LANGUAGES</h4>
           </div>
-          <hr />
+          <hr class="border-green-900" />
         </header>
             <dl class="flex flex-col gap-2 text-sm">
               {languagesSpoken.map((language) => (
@@ -459,7 +459,7 @@ const certifications: Certification[] = []
                 <dt class="font-bold">{language.label}</dt>
                 <dd class="text-gray">{language.value}</dd>
               </div>
-              <hr/>
+              <hr class="border-green-900"/>
               ))}
             </dl>
       </section>

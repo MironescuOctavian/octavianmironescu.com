@@ -1,5 +1,6 @@
 ---
 import AppLayout from '#layouts/AppLayout.astro';
+import Marquee from '#components/Marquee.astro';
 
 // Social links configuration
 interface SocialLink {
@@ -56,7 +57,6 @@ const services: ServiceItem[] = [
   {
     icon: 'i-mdi-web',
     title: 'Web Development',
-    isOpen: true,
     points: [
       'Single Page Applications (SPAs)',
       'Landing pages and business websites',
@@ -133,7 +133,7 @@ const projectBtnClass =
   <div class="w-full">
     <!-- Hero Section -->
     <section class="flex flex-col p-12 w-full">
-      <p class="text-2xl">Hi, I'm Mironescu Octavian</p>
+      <p class="text-2xl text-green-500 font-medium mb-1">Hi, I'm Mironescu Octavian</p>
       <header class="flex md:flex-row flex-col justify-start items-center gap-6 mt-2">
         <h1 class="text-white font-bold text-6xl">Software Developer</h1>
         <p class="text-3xl">
@@ -158,6 +158,7 @@ const projectBtnClass =
       </ul>
 
       <!-- Tech Stack Icons Showcase -->
+      <Marquee/>
       <ul class="flex flex-wrap gap-6 items-center justify-start">
         {techStackIcons.map((icon) => (
           <li class="flex items-center justify-center w-10 h-10 py-6">
@@ -168,12 +169,14 @@ const projectBtnClass =
     </section>
 
     <!-- What I Do Section -->
-    <section class="flex flex-col lg:flex-row items-center gap-8 w-full px-12 py-8">
-      <!-- Left: Service Accordions -->
-      <div class="flex flex-col gap-4 w-full lg:w-1/2 min-w-0">
+    <section class="flex flex-col w-full px-12 py-12 gap-8">
+      <div class="flex flex-col w-full gap-0" >
+        <span class="text-lg text-green-500 font-medium mb-1">My skills</span>
         <h2 class="text-4xl font-bold text-white mb-2">What I do?</h2>
-
-        <div class="flex flex-col gap-4">
+      </div>
+      <div class="flex flex-col lg:flex-row gap-8 lg:items-start">
+        <!-- Left: Service Accordions -->
+        <div id="what-i-do-services" class="flex flex-col gap-4 w-full lg:w-1/2 min-w-0">
           {services.map((service) => (
             <details class="border border-green-900 rounded-xl overflow-hidden bg-black/20" open={service.isOpen}>
               <summary class="flex items-center gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-green-950/20 transition-colors">
@@ -191,35 +194,36 @@ const projectBtnClass =
             </details>
           ))}
         </div>
-      </div>
 
-      <!-- Right: GitHub Activity Card (replacing matrix canvas position) -->
-      <div class="w-full lg:w-1/2 flex flex-col justify-center min-w-0">
-        <div class="flex items-baseline justify-between mb-4">
-          <h3 class="text-2xl font-bold text-white flex items-center gap-2">
-            <span class="i-mdi-github w-6 h-6 text-green-500 inline-block" />
-            GitHub Activity
-          </h3>
-          <a
-            href="https://github.com/MironescuOctavian"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-xs font-medium text-gray-400 hover:text-green-400 transition-colors flex items-center gap-1"
-          >
-            @MironescuOctavian
-            <span class="i-mdi-arrow-top-right w-4 h-4 inline-block" />
-          </a>
-        </div>
+        <!-- Right: GitHub Activity Card -->
+        <div class="flex flex-col w-full lg:w-1/2 min-w-0">
+          <div id="what-i-do-github-card" class="border border-green-900 rounded-xl overflow-hidden bg-black/20 flex flex-col">
+            <!-- Header -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-green-900/60 bg-green-950/10 shrink-0">
+              <div class="flex items-center gap-3">
+                <span class="w-6 h-6 text-green-500 inline-block shrink-0 i-mdi-github" />
+                <h3 class="text-white text-lg font-medium">GitHub Activity</h3>
+              </div>
+              <a
+                href="https://github.com/MironescuOctavian"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs font-medium text-gray-400 hover:text-green-400 transition-colors flex items-center gap-1"
+              >
+                @MironescuOctavian
+                <span class="i-mdi-arrow-top-right w-4 h-4 inline-block" />
+              </a>
+            </div>
 
-        <!-- Activity Heatmap Container -->
-        <div class="border border-green-900 rounded-2xl p-5 bg-black/20 flex flex-col items-center justify-center overflow-hidden">
-          <div class="w-full overflow-x-auto pb-1">
-            <img
-              src="https://ghchart.rshah.org/16a34a/MironescuOctavian"
-              alt="MironescuOctavian GitHub contribution calendar"
-              class="w-full min-w-[580px] h-auto object-contain"
-              loading="lazy"
-            />
+            <!-- Image area — flex-1 + min-h-0 + overflow-hidden so image fills available space and never overflows -->
+            <div class="flex-1 min-h-0 p-5 flex items-center justify-center overflow-hidden">
+              <img
+                src="https://ghchart.rshah.org/16a34a/MironescuOctavian"
+                alt="MironescuOctavian GitHub contribution calendar"
+                class="w-full max-h-full h-auto object-contain"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -227,8 +231,8 @@ const projectBtnClass =
 
     <!-- Projects Section -->
     <section id="projects" class="py-12 px-12 border-t border-green-900/60 text-white">
-      <h2 class="text-lg text-green-500 font-medium mb-1">My work</h2>
-      <h3 class="text-4xl md:text-5xl font-bold mb-8">Projects</h3>
+      <span class="text-lg text-green-500 font-medium mb-1">My work</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-8">Projects</h2>
 
       <!-- Projects Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -267,22 +271,24 @@ const projectBtnClass =
       </div>
 
       <!-- More Projects Link -->
-      <a
-        href="https://github.com/MironescuOctavian?tab=repositories"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 mt-10 text-gray-300 hover:text-white border border-green-900 hover:border-green-600 p-3.5 rounded-full bg-black/40 hover:bg-green-950/20 hover:scale-[1.01] transition-all"
-      >
-        <span class="text-base font-medium">More projects on GitHub</span>
-        <span class="i-mdi-github text-xl text-green-500" />
-      </a>
+      <div class="flex items-center justify-center">
+        <a
+          href="https://github.com/MironescuOctavian?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 mt-10 text-gray-300 hover:text-white border border-green-900 hover:border-green-600 p-3.5 w-md rounded-full bg-black/40 hover:bg-green-950/20 hover:scale-[1.01] transition-all"
+        >
+          <span class="text-base font-medium">More projects on GitHub</span>
+          <span class="i-mdi-github text-xl text-green-500" />
+        </a>
+      </div>
     </section>
 
     <!-- Contact Section  -->
     <section id="contact" class="w-full py-12 px-12 border-t border-green-900/60 text-white">
       <div class="w-full">
-        <h2 class="text-lg text-green-500 font-medium mb-1">Let's talk</h2>
-        <h3 class="text-4xl md:text-5xl font-bold mb-6">Contact</h3>
+        <span class="text-lg text-green-500 font-medium mb-1">Let's talk</span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">Contact</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Contact Info -->
@@ -303,14 +309,14 @@ const projectBtnClass =
           </div>
 
           <!-- Contact Form -->
-          <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="flex flex-col gap-4">
-            <label for="name">Name
-              <input type="text" name="name" placeholder="Name" required class={inputClass} />
+          <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="flex flex-col gap-4 items-right">
+            <label class="flex flex-col gap-2" for="name">Name:
+              <input type="text" name="name" placeholder="Name" required class={inputClass}  />
             </label>
-            <label for="email">Email
+            <label class="flex flex-col gap-2" for="email">Email:
               <input type="email" name="email" placeholder="Email" required class={inputClass} />
             </label>
-            <label for="message">Message
+            <label class="flex flex-col gap-2" for="message">Message:
               <textarea name="message" placeholder="Message" rows="5" required class:list={[inputClass, 'resize-none']}></textarea>
             </label>
             <button type="submit" class="px-6 py-3 bg-green-950/60 border border-green-700 hover:border-green-500 text-white font-medium rounded-xl hover:bg-green-900/60 transition-colors cursor-pointer">
@@ -332,3 +338,27 @@ const projectBtnClass =
     transform: rotate(180deg);
   }
 </style>
+
+<script>
+  // Sync GitHub card height to match the services column on lg+ screens.
+  // Pure CSS cannot reliably prevent an image's intrinsic size from inflating
+  // its ancestor flex item, so we measure and apply the height explicitly.
+  const LG = 1024; // matches Tailwind's lg breakpoint
+
+  function syncGithubCardHeight() {
+    const services = document.getElementById('what-i-do-services');
+    const card = document.getElementById('what-i-do-github-card');
+    if (!services || !card) return;
+
+    // Reset first so we measure the left side at its natural height
+    card.style.height = '';
+
+    if (window.innerWidth >= LG) {
+      card.style.height = services.offsetHeight + 'px';
+    }
+  }
+
+  // Run after the page renders and on every resize
+  syncGithubCardHeight();
+  window.addEventListener('resize', syncGithubCardHeight);
+</script>
