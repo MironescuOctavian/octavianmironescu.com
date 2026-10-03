@@ -258,8 +258,8 @@ importers:
         specifier: 0.0.23
         version: 0.0.23(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))
       '@rimelight/cms':
-        specifier: 0.0.30
-        version: 0.0.30(cac@7.0.0)(rolldown@1.2.8)(solid-js@2.0.0-rc.11)(srvx@1.0.4)(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))(vite@8.3.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))
+        specifier: 0.0.31
+        version: 0.0.31(cac@7.0.0)(rolldown@1.2.8)(solid-js@2.0.0-rc.11)(srvx@1.0.4)(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))(vite@8.3.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))(zod@4.6.5)
       '@rimelight/i18n':
         specifier: 0.0.29
         version: 0.0.29(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))
@@ -1602,8 +1602,8 @@ packages:
     peerDependencies:
       vite-plus: ^1.0.0
 
-  '@rimelight/cms@0.0.30':
-    resolution: {integrity: sha512-8tbQfCj9jTZlq9a3arRXv7YdJu96Dk1yTqAqjT3osG9/nb73aSpCvsTmfdwj9gEGizS9qBFqn6AvyqLbLTn+SQ==}
+  '@rimelight/cms@0.0.31':
+    resolution: {integrity: sha512-0vbDXgo3GqXE4dXFe/nWNDBELoEuS1K6Z1RSbj+jNXXCsA1bA/Q3McM/vWaHIAtyN953tbY6YUoLjXNgsKRxsQ==}
     engines: {node: '>=26.10.0'}
     peerDependencies:
       solid-js: '>=2.0.0-rc.11'
@@ -2499,101 +2499,6 @@ packages:
   drizzle-kit@1.0.0-rc.4:
     resolution: {integrity: sha512-KZCpjRyu+oYHLj/UJogfFlOkWhHVkaEI2EOT1U3NDVXUzLoTyPjqwFxwOrlQxsY6jzRyxcz4EacqboGfhEeYrA==}
     hasBin: true
-
-  drizzle-orm@0.45.3:
-    resolution: {integrity: sha512-CAloER21cDdcgZ1OmjrZX82EeRNsdP+y0onX/eyoYDaYzki/adrAa91lzM5jWh7zZPK4qUbw/6LGv9J+A+uizA==}
-    peerDependencies:
-      '@aws-sdk/client-rds-data': '>=3'
-      '@cloudflare/workers-types': '>=4'
-      '@electric-sql/pglite': '>=0.2.0'
-      '@libsql/client': '>=0.10.0'
-      '@libsql/client-wasm': '>=0.10.0'
-      '@neondatabase/serverless': '>=0.10.0'
-      '@netlify/db': '>=0.4.0'
-      '@op-engineering/op-sqlite': '>=2'
-      '@opentelemetry/api': ^1.4.1
-      '@planetscale/database': '>=1.13'
-      '@prisma/client': '*'
-      '@tidbcloud/serverless': '*'
-      '@types/better-sqlite3': '*'
-      '@types/pg': '*'
-      '@types/sql.js': '*'
-      '@upstash/redis': '>=1.34.7'
-      '@vercel/postgres': '>=0.8.0'
-      '@xata.io/client': '*'
-      better-sqlite3: '>=7'
-      bun-types: '*'
-      expo-sqlite: '>=14.0.0'
-      gel: '>=2'
-      knex: '*'
-      kysely: '*'
-      mysql2: '>=2'
-      pg: '>=8'
-      postgres: '>=3'
-      prisma: '*'
-      sql.js: '>=1'
-      sqlite3: '>=5'
-    peerDependenciesMeta:
-      '@aws-sdk/client-rds-data':
-        optional: true
-      '@cloudflare/workers-types':
-        optional: true
-      '@electric-sql/pglite':
-        optional: true
-      '@libsql/client':
-        optional: true
-      '@libsql/client-wasm':
-        optional: true
-      '@neondatabase/serverless':
-        optional: true
-      '@netlify/db':
-        optional: true
-      '@op-engineering/op-sqlite':
-        optional: true
-      '@opentelemetry/api':
-        optional: true
-      '@planetscale/database':
-        optional: true
-      '@prisma/client':
-        optional: true
-      '@tidbcloud/serverless':
-        optional: true
-      '@types/better-sqlite3':
-        optional: true
-      '@types/pg':
-        optional: true
-      '@types/sql.js':
-        optional: true
-      '@upstash/redis':
-        optional: true
-      '@vercel/postgres':
-        optional: true
-      '@xata.io/client':
-        optional: true
-      better-sqlite3:
-        optional: true
-      bun-types:
-        optional: true
-      expo-sqlite:
-        optional: true
-      gel:
-        optional: true
-      knex:
-        optional: true
-      kysely:
-        optional: true
-      mysql2:
-        optional: true
-      pg:
-        optional: true
-      postgres:
-        optional: true
-      prisma:
-        optional: true
-      sql.js:
-        optional: true
-      sqlite3:
-        optional: true
 
   drizzle-orm@1.0.0-rc.4:
     resolution: {integrity: sha512-BT+pf+qoiYHqltoA88Jmf6ilGMXPlpfE0hEJKc2adRtMCAl25Swk/t5gXcWxZNAwdtf3F5gCd2FpeOyP/pT0Hw==}
@@ -4334,13 +4239,13 @@ snapshots:
     dependencies:
       vite-plus: 1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1)
 
-  '@rimelight/cms@0.0.30(cac@7.0.0)(rolldown@1.2.8)(solid-js@2.0.0-rc.11)(srvx@1.0.4)(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))(vite@8.3.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))':
+  '@rimelight/cms@0.0.31(cac@7.0.0)(rolldown@1.2.8)(solid-js@2.0.0-rc.11)(srvx@1.0.4)(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))(vite@8.3.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))(zod@4.6.5)':
     dependencies:
       '@rimelight/auth': 0.0.23(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))
       '@rimelight/i18n': 0.0.29(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))
       '@rimelight/ui': 0.0.76(cac@7.0.0)(rolldown@1.2.8)(solid-js@2.0.0-rc.11)(srvx@1.0.4)(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))(vite@8.3.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))
       '@solidjs/web': 2.0.0-rc.11(solid-js@2.0.0-rc.11)
-      drizzle-orm: 0.45.3
+      drizzle-orm: 1.0.0-rc.4(zod@4.6.5)
       solid-js: 2.0.0-rc.11
       sortablejs: 1.15.7
       vite-plus: 1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1)
@@ -4348,17 +4253,32 @@ snapshots:
       - '@aws-sdk/client-rds-data'
       - '@cloudflare/workers-types'
       - '@devframes/agentic'
+      - '@effect/sql-d1'
+      - '@effect/sql-libsql'
+      - '@effect/sql-mysql2'
+      - '@effect/sql-pg'
+      - '@effect/sql-pglite'
+      - '@effect/sql-sqlite-bun'
+      - '@effect/sql-sqlite-do'
+      - '@effect/sql-sqlite-node'
+      - '@effect/sql-sqlite-wasm'
       - '@electric-sql/pglite'
       - '@libsql/client'
       - '@libsql/client-wasm'
       - '@neondatabase/serverless'
-      - '@netlify/db'
       - '@op-engineering/op-sqlite'
       - '@opentelemetry/api'
       - '@planetscale/database'
-      - '@prisma/client'
+      - '@sinclair/typebox'
+      - '@sqlitecloud/drivers'
       - '@tidbcloud/serverless'
+      - '@tursodatabase/database'
+      - '@tursodatabase/database-common'
+      - '@tursodatabase/database-wasm'
+      - '@tursodatabase/serverless'
+      - '@tursodatabase/sync'
       - '@types/better-sqlite3'
+      - '@types/mssql'
       - '@types/pg'
       - '@types/sql.js'
       - '@unocss/astro'
@@ -4367,24 +4287,26 @@ snapshots:
       - '@upstash/redis'
       - '@vercel/postgres'
       - '@xata.io/client'
+      - arktype
       - better-sqlite3
       - bun-types
       - cac
+      - effect
       - expo-sqlite
-      - gel
-      - knex
-      - kysely
+      - mssql
       - mysql2
       - ocache
       - pg
       - postgres
-      - prisma
       - rolldown
       - rollup
       - sql.js
       - sqlite3
       - srvx
+      - typebox
+      - valibot
       - vite
+      - zod
 
   '@rimelight/config@0.0.32': {}
 
@@ -5132,8 +5054,6 @@ snapshots:
       esbuild: 0.25.12
       get-tsconfig: 4.14.3
       jiti: 2.7.0
-
-  drizzle-orm@0.45.3: {}
 
   drizzle-orm@1.0.0-rc.4(zod@4.6.5):
     optionalDependencies:

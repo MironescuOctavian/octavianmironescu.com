@@ -44,7 +44,7 @@
   "dependencies": {
     "@cloudflare/vite-plugin": "1.62.3",
     "@rimelight/auth": "0.0.23",
-    "@rimelight/cms": "0.0.30",
+    "@rimelight/cms": "0.0.31",
     "@rimelight/i18n": "0.0.29",
     "@rimelight/security": "0.0.36",
     "@rimelight/seo": "0.0.27",
