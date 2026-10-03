@@ -34,7 +34,6 @@ export default defineConfig({
     solid({
       start: true,
       ssr: true,
-      extensions: [".jsx", ".tsx"],
     }),
 
     fileRoutes({ types: true }),
