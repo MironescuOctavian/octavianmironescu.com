@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import contactRoutes from "./routes/contact";
 
 const api = new Hono()
   .get("/health", (c) => {
@@ -6,7 +7,8 @@ const api = new Hono()
   })
   .get("/", (c) => {
     return c.json({ name: "octavianmironescu.com API", status: "online" });
-  });
+  })
+  .route("/contact", contactRoutes);
 
 export type ApiType = typeof api;
 export default api;

@@ -1,4 +1,19 @@
 {
+  "page_contact": {
+    "title": "Contact Us",
+    "description": "Get in touch with Octavian Mironescu directly.",
+    "hero_title": "Get in Touch",
+    "hero_description": "Have a question, proposal, or want to collaborate? Send a message directly.",
+    "contact_form_name_label": "Your Name *",
+    "contact_form_email_label": "Email Address *",
+    "contact_form_subject_label": "Subject (Optional)",
+    "contact_form_message_label": "Message *",
+    "contact_form_send_button": "Send Message",
+    "contact_form_placeholder_name": "Jane Doe",
+    "contact_form_placeholder_email": "jane@example.com",
+    "contact_form_placeholder_subject": "How can I help you?",
+    "contact_form_placeholder_message": "Write your message here..."
+  },
   "nav": {
     "home": "Home",
     "blog": "Blog",

@@ -1,4 +1,19 @@
 {
+  "page_contact": {
+    "title": "Entre em contato",
+    "description": "Entre em contato com Octavian Mironescu diretamente.",
+    "hero_description": "Tem uma pergunta, proposta ou quer colaborar? Envie uma mensagem diretamente.",
+    "hero_title": "Entre em contato",
+    "contact_form_email_label": "Endereço de e-mail *",
+    "contact_form_message_label": "Mensagem *",
+    "contact_form_name_label": "Seu nome *",
+    "contact_form_placeholder_email": "joao@exemplo.com",
+    "contact_form_placeholder_message": "Escreva sua mensagem aqui...",
+    "contact_form_placeholder_name": "João Silva",
+    "contact_form_placeholder_subject": "Como posso ajudar?",
+    "contact_form_send_button": "Enviar mensagem",
+    "contact_form_subject_label": "Assunto (opcional)"
+  },
   "nav": {
     "home": "Início",
     "blog": "Blog",

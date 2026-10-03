@@ -20,6 +20,8 @@ export default defineConfig({
     ],
     env: {
       CONSTRUCTION_MODE: bindings.text("true"),
+      EMAIL_DOMAIN: bindings.text("octavianmironescu.com"),
+      CONTACT_OWNER_EMAIL: bindings.text("owner@octavianmironescu.com"),
       DB: bindings.d1({
         id: "5a1db703-9438-4880-9770-490548e07814",
         dev: {
@@ -30,6 +32,18 @@ export default defineConfig({
         name: "octavianmironescu-dot-com",
         dev: {
           remote: true,
+        },
+      }),
+      EMAIL: bindings.sendEmail({
+        dev: {
+          remote: true,
+        },
+      }),
+      MY_RATE_LIMITER: bindings.rateLimit({
+        namespace: "1001",
+        simple: {
+          limit: 100,
+          period: 60,
         },
       }),
       ASSETS: bindings.assets(),
