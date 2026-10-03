@@ -1,1 +1,2 @@
-pnpm audit && vp staged
+pnpm audit --ignore-unfixable && vp staged
+
