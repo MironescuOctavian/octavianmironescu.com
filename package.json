@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "description": "Octa's WIP SITE",
+  "keywords": [
+    "solid",
+    "typescript"
+  ],
   "homepage": "https://octavianmironescu.com",
   "bugs": {
     "url": "https://github.com/MironescuOctavian/octavianmironescu.com/issues"
@@ -22,46 +26,48 @@
       "./src/*.ts",
       "./src/*.tsx",
       "./src/*/index.ts",
-      "./src/*/index.tsx",
-      "./src/*/index.astro"
+      "./src/*/index.tsx"
     ]
   },
   "scripts": {
     "prepare": "vp config",
-    "generate-types": "wrangler types",
-    "astro": "astro",
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && wrangler dev",
-    "profile": "astro build && wrangler check startup",
-    "check": "pnpm audit && wrangler types && vp check --fix && astro check"
+    "generate-types": "cf workers types",
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "deploy": "vp build && wrangler deploy",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "cf d1 migrations apply octavianmironescu-dot-com --dir ./drizzle --local",
+    "db:migrate:remote": "cf d1 migrations apply octavianmironescu-dot-com --dir ./drizzle",
+    "check": "pnpm audit && cf workers types && vp check --fix"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "14.3.3",
-    "@astrojs/mdx": "8.0.2",
-    "@astrojs/solid-js": "7.0.2",
-    "@rimelight/auth": "0.0.17",
-    "@rimelight/i18n": "0.0.24",
-    "@rimelight/security": "0.0.29",
-    "@rimelight/seo": "0.0.21",
-    "@rimelight/ui": "0.0.64",
-    "astro": "7.3.4",
-    "hono": "4.13.8",
-    "solid-js": "1.9.15",
-    "wrangler": "4.136.3"
+    "@cloudflare/vite-plugin": "1.62.4",
+    "@rimelight/auth": "0.0.23",
+    "@rimelight/cms": "0.0.32",
+    "@rimelight/i18n": "0.0.30",
+    "@rimelight/security": "0.0.37",
+    "@rimelight/seo": "0.0.27",
+    "@rimelight/ui": "0.0.76",
+    "@solidjs/router": "2.0.0-next.30",
+    "@solidjs/vite-plugin": "3.0.0-next.47",
+    "@solidjs/web": "2.0.0-rc.11",
+    "drizzle-orm": "1.0.0-rc.4",
+    "hono": "4.13.12",
+    "solid-js": "2.0.0-rc.11",
+    "zod": "4.6.5"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
-    "@iconify-json/logos": "1.2.14",
-    "@iconify-json/lucide": "1.2.136",
+    "@iconify-json/logos": "1.2.15",
     "@iconify-json/mdi": "1.2.3",
-    "@rimelight/config": "0.0.25",
-    "@types/node": "26.6.2",
-    "typescript": "6.0.3",
-    "vite-plus": "1.0.0-rc.0"
+    "@rimelight/config": "0.0.34",
+    "cf": "1.0.0-beta.11",
+    "drizzle-kit": "1.0.0-rc.4",
+    "filesystem-routing": "0.4.0",
+    "typescript": "7.0.2",
+    "unocss": "66.10.5",
+    "vite-plus": "1.0.0",
+    "wrangler": "4.146.0"
   },
-  "engines": {
-    "node": ">=26.8.2"
-  },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.8.1"
 }

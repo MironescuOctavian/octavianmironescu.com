@@ -1,45 +1,29 @@
-import { Hono } from "hono"
-import { cf } from "@astrojs/cloudflare/hono"
-import { security, devOnly, ratelimit, construction } from "@rimelight/security/middleware"
-import { auth } from "@rimelight/auth/middleware"
-import api from "#api"
-import { i18n } from "@rimelight/i18n/middleware"
-import { getRelativeLocaleUrl } from "@rimelight/i18n"
-import { astro } from "astro/hono"
+import { Hono } from "hono";
+import { handleRequest } from "virtual:solid-ssr-handler";
+import { security, devOnly, ratelimit, construction } from "@rimelight/security/middleware";
+import { auth } from "@rimelight/auth/middleware";
+import { cms } from "@rimelight/cms/middleware";
+import { i18n } from "@rimelight/i18n/middleware";
+import api from "#api";
 
-const app = new Hono<{ Bindings: Env }>()
+const app = new Hono<{ Bindings: Env }>();
 
-// Middlewares
-app.use(cf())
-app.use(security())
-app.use(devOnly)
-app.use(ratelimit())
-app.use(construction())
+app.use(security());
+app.use(devOnly);
 app.use(
-  auth({
-    roleGuards: {
-      "/admin": ["admin", "owner"]
-    }
-  })
-)
+  ratelimit({
+    routes: ["/auth/sign-in", "/auth/sign-up", "/api/upload", "/api/chat", "/api/contact"],
+  }),
+);
+app.use(construction());
+app.use(auth());
+app.use(cms());
 
-// Hono API Routing
-app.route("/api", api)
+app.route("/api", api);
+app.use(i18n());
 
-// Localization & Astro Pipeline
-app.use(i18n())
-app.use(astro())
-
-// Global Error Handler
-app.onError((err, c) => {
-  console.error("[Hono Server Error]", err)
-  const isHtml = (c.req.header("accept") || "").includes("text/html")
-  if (isHtml) {
-    return c.redirect(getRelativeLocaleUrl("/500"), 302)
-  }
-  return c.json({ error: "Internal Server Error", message: err.message }, 500)
-})
+app.all("*", (c) => handleRequest(c.req.raw));
 
 export default {
-  fetch: app.fetch
-}
+  fetch: app.fetch,
+};

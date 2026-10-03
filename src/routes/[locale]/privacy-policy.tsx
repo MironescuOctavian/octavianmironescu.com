@@ -1,0 +1,14 @@
+import AppLayout from "#layouts/AppLayout.tsx";
+
+export default function PrivacyPolicyPage() {
+  return (
+    <AppLayout title="Privacy Policy" description="Privacy Policy for octavianmironescu.com">
+      <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4">Privacy Policy</h1>
+        <p class="text-neutral-400">
+          This Privacy Policy outlines how your information is collected, used, and protected.
+        </p>
+      </div>
+    </AppLayout>
+  );
+}

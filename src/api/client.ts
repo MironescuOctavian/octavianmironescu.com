@@ -1,4 +1,4 @@
-import { hc } from "hono/client"
-import type { ApiType } from "#api"
+import { hc } from "hono/client";
+import type { ApiType } from "#api";
 
-export const api = hc<ApiType>("/api")
+export const api = hc<ApiType>("/api");

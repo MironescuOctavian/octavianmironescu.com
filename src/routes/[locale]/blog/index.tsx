@@ -1,0 +1,54 @@
+import AppLayout from "#layouts/AppLayout.tsx";
+import FormattedDate from "#components/FormattedDate.tsx";
+import { getLocale, getRelativeLocaleUrl, t } from "@rimelight/i18n";
+import { useParams } from "@solidjs/router";
+import { getBlogPosts } from "#utils/content.ts";
+
+export default function BlogIndexPage() {
+  const params = useParams<{ locale?: string }>();
+  const activeLocale = () => params.locale || getLocale() || "en";
+  const posts = () =>
+    getBlogPosts()
+      .filter((post) => post.locale === activeLocale())
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  return (
+    <AppLayout
+      title={t("blog.title") || "Octavian Mironescu"}
+      description={t("blog.description") || "Personal website of Octavian Mironescu"}
+    >
+      <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <section>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 list-none p-0 m-0">
+            {posts().map((post, idx) => (
+              <li class={idx === 0 ? "col-span-full text-center mb-4" : ""}>
+                <a
+                  href={getRelativeLocaleUrl(`/blog/${post.slug}/`)}
+                  class="group block no-underline text-inherit"
+                >
+                  {post.data.heroImage && (
+                    <div class="overflow-hidden rounded-xl mb-3 shadow-sm group-hover:shadow-md transition-shadow">
+                      <img
+                        width={720}
+                        height={360}
+                        src={post.data.heroImage}
+                        alt=""
+                        class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <h3 class="text-xl sm:text-2xl font-semibold m-0 group-hover:text-primary transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-sm text-neutral-500 m-0 mt-1">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </AppLayout>
+  );
+}

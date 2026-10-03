@@ -1,4 +1,19 @@
-﻿{
+{
+  "page_contact": {
+    "title": "Contactează-ne",
+    "description": "Intră în legătură cu Octavian Mironescu.",
+    "hero_description": "Ai o întrebare, o propunere sau vrei să colaborezi? Trimite-ne un mesaj direct.",
+    "hero_title": "Intră în legătură",
+    "contact_form_email_label": "Adresă de e-mail *",
+    "contact_form_message_label": "Mesaj *",
+    "contact_form_name_label": "Numele tău *",
+    "contact_form_placeholder_email": "ion@exemplu.com",
+    "contact_form_placeholder_message": "Scrie mesajul tău aici...",
+    "contact_form_placeholder_name": "Ion Popescu",
+    "contact_form_placeholder_subject": "Cum te pot ajuta?",
+    "contact_form_send_button": "Trimite mesajul",
+    "contact_form_subject_label": "Subiect (opțional)"
+  },
   "nav": {
     "home": "Acasă",
     "blog": "Blog",
@@ -8,9 +23,13 @@
   "legal": {
     "lastUpdatedOn": "Ultima actualizare pe"
   },
+  "blog": {
+    "title": "Octavian Mironescu",
+    "description": "Site-ul personal al lui Octavian Mironescu"
+  },
   "languages": {
     "en": "English",
     "ro": "Română",
-    "pt-br": "Português"
+    "pt": "Português"
   }
 }

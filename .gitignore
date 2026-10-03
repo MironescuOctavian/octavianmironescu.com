@@ -10,9 +10,6 @@ Thumbs.db
 # Dependencies
 node_modules/
 
-# Astro
-.astro/
-
 # Environment Variables
 *.env*
 !.env.example
@@ -36,11 +33,11 @@ logs/
 *.tsbuildinfo
 
 # Cloudflare
+.cloudflare/
 .wrangler/
+.cache/
 .dev.vars*
 !.dev.vars.example
-worker-configuration.d.ts
-.cache/
 
 # Drizzle
 server/db/drizzle/*.json
