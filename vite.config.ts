@@ -7,6 +7,7 @@ import { security } from "@rimelight/security/plugin";
 import { auth } from "@rimelight/auth/plugin";
 import { i18n } from "@rimelight/i18n/plugin";
 import { ui } from "@rimelight/ui/plugin";
+import { cms } from "@rimelight/cms/plugin";
 
 export default defineConfig({
   lint: {
@@ -91,5 +92,7 @@ export default defineConfig({
         },
       },
     }),
+
+    cms(),
   ],
 });
