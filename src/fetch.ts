@@ -4,7 +4,7 @@ import { security, devOnly, ratelimit, construction } from "@rimelight/security/
 import { auth } from "@rimelight/auth/middleware";
 import { cms } from "@rimelight/cms/middleware";
 import { i18n } from "@rimelight/i18n/middleware";
-import api from "#api";
+import api from "#api/server";
 
 const app = new Hono<{ Bindings: Env }>();
 
