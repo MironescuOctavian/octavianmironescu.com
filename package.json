@@ -70,8 +70,5 @@
     "vite-plus": "1.0.0",
     "wrangler": "4.145.0"
   },
-  "engines": {
-    "node": ">=26.10.0"
-  },
   "packageManager": "pnpm@12.8.1"
 }
