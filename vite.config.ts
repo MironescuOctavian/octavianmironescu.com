@@ -32,9 +32,7 @@ export default defineConfig({
     }),
 
     solid({
-      start: {
-        devtools: false,
-      },
+      start: true,
       ssr: true,
       extensions: [".jsx", ".tsx"],
     }),
