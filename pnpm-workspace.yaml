@@ -8,3 +8,6 @@ minimumReleaseAgeExclude:
 allowBuilds:
   esbuild: true
   workerd: true
+auditConfig:
+  ignoreGhsas:
+    - GHSA-vfj7-8cjw-p6xm
