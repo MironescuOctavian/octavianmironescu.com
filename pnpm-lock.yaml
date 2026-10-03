@@ -261,8 +261,8 @@ importers:
         specifier: 0.0.31
         version: 0.0.31(cac@7.0.0)(rolldown@1.2.8)(solid-js@2.0.0-rc.11)(srvx@1.0.4)(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))(vite@8.3.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))(zod@4.6.5)
       '@rimelight/i18n':
-        specifier: 0.0.29
-        version: 0.0.29(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))
+        specifier: 0.0.30
+        version: 0.0.30(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))
       '@rimelight/security':
         specifier: 0.0.36
         version: 0.0.36(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))
@@ -1645,6 +1645,13 @@ packages:
 
   '@rimelight/i18n@0.0.29':
     resolution: {integrity: sha512-Lio1x/YPtLdTaRAed21yck/3lxHh3yAyPI5XwBbBE0cEedB8xvoVwakCasZxcIsSafpc49ebLmh+Gga0yb8jbg==}
+    engines: {node: '>=26.10.0'}
+    hasBin: true
+    peerDependencies:
+      vite-plus: ^1.0.0
+
+  '@rimelight/i18n@0.0.30':
+    resolution: {integrity: sha512-9Q7ti8vHe1HMt2996Oe4TsFnmA6QBq9zo5C9xbuHoyGs0rY7fDXzHKMlEQo+m59HaDz8p5IOw4czBQM898W4ug==}
     engines: {node: '>=26.10.0'}
     hasBin: true
     peerDependencies:
@@ -4365,6 +4372,10 @@ snapshots:
   '@rimelight/config@0.0.32': {}
 
   '@rimelight/i18n@0.0.29(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))':
+    dependencies:
+      vite-plus: 1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1)
+
+  '@rimelight/i18n@0.0.30(vite-plus@1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1))':
     dependencies:
       vite-plus: 1.0.0(@types/node@26.6.3)(@vitest/ui@5.0.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.0.2)(yaml@2.9.1)
 

@@ -16,7 +16,7 @@ export default defineConfig({
     },
   },
   staged: {
-    "{package.json,pnpm-workspace.yaml,pnpm-lock.yaml}": "pnpm audit",
+    "{package.json,pnpm-workspace.yaml,pnpm-lock.yaml}": () => "pnpm audit",
     "*": "vp check --fix",
   },
   plugins: [

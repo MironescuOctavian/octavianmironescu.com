@@ -4,7 +4,7 @@ import { useLocation } from "@solidjs/router";
 const languageLabels: Record<string, string> = {
   en: "English",
   ro: "Română",
-  "pt-br": "Português",
+  pt: "Português",
 };
 
 export default function LanguagePicker() {

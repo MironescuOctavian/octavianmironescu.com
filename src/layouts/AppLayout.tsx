@@ -20,7 +20,7 @@ export interface AppLayoutProps {
 
 export const AppLayout: Component<AppLayoutProps> = (props) => {
   const params = useParams<{ locale?: string }>();
-  if (params.locale && ["en", "ro", "pt-br"].includes(params.locale)) {
+  if (params.locale && ["en", "ro", "pt"].includes(params.locale)) {
     currentLocale.set(params.locale);
   }
 
