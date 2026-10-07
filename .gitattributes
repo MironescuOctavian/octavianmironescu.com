@@ -1,0 +1,2 @@
+# Normalize text files to LF regardless of OS, matching the formatter's output.
+* text=auto eol=lf
