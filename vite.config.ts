@@ -68,7 +68,12 @@ export default defineConfig({
       ],
     }),
 
-    security({ domain: "octavianmironescu.com" }),
+    security({
+      domain: "octavianmironescu.com",
+      ratelimit: {
+        routes: ["/auth/sign-in", "/auth/sign-up", "/api/upload", "/api/chat", "/api/contact"],
+      },
+    }),
 
     auth({
       roleGuards: {

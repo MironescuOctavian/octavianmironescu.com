@@ -1,12 +1,12 @@
 import AppLayout from "#layouts/AppLayout.tsx";
 import FormattedDate from "#components/FormattedDate.tsx";
-import { getLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
+import { getCurrentLocale, getRelativeLocaleUrl } from "@rimelight/i18n";
 import { useParams } from "@solidjs/router";
 import { getLegalPolicies } from "#utils/content.ts";
 
 export default function LegalIndexPage() {
   const params = useParams<{ locale?: string }>();
-  const activeLocale = () => params.locale || getLocale() || "en";
+  const activeLocale = () => params.locale || getCurrentLocale() || "en";
   const legalPolicies = () =>
     getLegalPolicies().filter((policy) => policy.locale === activeLocale());
 

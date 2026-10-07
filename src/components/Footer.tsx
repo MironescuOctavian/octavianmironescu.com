@@ -1,4 +1,4 @@
-import { getLocale, getRelativeLocaleUrl, locales } from "@rimelight/i18n";
+import { getCurrentLocale, getRelativeLocaleUrl, getLocales } from "@rimelight/i18n";
 import { useLocation, useParams } from "@solidjs/router";
 
 const languageLabels: Record<string, string> = {
@@ -74,7 +74,7 @@ export default function Footer() {
   const params = useParams<{ locale?: string }>();
   const location = useLocation();
 
-  const activeLocale = () => params.locale || getLocale() || "en";
+  const activeLocale = () => params.locale || getCurrentLocale() || "en";
   const currentPath = () => location.pathname.replace(/^\/[^/]+/, "") || "/";
 
   const footerLinkColumns = (): FooterLinkColumn[] => [
@@ -83,7 +83,7 @@ export default function Footer() {
       links: [
         {
           label: "Branding",
-          href: getRelativeLocaleUrl(activeLocale(), "/branding"),
+          href: getRelativeLocaleUrl("/branding", { locale: activeLocale() }),
         },
       ],
     },
@@ -92,21 +92,21 @@ export default function Footer() {
       links: [
         {
           label: "Privacy Policy",
-          href: getRelativeLocaleUrl(activeLocale(), "/privacy-policy"),
+          href: getRelativeLocaleUrl("/privacy-policy", { locale: activeLocale() }),
         },
         {
           label: "Other Documents",
-          href: getRelativeLocaleUrl(activeLocale(), "/other-documents"),
+          href: getRelativeLocaleUrl("/other-documents", { locale: activeLocale() }),
         },
       ],
     },
   ];
 
   const languageOptions = (): LanguageOption[] =>
-    locales.map((lang: string) => ({
+    getLocales().map((lang: string) => ({
       code: lang,
       label: languageLabels[lang] || lang,
-      href: getRelativeLocaleUrl(lang, currentPath()),
+      href: getRelativeLocaleUrl(currentPath(), { locale: lang }),
     }));
 
   return (
@@ -115,7 +115,7 @@ export default function Footer() {
         {/* Left Section: Logo, Tagline, Copyright */}
         <div class="flex flex-col gap-3 items-center md:items-start text-center md:text-left order-last md:order-1">
           <a
-            href={getRelativeLocaleUrl(activeLocale(), "/")}
+            href={getRelativeLocaleUrl("/", { locale: activeLocale() })}
             class="inline-flex items-center"
             aria-label="Astro Home"
           >

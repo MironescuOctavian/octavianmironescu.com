@@ -1,11 +1,9 @@
 import { type Component } from "solid-js";
-import { useParams } from "@solidjs/router";
 import { type JSX, useHead } from "@solidjs/web";
 import { createSeoHead } from "@rimelight/seo/head";
 import Header from "#components/Header.tsx";
 import Footer from "#components/Footer.tsx";
 import { RLMain, RLScrollToTop, RLToaster } from "@rimelight/ui";
-import { currentLocale } from "@rimelight/i18n";
 
 export interface AppLayoutProps {
   title?: string | undefined;
@@ -19,11 +17,6 @@ export interface AppLayoutProps {
 }
 
 export const AppLayout: Component<AppLayoutProps> = (props) => {
-  const params = useParams<{ locale?: string }>();
-  if (params.locale && ["en", "ro", "pt"].includes(params.locale)) {
-    currentLocale.set(params.locale);
-  }
-
   useHead(
     () =>
       createSeoHead({

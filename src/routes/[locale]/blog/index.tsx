@@ -1,12 +1,12 @@
 import AppLayout from "#layouts/AppLayout.tsx";
 import FormattedDate from "#components/FormattedDate.tsx";
-import { getLocale, getRelativeLocaleUrl, t } from "@rimelight/i18n";
+import { getCurrentLocale, getRelativeLocaleUrl, t } from "@rimelight/i18n";
 import { useParams } from "@solidjs/router";
 import { getBlogPosts } from "#utils/content.ts";
 
 export default function BlogIndexPage() {
   const params = useParams<{ locale?: string }>();
-  const activeLocale = () => params.locale || getLocale() || "en";
+  const activeLocale = () => params.locale || getCurrentLocale() || "en";
   const posts = () =>
     getBlogPosts()
       .filter((post) => post.locale === activeLocale())

@@ -1,4 +1,4 @@
-import { getRelativeLocaleUrl, locales } from "@rimelight/i18n";
+import { getRelativeLocaleUrl, getLocales } from "@rimelight/i18n";
 import { useLocation } from "@solidjs/router";
 
 const languageLabels: Record<string, string> = {
@@ -13,9 +13,11 @@ export default function LanguagePicker() {
 
   return (
     <ul>
-      {locales.map((lang: string) => (
+      {getLocales().map((lang: string) => (
         <li>
-          <a href={getRelativeLocaleUrl(lang, currentPath())}>{languageLabels[lang] || lang}</a>
+          <a href={getRelativeLocaleUrl(currentPath(), { locale: lang })}>
+            {languageLabels[lang] || lang}
+          </a>
         </li>
       ))}
     </ul>
