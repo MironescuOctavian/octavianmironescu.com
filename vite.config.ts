@@ -45,8 +45,6 @@ export default defineConfig({
       author: "Octavian Mironescu",
       branding: {
         logo: { alt: "Octavian Mironescu" },
-        favicon: { svg: "https://cdn.octavianmironescu.com/logos/logomark_color.svg" },
-        appleTouchIcon: "https://cdn.octavianmironescu.com/logos/logomark_color.svg",
         colors: { themeColor: "#ffffff", backgroundColor: "#ffffff" },
       },
       titleTemplate: "%s | Octavian Mironescu",
@@ -83,20 +81,7 @@ export default defineConfig({
 
     i18n(),
 
-    ui({
-      logos: {
-        logomark: {
-          color: "https://cdn.octavianmironescu.com/logos/logomark_color.svg",
-          white: "https://cdn.octavianmironescu.com/logos/logomark_white.svg",
-          black: "https://cdn.octavianmironescu.com/logos/logomark_black.svg",
-        },
-        logotype: {
-          color: "https://cdn.octavianmironescu.com/logos/logotype_color.svg",
-          white: "https://cdn.octavianmironescu.com/logos/logotype_white.svg",
-          black: "https://cdn.octavianmironescu.com/logos/logotype_black.svg",
-        },
-      },
-    }),
+    ui(),
 
     cms(),
   ],
