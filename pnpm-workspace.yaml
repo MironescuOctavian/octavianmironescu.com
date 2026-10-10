@@ -1,7 +1,7 @@
-audit:
-  level: low
 saveExact: true
 autoDedupe: true
+lockfile:
+  includeResolutionSettings: true
 minimumReleaseAgeStrict: true
 minimumReleaseAgeExclude:
   - "@rimelight/*"
@@ -11,3 +11,7 @@ allowBuilds:
 auditConfig:
   ignoreGhsas:
     - GHSA-vfj7-8cjw-p6xm
+# Vulnerability Fixes
+overrides:
+  sharp: 0.35.5
+  source-map-js: 1.2.2

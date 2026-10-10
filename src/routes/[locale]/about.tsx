@@ -2,7 +2,7 @@ import AppLayout from "#layouts/AppLayout.tsx";
 import { getRelativeLocaleUrl } from "@rimelight/i18n";
 
 export default function AboutPage() {
-  const aboutURL = getRelativeLocaleUrl("about");
+  const aboutURL = getRelativeLocaleUrl("/about");
 
   return (
     <AppLayout title="About" description="About this website">
@@ -11,7 +11,10 @@ export default function AboutPage() {
           <a href="/get-started/" class="hover:text-primary underline">
             Come on!
           </a>
-          <a href={getRelativeLocaleUrl("en", "blog")} class="hover:text-primary underline">
+          <a
+            href={getRelativeLocaleUrl("/blog", { locale: "en" })}
+            class="hover:text-primary underline"
+          >
             Blog
           </a>
           <a href={aboutURL} class="hover:text-primary underline">
