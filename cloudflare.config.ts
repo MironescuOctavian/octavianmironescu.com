@@ -10,6 +10,9 @@ export default defineConfig({
       traces: {
         enabled: true,
       },
+      issues: {
+        enabled: true,
+      },
     },
     cache: {
       enabled: true,
