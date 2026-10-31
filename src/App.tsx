@@ -3,6 +3,7 @@ import { fileRoutes } from "@solidjs/router/fs";
 import { createRouter } from "@solidjs/router";
 import { Loading } from "solid-js";
 import { RLErrorBoundary } from "@rimelight/ui";
+import { RLI18n } from "@rimelight/i18n/solid";
 import { t } from "@rimelight/i18n";
 
 const Router = createRouter({ routes: fileRoutes(pageRoutes) });
@@ -19,7 +20,7 @@ export default function App() {
               </main>
             }
           >
-            {props.children}
+            <RLI18n pathname={props.location.pathname}>{props.children}</RLI18n>
           </Loading>
         </RLErrorBoundary>
       )}
