@@ -32,7 +32,7 @@ export const ContactForm: Component = () => {
     setStatus({ text: "Sending message...", tone: "muted" });
 
     const result: ContactResponse = await api.contact
-      .$post({ form: new FormData(form) as any })
+      .$post({ form: Object.fromEntries(new FormData(form)) as any })
       .then((res) => res.json() as Promise<ContactResponse>)
       .catch(() => ({ success: false }));
 
@@ -80,6 +80,7 @@ export const ContactForm: Component = () => {
           name="message"
           rows={5}
           required
+          minlength={10}
           class={`${inputClass} resize-y min-h-[120px]`}
           placeholder={t("page.contact.form.placeholder.message")}
         />

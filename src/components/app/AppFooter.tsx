@@ -48,24 +48,15 @@ const socialLinks: SocialLink[] = [
 export default function Footer() {
   const footerLinkColumns = (): FooterLinkColumn[] => [
     {
-      title: t("app.text.resources"),
-      links: [
-        {
-          label: t("app.text.branding"),
-          href: getLocaleUrl("/branding"),
-        },
-      ],
-    },
-    {
       title: t("app.text.legal"),
       links: [
         {
           label: t("app.text.privacy-policy"),
-          href: getLocaleUrl("/privacy-policy"),
+          href: getLocaleUrl("/legal/privacy-policy"),
         },
         {
           label: t("app.text.other-documents"),
-          href: getLocaleUrl("/other-documents"),
+          href: getLocaleUrl("/legal"),
         },
       ],
     },

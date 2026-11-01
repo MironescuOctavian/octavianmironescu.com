@@ -1,14 +1,14 @@
 import type { ParentProps } from "solid-js";
 import { HydrationScript, useHead } from "@solidjs/web";
 import { createDocumentHead } from "@rimelight/seo/head";
-import { getCurrentLocale } from "@rimelight/i18n";
+import { getLocaleInfo } from "@rimelight/i18n";
 import "virtual:uno.css";
 
 export default function Document(props: ParentProps) {
   useHead(createDocumentHead());
 
   return (
-    <html lang={getCurrentLocale()}>
+    <html lang={getLocaleInfo().tag} dir={getLocaleInfo().dir}>
       <head>
         <HydrationScript />
         <link rel="preconnect" href="https://challenges.cloudflare.com" />

@@ -77,6 +77,6 @@ export default defineConfig({
       },
     }),
 
-    cms({ autoMigrate: true }),
+    cms({ autoMigrate: true, devBypassAuth: true }),
   ],
 });

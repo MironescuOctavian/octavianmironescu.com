@@ -8,16 +8,13 @@ import {
   RLToaster,
   RLRouteAnnouncer,
   RLLayoutGrid,
-  RLErrorBoundary,
 } from "@rimelight/ui";
 
 export default function AppRouteLayout(props: RouteSectionProps) {
   return (
     <div class="isolate flex flex-col min-h-screen">
       <AppHeader />
-      <RLMain>
-        <RLErrorBoundary resetKey={props.location.pathname}>{props.children}</RLErrorBoundary>
-      </RLMain>
+      <RLMain>{props.children}</RLMain>
       <AppFooter />
       <RLScrollToTop />
       <RLShortcuts />

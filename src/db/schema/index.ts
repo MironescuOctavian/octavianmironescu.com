@@ -1,1 +1,2 @@
-export * from "./search.ts";
+// Custom database tables go here
+export {};

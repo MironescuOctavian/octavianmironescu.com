@@ -2,10 +2,9 @@ import { For, Show, createMemo } from "solid-js";
 import { useSearchParams } from "@solidjs/router";
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { t, getCurrentLocale } from "@rimelight/i18n";
-import { RLPageSection, RLGrid } from "@rimelight/ui";
+import { t, getCurrentLocale, getLocaleUrl } from "@rimelight/i18n";
+import { RLPageSection, RLGrid, RLPost } from "@rimelight/ui";
 import { content, type PublicEntry, type PublicTerm } from "@rimelight/cms/solid";
-import { BlogPostCard } from "#components/blog/BlogPostCard";
 
 /**
  * Published blog posts, newest first, filterable by category. Categories are CMS taxonomy
@@ -79,7 +78,25 @@ export default function BlogIndexPage() {
         </Show>
 
         <RLGrid cols={3}>
-          <For each={posts() || []}>{(post) => <BlogPostCard post={post} />}</For>
+          <For each={posts() || []}>
+            {(post) => {
+              const category = post.terms?.find((x) => x.taxonomy === "category")?.label;
+              const date = post.publishedAt || post.updatedAt;
+              return (
+                <RLPost
+                  title={t.localize(post.title)}
+                  description={
+                    t.localize(post.description ?? {}) || post.properties?.["excerpt"] || ""
+                  }
+                  date={date ? new Date(date) : undefined}
+                  image={post.properties?.["cover"] as string | Record<string, any> | undefined}
+                  badge={category ? label(category) : undefined}
+                  to={getLocaleUrl(`/blog/${post.slug}/`)}
+                  variant="ghost"
+                />
+              );
+            }}
+          </For>
         </RLGrid>
 
         <Show when={!posts() || posts()!.length === 0}>

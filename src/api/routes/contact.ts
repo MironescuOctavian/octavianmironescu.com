@@ -7,10 +7,10 @@ export interface ContactEnv {
 }
 
 const schema = z.object({
-  name: z.string().trim().min(1).max(96),
-  email: z.email().max(128),
+  name: z.string().trim().min(1, "Name is required").max(96),
+  email: z.email("Invalid email address").max(128),
   subject: z.string().trim().max(256).optional(),
-  message: z.string().trim().min(10).max(5192),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(5192),
 });
 
 export default new Hono<{ Bindings: ContactEnv }>().post("/", async (c) => {
