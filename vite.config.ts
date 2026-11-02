@@ -53,6 +53,8 @@ export default defineConfig({
     security({
       domain: "octavianmironescu.com",
       frameSrc: ["https://open.spotify.com", "https://*.spotify.com"],
+      imgSrc: ["https://placehold.co", "https://ghchart.rshah.org"],
+      directives: { "style-src-attr": ["'unsafe-inline'"] },
       crossOriginEmbedderPolicy: false,
     }),
 
