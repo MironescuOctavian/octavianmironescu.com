@@ -29,6 +29,7 @@ export default defineConfig({
       }),
       DB: bindings.d1({
         id: "5a1db703-9438-4880-9770-490548e07814",
+        dev: { remote: true },
       }),
       EMAIL: bindings.sendEmail(),
       RATE_LIMIT: bindings.rateLimit({

@@ -5,6 +5,7 @@ import { createPageHead } from "@rimelight/seo/head";
 import { PageRenderer, content, type PublicEntry } from "@rimelight/cms/solid";
 import { RLDate } from "@rimelight/ui";
 import { t, getCurrentLocale } from "@rimelight/i18n";
+import { blogCover } from "#components/app/blogCovers";
 
 /**
  * A blog post, read from the CMS delivery API (`/api/content/collections/blog/:slug`). Mentions
@@ -41,18 +42,24 @@ export default function BlogPostPage() {
       when={post()}
       fallback={<div class="p-16 text-center text-neutral-400">{t("app.loading.post")}</div>}
     >
-      <article class="max-w-4xl mx-auto px-4 py-16">
+      <article class="mx-auto max-w-5xl px-5 py-20 sm:px-8 md:py-28">
         <header class="mb-12">
-          <div class="text-sm text-primary-400 mb-2">
+          <div class="mb-4 text-xs font-semibold uppercase tracking-[.3em] text-primary-400">
             <RLDate date={post()?.publishedAt || post()?.updatedAt || new Date()} />
           </div>
-          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+          <h1 class="mb-4 text-4xl font-bold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
             {title()}
           </h1>
-          <p class="text-xl text-neutral-400 leading-relaxed">{description()}</p>
+          <p class="max-w-3xl text-lg leading-8 text-neutral-950/60">{description()}</p>
         </header>
-
-        <PageRenderer blocks={post()?.blocks ?? []} locale={activeLocale()} />
+        <img
+          src={blogCover(post()?.slug ?? "", post()?.properties?.["cover"])}
+          alt=""
+          class="mb-12 aspect-video w-full rounded-2xl border-2 border-primary-600/60 object-cover"
+        />
+        <div class="border-t-2 border-primary-600/40 pt-8">
+          <PageRenderer blocks={post()?.blocks ?? []} locale={activeLocale()} />
+        </div>
       </article>
     </Show>
   );

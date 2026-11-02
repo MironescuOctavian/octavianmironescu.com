@@ -1,24 +1,30 @@
-import { useHead } from "@solidjs/web";
+import { getRequestEvent, useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { RLButton, RLMarquee, RLContainer } from "@rimelight/ui";
-import { t } from "@rimelight/i18n";
+import { getLocaleUrl, t } from "@rimelight/i18n";
+import type { PublicEntry } from "@rimelight/cms/solid";
 import { RLLink } from "@rimelight/ui";
-import SocialLinks from "#components/app/SocialLinks";
-import { createSignal, onSettled, For } from "solid-js";
+import { SOCIAL_LINKS } from "#components/app/SocialLinks";
+import { blogCover } from "#components/app/blogCovers";
+import { createMemo, createSignal, onSettled, For, Loading, Show } from "solid-js";
 
 const tech = [
-  { name: "Java", icon: "i-logos-java" },
-  { name: "Spring Boot", icon: "i-logos-spring-icon" },
-  { name: "Kotlin", icon: "i-logos-kotlin-icon" },
-  { name: "TypeScript", icon: "i-logos-typescript-icon" },
-  { name: "Vue", icon: "i-logos-vue" },
-  { name: "SolidJS", icon: "i-logos-solidjs-icon" },
-  { name: "MongoDB", icon: "i-logos-mongodb-icon" },
-  { name: "PostgreSQL", icon: "i-logos-postgresql" },
-  { name: "Docker", icon: "i-logos-docker-icon" },
-  { name: "Cloudflare", icon: "i-logos-cloudflare-icon" },
-  { name: "Vite", icon: "i-logos-vitejs" },
-  { name: "pnpm", icon: "i-logos-pnpm" },
+  { name: "Java", icon: "i-logos-java", href: "https://www.java.com/" },
+  {
+    name: "Spring Boot",
+    icon: "i-logos-spring-icon",
+    href: "https://spring.io/projects/spring-boot",
+  },
+  { name: "Kotlin", icon: "i-logos-kotlin-icon", href: "https://kotlinlang.org/" },
+  { name: "TypeScript", icon: "i-logos-typescript-icon", href: "https://www.typescriptlang.org/" },
+  { name: "Vue", icon: "i-logos-vue", href: "https://vuejs.org/" },
+  { name: "SolidJS", icon: "i-logos-solidjs-icon", href: "https://www.solidjs.com/" },
+  { name: "MongoDB", icon: "i-logos-mongodb-icon", href: "https://www.mongodb.com/" },
+  { name: "PostgreSQL", icon: "i-logos-postgresql", href: "https://www.postgresql.org/" },
+  { name: "Docker", icon: "i-logos-docker-icon", href: "https://www.docker.com/" },
+  { name: "Cloudflare", icon: "i-logos-cloudflare-icon", href: "https://www.cloudflare.com/" },
+  { name: "Vite", icon: "i-logos-vitejs", href: "https://vite.dev/" },
+  { name: "pnpm", icon: "i-logos-pnpm", href: "https://pnpm.io/" },
 ];
 
 const techGroups = [
@@ -100,6 +106,18 @@ const packages = [
 ];
 
 export default function HomePage() {
+  const recentPosts = createMemo<PublicEntry[]>(async () => {
+    const request = getRequestEvent()?.request;
+    const path = "/api/content/collections/blog?limit=3";
+    try {
+      const response = await fetch(request ? new URL(path, request.url).toString() : path, {
+        headers: request?.headers.get("cookie") ? { cookie: request.headers.get("cookie")! } : {},
+      });
+      return response.ok ? ((await response.json()) as { entries: PublicEntry[] }).entries : [];
+    } catch {
+      return [];
+    }
+  });
   const techLabel = (key: string) => t.raw<string>(`home.sections.technologies.labels.${key}`, key);
   const projectLabel = (key: string) => t.raw<string>(`home.sections.work.labels.${key}`, key);
   const [activeTechGroup, setActiveTechGroup] = createSignal<string>("All");
@@ -232,11 +250,35 @@ export default function HomePage() {
                 </div>
               </div>
               {/* Social icons */}
-              <SocialLinks class="mt-4" />
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <For
+                  each={SOCIAL_LINKS.filter(
+                    (link) => link.ariaLabel === "GitHub" || link.ariaLabel === "LinkedIn",
+                  )}
+                >
+                  {(link) => (
+                    <RLButton
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ariaLabel={link.ariaLabel}
+                      icon={link.icon}
+                      color="primary"
+                      variant="outline"
+                      square={true}
+                      size="xl"
+                      class="rounded-xl border border-primary-700 bg-primary-950/30 text-primary-400 transition-all hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/50 hover:text-primary-200"
+                    />
+                  )}
+                </For>
+              </div>
             </div>
 
             {/* Right: floating dev icon panel */}
-            <div class="hero-icons relative hidden h-[420px] w-[340px] lg:block" aria-hidden="true">
+            <div
+              class="hero-icons relative hidden h-[420px] w-[340px] lg:block"
+              aria-label="Technologies"
+            >
               <style>{`
                 @keyframes hero-float-a {
                   0%, 100% { transform: translateY(0px); }
@@ -250,6 +292,51 @@ export default function HomePage() {
                   0%, 100% { transform: translateY(0px) rotate(0deg); }
                   50% { transform: translateY(-7px) rotate(3deg); }
                 }
+                @keyframes hero-orbit { to { transform: rotate(360deg); } }
+                @keyframes hero-pulse {
+                  0%, 100% { opacity: .35; transform: scale(.85); }
+                  50% { opacity: .9; transform: scale(1.15); }
+                }
+                .hero-orbit {
+                  position: absolute; inset: 55px 15px; border-radius: 50%;
+                  border: 1px dashed var(--rl-primary-600); opacity: .35;
+                  animation: hero-orbit 32s linear infinite;
+                }
+                .hero-orbit::after {
+                  content: ''; position: absolute; top: 14%; left: 12%;
+                  width: 7px; height: 7px; border-radius: 50%;
+                  background: var(--rl-primary-400); box-shadow: 0 0 14px var(--rl-primary-400);
+                }
+                .hero-orbit-inner { inset: 102px 62px; animation-direction: reverse; animation-duration: 22s; }
+                .hero-spark { animation: hero-pulse 3s ease-in-out infinite; }
+                .hero-spark:nth-last-child(2) { animation-delay: -1s; }
+                .hero-spark:last-child { animation-delay: -2s; }
+                .hero-icons [class^='hero-icon-'] > button {
+                  transition: box-shadow .35s ease, border-color .35s ease;
+                  box-shadow: 0 8px 24px var(--rl-primary-950);
+                }
+                .hero-icons [class^='hero-icon-']:hover,
+                .hero-icons [class^='hero-icon-']:focus-within { z-index: 10; }
+                .hero-icons [class^='hero-icon-'] > button:hover,
+                .hero-icons [class^='hero-icon-'] > button:focus-visible {
+                  border-color: var(--rl-primary-400);
+                  box-shadow: 0 0 28px var(--rl-primary-800);
+                  outline: 2px solid var(--rl-primary-400); outline-offset: 3px;
+                }
+                .hero-tooltip {
+                  position: absolute; bottom: calc(100% + 12px); left: 50%;
+                  transform: translate(-50%, 4px); width: 190px; padding: 10px 12px;
+                  border: 1px solid var(--rl-primary-600); border-radius: 10px;
+                  background: var(--rl-neutral-50); color: var(--rl-neutral-950);
+                  box-shadow: 0 8px 24px var(--rl-primary-950); font-size: 12px;
+                  line-height: 1.4; opacity: 0; visibility: hidden; pointer-events: none;
+                  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+                }
+                .hero-tooltip strong { display: block; margin-bottom: 3px; font-size: 13px; }
+                .hero-icons [class^='hero-icon-']:hover .hero-tooltip,
+                .hero-icons [class^='hero-icon-']:focus-within .hero-tooltip {
+                  opacity: 1; visibility: visible; transform: translate(-50%, 0);
+                }
                 .hero-icon-a { animation: hero-float-a 4s ease-in-out infinite; }
                 .hero-icon-b { animation: hero-float-b 5s ease-in-out infinite; }
                 .hero-icon-c { animation: hero-float-c 6s ease-in-out infinite; }
@@ -259,52 +346,114 @@ export default function HomePage() {
                 .hero-icon-g { animation: hero-float-a 4.8s ease-in-out infinite 1.6s; }
                 @media (prefers-reduced-motion: reduce) {
                   .hero-icon-a, .hero-icon-b, .hero-icon-c, .hero-icon-d,
-                  .hero-icon-e, .hero-icon-f, .hero-icon-g { animation: none; }
+                  .hero-icon-e, .hero-icon-f, .hero-icon-g, .hero-orbit,
+                .hero-spark { animation: none; }
+                  .hero-tooltip, .hero-icons [class^='hero-icon-'] > button { transition: none; }
                 }
               `}</style>
               {/* Glowing backdrop blob */}
               <div class="absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_50%_50%,var(--rl-primary-900),transparent_70%)] opacity-40" />
+              <div class="hero-orbit" />
+              <div class="hero-orbit hero-orbit-inner" />
               {/* Central big icon */}
-              <div class="hero-icon-a absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div class="flex size-24 items-center justify-center rounded-2xl border-2 border-primary-500 bg-neutral-50 shadow-[0_0_40px_var(--rl-primary-800)]">
+              <div class="hero-icon-a absolute left-[calc(50%-3rem)] top-[calc(50%-3rem)]">
+                <button
+                  type="button"
+                  aria-label="Java"
+                  aria-describedby="hero-java"
+                  class="flex size-24 items-center justify-center rounded-2xl border-2 border-primary-500 bg-neutral-50 shadow-[0_0_40px_var(--rl-primary-800)]"
+                >
                   <span class="i-logos-java inline-block size-14" />
-                </div>
+                </button>
+                <span id="hero-java" role="tooltip" class="hero-tooltip">
+                  <strong>Java</strong>A versatile language for reliable backend applications.
+                </span>
               </div>
               {/* Orbit icons */}
               <div class="hero-icon-b absolute left-4 top-10">
-                <div class="flex size-16 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md">
+                <button
+                  type="button"
+                  aria-label="Spring Boot"
+                  aria-describedby="hero-spring"
+                  class="flex size-16 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md"
+                >
                   <span class="i-logos-spring-icon inline-block size-8" />
-                </div>
+                </button>
+                <span id="hero-spring" role="tooltip" class="hero-tooltip">
+                  <strong>Spring Boot</strong>A Java framework for building production-ready
+                  services and APIs.
+                </span>
               </div>
               <div class="hero-icon-c absolute right-6 top-8">
-                <div class="flex size-16 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md">
+                <button
+                  type="button"
+                  aria-label="TypeScript"
+                  aria-describedby="hero-typescript"
+                  class="flex size-16 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md"
+                >
                   <span class="i-logos-typescript-icon inline-block size-8" />
-                </div>
+                </button>
+                <span id="hero-typescript" role="tooltip" class="hero-tooltip">
+                  <strong>TypeScript</strong>JavaScript with types for more dependable web
+                  applications.
+                </span>
               </div>
-              <div class="hero-icon-d absolute right-2 top-1/2 -translate-y-1/2">
-                <div class="flex size-14 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md">
+              <div class="hero-icon-d absolute right-2 top-[calc(50%-1.75rem)]">
+                <button
+                  type="button"
+                  aria-label="SolidJS"
+                  aria-describedby="hero-solid"
+                  class="flex size-14 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md"
+                >
                   <span class="i-logos-solidjs-icon inline-block size-7" />
-                </div>
+                </button>
+                <span id="hero-solid" role="tooltip" class="hero-tooltip">
+                  <strong>SolidJS</strong>A reactive UI framework for fast, interactive interfaces.
+                </span>
               </div>
               <div class="hero-icon-e absolute bottom-16 right-8">
-                <div class="flex size-14 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md">
+                <button
+                  type="button"
+                  aria-label="Docker"
+                  aria-describedby="hero-docker"
+                  class="flex size-14 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md"
+                >
                   <span class="i-logos-docker-icon inline-block size-7" />
-                </div>
+                </button>
+                <span id="hero-docker" role="tooltip" class="hero-tooltip">
+                  <strong>Docker</strong>Packages applications into portable, consistent containers.
+                </span>
               </div>
               <div class="hero-icon-f absolute bottom-12 left-6">
-                <div class="flex size-16 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md">
+                <button
+                  type="button"
+                  aria-label="PostgreSQL"
+                  aria-describedby="hero-postgres"
+                  class="flex size-16 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md"
+                >
                   <span class="i-logos-postgresql inline-block size-8" />
-                </div>
+                </button>
+                <span id="hero-postgres" role="tooltip" class="hero-tooltip">
+                  <strong>PostgreSQL</strong>A powerful open-source relational database.
+                </span>
               </div>
-              <div class="hero-icon-g absolute left-2 top-1/2 -translate-y-8">
-                <div class="flex size-12 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md">
+              <div class="hero-icon-g absolute left-2 top-[calc(50%-2rem)]">
+                <button
+                  type="button"
+                  aria-label="MongoDB"
+                  aria-describedby="hero-mongodb"
+                  class="flex size-12 items-center justify-center rounded-xl border border-primary-600/60 bg-neutral-50/90 shadow-md"
+                >
                   <span class="i-logos-mongodb-icon inline-block size-6" />
-                </div>
+                </button>
+                <span id="hero-mongodb" role="tooltip" class="hero-tooltip">
+                  <strong>MongoDB</strong>A document database for flexible data models.
+                </span>
               </div>
               {/* Small accent dots */}
-              <div class="absolute right-20 top-28 size-2 rounded-full bg-primary-400 opacity-60" />
-              <div class="absolute bottom-28 left-24 size-1.5 rounded-full bg-primary-300 opacity-50" />
-              <div class="absolute bottom-36 right-16 size-2.5 rounded-full bg-primary-500 opacity-40" />
+              <div class="hero-spark absolute right-20 top-28 size-2 rounded-full bg-primary-400" />
+              <div class="hero-spark absolute bottom-28 left-24 size-1.5 rounded-full bg-primary-300" />
+              <div class="hero-spark absolute bottom-36 right-16 size-2.5 rounded-full bg-primary-500" />
             </div>
           </div>
         </section>
@@ -316,10 +465,15 @@ export default function HomePage() {
           >
             <RLMarquee direction="left" speed={45}>
               {tech.map((item) => (
-                <span class="mx-3 inline-flex shrink-0 items-center gap-3 rounded-full border-2 border-primary-600 bg-neutral-100 px-6 py-3 text-sm font-semibold text-neutral-950/90 shadow-[0_0_20px_var(--rl-primary-900)] transition hover:border-primary-400 hover:bg-primary-900">
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mx-3 inline-flex shrink-0 items-center gap-3 rounded-full border-2 border-primary-600 bg-neutral-100 px-6 py-3 text-sm font-semibold text-neutral-950/90 shadow-[0_0_20px_var(--rl-primary-900)] transition hover:border-primary-400 hover:bg-primary-900 focus-visible:outline-2 focus-visible:outline-primary-400"
+                >
                   <span class={`inline-block size-7 shrink-0 ${item.icon}`} />
                   {item.name}
-                </span>
+                </a>
               ))}
             </RLMarquee>
           </section>
@@ -742,16 +896,45 @@ export default function HomePage() {
                 {t("home.sections.blog.description")}
               </p>
             </div>
-            <div class="flex flex-col justify-center rounded-2xl border-2 border-dashed border-primary-600 bg-neutral-950/[.015] p-8">
-              <span class="i-mdi-notebook-outline text-3xl text-primary-300" />
-              <p class="mt-5 text-xl font-medium">{t("home.sections.blog.firstPost")}</p>
-              <p class="mt-2 text-sm leading-6 text-neutral-950/40">
-                {t("home.sections.blog.empty")}
-              </p>
+            <div>
+              <Loading fallback={<p class="text-sm text-neutral-950/50">Loading posts…</p>}>
+                <Show
+                  when={recentPosts().length > 0}
+                  fallback={
+                    <p class="text-sm text-neutral-950/50">{t("home.sections.blog.empty")}</p>
+                  }
+                >
+                  <div class="grid gap-4 sm:grid-cols-3">
+                    <For each={recentPosts()}>
+                      {(post) => (
+                        <a
+                          href={getLocaleUrl(`/blog/${post.slug}/`)}
+                          class="group overflow-hidden rounded-2xl border-2 border-primary-600/60 bg-neutral-100 transition duration-300 hover:-translate-y-1 hover:border-primary-400"
+                        >
+                          <img
+                            src={blogCover(post.slug, post.properties?.["cover"])}
+                            alt=""
+                            loading="lazy"
+                            class="aspect-video w-full object-cover"
+                          />
+                          <div class="p-4">
+                            <h4 class="font-bold leading-snug text-neutral-950 group-hover:text-primary-500">
+                              {t.localize(post.title)}
+                            </h4>
+                            <p class="mt-2 line-clamp-3 text-sm leading-6 text-neutral-950/55">
+                              {t.localize(post.description ?? {})}
+                            </p>
+                          </div>
+                        </a>
+                      )}
+                    </For>
+                  </div>
+                </Show>
+              </Loading>
               <RLLink
                 raw
                 href="/blog"
-                class="mt-5 inline-flex items-center gap-2 text-sm text-primary-200 hover:text-primary-100"
+                class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary-400 hover:text-primary-500"
               >
                 {t("home.sections.blog.visit")} <span class="i-mdi-arrow-top-right" />
               </RLLink>

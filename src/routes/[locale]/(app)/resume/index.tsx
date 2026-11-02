@@ -233,7 +233,7 @@ export default function ResumePage() {
     <div class="w-full overflow-hidden bg-neutral-50 text-neutral-950 selection:bg-primary-400/30">
       <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 md:py-24 space-y-20 md:space-y-28">
         {/* Profile Hero Section */}
-        <section class="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
+        <section class="grid items-start gap-10 lg:grid-cols-[1fr_0.8fr] lg:gap-14">
           {/* Left Column: Introduction & Core Information */}
           <div class="flex flex-col">
             <p class="mb-3 text-xs font-semibold tracking-[.3em] text-primary-400 uppercase">
@@ -277,70 +277,74 @@ export default function ResumePage() {
           </div>
 
           {/* Right Column: Profile Card with Details & Languages */}
-          <div class="rounded-2xl border-2 border-primary-600 bg-neutral-100 p-6 sm:p-8 shadow-[0_4px_24px_var(--rl-primary-950)]">
-            <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 border-b-2 border-primary-600/30 pb-6">
-              <img
-                src={AVATAR_SRC}
-                alt={t("page.resume.sidebar.name")}
-                class="size-24 sm:size-28 shrink-0 rounded-2xl border-2 border-primary-500 object-cover shadow-[0_0_24px_var(--rl-primary-900)]"
-              />
-              <div class="text-center sm:text-left">
-                <h2 class="text-2xl font-bold text-neutral-950">{t("page.resume.sidebar.name")}</h2>
-                <p class="text-sm font-medium text-neutral-950/60">
-                  {t("page.resume.sidebar.title")}
-                </p>
-                <div class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-primary-400">
-                  <span class="i-lucide-map-pin size-3.5" />
-                  <a
-                    href="https://en.wikipedia.org/wiki/Bucharest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:underline"
-                  >
-                    {t("page.resume.sidebar.location")}
-                  </a>
+          <div>
+            <div class="rounded-2xl border-2 border-primary-600 bg-neutral-100 p-6 sm:p-8 shadow-[0_4px_24px_var(--rl-primary-950)]">
+              <div class="flex flex-col items-center gap-5 border-b-2 border-primary-600/30 pb-6 sm:flex-row sm:gap-6">
+                <img
+                  src={AVATAR_SRC}
+                  alt={t("page.resume.sidebar.name")}
+                  class="size-28 shrink-0 rounded-2xl border-2 border-primary-500 object-cover object-[60%_15%] shadow-[0_0_24px_var(--rl-primary-900)] sm:size-32"
+                />
+                <div class="text-center sm:text-left">
+                  <h2 class="text-2xl font-bold text-neutral-950">
+                    {t("page.resume.sidebar.name")}
+                  </h2>
+                  <p class="text-sm font-medium text-neutral-950/60">
+                    {t("page.resume.sidebar.title")}
+                  </p>
+                  <div class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-primary-400">
+                    <span class="i-lucide-map-pin size-3.5" />
+                    <a
+                      href="https://en.wikipedia.org/wiki/Bucharest"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hover:underline"
+                    >
+                      {t("page.resume.sidebar.location")}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Quick Facts */}
-            <div class="mt-6 flex flex-col gap-2.5 text-sm">
-              <For each={aboutDetails()}>
-                {(detail) => (
-                  <div class="flex items-center justify-between py-1 border-b border-primary-600/20">
-                    <span class="font-medium text-neutral-950/60">{detail.label}</span>
-                    <span class="font-semibold text-neutral-950">{detail.value}</span>
-                  </div>
-                )}
-              </For>
-            </div>
-
-            {/* Languages */}
-            <div class="mt-6 pt-2">
-              <p class="mb-3 text-xs font-bold uppercase tracking-wider text-primary-400">
-                {t("page.resume.languages.heading")}
-              </p>
-              <div class="space-y-3">
-                <For each={languages}>
-                  {(lang) => (
-                    <div>
-                      <div class="mb-1 flex justify-between text-xs font-medium">
-                        <span class="text-neutral-950">
-                          {t(`page.resume.${lang.nameKey.replace(/_/g, ".")}`)}
-                        </span>
-                        <span class="text-primary-400 font-semibold">
-                          {t(`page.resume.${lang.levelKey.replace(/_/g, ".")}`)}
-                        </span>
-                      </div>
-                      <div class="h-2 w-full overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800">
-                        <div
-                          class="h-full rounded-full bg-gradient-to-r from-primary-500 to-primary-400 transition-all duration-500"
-                          style={{ width: `${lang.score}%` }}
-                        />
-                      </div>
+              {/* Quick Facts */}
+              <div class="mt-6 flex flex-col gap-2.5 text-sm">
+                <For each={aboutDetails()}>
+                  {(detail) => (
+                    <div class="flex items-center justify-between py-1 border-b border-primary-600/20">
+                      <span class="font-medium text-neutral-950/60">{detail.label}</span>
+                      <span class="font-semibold text-neutral-950">{detail.value}</span>
                     </div>
                   )}
                 </For>
+              </div>
+
+              {/* Languages */}
+              <div class="mt-6 pt-2">
+                <p class="mb-3 text-xs font-bold uppercase tracking-wider text-primary-400">
+                  {t("page.resume.languages.heading")}
+                </p>
+                <div class="space-y-3">
+                  <For each={languages}>
+                    {(lang) => (
+                      <div>
+                        <div class="mb-1 flex justify-between text-xs font-medium">
+                          <span class="text-neutral-950">
+                            {t(`page.resume.${lang.nameKey.replace(/_/g, ".")}`)}
+                          </span>
+                          <span class="text-primary-400 font-semibold">
+                            {t(`page.resume.${lang.levelKey.replace(/_/g, ".")}`)}
+                          </span>
+                        </div>
+                        <div class="h-2 w-full overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800">
+                          <div
+                            class="h-full rounded-full bg-gradient-to-r from-primary-500 to-primary-400 transition-all duration-500"
+                            style={{ width: `${lang.score}%` }}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </For>
+                </div>
               </div>
             </div>
           </div>
@@ -569,7 +573,7 @@ export default function ResumePage() {
                 id="resume-projects-heading"
                 class="text-3xl font-bold tracking-tight text-primary-500"
               >
-                {t("page.resume.projects.heading") ?? "Projects"}
+                {t("page.resume.headings.projects")}
               </h2>
             </div>
 
