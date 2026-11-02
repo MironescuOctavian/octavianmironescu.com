@@ -17,6 +17,7 @@ export default defineConfig({
     cache: {
       enabled: true,
     },
+    domains: ["octavianmironescu.com", "www.octavianmironescu.com"],
     triggers: [
       triggers.fetch({ pattern: "octavianmironescu.com/*", zone: "octavianmironescu.com" }),
       triggers.fetch({ pattern: "www.octavianmironescu.com/*", zone: "octavianmironescu.com" }),
@@ -39,7 +40,7 @@ export default defineConfig({
           period: 60,
         },
       }),
-      CONSTRUCTION_MODE: bindings.secret(),
+      CONSTRUCTION_MODE: bindings.text("true"),
       CONSTRUCTION_PASSPHRASE: bindings.secret(),
       CONTACT_OWNER_EMAIL: bindings.text("owner@octavianmironescu.com"),
     },
