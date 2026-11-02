@@ -228,32 +228,6 @@
     },
     "privacy-policy": {
       "heading": "Privacy Policy"
-    },
-    "home": {
-      "hero": {
-        "greeting": "Hi, I'm Mironescu Octavian",
-        "title": "Software Developer"
-      },
-      "skills": {
-        "label": "My skills",
-        "heading": "What I do?"
-      },
-      "github": {
-        "heading": "GitHub Activity",
-        "calendar-alt": "MironescuOctavian GitHub contribution calendar"
-      },
-      "projects": {
-        "label": "My work",
-        "heading": "Projects",
-        "github-aria": "GitHub Repository",
-        "preview-aria": "Live Preview",
-        "more": "More projects on GitHub"
-      },
-      "contact": {
-        "label": "Let's talk",
-        "heading": "Contact",
-        "country": "Romania"
-      }
     }
   },
   "app": {
@@ -328,6 +302,165 @@
       "webstorm": "WebStorm",
       "vite-plus": "Vite-plus",
       "cloudflare": "Cloudflare"
+    }
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hi, I'm Mironescu Octavian",
+      "title": "Software Developer"
+    },
+    "skills": {
+      "label": "My skills",
+      "heading": "What I do?"
+    },
+    "github": {
+      "heading": "GitHub Activity",
+      "calendar-alt": "MironescuOctavian GitHub contribution calendar"
+    },
+    "projects": {
+      "label": "My work",
+      "heading": "Projects",
+      "github-aria": "GitHub Repository",
+      "preview-aria": "Live Preview",
+      "more": "More projects on GitHub"
+    },
+    "contact": {
+      "label": "Let's talk",
+      "heading": "Contact",
+      "country": "Romania"
+    },
+    "sections": {
+      "hero": {
+        "eyebrow": "SOFTWARE DEVELOPER · BUCHAREST, ROMANIA",
+        "title": "Hi, I’m Mironescu Octavian.",
+        "description": "Transforming ideas into interactive and seamless digital experiences with cutting-edge frontend and backend development.",
+        "explore": "Explore my work",
+        "download": "Download CV"
+      },
+      "about": {
+        "eyebrow": "A LITTLE ABOUT ME",
+        "title": "Thoughtful software,",
+        "titleTail": "built to last.",
+        "paragraph1": "I’m a software developer based in Bucharest, working across backend systems and modern web experiences. I enjoy turning real problems into clear, dependable products.",
+        "paragraph2": "Since 2022, I’ve worked with teams to design, build, and ship software—from Java and Spring Boot services to polished interfaces and the infrastructure that supports them.",
+        "approach": "My approach: understand the problem, keep the solution practical, and care about the details people actually use."
+      },
+      "services": {
+        "eyebrow": "WHAT I DO",
+        "title": "From solid foundations",
+        "titleTail": "to the final details.",
+        "web": {
+          "title": "Web development",
+          "description": "Responsive, accessible interfaces that make complex products feel straightforward.",
+          "points": [
+            "Responsive layouts for phones, tablets, and desktops",
+            "Interactive interfaces built with TypeScript and modern frameworks",
+            "Accessible navigation, clear forms, and reusable components",
+            "Performance and usability improvements across the experience"
+          ]
+        },
+        "backend": {
+          "title": "Backend engineering",
+          "description": "APIs, data models, and reliable services built for real business needs.",
+          "points": [
+            "API design and implementation with Java, Kotlin, and Spring Boot",
+            "Data modeling and integration with SQL and NoSQL databases",
+            "Authentication, validation, and practical error handling",
+            "Maintainable business logic and integrations with external services"
+          ]
+        },
+        "delivery": {
+          "title": "Delivery & infrastructure",
+          "description": "Practical build, container, and cloud workflows that keep software moving.",
+          "points": [
+            "Containerized applications and repeatable build workflows",
+            "Deployment to cloud and edge platforms",
+            "Configuration, environment management, and release preparation",
+            "Troubleshooting and improvements after deployment"
+          ]
+        }
+      },
+      "technologies": {
+        "title": "Technologies I use",
+        "description": "The tools I reach for to build, ship, and maintain software.",
+        "stack": "Technology stack",
+        "categories": "Technology categories",
+        "display": "Technology display",
+        "grid": "Grid view",
+        "graph": "Graph view",
+        "all": "All",
+        "toolCount": "tools",
+        "labels": {
+          "languages": "Languages",
+          "frameworks": "Frameworks & UI",
+          "data": "Data & APIs",
+          "tools": "Tools & Delivery"
+        },
+        "graphTitle": "How the tools fit together",
+        "graphExplanation": "Each dot is a technology. Follow its line to a numbered circle to see which category it belongs to. The number in the middle is the total number of tools. The legend below names each category and shows its tool count.",
+        "descriptions": {
+          "languages": "Languages used to write software and work with data.",
+          "frameworks": "Frameworks and tools for building web interfaces and applications.",
+          "data": "Databases and APIs used to store and exchange information.",
+          "tools": "Tools for development, packaging, deployment, and infrastructure."
+        }
+      },
+      "work": {
+        "eyebrow": "SELECTED WORK",
+        "title": "Projects",
+        "description": "A few things I’ve built and the next ones taking shape.",
+        "repositories": "All repositories",
+        "portfolioDescription": "My personal site and portfolio, built with SolidJS and the Rimelight stack.",
+        "comingDescription": "Project details and preview will be added here.",
+        "view": "View project",
+        "labels": {
+          "portfolio": "Personal portfolio",
+          "live": "Live",
+          "backendTitle": "Backend API Service",
+          "backend": "Backend systems",
+          "comingSoon": "Coming soon",
+          "platformTitle": "Full-stack Platform",
+          "application": "Web application"
+        },
+        "preview": "Preview"
+      },
+      "packages": {
+        "eyebrow": "MY WORK · NPM",
+        "title": "Packages I made.",
+        "description": "Rimelight packages for UI, localization, SEO, authentication, security, and content.",
+        "explore": "Explore on npm"
+      },
+      "blog": {
+        "eyebrow": "DEVELOPER BLOG",
+        "title": "From the development desk.",
+        "description": "Articles about building software, technical decisions, and lessons learned along the way.",
+        "firstPost": "The first post is taking shape.",
+        "empty": "There are no articles here yet. When I have something worth sharing, this is where it will live.",
+        "visit": "Visit the blog"
+      },
+      "activity": {
+        "eyebrow": "OPEN SOURCE",
+        "title": "GitHub activity",
+        "description": "Recent contributions and experiments.",
+        "calendarAlt": "Mironescu Octavian GitHub contribution calendar"
+      },
+      "contact": {
+        "eyebrow": "LET’S CONNECT",
+        "title": "Let’s build something useful.",
+        "description": "Have a project, a question, or just want to say hello? I’d be glad to hear from you.",
+        "action": "Get in touch"
+      },
+      "highlights": {
+        "title": "Highlights",
+        "projects": "Projects",
+        "projectsNote": "A growing body of work",
+        "certificates": "Certificates",
+        "certificatesNote": "Professional learning",
+        "badges": "Badges",
+        "badgesNote": "Skills in progress",
+        "years": "Years experience",
+        "yearsNote": "Building since 2022"
+      }
     }
   }
 }

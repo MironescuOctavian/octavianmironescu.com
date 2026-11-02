@@ -253,6 +253,60 @@
         "label": "Hai să vorbim",
         "heading": "Contact",
         "country": "România"
+      },
+      "sections": {
+        "hero": {
+          "eyebrow": "DEZVOLTATOR SOFTWARE · BUCUREȘTI, ROMÂNIA",
+          "title": "Salut, sunt Mironescu Octavian.",
+          "description": "Transform idei în experiențe digitale interactive și fluide, folosind tehnologii moderne pentru frontend și backend.",
+          "explore": "Explorează proiectele",
+          "download": "Descarcă CV-ul"
+        },
+        "about": {
+          "eyebrow": "CÂTEVA DESPRE MINE",
+          "title": "Software construit cu grijă,",
+          "titleTail": "pentru durată.",
+          "paragraph1": "Sunt dezvoltator software din București și lucrez atât la sisteme backend, cât și la experiențe web moderne. Îmi place să transform probleme reale în produse clare și de încredere."
+        },
+        "services": {
+          "eyebrow": "CU CE MĂ OCUP",
+          "title": "De la fundații solide",
+          "titleTail": "până la detaliile finale.",
+          "web": {
+            "title": "Dezvoltare web",
+            "description": "Interfețe responsive și accesibile, care fac produsele complexe ușor de folosit.",
+            "points": [
+              "Pagini adaptate pentru telefoane, tablete și desktopuri",
+              "Interfețe interactive cu TypeScript și framework-uri moderne",
+              "Navigare accesibilă, formulare clare și componente reutilizabile",
+              "Îmbunătățiri de performanță și ușurință în utilizare"
+            ]
+          },
+          "backend": {
+            "title": "Dezvoltare backend",
+            "description": "API-uri, modele de date și servicii fiabile, construite pentru nevoi reale.",
+            "points": [
+              "Proiectare și implementare API cu Java, Kotlin și Spring Boot",
+              "Modelarea datelor și integrarea bazelor SQL și NoSQL",
+              "Autentificare, validare și gestionarea erorilor",
+              "Logică de business ușor de întreținut și integrări externe"
+            ]
+          },
+          "delivery": {
+            "title": "Livrare și infrastructură",
+            "description": "Procese practice de build, containere și cloud pentru livrarea software-ului.",
+            "points": [
+              "Aplicații containerizate și build-uri repetabile",
+              "Lansare pe platforme cloud și edge",
+              "Configurare, gestionarea mediilor și pregătirea versiunilor",
+              "Depanare și îmbunătățiri după lansare"
+            ]
+          }
+        },
+        "technologies": {
+          "title": "Tehnologii folosite",
+          "description": "Uneltele pe care le folosesc pentru a construi, livra și întreține software."
+        }
       }
     }
   },
@@ -328,6 +382,165 @@
       "webstorm": "WebStorm",
       "vite-plus": "Vite-plus",
       "cloudflare": "Cloudflare"
+    }
+  },
+  "home": {
+    "hero": {
+      "greeting": "Salut, sunt Mironescu Octavian",
+      "title": "Dezvoltator software"
+    },
+    "skills": {
+      "label": "Competențele mele",
+      "heading": "Ce fac?"
+    },
+    "github": {
+      "heading": "Activitate pe GitHub",
+      "calendar-alt": "Calendarul contribuțiilor pe GitHub ale lui MironescuOctavian"
+    },
+    "projects": {
+      "label": "Lucrările mele",
+      "heading": "Proiecte",
+      "github-aria": "Depozit GitHub",
+      "preview-aria": "Previzualizare live",
+      "more": "Mai multe proiecte pe GitHub"
+    },
+    "contact": {
+      "label": "Hai să vorbim",
+      "heading": "Contact",
+      "country": "România"
+    },
+    "sections": {
+      "hero": {
+        "eyebrow": "DEZVOLTATOR SOFTWARE · BUCUREȘTI, ROMÂNIA",
+        "title": "Salut, sunt Mironescu Octavian.",
+        "description": "Transform idei în experiențe digitale interactive și fluide, folosind tehnologii moderne pentru frontend și backend.",
+        "explore": "Explorează proiectele",
+        "download": "Descarcă CV-ul"
+      },
+      "about": {
+        "eyebrow": "CÂTEVA DESPRE MINE",
+        "title": "Software construit cu grijă,",
+        "titleTail": "pentru durată.",
+        "paragraph1": "Sunt dezvoltator software din București și lucrez atât la sisteme backend, cât și la experiențe web moderne. Îmi place să transform probleme reale în produse clare și de încredere.",
+        "paragraph2": "Din 2022, am lucrat în echipe pentru a proiecta și livra software, de la servicii Java și Spring Boot la interfețe și infrastructura care le susține.",
+        "approach": "Abordarea mea: înțeleg problema, aleg o soluție practică și acord atenție detaliilor pe care oamenii le folosesc."
+      },
+      "services": {
+        "eyebrow": "CU CE MĂ OCUP",
+        "title": "De la fundații solide",
+        "titleTail": "până la detaliile finale.",
+        "web": {
+          "title": "Dezvoltare web",
+          "description": "Interfețe responsive și accesibile, care fac produsele complexe ușor de folosit.",
+          "points": [
+            "Pagini adaptate pentru telefoane, tablete și desktopuri",
+            "Interfețe interactive cu TypeScript și framework-uri moderne",
+            "Navigare accesibilă, formulare clare și componente reutilizabile",
+            "Îmbunătățiri de performanță și ușurință în utilizare"
+          ]
+        },
+        "backend": {
+          "title": "Dezvoltare backend",
+          "description": "API-uri, modele de date și servicii fiabile, construite pentru nevoi reale.",
+          "points": [
+            "Proiectare și implementare API cu Java, Kotlin și Spring Boot",
+            "Modelarea datelor și integrarea bazelor SQL și NoSQL",
+            "Autentificare, validare și gestionarea erorilor",
+            "Logică de business ușor de întreținut și integrări externe"
+          ]
+        },
+        "delivery": {
+          "title": "Livrare și infrastructură",
+          "description": "Procese practice de build, containere și cloud pentru livrarea software-ului.",
+          "points": [
+            "Aplicații containerizate și build-uri repetabile",
+            "Lansare pe platforme cloud și edge",
+            "Configurare, gestionarea mediilor și pregătirea versiunilor",
+            "Depanare și îmbunătățiri după lansare"
+          ]
+        }
+      },
+      "technologies": {
+        "title": "Tehnologii folosite",
+        "description": "Uneltele pe care le folosesc pentru a construi, livra și întreține software.",
+        "stack": "Tehnologii",
+        "categories": "Categorii de tehnologii",
+        "display": "Mod de afișare",
+        "grid": "Vizualizare grilă",
+        "graph": "Vizualizare grafic",
+        "all": "Toate",
+        "toolCount": "instrumente",
+        "labels": {
+          "languages": "Limbaje",
+          "frameworks": "Framework-uri și UI",
+          "data": "Date și API-uri",
+          "tools": "Instrumente și livrare"
+        },
+        "graphTitle": "Cum se grupează tehnologiile",
+        "graphExplanation": "Fiecare punct reprezintă o tehnologie. Urmărește linia până la cercul numerotat pentru a vedea categoria. Numărul din centru arată totalul instrumentelor. Legenda de mai jos arată numele și numărul lor în fiecare categorie.",
+        "descriptions": {
+          "languages": "Limbaje folosite pentru a scrie software și a lucra cu date.",
+          "frameworks": "Framework-uri și instrumente pentru construirea interfețelor și aplicațiilor web.",
+          "data": "Baze de date și API-uri pentru stocarea și schimbul informațiilor.",
+          "tools": "Instrumente pentru dezvoltare, pachete, livrare și infrastructură."
+        }
+      },
+      "work": {
+        "eyebrow": "PROIECTE SELECTATE",
+        "title": "Proiecte",
+        "description": "Câteva lucruri pe care le-am construit și proiectele care prind contur.",
+        "repositories": "Toate repository-urile",
+        "portfolioDescription": "Site-ul meu personal și portofoliul, construite cu SolidJS și Rimelight.",
+        "comingDescription": "Detaliile și previzualizarea vor fi adăugate aici.",
+        "view": "Vezi proiectul",
+        "labels": {
+          "portfolio": "Portofoliu personal",
+          "live": "Online",
+          "backendTitle": "Serviciu API backend",
+          "backend": "Sisteme backend",
+          "comingSoon": "În curând",
+          "platformTitle": "Platformă full-stack",
+          "application": "Aplicație web"
+        },
+        "preview": "Previzualizare"
+      },
+      "packages": {
+        "eyebrow": "MUNCA MEA · NPM",
+        "title": "Pachete create de mine.",
+        "description": "Pachete Rimelight pentru interfețe, localizare, SEO, autentificare, securitate și conținut.",
+        "explore": "Explorează pe npm"
+      },
+      "blog": {
+        "eyebrow": "BLOG DE DEZVOLTATOR",
+        "title": "De la biroul de dezvoltare.",
+        "description": "Articole despre dezvoltarea software, decizii tehnice și lecții învățate.",
+        "firstPost": "Primul articol prinde contur.",
+        "empty": "Nu există încă articole. Când voi avea ceva de împărtășit, va apărea aici.",
+        "visit": "Vizitează blogul"
+      },
+      "activity": {
+        "eyebrow": "OPEN SOURCE",
+        "title": "Activitate GitHub",
+        "description": "Contribuții și experimente recente.",
+        "calendarAlt": "Calendarul contribuțiilor GitHub ale lui Mironescu Octavian"
+      },
+      "contact": {
+        "eyebrow": "HAI SĂ VORBIM",
+        "title": "Hai să construim ceva util.",
+        "description": "Ai un proiect, o întrebare sau vrei să saluți? Mă bucur să aud de la tine.",
+        "action": "Contactează-mă"
+      },
+      "highlights": {
+        "title": "Repere",
+        "projects": "Proiecte",
+        "projectsNote": "Un portofoliu în creștere",
+        "certificates": "Certificate",
+        "certificatesNote": "Dezvoltare profesională",
+        "badges": "Insigne",
+        "badgesNote": "Competențe în dezvoltare",
+        "years": "Ani de experiență",
+        "yearsNote": "Construiesc din 2022"
+      }
     }
   }
 }

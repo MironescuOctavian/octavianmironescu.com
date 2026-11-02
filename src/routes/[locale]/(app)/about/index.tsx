@@ -1,10 +1,15 @@
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { getLocaleUrl } from "@rimelight/i18n";
 import { t } from "@rimelight/i18n";
+import { For } from "solid-js";
+import { RLButton } from "@rimelight/ui";
+
+const WorkList = {
+  regularly: ["Java", "Spring Boot", "TypeScript", "SolidJS", "MongoDB"],
+  whenNecessary: ["Python", "Kotlin", "AWS", "SQL"],
+};
 
 export default function AboutPage() {
-  const aboutURL = getLocaleUrl("/about");
   useHead(() =>
     createPageHead({
       title: t("app.text.about"),
@@ -14,68 +19,116 @@ export default function AboutPage() {
 
   return (
     <>
-      <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-4">
-        <div class="flex gap-4 mb-4">
-          <a href="/get-started/" class="hover:text-primary underline">
-            Come on!
-          </a>
-          <a href={getLocaleUrl("/blog")} class="hover:text-primary underline">
-            Blog
-          </a>
-          <a href={aboutURL} class="hover:text-primary underline">
-            Abouties
-          </a>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus
-          commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis
-          eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit
-          amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu
-          non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse
-          platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst
-          quisque sagittis purus sit amet.
-        </p>
-        <p>
-          Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-          tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc
-          non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut.
-          Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt
-          lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat
-          scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam.
-          Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in
-          nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
-        </p>
-        <p>
-          Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet
-          nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer
-          eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non
-          diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse
-          ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed
-          viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum
-          consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies
-          tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt
-          arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra
-          suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor
-          rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-        </p>
-        <p>
-          Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat
-          semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna
-          cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean
-          et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor.
-          Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque
-          dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam.
-          Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
-        </p>
-        <p>
-          Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id
-          porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna
-          etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non
-          tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat
-          nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique
-          magna.
-        </p>
+      <div class={"flex flex-col gap-12 px-6 py-12 max-w-6xl mx-auto"}>
+        <section class={"flex flex-col gap-12 px-6 py-12 max-w-6xl mx-auto"}>
+          {/* About me section */}
+          <header>
+            <h1 class={"text-8xl font-bold mb-6"}>
+              About Octavian<span class={"text-primary-500"}>.</span>
+            </h1>
+            <p class={"text-xl text-gray-400 mb-8"}>
+              Software Developer, Bucharest. Multiple years of taking business problems
+              <br />
+              from first sketch to production code.
+            </p>
+          </header>
+
+          <div class={"flex flex-col md:flex-row gap-12"}>
+            <div class={"flex-1 space-y-6 leading-7 text-gray-400"}>
+              <p>
+                I'm a software developer working out of Bucharest, mostly in{" "}
+                <strong class="text-white">Java on the backend and TypeScript on the front</strong>.
+                The short version: I take a business problem, design the thing that answers it,
+                build it, and stay around long enough to deploy it and fix what I got wrong.
+              </p>
+
+              <p>
+                I studied computer science at Ovidius University in Constanța, a bachelor's degree
+                and then a master's, finishing in 2023. My first role was at Property Pass, a real
+                estate company in Utrecht, where I built the Kotlin and Spring Boot application
+                behind their property passports, modelled the data in MongoDB, and wrote the
+                aggregation pipelines the business side ran their reporting on.
+              </p>
+
+              <p>
+                After that I spent most of 2023 at CoruScript in Bucharest, developing and
+                maintaining the Java and Spring backend of a platform that builds applications for
+                other companies, along with the AWS pipelines it ran on. Since February 2024 I've
+                worked independently, one project at a time, for clients who need a website, an API,
+                or the automation glue between the two.
+              </p>
+
+              <p>
+                The work I'm best at sits between a real-world process and a screen: property
+                records, quoting, ordering, the kind of software where{" "}
+                <strong class="text-white">
+                  the users have a day job and the software had better respect it.
+                </strong>{" "}
+                I work in English and Romanian fluently, am slowly adding German, and keep a small
+                Discord automation bot in Java alive for the communities that still use it.
+              </p>
+            </div>
+
+            <div class={"flex-1"}>
+              <img
+                src={"https://placehold.co/600x600/101010/16a34a?text=Photo"}
+                alt={"Mironescu Octavian"}
+                class={"w-full object-cover"}
+              />
+            </div>
+          </div>
+          <hr />
+        </section>
+        <section class="flex flex-col gap-12 px-6 py-12 max-w-6xl mx-auto">
+          {/* What I work with section */}
+          <h1 class="text-white font-bold text-5xl mb-4">
+            What I work with<span class="text-primary-500">.</span>
+          </h1>
+
+          <div class="flex flex-col md:flex-row gap-12 w-full">
+            {/* List Left */}
+            <div class="flex-1 min-w-0">
+              <p class="text-gray-400 mb-8">[Regularly]</p>
+
+              <ul class="text-gray-300">
+                <For each={WorkList.regularly}>
+                  {(item) => <li class="border-b border-gray-700 py-5 text-lg">{item}</li>}
+                </For>
+              </ul>
+            </div>
+
+            {/* List Right */}
+            <div class="flex-1 min-w-0">
+              <p class="text-gray-400 mb-8">[When necessary.]</p>
+
+              <ul class="text-gray-300">
+                <For each={WorkList.whenNecessary}>
+                  {(item) => <li class="border-b border-gray-700 py-5 text-lg">{item}</li>}
+                </For>
+              </ul>
+            </div>
+          </div>
+
+          <p class="text-gray">
+            No percentages, no star ratings. If you want the formal CV as a PDF,{" "}
+            <a class="underline text-white">email me</a> and I'll send it over.
+          </p>
+
+          <hr />
+        </section>
+        <section class={"bg-primary-700"}>
+          {/* Contact me*/}
+          <div class={"flex flex-col gap-12 px-6 py-12 max-w-6xl mx-auto"}>
+            <h1 class={"flex text-2xl font-bold justify-center"}>
+              If you want to get in contact with me, you can reach me here:
+            </h1>
+            <div class={"flex flex-col items-center align-center"}>
+              <RLButton href={"/contact"} size={"xl"} class={"font-bold text-white"}>
+                Contact
+              </RLButton>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );

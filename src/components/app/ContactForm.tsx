@@ -17,8 +17,8 @@ const Field: Component<{ label: string; children: any }> = (props) => (
 type Status = { text: string; tone: "muted" | "error" | "success" };
 const toneClass = {
   muted: "text-neutral-500",
-  error: "text-red-500",
-  success: "text-green-600 dark:text-green-400",
+  error: "text-error-400",
+  success: "text-success-500 dark:text-success-300",
 };
 
 type ContactResponse = { success: boolean; error?: string };

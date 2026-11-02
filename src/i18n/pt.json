@@ -253,6 +253,60 @@
         "label": "Vamos conversar",
         "heading": "Contato",
         "country": "Romênia"
+      },
+      "sections": {
+        "hero": {
+          "eyebrow": "DESENVOLVEDOR DE SOFTWARE · BUCARESTE, ROMÉNIA",
+          "title": "Olá, sou Mironescu Octavian.",
+          "description": "Transformo ideias em experiências digitais interativas e fluidas com tecnologias modernas de frontend e backend.",
+          "explore": "Explore meu trabalho",
+          "download": "Baixar CV"
+        },
+        "about": {
+          "eyebrow": "UM POUCO SOBRE MIM",
+          "title": "Software feito com cuidado,",
+          "titleTail": "para durar.",
+          "paragraph1": "Sou desenvolvedor de software em Bucareste e trabalho com sistemas backend e experiências web modernas. Gosto de transformar problemas reais em produtos claros e confiáveis."
+        },
+        "services": {
+          "eyebrow": "O QUE FAÇO",
+          "title": "De bases sólidas",
+          "titleTail": "aos detalhes finais.",
+          "web": {
+            "title": "Desenvolvimento web",
+            "description": "Interfaces responsivas e acessíveis que tornam produtos complexos simples de usar.",
+            "points": [
+              "Layouts para celulares, tablets e computadores",
+              "Interfaces interativas com TypeScript e frameworks modernos",
+              "Navegação acessível, formulários claros e componentes reutilizáveis",
+              "Melhorias de desempenho e usabilidade"
+            ]
+          },
+          "backend": {
+            "title": "Engenharia backend",
+            "description": "APIs, modelos de dados e serviços confiáveis para necessidades reais.",
+            "points": [
+              "Criação e implementação de APIs com Java, Kotlin e Spring Boot",
+              "Modelagem de dados e integração com bancos SQL e NoSQL",
+              "Autenticação, validação e tratamento de erros",
+              "Lógica de negócio sustentável e integrações externas"
+            ]
+          },
+          "delivery": {
+            "title": "Entrega e infraestrutura",
+            "description": "Fluxos práticos de build, contêineres e cloud para manter o software em movimento.",
+            "points": [
+              "Aplicações em contêineres e builds reproduzíveis",
+              "Implantação em plataformas cloud e edge",
+              "Configuração, gestão de ambientes e preparação de versões",
+              "Diagnóstico e melhorias após a implantação"
+            ]
+          }
+        },
+        "technologies": {
+          "title": "Tecnologias que uso",
+          "description": "As ferramentas que uso para criar, entregar e manter software."
+        }
       }
     }
   },
@@ -328,6 +382,165 @@
       "webstorm": "WebStorm",
       "vite-plus": "Vite-plus",
       "cloudflare": "Cloudflare"
+    }
+  },
+  "home": {
+    "hero": {
+      "greeting": "Oi, eu sou Mironescu Octavian",
+      "title": "Desenvolvedor de Software"
+    },
+    "skills": {
+      "label": "Minhas habilidades",
+      "heading": "O que eu faço?"
+    },
+    "github": {
+      "heading": "Atividade no GitHub",
+      "calendar-alt": "Calendário de contribuições no GitHub de MironescuOctavian"
+    },
+    "projects": {
+      "label": "Meu trabalho",
+      "heading": "Projetos",
+      "github-aria": "Repositório no GitHub",
+      "preview-aria": "Pré-visualização",
+      "more": "Mais projetos no GitHub"
+    },
+    "contact": {
+      "label": "Vamos conversar",
+      "heading": "Contato",
+      "country": "Romênia"
+    },
+    "sections": {
+      "hero": {
+        "eyebrow": "DESENVOLVEDOR DE SOFTWARE · BUCARESTE, ROMÉNIA",
+        "title": "Olá, sou Mironescu Octavian.",
+        "description": "Transformo ideias em experiências digitais interativas e fluidas com tecnologias modernas de frontend e backend.",
+        "explore": "Explore meu trabalho",
+        "download": "Baixar CV"
+      },
+      "about": {
+        "eyebrow": "UM POUCO SOBRE MIM",
+        "title": "Software feito com cuidado,",
+        "titleTail": "para durar.",
+        "paragraph1": "Sou desenvolvedor de software em Bucareste e trabalho com sistemas backend e experiências web modernas. Gosto de transformar problemas reais em produtos claros e confiáveis.",
+        "paragraph2": "Desde 2022, trabalho com equipes para projetar e entregar software, de serviços Java e Spring Boot a interfaces e à infraestrutura que as sustenta.",
+        "approach": "Minha abordagem: entender o problema, escolher uma solução prática e cuidar dos detalhes que as pessoas usam."
+      },
+      "services": {
+        "eyebrow": "O QUE FAÇO",
+        "title": "De bases sólidas",
+        "titleTail": "aos detalhes finais.",
+        "web": {
+          "title": "Desenvolvimento web",
+          "description": "Interfaces responsivas e acessíveis que tornam produtos complexos simples de usar.",
+          "points": [
+            "Layouts para celulares, tablets e computadores",
+            "Interfaces interativas com TypeScript e frameworks modernos",
+            "Navegação acessível, formulários claros e componentes reutilizáveis",
+            "Melhorias de desempenho e usabilidade"
+          ]
+        },
+        "backend": {
+          "title": "Engenharia backend",
+          "description": "APIs, modelos de dados e serviços confiáveis para necessidades reais.",
+          "points": [
+            "Criação e implementação de APIs com Java, Kotlin e Spring Boot",
+            "Modelagem de dados e integração com bancos SQL e NoSQL",
+            "Autenticação, validação e tratamento de erros",
+            "Lógica de negócio sustentável e integrações externas"
+          ]
+        },
+        "delivery": {
+          "title": "Entrega e infraestrutura",
+          "description": "Fluxos práticos de build, contêineres e cloud para manter o software em movimento.",
+          "points": [
+            "Aplicações em contêineres e builds reproduzíveis",
+            "Implantação em plataformas cloud e edge",
+            "Configuração, gestão de ambientes e preparação de versões",
+            "Diagnóstico e melhorias após a implantação"
+          ]
+        }
+      },
+      "technologies": {
+        "title": "Tecnologias que uso",
+        "description": "As ferramentas que uso para criar, entregar e manter software.",
+        "stack": "Tecnologias",
+        "categories": "Categorias de tecnologias",
+        "display": "Visualização de tecnologias",
+        "grid": "Visualização em grade",
+        "graph": "Visualização em gráfico",
+        "all": "Todos",
+        "toolCount": "ferramentas",
+        "labels": {
+          "languages": "Linguagens",
+          "frameworks": "Frameworks e interface",
+          "data": "Dados e APIs",
+          "tools": "Ferramentas e entrega"
+        },
+        "graphTitle": "Como as ferramentas se agrupam",
+        "graphExplanation": "Cada ponto representa uma tecnologia. Siga a linha até um círculo numerado para descobrir sua categoria. O número no centro é o total de ferramentas. A legenda mostra cada categoria e sua quantidade.",
+        "descriptions": {
+          "languages": "Linguagens para escrever software e trabalhar com dados.",
+          "frameworks": "Frameworks e ferramentas para criar interfaces e aplicações web.",
+          "data": "Bancos de dados e APIs para armazenar e trocar informações.",
+          "tools": "Ferramentas para desenvolvimento, pacotes, implantação e infraestrutura."
+        }
+      },
+      "work": {
+        "eyebrow": "TRABALHOS SELECIONADOS",
+        "title": "Projetos",
+        "description": "Alguns trabalhos que criei e os próximos projetos.",
+        "repositories": "Todos os repositórios",
+        "portfolioDescription": "Meu site pessoal e portfólio, criado com SolidJS e Rimelight.",
+        "comingDescription": "Os detalhes e a prévia do projeto serão adicionados aqui.",
+        "view": "Ver projeto",
+        "labels": {
+          "portfolio": "Portfólio pessoal",
+          "live": "No ar",
+          "backendTitle": "Serviço de API backend",
+          "backend": "Sistemas backend",
+          "comingSoon": "Em breve",
+          "platformTitle": "Plataforma full-stack",
+          "application": "Aplicação web"
+        },
+        "preview": "Prévia"
+      },
+      "packages": {
+        "eyebrow": "MEU TRABALHO · NPM",
+        "title": "Pacotes que criei.",
+        "description": "Pacotes Rimelight para interface, localização, SEO, autenticação, segurança e conteúdo.",
+        "explore": "Explorar no npm"
+      },
+      "blog": {
+        "eyebrow": "BLOG DE DESENVOLVIMENTO",
+        "title": "Da mesa de desenvolvimento.",
+        "description": "Artigos sobre desenvolvimento de software, decisões técnicas e lições aprendidas.",
+        "firstPost": "O primeiro artigo está tomando forma.",
+        "empty": "Ainda não há artigos. Quando eu tiver algo para compartilhar, estará aqui.",
+        "visit": "Visitar o blog"
+      },
+      "activity": {
+        "eyebrow": "CÓDIGO ABERTO",
+        "title": "Atividade no GitHub",
+        "description": "Contribuições e experimentos recentes.",
+        "calendarAlt": "Calendário de contribuições de Mironescu Octavian no GitHub"
+      },
+      "contact": {
+        "eyebrow": "VAMOS CONVERSAR",
+        "title": "Vamos criar algo útil.",
+        "description": "Tem um projeto, uma pergunta ou quer apenas dizer olá? Ficarei feliz em ouvir você.",
+        "action": "Entre em contato"
+      },
+      "highlights": {
+        "title": "Destaques",
+        "projects": "Projetos",
+        "projectsNote": "Um portfólio em crescimento",
+        "certificates": "Certificados",
+        "certificatesNote": "Aprendizado profissional",
+        "badges": "Insígnias",
+        "badgesNote": "Habilidades em desenvolvimento",
+        "years": "Anos de experiência",
+        "yearsNote": "Criando desde 2022"
+      }
     }
   }
 }
