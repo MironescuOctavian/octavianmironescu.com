@@ -1,13 +1,14 @@
-import { createSignal, onSettled, type Component, For } from "solid-js";
-import { t } from "@rimelight/i18n";
+import { type Component, createSignal, onSettled, For } from "solid-js";
 import {
   RLHeader,
-  RLButton,
   RLLink,
-  RLSlideover,
+  RLNavigationMenu,
   RLThemeSelector,
   RLLocaleSelector,
+  RLSlideover,
+  RLButton,
 } from "@rimelight/ui";
+import { t } from "@rimelight/i18n";
 
 export interface AppHeaderProps {
   stackIndex?: number;
@@ -18,6 +19,13 @@ const sectionLinks = [
   { label: "Skills", id: "skills" },
   { label: "Projects", id: "projects" },
   { label: "Services", id: "skills" },
+];
+
+const headerNavItems = [
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Services", href: "/#skills" },
 ];
 
 export const AppHeader: Component<AppHeaderProps> = (props) => {
@@ -73,22 +81,17 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
         </div>
       }
       center={
-        <nav
+        <RLNavigationMenu
+          items={headerNavItems}
           aria-label="Main navigation"
-          class="hidden min-w-0 flex-1 items-center justify-center gap-2 lg:flex"
-        >
-          <For each={sectionLinks}>
-            {(link) => (
-              <RLLink
-                raw
-                href={`/#${link.id}`}
-                class="rounded-full px-4 py-2 text-sm font-bold tracking-wide text-neutral-950/90 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-900/40 hover:text-primary-300 focus-visible:outline-2 focus-visible:outline-primary-300"
-              >
-                {link.label}
-              </RLLink>
-            )}
-          </For>
-        </nav>
+          class="hidden min-w-0 flex-1 items-center justify-center lg:flex"
+          ui={{
+            root: () => "hidden min-w-0 flex-1 items-center justify-center lg:flex",
+            list: () => "flex items-center justify-center gap-2 list-none m-0 p-0",
+            link: () =>
+              "rounded-full px-4 py-2 text-sm font-bold tracking-wide text-neutral-950/90 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-900/40 hover:text-primary-300 focus-visible:outline-2 focus-visible:outline-primary-300",
+          }}
+        />
       }
       right={
         <div class="flex items-center gap-2.5 sm:gap-3">
