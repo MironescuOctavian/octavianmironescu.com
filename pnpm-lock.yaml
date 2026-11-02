@@ -217,8 +217,8 @@ importers:
         specifier: 0.0.40
         version: 0.0.40(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(hono@5.0.0-rc.1)(solid-js@2.0.0-rc.20)(vite-plus@1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))
       '@rimelight/ui':
-        specifier: 0.0.92
-        version: 0.0.92(@oxc-project/types@0.155.0)(@solidjs/router@2.0.0-next.43(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(filesystem-routing@0.4.2(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(solid-js@2.0.0-rc.20))(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(cac@7.1.0)(hono@5.0.0-rc.1)(rolldown@1.2.8)(solid-js@2.0.0-rc.20)(srvx@1.0.6)(vite-plus@1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))
+        specifier: 0.0.93
+        version: 0.0.93(@oxc-project/types@0.155.0)(@solidjs/router@2.0.0-next.43(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(filesystem-routing@0.4.2(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(solid-js@2.0.0-rc.20))(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(cac@7.1.0)(hono@5.0.0-rc.1)(rolldown@1.2.8)(solid-js@2.0.0-rc.20)(srvx@1.0.6)(vite-plus@1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))
       '@solidjs/router':
         specifier: 2.0.0-next.43
         version: 2.0.0-next.43(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(filesystem-routing@0.4.2(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(solid-js@2.0.0-rc.20)
@@ -1427,6 +1427,18 @@ packages:
 
   '@rimelight/ui@0.0.92':
     resolution: {integrity: sha512-9PfXhgVt1wwyvSBVmZWIyxNmlswW7wkmuxD0WcE3NpFbZzFWhMmyk/oi8Frcq4HvQFySsD3aub9XXoehJwoHPw==}
+    engines: {node: '>=26.10.0'}
+    peerDependencies:
+      '@solidjs/router': '>=2.0.0-next.42'
+      '@solidjs/web': '>=2.0.0-rc.18'
+      solid-js: '>=2.0.0-rc.18'
+      vite-plus: ^1.0.0
+    peerDependenciesMeta:
+      '@solidjs/router':
+        optional: true
+
+  '@rimelight/ui@0.0.93':
+    resolution: {integrity: sha512-mxM29gdsyrmNtvTe3z2oFKPgkN9Dxyn9/nSnQ8lo3qJs+bg+vb84nnYbwOJj/ix0jp6UDq9sPW5PxMyTooGCzQ==}
     engines: {node: '>=26.10.0'}
     peerDependencies:
       '@solidjs/router': '>=2.0.0-next.42'
@@ -3920,6 +3932,30 @@ snapshots:
       - solid-js
 
   '@rimelight/ui@0.0.92(@oxc-project/types@0.155.0)(@solidjs/router@2.0.0-next.43(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(filesystem-routing@0.4.2(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(solid-js@2.0.0-rc.20))(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(cac@7.1.0)(hono@5.0.0-rc.1)(rolldown@1.2.8)(solid-js@2.0.0-rc.20)(srvx@1.0.6)(vite-plus@1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))':
+    dependencies:
+      '@rimelight/i18n': 0.1.20(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(hono@5.0.0-rc.1)(solid-js@2.0.0-rc.20)(vite-plus@1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))
+      '@solidjs/web': 2.0.0-rc.20(solid-js@2.0.0-rc.20)
+      '@unocss/vite': 66.12.0(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(cac@7.1.0)(srvx@1.0.6)
+      solid-js: 2.0.0-rc.20
+      unocss: 66.12.0(@oxc-project/types@0.155.0)(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(cac@7.1.0)(rolldown@1.2.8)(srvx@1.0.6)
+      vite-plus: 1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1)
+    optionalDependencies:
+      '@solidjs/router': 2.0.0-next.43(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(filesystem-routing@0.4.2(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(solid-js@2.0.0-rc.20)
+    transitivePeerDependencies:
+      - '@devframes/agentic'
+      - '@oxc-project/types'
+      - '@unocss/astro'
+      - '@unocss/postcss'
+      - '@unocss/webpack'
+      - cac
+      - hono
+      - ocache
+      - rolldown
+      - rollup
+      - srvx
+      - vite
+
+  '@rimelight/ui@0.0.93(@oxc-project/types@0.155.0)(@solidjs/router@2.0.0-next.43(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(filesystem-routing@0.4.2(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(supports-color@10.2.2)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(solid-js@2.0.0-rc.20))(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.3)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))(cac@7.1.0)(hono@5.0.0-rc.1)(rolldown@1.2.8)(solid-js@2.0.0-rc.20)(srvx@1.0.6)(vite-plus@1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))':
     dependencies:
       '@rimelight/i18n': 0.1.20(@solidjs/web@2.0.0-rc.20(solid-js@2.0.0-rc.20))(hono@5.0.0-rc.1)(solid-js@2.0.0-rc.20)(vite-plus@1.4.0(@types/node@26.6.3)(@vitest/ui@5.0.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.13)(typescript@7.1.0-beta)(yaml@2.9.1))
       '@solidjs/web': 2.0.0-rc.20(solid-js@2.0.0-rc.20)
