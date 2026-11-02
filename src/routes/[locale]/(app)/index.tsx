@@ -1,7 +1,9 @@
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { RLButton, RLMarquee } from "@rimelight/ui";
-import { getLocaleUrl, t } from "@rimelight/i18n";
+import { RLButton, RLMarquee, RLContainer } from "@rimelight/ui";
+import { t } from "@rimelight/i18n";
+import { RLLink } from "@rimelight/ui";
+import SocialLinks from "#components/app/SocialLinks";
 import { createSignal, onSettled, For } from "solid-js";
 
 const tech = [
@@ -122,13 +124,7 @@ export default function HomePage() {
     const angle = (index / count) * Math.PI * 2 - Math.PI / 2;
     return { x: 400 + radius * Math.cos(angle), y: 400 + radius * Math.sin(angle) };
   };
-  const setMarqueeSpeed = (element: HTMLElement, speed: number) => {
-    for (const track of element.querySelectorAll<HTMLElement>('[data-slot="track"]')) {
-      for (const animation of track.getAnimations()) {
-        animation.updatePlaybackRate(speed);
-      }
-    }
-  };
+
   useHead(() =>
     createPageHead({
       title: t("app.text.octavian-mironescu"),
@@ -185,7 +181,7 @@ export default function HomePage() {
           .service-card::details-content { transition: none; }
         }
       `}</style>
-      <main class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <section class="scroll-mt-28 py-20 md:py-28">
           <div class="grid items-center gap-12 lg:grid-cols-[1fr_auto]">
             {/* Left: text content */}
@@ -200,20 +196,25 @@ export default function HomePage() {
                 {t("home.sections.hero.description")}
               </p>
               <div class="mt-8 flex flex-wrap gap-3">
-                <a
+                <RLButton
                   href="#projects"
-                  class="inline-flex items-center gap-1.5 rounded-lg bg-primary-500 px-5 py-3 font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-400 hover:shadow-[0_8px_28px_var(--rl-primary-700)]"
+                  trailingIcon="i-mdi-arrow-down-right"
+                  color="primary"
+                  size="lg"
+                  class="rounded-lg bg-primary-500 font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-400 hover:shadow-[0_8px_28px_var(--rl-primary-700)]"
                 >
                   {t("home.sections.hero.explore")}
-                  <span class="i-mdi-arrow-down-right inline-block size-5" />
-                </a>
-                <a
-                  href={getLocaleUrl("/resume")}
-                  class="group inline-flex items-center gap-2 rounded-lg border-2 border-primary-600 bg-transparent px-5 py-3 font-semibold text-neutral-950 transition-all duration-300 hover:border-primary-400 hover:bg-primary-900/10"
+                </RLButton>
+                <RLButton
+                  href="/resume"
+                  leadingIcon="i-mdi-download"
+                  color="primary"
+                  variant="outline"
+                  size="lg"
+                  class="rounded-lg border-2 border-primary-600 bg-transparent font-semibold text-neutral-950 transition-all duration-300 hover:border-primary-400 hover:bg-primary-900/10"
                 >
-                  <span class="i-mdi-download inline-block size-5 text-primary-400 transition-transform group-hover:translate-y-0.5" />
                   {t("home.sections.hero.download")}
-                </a>
+                </RLButton>
               </div>
               {/* Live clock */}
               <div class="mt-7 inline-flex h-12 items-center gap-3 rounded-xl border-2 border-primary-500 bg-primary-500/10 px-4 text-neutral-950 shadow-[0_2px_12px_var(--rl-primary-950)]">
@@ -231,29 +232,7 @@ export default function HomePage() {
                 </div>
               </div>
               {/* Social icons */}
-              <div class="mt-4 flex flex-wrap items-center gap-3">
-                <a
-                  aria-label="GitHub"
-                  href="https://github.com/MironescuOctavian"
-                  class="inline-flex size-12 items-center justify-center rounded-xl border-2 border-primary-500 bg-primary-500/10 text-neutral-950 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-500/20 hover:shadow-[0_4px_18px_var(--rl-primary-800)]"
-                >
-                  <span class="i-mdi-github inline-block size-6" aria-hidden="true" />
-                </a>
-                <a
-                  aria-label="LinkedIn"
-                  href="https://www.linkedin.com/in/octavian-mironescu-a605b921a/"
-                  class="inline-flex size-12 items-center justify-center rounded-xl border-2 border-primary-500 bg-primary-500/10 text-neutral-950 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-500/20 hover:shadow-[0_4px_18px_var(--rl-primary-800)]"
-                >
-                  <span class="i-mdi-linkedin inline-block size-6" aria-hidden="true" />
-                </a>
-                <a
-                  aria-label="Email"
-                  href="mailto:omironescu@gmail.com"
-                  class="inline-flex size-12 items-center justify-center rounded-xl border-2 border-primary-500 bg-primary-500/10 text-neutral-950 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-500/20 hover:shadow-[0_4px_18px_var(--rl-primary-800)]"
-                >
-                  <span class="i-mdi-email-outline inline-block size-6" aria-hidden="true" />
-                </a>
-              </div>
+              <SocialLinks class="mt-4" />
             </div>
 
             {/* Right: floating dev icon panel */}
@@ -330,21 +309,21 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section
-          aria-label={t("home.sections.technologies.stack")}
-          class="-mx-5 space-y-4 overflow-hidden rounded-3xl border-2 border-primary-500 bg-primary-950/30 py-8 sm:-mx-8"
-          onMouseEnter={(event) => setMarqueeSpeed(event.currentTarget, 0.1875)}
-          onMouseLeave={(event) => setMarqueeSpeed(event.currentTarget, 1)}
-        >
-          <RLMarquee direction="left" speed={45} pauseOnHover={false}>
-            {tech.map((item) => (
-              <span class="mx-3 inline-flex shrink-0 items-center gap-3 rounded-full border-2 border-primary-600 bg-neutral-100 px-6 py-3 text-sm font-semibold text-neutral-950/90 shadow-[0_0_20px_var(--rl-primary-900)] transition hover:border-primary-400 hover:bg-primary-900">
-                <span class={`inline-block size-7 shrink-0 ${item.icon}`} />
-                {item.name}
-              </span>
-            ))}
-          </RLMarquee>
-        </section>
+        <RLContainer>
+          <section
+            aria-label={t("home.sections.technologies.stack")}
+            class="overflow-hidden py-8 rounded-3xl border-2 border-primary-500 bg-primary-950/30"
+          >
+            <RLMarquee direction="left" speed={45}>
+              {tech.map((item) => (
+                <span class="mx-3 inline-flex shrink-0 items-center gap-3 rounded-full border-2 border-primary-600 bg-neutral-100 px-6 py-3 text-sm font-semibold text-neutral-950/90 shadow-[0_0_20px_var(--rl-primary-900)] transition hover:border-primary-400 hover:bg-primary-900">
+                  <span class={`inline-block size-7 shrink-0 ${item.icon}`} />
+                  {item.name}
+                </span>
+              ))}
+            </RLMarquee>
+          </section>
+        </RLContainer>
 
         <section
           id="about"
@@ -769,12 +748,13 @@ export default function HomePage() {
               <p class="mt-2 text-sm leading-6 text-neutral-950/40">
                 {t("home.sections.blog.empty")}
               </p>
-              <a
-                href={getLocaleUrl("/blog")}
+              <RLLink
+                raw
+                href="/blog"
                 class="mt-5 inline-flex items-center gap-2 text-sm text-primary-200 hover:text-primary-100"
               >
                 {t("home.sections.blog.visit")} <span class="i-mdi-arrow-top-right" />
-              </a>
+              </RLLink>
             </div>
           </div>
         </section>
@@ -844,16 +824,19 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-              <a
-                href={getLocaleUrl("/contact")}
-                class="mt-10 inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-xl bg-primary-500 px-9 py-5 text-lg font-semibold text-black shadow-[0_8px_32px_var(--rl-primary-900)] transition hover:scale-[1.02] hover:bg-primary-400"
+              <RLButton
+                href="/contact"
+                trailingIcon="i-mdi-arrow-top-right"
+                color="primary"
+                size="xl"
+                class="mt-10 rounded-xl bg-primary-500 px-9 py-5 text-lg font-semibold text-black shadow-[0_8px_32px_var(--rl-primary-900)] transition hover:scale-[1.02] hover:bg-primary-400"
               >
-                {t("home.sections.contact.action")} <span class="i-mdi-arrow-top-right" />
-              </a>
+                {t("home.sections.contact.action")}
+              </RLButton>
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
