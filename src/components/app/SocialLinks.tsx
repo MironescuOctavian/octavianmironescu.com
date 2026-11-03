@@ -1,5 +1,5 @@
 import { For, type Component } from "solid-js";
-import { RLButton } from "@rimelight/ui";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
 
 export interface SocialLink {
   icon: string;

@@ -1,5 +1,5 @@
 import { type Component, createSignal, Show } from "solid-js";
-import { RLButton } from "@rimelight/ui";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
 import Turnstile from "#components/app/Turnstile";
 import { t } from "@rimelight/i18n";
 import { api } from "#api/client";

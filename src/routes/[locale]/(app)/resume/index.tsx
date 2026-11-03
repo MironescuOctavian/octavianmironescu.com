@@ -2,7 +2,7 @@ import { For, Show } from "solid-js";
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { t } from "@rimelight/i18n";
-import { RLLink } from "@rimelight/ui";
+import { RLLink } from "@rimelight/ui/components/link/RLLink.tsx";
 import SocialLinks from "#components/app/SocialLinks";
 
 export interface LanguageSkill {

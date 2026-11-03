@@ -1,11 +1,9 @@
 import { t } from "@rimelight/i18n";
-import {
-  RLThemeSelector,
-  RLLocaleSelector,
-  RLLink,
-  RLLinkGroup,
-  type RLLinkProps,
-} from "@rimelight/ui";
+import { RLThemeSelector } from "@rimelight/ui/components/theme-selector/RLThemeSelector.tsx";
+import { RLLocaleSelector } from "@rimelight/ui/components/locale-selector/RLLocaleSelector.tsx";
+import { RLLink } from "@rimelight/ui/components/link/RLLink.tsx";
+import { RLLinkGroup } from "@rimelight/ui/components/link-group/RLLinkGroup.tsx";
+import type { RLLinkProps } from "@rimelight/ui/components/link/link.types.ts";
 import { SocialLinks } from "./SocialLinks";
 
 export default function AppFooter() {

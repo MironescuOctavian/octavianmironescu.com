@@ -1,6 +1,6 @@
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { RLError } from "@rimelight/ui";
+import { RLError } from "@rimelight/ui/components/error/RLError.tsx";
 import { t } from "@rimelight/i18n";
 
 export default function ErrorPage404() {

@@ -3,7 +3,7 @@ import { useSearchParams } from "@solidjs/router";
 import { getRequestEvent, useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { t, getCurrentLocale, getLocaleUrl } from "@rimelight/i18n";
-import { RLGrid } from "@rimelight/ui";
+import { RLGrid } from "@rimelight/ui/components/grid/RLGrid.tsx";
 import { content, type PublicEntry, type PublicTerm } from "@rimelight/cms/solid";
 import { blogCover } from "#components/app/blogCovers";
 

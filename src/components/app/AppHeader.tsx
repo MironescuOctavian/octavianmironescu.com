@@ -1,13 +1,11 @@
 import { type Component, createSignal, onSettled, For } from "solid-js";
-import {
-  RLHeader,
-  RLLink,
-  RLNavigationMenu,
-  RLThemeSelector,
-  RLLocaleSelector,
-  RLSlideover,
-  RLButton,
-} from "@rimelight/ui";
+import { RLHeader } from "@rimelight/ui/components/header/RLHeader.tsx";
+import { RLLink } from "@rimelight/ui/components/link/RLLink.tsx";
+import { RLNavigationMenu } from "@rimelight/ui/components/navigation-menu/RLNavigationMenu.tsx";
+import { RLThemeSelector } from "@rimelight/ui/components/theme-selector/RLThemeSelector.tsx";
+import { RLLocaleSelector } from "@rimelight/ui/components/locale-selector/RLLocaleSelector.tsx";
+import { RLSlideover } from "@rimelight/ui/components/slideover/RLSlideover.tsx";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
 import { t } from "@rimelight/i18n";
 
 export interface AppHeaderProps {

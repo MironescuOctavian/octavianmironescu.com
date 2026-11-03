@@ -1,9 +1,11 @@
 import { getRequestEvent, useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { RLButton, RLMarquee, RLContainer } from "@rimelight/ui";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
+import { RLMarquee } from "@rimelight/ui/components/marquee/RLMarquee.tsx";
+import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx";
 import { getLocaleUrl, t } from "@rimelight/i18n";
 import type { PublicEntry } from "@rimelight/cms/solid";
-import { RLLink } from "@rimelight/ui";
+import { RLLink } from "@rimelight/ui/components/link/RLLink.tsx";
 import { SOCIAL_LINKS } from "#components/app/SocialLinks";
 import { blogCover } from "#components/app/blogCovers";
 import { createMemo, createSignal, onSettled, For, Loading, Show } from "solid-js";
