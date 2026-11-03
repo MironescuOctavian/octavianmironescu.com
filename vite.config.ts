@@ -20,6 +20,7 @@ export default defineConfig({
     "{package.json,pnpm-workspace.yaml,pnpm-lock.yaml}": () => "pnpm audit",
     "*": "vp check --fix",
   },
+  builder: { sharedPlugins: true },
   plugins: [
     cloudflare(),
 
