@@ -49,7 +49,7 @@ export const SocialLinks: Component<SocialLinksProps> = (props) => {
             href={socialLink.href}
             target="_blank"
             rel="noopener noreferrer"
-            ariaLabel={socialLink.ariaLabel}
+            aria-label={socialLink.ariaLabel}
             icon={socialLink.icon}
             color="primary"
             variant="outline"

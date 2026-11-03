@@ -1,7 +1,6 @@
-import { t } from "@rimelight/i18n";
+import { getLocaleUrl, t } from "@rimelight/i18n";
 import { RLThemeSelector } from "@rimelight/ui/components/theme-selector/RLThemeSelector.tsx";
 import { RLLocaleSelector } from "@rimelight/ui/components/locale-selector/RLLocaleSelector.tsx";
-import { RLLink } from "@rimelight/ui/components/link/RLLink.tsx";
 import { RLLinkGroup } from "@rimelight/ui/components/link-group/RLLinkGroup.tsx";
 import type { RLLinkProps } from "@rimelight/ui/components/link/link.types.ts";
 import { SocialLinks } from "./SocialLinks";
@@ -71,9 +70,8 @@ export default function AppFooter() {
       <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 px-6 py-16 md:flex-row md:items-stretch md:gap-14 lg:px-10 lg:py-20">
         {/* Left Section: Logo, Tagline, Copyright with justify-between & bottom-left placement */}
         <div class="order-last flex flex-col items-center justify-between gap-8 text-center md:order-1 md:self-stretch md:items-start md:text-left">
-          <RLLink
-            raw
-            href="/"
+          <a
+            href={getLocaleUrl("/")}
             class="group inline-flex items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5"
             aria-label="Octavian Mironescu home"
           >
@@ -84,7 +82,7 @@ export default function AppFooter() {
             <span class="text-lg font-bold tracking-wide transition-colors group-hover:text-primary-300">
               Mironescu Octavian<span class="text-primary-300">.</span>
             </span>
-          </RLLink>
+          </a>
 
           <div class="flex flex-col gap-1 items-center md:items-start">
             <p class="text-sm font-medium text-neutral-950/80">{t("app.footer.tagline")}</p>
