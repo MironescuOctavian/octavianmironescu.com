@@ -53,7 +53,6 @@ export const SocialLinks: Component<SocialLinksProps> = (props) => {
             icon={socialLink.icon}
             color="primary"
             variant="outline"
-            square={true}
             size={props.size ?? "md"}
             class="rounded-xl border border-primary-700 bg-primary-950/30 text-primary-400 transition-all hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/50 hover:text-primary-200"
           />

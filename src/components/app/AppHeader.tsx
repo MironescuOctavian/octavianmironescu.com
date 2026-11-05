@@ -126,47 +126,45 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                 <RLButton
                   color="neutral"
                   variant="ghost"
-                  rounded={true}
+                  shape="pill"
                   leadingIcon="i-lucide-menu"
                   aria-label={t("app.header.menu.open") ?? "Open menu"}
                 />
               }
             >
-              {() => (
-                <div class="flex flex-col gap-4 py-4">
-                  <nav class="flex flex-col gap-2">
-                    <For each={sectionLinks}>
-                      {(link) => (
-                        <a
-                          href={getLocaleUrl(`/#${link.id}`)}
-                          class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
-                        >
-                          {link.label}
-                        </a>
-                      )}
-                    </For>
-                    <hr class="my-2 border-primary-500/30" />
-                    <a
-                      href={getLocaleUrl("/blog")}
-                      class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
-                    >
-                      {t("app.header.nav.blog")}
-                    </a>
-                    <a
-                      href={getLocaleUrl("/resume")}
-                      class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
-                    >
-                      {t("app.header.nav.resume")}
-                    </a>
-                    <a
-                      href={getLocaleUrl("/contact")}
-                      class="mt-2 rounded-lg bg-primary-500 px-4 py-2.5 text-center text-base font-bold text-black transition-all hover:bg-primary-400"
-                    >
-                      {t("app.header.nav.contact")}
-                    </a>
-                  </nav>
-                </div>
-              )}
+              <div class="flex flex-col gap-4 py-4">
+                <nav class="flex flex-col gap-2">
+                  <For each={sectionLinks}>
+                    {(link) => (
+                      <a
+                        href={getLocaleUrl(`/#${link.id}`)}
+                        class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
+                      >
+                        {link.label}
+                      </a>
+                    )}
+                  </For>
+                  <hr class="my-2 border-primary-500/30" />
+                  <a
+                    href={getLocaleUrl("/blog")}
+                    class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
+                  >
+                    {t("app.header.nav.blog")}
+                  </a>
+                  <a
+                    href={getLocaleUrl("/resume")}
+                    class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
+                  >
+                    {t("app.header.nav.resume")}
+                  </a>
+                  <a
+                    href={getLocaleUrl("/contact")}
+                    class="mt-2 rounded-lg bg-primary-500 px-4 py-2.5 text-center text-base font-bold text-black transition-all hover:bg-primary-400"
+                  >
+                    {t("app.header.nav.contact")}
+                  </a>
+                </nav>
+              </div>
             </RLSlideover>
           </div>
         </div>

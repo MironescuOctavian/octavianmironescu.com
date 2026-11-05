@@ -266,7 +266,6 @@ export default function HomePage() {
                       icon={link.icon}
                       color="primary"
                       variant="outline"
-                      square={true}
                       size="xl"
                       class="rounded-xl border border-primary-700 bg-primary-950/30 text-primary-400 transition-all hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/50 hover:text-primary-200"
                     />
@@ -464,7 +463,7 @@ export default function HomePage() {
             aria-label={t("home.sections.technologies.stack")}
             class="overflow-hidden py-8 rounded-3xl border-2 border-primary-500 bg-primary-950/30"
           >
-            <RLMarquee direction="left" speed={45}>
+            <RLMarquee speed={45}>
               {tech.map((item) => (
                 <a
                   href={item.href}
