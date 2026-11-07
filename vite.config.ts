@@ -30,7 +30,7 @@ export default defineConfig({
       serverFunctions: true,
     }),
 
-    fileRoutes({ types: ".cloudflare/types/file-routes.d.ts", codeSplitting: false }),
+    fileRoutes({ types: ".cloudflare/types/file-routes.d.ts" }),
 
     seo({
       id: "octavianmironescu.com",

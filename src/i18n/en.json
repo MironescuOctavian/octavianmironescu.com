@@ -416,6 +416,9 @@
         "labels": {
           "portfolio": "Personal portfolio",
           "live": "Live",
+          "timezoneTitle": "Timezone Converter",
+          "timezoneDescription": "Convert times across time zones with a dedicated tool built for everyday planning.",
+          "nextTitle": "Next project",
           "backendTitle": "Backend API Service",
           "backend": "Backend systems",
           "comingSoon": "Coming soon",

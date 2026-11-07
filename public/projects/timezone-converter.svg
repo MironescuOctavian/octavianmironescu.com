@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <radialGradient id="glow"><stop stop-color="#ffbf00" stop-opacity=".14"/><stop offset="1" stop-color="#111111" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path fill="#111111" d="M0 0h900v600H0z"/>
+  <ellipse cx="450" cy="280" rx="330" ry="270" fill="url(#glow)"/>
+  <g stroke="#ffbf00" stroke-width="2" opacity=".15">
+    <ellipse cx="450" cy="270" rx="290" ry="135" transform="rotate(-20 450 270)"/>
+    <ellipse cx="450" cy="270" rx="290" ry="135" transform="rotate(20 450 270)"/>
+  </g>
+  <g stroke="#ffbf00" stroke-width="5">
+    <circle cx="420" cy="255" r="112" fill="#15140e"/>
+    <ellipse cx="420" cy="255" rx="48" ry="112"/>
+    <path d="M308 255h224M323 199h194M323 311h194" opacity=".6"/>
+    <circle cx="528" cy="315" r="73" fill="#111111"/>
+    <path d="M528 269v46l30 18" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M528 253v6m0 112v6m-62-62h6m112 0h6" stroke-linecap="round"/>
+  </g>
+  <g fill="#ffbf00">
+    <circle cx="187" cy="246" r="6"/><circle cx="704" cy="294" r="6"/>
+    <path d="m660 170 4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+  </g>
+  <text x="450" y="455" fill="#ffca24" text-anchor="middle" font-family="system-ui,sans-serif" font-size="42" font-weight="650">Timezone Converter</text>
+  <text x="450" y="498" fill="#b9aa83" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" letter-spacing="5">ONE MOMENT. EVERY TIME ZONE.</text>
+</svg>

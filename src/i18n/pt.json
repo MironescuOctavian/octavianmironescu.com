@@ -496,6 +496,9 @@
         "labels": {
           "portfolio": "Portfólio pessoal",
           "live": "No ar",
+          "timezoneTitle": "Conversor de fusos horários",
+          "timezoneDescription": "Converta horas entre fusos horários com uma ferramenta dedicada ao planeamento do dia a dia.",
+          "nextTitle": "Próximo projeto",
           "backendTitle": "Serviço de API backend",
           "backend": "Sistemas backend",
           "comingSoon": "Em breve",

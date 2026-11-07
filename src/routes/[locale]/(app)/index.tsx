@@ -94,6 +94,21 @@ const projects = [
     image: "https://placehold.co/900x600/111111/ffbf00?text=Full-stack+Platform",
     href: "https://github.com/MironescuOctavian",
   },
+  {
+    title: "timezoneTitle",
+    type: "application",
+    status: "live",
+    image: "/projects/timezone-converter.svg",
+    href: "https://timezone-converter.omironescu.workers.dev/en/",
+    description: "timezoneDescription",
+  },
+  {
+    title: "nextTitle",
+    type: "application",
+    status: "comingSoon",
+    image: "https://placehold.co/900x600/111111/ffbf00?text=Coming+Soon",
+    href: "https://github.com/MironescuOctavian",
+  },
 ];
 
 const packages = [
@@ -838,9 +853,11 @@ export default function HomePage() {
                     {p.featured ? p.title : projectLabel(p.title)}
                   </h3>
                   <p class="mt-3 text-sm leading-6 text-neutral-950/45">
-                    {p.featured
-                      ? t("home.sections.work.portfolioDescription")
-                      : t("home.sections.work.comingDescription")}
+                    {p.description
+                      ? projectLabel(p.description)
+                      : p.featured
+                        ? t("home.sections.work.portfolioDescription")
+                        : t("home.sections.work.comingDescription")}
                   </p>
                   <span class="mt-6 text-sm text-neutral-950/65">
                     {t("home.sections.work.view")}{" "}

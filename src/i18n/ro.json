@@ -496,6 +496,9 @@
         "labels": {
           "portfolio": "Portofoliu personal",
           "live": "Online",
+          "timezoneTitle": "Convertor de fusuri orare",
+          "timezoneDescription": "Convertește orele între fusuri orare cu un instrument dedicat planificării de zi cu zi.",
+          "nextTitle": "Următorul proiect",
           "backendTitle": "Serviciu API backend",
           "backend": "Sisteme backend",
           "comingSoon": "În curând",
