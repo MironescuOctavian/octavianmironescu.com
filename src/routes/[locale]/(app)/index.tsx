@@ -1,9 +1,10 @@
 import { getRequestEvent, useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { RLButton, RLMarquee, RLContainer } from "@rimelight/ui";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
+import { RLMarquee } from "@rimelight/ui/components/marquee/RLMarquee.tsx";
+import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx";
 import { getLocaleUrl, t } from "@rimelight/i18n";
 import type { PublicEntry } from "@rimelight/cms/solid";
-import { RLLink } from "@rimelight/ui";
 import { SOCIAL_LINKS } from "#components/app/SocialLinks";
 import { blogCover } from "#components/app/blogCovers";
 import { createMemo, createSignal, onSettled, For, Loading, Show } from "solid-js";
@@ -276,11 +277,10 @@ export default function HomePage() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      ariaLabel={link.ariaLabel}
+                      aria-label={link.ariaLabel}
                       icon={link.icon}
                       color="primary"
                       variant="outline"
-                      square={true}
                       size="xl"
                       class="rounded-xl border border-primary-700 bg-primary-950/30 text-primary-400 transition-all hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/50 hover:text-primary-200"
                     />
@@ -478,7 +478,7 @@ export default function HomePage() {
             aria-label={t("home.sections.technologies.stack")}
             class="overflow-hidden py-8 rounded-3xl border-2 border-primary-500 bg-primary-950/30"
           >
-            <RLMarquee direction="left" speed={45}>
+            <RLMarquee speed={45}>
               {tech.map((item) => (
                 <a
                   href={item.href}
@@ -588,17 +588,14 @@ export default function HomePage() {
             >
               <For each={["All", ...techGroups.map((group) => group.title)]}>
                 {(category) => (
-                  <RLButton
+                  <button
                     type="button"
-                    raw={true}
-                    label={
-                      category === "All" ? t("home.sections.technologies.all") : techLabel(category)
-                    }
-                    active={activeTechGroup() === category}
-                    aria-pressed={activeTechGroup() === category}
+                    aria-pressed={activeTechGroup() === category ? "true" : "false"}
                     onClick={() => setActiveTechGroup(category)}
                     class={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-primary-400 ${activeTechGroup() === category ? "border-primary-500 bg-primary-500 text-black shadow-[0_4px_16px_var(--rl-primary-800)]" : "border-primary-600 bg-neutral-50 text-neutral-950/80 hover:border-primary-400 hover:bg-primary-900/40 hover:text-neutral-950"}`}
-                  />
+                  >
+                    {category === "All" ? t("home.sections.technologies.all") : techLabel(category)}
+                  </button>
                 )}
               </For>
             </div>
@@ -948,13 +945,12 @@ export default function HomePage() {
                   </div>
                 </Show>
               </Loading>
-              <RLLink
-                raw
-                href="/blog"
+              <a
+                href={getLocaleUrl("/blog")}
                 class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary-400 hover:text-primary-500"
               >
                 {t("home.sections.blog.visit")} <span class="i-mdi-arrow-top-right" />
-              </RLLink>
+              </a>
             </div>
           </div>
         </section>

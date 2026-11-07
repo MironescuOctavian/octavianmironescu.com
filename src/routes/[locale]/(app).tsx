@@ -2,14 +2,12 @@ import type { RouteSectionProps } from "@solidjs/router";
 import { onSettled } from "solid-js";
 import AppHeader from "#components/app/AppHeader";
 import AppFooter from "#components/app/AppFooter";
-import {
-  RLMain,
-  RLScrollToTop,
-  RLShortcuts,
-  RLToaster,
-  RLRouteAnnouncer,
-  RLLayoutGrid,
-} from "@rimelight/ui";
+import { RLMain } from "@rimelight/ui/components/main/RLMain.tsx";
+import { RLScrollToTop } from "@rimelight/ui/components/scroll-to-top/RLScrollToTop.tsx";
+import { RLShortcuts } from "@rimelight/ui/components/shortcuts/RLShortcuts.tsx";
+import { RLToaster } from "@rimelight/ui/components/toaster/RLToaster.tsx";
+import { RLRouteAnnouncer } from "@rimelight/ui/components/route-announcer/RLRouteAnnouncer.tsx";
+import { RLLayoutGrid } from "@rimelight/ui/components/layout-grid/RLLayoutGrid.tsx";
 
 export default function AppRouteLayout(props: RouteSectionProps) {
   onSettled(() => {

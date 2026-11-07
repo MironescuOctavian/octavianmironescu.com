@@ -1,8 +1,7 @@
 import { For, Show } from "solid-js";
 import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
-import { t } from "@rimelight/i18n";
-import { RLLink } from "@rimelight/ui";
+import { getLocaleUrl, t } from "@rimelight/i18n";
 import SocialLinks from "#components/app/SocialLinks";
 
 export interface LanguageSkill {
@@ -251,14 +250,13 @@ export default function ResumePage() {
             </p>
 
             <div class="mt-8 flex flex-wrap gap-3">
-              <RLLink
-                raw
-                href="/contact"
+              <a
+                href={getLocaleUrl("/contact")}
                 class="inline-flex items-center gap-1.5 rounded-lg bg-primary-500 px-5 py-3 font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-400 hover:shadow-[0_8px_28px_var(--rl-primary-700)]"
               >
                 {t("page.resume.hero.action.hire") ?? "Hire me"}
                 <span class="i-mdi-send-outline inline-block size-5" />
-              </RLLink>
+              </a>
               <a
                 href="https://github.com/MironescuOctavian"
                 target="_blank"

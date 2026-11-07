@@ -1,4 +1,4 @@
-import { bindings, defineConfig, triggers } from "cf/config";
+import { bindings, defineConfig } from "cf/config";
 
 export default defineConfig({
   worker: {
@@ -18,10 +18,6 @@ export default defineConfig({
       enabled: true,
     },
     domains: ["octavianmironescu.com", "www.octavianmironescu.com"],
-    triggers: [
-      triggers.fetch({ pattern: "octavianmironescu.com/*", zone: "octavianmironescu.com" }),
-      triggers.fetch({ pattern: "www.octavianmironescu.com/*", zone: "octavianmironescu.com" }),
-    ],
     env: {
       ASSETS: bindings.assets(),
       IMAGES: bindings.images(),

@@ -2,7 +2,7 @@ import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { t } from "@rimelight/i18n";
 import { For } from "solid-js";
-import { RLButton } from "@rimelight/ui";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
 
 const WorkList = {
   regularly: ["Java", "Spring Boot", "TypeScript", "SolidJS", "MongoDB"],

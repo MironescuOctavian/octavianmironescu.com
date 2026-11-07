@@ -1,5 +1,5 @@
 import { For, type Component } from "solid-js";
-import { RLButton } from "@rimelight/ui";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
 
 export interface SocialLink {
   icon: string;
@@ -49,11 +49,10 @@ export const SocialLinks: Component<SocialLinksProps> = (props) => {
             href={socialLink.href}
             target="_blank"
             rel="noopener noreferrer"
-            ariaLabel={socialLink.ariaLabel}
+            aria-label={socialLink.ariaLabel}
             icon={socialLink.icon}
             color="primary"
             variant="outline"
-            square={true}
             size={props.size ?? "md"}
             class="rounded-xl border border-primary-700 bg-primary-950/30 text-primary-400 transition-all hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/50 hover:text-primary-200"
           />

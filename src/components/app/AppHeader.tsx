@@ -1,14 +1,11 @@
 import { type Component, createSignal, onSettled, For } from "solid-js";
-import {
-  RLHeader,
-  RLLink,
-  RLNavigationMenu,
-  RLThemeSelector,
-  RLLocaleSelector,
-  RLSlideover,
-  RLButton,
-} from "@rimelight/ui";
-import { t } from "@rimelight/i18n";
+import { RLHeader } from "@rimelight/ui/components/header/RLHeader.tsx";
+import { RLNavigationMenu } from "@rimelight/ui/components/navigation-menu/RLNavigationMenu.tsx";
+import { RLThemeSelector } from "@rimelight/ui/components/theme-selector/RLThemeSelector.tsx";
+import { RLLocaleSelector } from "@rimelight/ui/components/locale-selector/RLLocaleSelector.tsx";
+import { RLSlideover } from "@rimelight/ui/components/slideover/RLSlideover.tsx";
+import { RLButton } from "@rimelight/ui/components/button/RLButton.tsx";
+import { getLocaleUrl, t } from "@rimelight/i18n";
 
 export interface AppHeaderProps {
   stackIndex?: number;
@@ -57,16 +54,15 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
       fixed={true}
       stackIndex={props.stackIndex ?? 50}
       class="border-b-2 border-primary-700 bg-neutral-50/95 text-neutral-950 backdrop-blur-xl"
-      left={
+      leadingSlot={
         <div class="flex items-center gap-4">
           <div
             class="scroll-progress pointer-events-none absolute inset-x-0 -bottom-[2px] h-[3px] bg-gradient-to-r from-primary-500 via-primary-400 to-amber-300 origin-left transition-transform duration-75"
             style={{ transform: `scaleX(${scrollProgress()})` }}
             aria-hidden="true"
           />
-          <RLLink
-            raw
-            href="/"
+          <a
+            href={getLocaleUrl("/")}
             class="group flex shrink-0 items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5"
             aria-label="Octavian Mironescu home"
           >
@@ -77,10 +73,10 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
             <span class="whitespace-nowrap text-sm font-bold tracking-wide text-neutral-950 transition-colors group-hover:text-primary-300 sm:text-base lg:text-lg">
               Mironescu Octavian<span class="text-primary-300">.</span>
             </span>
-          </RLLink>
+          </a>
         </div>
       }
-      center={
+      centerSlot={
         <RLNavigationMenu
           items={headerNavItems}
           aria-label="Main navigation"
@@ -93,29 +89,26 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
           }}
         />
       }
-      right={
+      trailingSlot={
         <div class="flex items-center gap-2.5 sm:gap-3">
-          <RLLink
-            raw
-            href="/blog"
+          <a
+            href={getLocaleUrl("/blog")}
             class="hidden md:inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-4 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
           >
             {t("app.header.nav.blog")}
-          </RLLink>
-          <RLLink
-            raw
-            href="/resume"
+          </a>
+          <a
+            href={getLocaleUrl("/resume")}
             class="hidden md:inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-4 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
           >
             {t("app.header.nav.resume")}
-          </RLLink>
-          <RLLink
-            raw
-            href="/contact"
+          </a>
+          <a
+            href={getLocaleUrl("/contact")}
             class="hidden sm:inline-flex h-9 items-center justify-center rounded-full bg-primary-500 px-4 text-xs font-bold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-400 hover:shadow-[0_0_18px_var(--rl-primary-700)] sm:text-sm"
           >
             {t("app.header.nav.contact")}
-          </RLLink>
+          </a>
 
           <RLThemeSelector mode="icon" size="sm" color="primary" />
           <RLLocaleSelector
@@ -129,11 +122,11 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
             <RLSlideover
               side="right"
               title={t("app.header.menu.title") ?? "Navigation"}
-              trigger={
+              triggerSlot={
                 <RLButton
                   color="neutral"
                   variant="ghost"
-                  rounded={true}
+                  shape="pill"
                   leadingIcon="i-lucide-menu"
                   aria-label={t("app.header.menu.open") ?? "Open menu"}
                 />
@@ -143,37 +136,33 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                 <nav class="flex flex-col gap-2">
                   <For each={sectionLinks}>
                     {(link) => (
-                      <RLLink
-                        raw
-                        href={`/#${link.id}`}
+                      <a
+                        href={getLocaleUrl(`/#${link.id}`)}
                         class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
                       >
                         {link.label}
-                      </RLLink>
+                      </a>
                     )}
                   </For>
                   <hr class="my-2 border-primary-500/30" />
-                  <RLLink
-                    raw
-                    href="/blog"
+                  <a
+                    href={getLocaleUrl("/blog")}
                     class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
                   >
                     {t("app.header.nav.blog")}
-                  </RLLink>
-                  <RLLink
-                    raw
-                    href="/resume"
+                  </a>
+                  <a
+                    href={getLocaleUrl("/resume")}
                     class="rounded-lg px-4 py-2.5 text-base font-semibold text-neutral-950 transition-colors hover:bg-primary-500/10 hover:text-primary-400"
                   >
                     {t("app.header.nav.resume")}
-                  </RLLink>
-                  <RLLink
-                    raw
-                    href="/contact"
+                  </a>
+                  <a
+                    href={getLocaleUrl("/contact")}
                     class="mt-2 rounded-lg bg-primary-500 px-4 py-2.5 text-center text-base font-bold text-black transition-all hover:bg-primary-400"
                   >
                     {t("app.header.nav.contact")}
-                  </RLLink>
+                  </a>
                 </nav>
               </div>
             </RLSlideover>
