@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: transparent;
+        color: var(--foreground);
+        font-family: var(--font-sans);
+      }
+      [data-viz-container] {
+        min-height: 320px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="route-javascript" data-viz-composition>
+      <div data-viz-container></div>
+      <script type="application/json" data-viz-chart>
+        {
+          "id": "route-javascript",
+          "title": "Initial JavaScript by page",
+          "description": "KiB after local gzip compression. Static import closure: shared entry + layout + route. Excludes HTML, CSS, fonts, images, API responses and runtime dynamic imports. Not measured production transfer sizes.",
+          "height": 320,
+          "columns": ["Page", "KiB"],
+          "rows": [
+            ["Home", 116.419921875],
+            ["Projects", 109.0966796875],
+            ["Resume", 111.5869140625],
+            ["Blog index", 141.7080078125],
+            ["Blog article", 140.4326171875],
+            ["Contact", 111.302734375],
+            ["Privacy", 140.3798828125]
+          ],
+          "spec": {
+            "type": "horizontalBar",
+            "y": "Page",
+            "x": "KiB",
+            "xLabel": "JavaScript · KiB gzip",
+            "showValues": true,
+            "showLegend": false,
+            "startAtZero": true,
+            "valueFormat": { "style": "decimal", "maximumFractionDigits": 1 }
+          }
+        }
+      </script>
+    </section>
+    <script type="module">
+      import { mountChart } from "https://persistent.oaistatic.com/plugins/visualize/charts/1.1.6/element.js";
+      const root = document.getElementById("route-javascript");
+      mountChart(
+        root.querySelector("[data-viz-container]"),
+        JSON.parse(root.querySelector("[data-viz-chart]").textContent),
+      );
+    </script>
+  </body>
+</html>

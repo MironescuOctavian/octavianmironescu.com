@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-09",
+  "method": "Local production build; manifest static import closure and gzipSync; excludes HTML/CSS/fonts/images/API and runtime dynamic imports",
+  "routes": [
+    {
+      "route": "src/routes/[locale]/(app)/about/index.tsx",
+      "requests": 12,
+      "raw": 313927,
+      "gzip": 111084
+    },
+    {
+      "route": "src/routes/[locale]/(app)/blog/index.tsx",
+      "requests": 15,
+      "raw": 427879,
+      "gzip": 145109
+    },
+    {
+      "route": "src/routes/[locale]/(app)/contact/index.tsx",
+      "requests": 12,
+      "raw": 323290,
+      "gzip": 113974
+    },
+    {
+      "route": "src/routes/[locale]/(app)/index.tsx",
+      "requests": 14,
+      "raw": 345658,
+      "gzip": 119214
+    },
+    {
+      "route": "src/routes/[locale]/(app)/legal/privacy-policy.tsx",
+      "requests": 14,
+      "raw": 424766,
+      "gzip": 143749
+    },
+    {
+      "route": "src/routes/[locale]/(app)/projects/index.tsx",
+      "requests": 13,
+      "raw": 316240,
+      "gzip": 111715
+    },
+    {
+      "route": "src/routes/[locale]/(app)/resume/index.tsx",
+      "requests": 12,
+      "raw": 329591,
+      "gzip": 114265
+    },
+    {
+      "route": "src/routes/[locale]/(app)/blog/[...slug].tsx",
+      "requests": 15,
+      "raw": 424558,
+      "gzip": 143803
+    }
+  ],
+  "css": [
+    {
+      "file": "assets/virtual_solid-ssr-entry-client-Cb4xp8RG.css",
+      "raw": 301337,
+      "gzip": 50565
+    }
+  ],
+  "observed": {
+    "homeDocumentBytes": 162003,
+    "homeDomElements": 1160,
+    "backgroundCodeElements": 340,
+    "portrait": {
+      "width": 2176,
+      "height": 4608,
+      "renderedWidth": 284
+    },
+    "homeRunningAnimations": 23,
+    "homeFontBytes": 76224
+  }
+}

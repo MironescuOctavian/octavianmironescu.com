@@ -1,0 +1,291 @@
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+@keyframes service-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.service-card[open] .service-content {
+  animation: service-reveal 250ms ease-out;
+}
+@supports (interpolate-size: allow-keywords) {
+  .service-card {
+    interpolate-size: allow-keywords;
+  }
+  .service-card::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition:
+      block-size 300ms ease,
+      opacity 220ms ease,
+      content-visibility 300ms allow-discrete;
+  }
+  .service-card[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+  .service-card[open] .service-content {
+    animation: none;
+  }
+}
+@media (min-width: 768px) {
+  .service-card[open] {
+    align-self: stretch;
+  }
+}
+@keyframes content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.tech-results {
+  animation: content-reveal 350ms ease-out;
+}
+.tech-graph {
+  animation-duration: 800ms;
+}
+.tech-graph:has([data-branch="0"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="0"]),
+.tech-graph:has([data-branch="1"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="1"]),
+.tech-graph:has([data-branch="2"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="2"]),
+.tech-graph:has([data-branch="3"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="3"]) {
+  opacity: 0.12;
+}
+.tech-graph [data-branch] {
+  transition: opacity 200ms ease;
+}
+.tech-graph [data-branch] line {
+  stroke-width: 12px;
+  stroke: transparent;
+  pointer-events: stroke;
+}
+.tech-graph [data-branch] .branch-line {
+  stroke-width: 1.5px;
+  stroke: var(--rl-primary-500);
+  pointer-events: none;
+}
+.tech-graph [data-branch]:is(:hover, :focus-visible) .branch-line {
+  stroke-width: 3px;
+}
+.graph-description {
+  display: none;
+}
+.tech-graph:has([data-branch="0"]:is(:hover, :focus-visible)) [data-description="0"],
+.tech-graph:has([data-branch="1"]:is(:hover, :focus-visible)) [data-description="1"],
+.tech-graph:has([data-branch="2"]:is(:hover, :focus-visible)) [data-description="2"],
+.tech-graph:has([data-branch="3"]:is(:hover, :focus-visible)) [data-description="3"] {
+  display: block;
+}
+.tech-view input {
+  position: absolute;
+  opacity: 0;
+}
+.tech-view label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--rl-neutral-950);
+}
+.tech-view input:checked + label {
+  background: var(--rl-primary-500);
+  color: #000;
+}
+.tech-view input:focus-visible + label {
+  outline: 2px solid var(--rl-primary-400);
+}
+#skills:has(#tech-graph:checked) .tech-grid {
+  display: none;
+}
+#skills:has(#tech-grid:checked) .tech-graph {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-card[open] .service-content,
+  .tech-results {
+    animation: none;
+  }
+  .service-card::details-content {
+    transition: none;
+  }
+}
+
+@keyframes hero-float-a {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes hero-float-b {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+@keyframes hero-float-c {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(3deg);
+  }
+}
+@keyframes hero-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes hero-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+.hero-orbit {
+  position: absolute;
+  inset: 55px 15px;
+  border-radius: 50%;
+  border: 1px dashed var(--rl-primary-600);
+  opacity: 0.35;
+  animation: hero-orbit 32s linear infinite;
+}
+.hero-orbit::after {
+  content: "";
+  position: absolute;
+  top: 14%;
+  left: 12%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rl-primary-400);
+  box-shadow: 0 0 14px var(--rl-primary-400);
+}
+.hero-orbit-inner {
+  inset: 102px 62px;
+  animation-direction: reverse;
+  animation-duration: 22s;
+}
+.hero-spark {
+  animation: hero-pulse 3s ease-in-out infinite;
+}
+.hero-spark:nth-last-child(2) {
+  animation-delay: -1s;
+}
+.hero-spark:last-child {
+  animation-delay: -2s;
+}
+.hero-icons [class^="hero-icon-"] > button {
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  box-shadow: 0 8px 24px var(--rl-primary-950);
+}
+.hero-icons [class^="hero-icon-"]:hover,
+.hero-icons [class^="hero-icon-"]:focus-within {
+  z-index: 10;
+}
+.hero-icons [class^="hero-icon-"] > button:hover,
+.hero-icons [class^="hero-icon-"] > button:focus-visible {
+  border-color: var(--rl-primary-400);
+  box-shadow: 0 0 28px var(--rl-primary-800);
+  outline: 2px solid var(--rl-primary-400);
+  outline-offset: 3px;
+}
+.hero-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translate(-50%, 4px);
+  width: 190px;
+  padding: 10px 12px;
+  border: 1px solid var(--rl-primary-600);
+  border-radius: 10px;
+  background: var(--rl-neutral-50);
+  color: var(--rl-neutral-950);
+  box-shadow: 0 8px 24px var(--rl-primary-950);
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+}
+.hero-tooltip strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+.hero-icons [class^="hero-icon-"]:hover .hero-tooltip,
+.hero-icons [class^="hero-icon-"]:focus-within .hero-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.hero-icon-a {
+  animation: hero-float-a 4s ease-in-out infinite;
+}
+.hero-icon-b {
+  animation: hero-float-b 5s ease-in-out infinite;
+}
+.hero-icon-c {
+  animation: hero-float-c 6s ease-in-out infinite;
+}
+.hero-icon-d {
+  animation: hero-float-a 3.5s ease-in-out infinite 0.8s;
+}
+.hero-icon-e {
+  animation: hero-float-b 4.5s ease-in-out infinite 1.2s;
+}
+.hero-icon-f {
+  animation: hero-float-c 5.5s ease-in-out infinite 0.4s;
+}
+.hero-icon-g {
+  animation: hero-float-a 4.8s ease-in-out infinite 1.6s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-icon-a,
+  .hero-icon-b,
+  .hero-icon-c,
+  .hero-icon-d,
+  .hero-icon-e,
+  .hero-icon-f,
+  .hero-icon-g,
+  .hero-orbit,
+  .hero-spark {
+    animation: none;
+  }
+  .hero-tooltip,
+  .hero-icons [class^="hero-icon-"] > button {
+    transition: none;
+  }
+}

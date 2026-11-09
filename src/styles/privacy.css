@@ -1,0 +1,37 @@
+.privacy-content .cms-section {
+  margin: 0;
+  padding: 0 0 2rem;
+  border-top: 2px solid color-mix(in srgb, var(--rl-primary-600) 40%, transparent);
+}
+.privacy-content .privacy-section {
+  padding-top: 2rem;
+  border-top: 2px solid color-mix(in srgb, var(--rl-primary-600) 40%, transparent);
+}
+.privacy-content .privacy-section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.privacy-content .privacy-section .cms-section {
+  border-top: 0;
+}
+.privacy-content .cms-section h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--rl-primary-500);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  justify-content: center;
+}
+.privacy-content .cms-paragraph {
+  margin: 0;
+  color: color-mix(in srgb, var(--rl-neutral-950) 65%, transparent);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.privacy-content a {
+  color: var(--rl-primary-400);
+  text-decoration: underline;
+}
