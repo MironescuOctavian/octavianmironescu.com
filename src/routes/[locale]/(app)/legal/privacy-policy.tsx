@@ -63,34 +63,6 @@ export default function PrivacyPolicyPage() {
 
   return (
     <main class="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
-      <style>{`
-        .privacy-content .cms-section {
-          margin: 0;
-          padding: 0 0 2rem;
-          border-top: 2px solid color-mix(in srgb, var(--rl-primary-600) 40%, transparent);
-        }
-        .privacy-content .privacy-section { padding-top: 2rem; border-top: 2px solid color-mix(in srgb, var(--rl-primary-600) 40%, transparent); }
-        .privacy-content .privacy-section:first-child { border-top: 0; padding-top: 0; }
-        .privacy-content .privacy-section .cms-section { border-top: 0; }
-        .privacy-content .cms-section h2 {
-          margin: 0;
-          padding: 0;
-          border: 0;
-          color: var(--rl-primary-500);
-          font-size: clamp(1.5rem, 2.5vw, 2rem);
-          font-weight: 700;
-          letter-spacing: -.025em;
-          line-height: 1.2;
-          justify-content: center;
-        }
-        .privacy-content .cms-paragraph {
-          margin: 0;
-          color: color-mix(in srgb, var(--rl-neutral-950) 65%, transparent);
-          font-size: 1rem;
-          line-height: 1.75;
-        }
-        .privacy-content a { color: var(--rl-primary-400); text-decoration: underline; }
-      `}</style>
       <header class="mx-auto max-w-3xl text-center">
         <div
           class="mx-auto mb-6 flex size-14 items-center justify-center rounded-2xl border-2 border-primary-500 bg-primary-500/10 text-primary-400 shadow-[0_0_24px_var(--rl-primary-900)]"

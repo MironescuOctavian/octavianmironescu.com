@@ -6,6 +6,7 @@ import { RLContainer } from "@rimelight/ui/components/container/RLContainer.tsx"
 import { getLocaleUrl, t } from "@rimelight/i18n";
 import type { PublicEntry } from "@rimelight/cms/solid";
 import { SOCIAL_LINKS } from "#components/app/SocialLinks";
+import { projects } from "#components/app/projects";
 import { blogCover } from "#components/app/blogCovers";
 import { createMemo, createSignal, onSettled, For, Loading, Show } from "solid-js";
 
@@ -72,46 +73,6 @@ const techGroups = [
   },
 ];
 
-const projects = [
-  {
-    title: "octavianmironescu.com",
-    type: "portfolio",
-    status: "live",
-    image: "https://placehold.co/900x600/111111/ffbf00?text=octavianmironescu.com",
-    href: "https://github.com/MironescuOctavian/octavianmironescu.com",
-    featured: true,
-  },
-  {
-    title: "backendTitle",
-    type: "backend",
-    status: "comingSoon",
-    image: "https://placehold.co/900x600/111111/ffbf00?text=Backend+Systems",
-    href: "https://github.com/MironescuOctavian",
-  },
-  {
-    title: "platformTitle",
-    type: "application",
-    status: "comingSoon",
-    image: "https://placehold.co/900x600/111111/ffbf00?text=Full-stack+Platform",
-    href: "https://github.com/MironescuOctavian",
-  },
-  {
-    title: "timezoneTitle",
-    type: "application",
-    status: "live",
-    image: "/projects/timezone-converter.svg",
-    href: "https://timezone-converter.omironescu.workers.dev/en/",
-    description: "timezoneDescription",
-  },
-  {
-    title: "nextTitle",
-    type: "application",
-    status: "comingSoon",
-    image: "https://placehold.co/900x600/111111/ffbf00?text=Coming+Soon",
-    href: "https://github.com/MironescuOctavian",
-  },
-];
-
 const packages = [
   "@rimelight/ui",
   "@rimelight/i18n",
@@ -135,7 +96,6 @@ export default function HomePage() {
     }
   });
   const techLabel = (key: string) => t.raw<string>(`home.sections.technologies.labels.${key}`, key);
-  const projectLabel = (key: string) => t.raw<string>(`home.sections.work.labels.${key}`, key);
   const [activeTechGroup, setActiveTechGroup] = createSignal<string>("All");
   const getBucharestTime = () =>
     new Intl.DateTimeFormat("en-GB", {
@@ -167,54 +127,7 @@ export default function HomePage() {
   );
 
   return (
-    <div class="w-full overflow-hidden bg-neutral-50 text-neutral-950 selection:bg-primary-400/30">
-      <style>{`
-        @keyframes service-reveal {
-          from { opacity: 0; transform: translateY(-8px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .service-card[open] .service-content { animation: service-reveal 250ms ease-out; }
-        @supports (interpolate-size: allow-keywords) {
-          .service-card { interpolate-size: allow-keywords; }
-          .service-card::details-content {
-            block-size: 0;
-            opacity: 0;
-            overflow: clip;
-            transition: block-size 300ms ease, opacity 220ms ease, content-visibility 300ms allow-discrete;
-          }
-          .service-card[open]::details-content { block-size: auto; opacity: 1; }
-          .service-card[open] .service-content { animation: none; }
-        }
-        @keyframes content-reveal {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .tech-results { animation: content-reveal 350ms ease-out; }
-        .tech-graph { animation-duration: 800ms; }
-        .tech-graph:has([data-branch="0"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="0"]),
-        .tech-graph:has([data-branch="1"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="1"]),
-        .tech-graph:has([data-branch="2"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="2"]),
-        .tech-graph:has([data-branch="3"]:is(:hover, :focus-visible)) [data-branch]:not([data-branch="3"]) { opacity: .12; }
-        .tech-graph [data-branch] { transition: opacity 200ms ease; }
-        .tech-graph [data-branch] line { stroke-width: 12px; stroke: transparent; pointer-events: stroke; }
-        .tech-graph [data-branch] .branch-line { stroke-width: 1.5px; stroke: var(--rl-primary-500); pointer-events: none; }
-        .tech-graph [data-branch]:is(:hover, :focus-visible) .branch-line { stroke-width: 3px; }
-        .graph-description { display: none; }
-        .tech-graph:has([data-branch="0"]:is(:hover, :focus-visible)) [data-description="0"],
-        .tech-graph:has([data-branch="1"]:is(:hover, :focus-visible)) [data-description="1"],
-        .tech-graph:has([data-branch="2"]:is(:hover, :focus-visible)) [data-description="2"],
-        .tech-graph:has([data-branch="3"]:is(:hover, :focus-visible)) [data-description="3"] { display: block; }
-        .tech-view input { position: absolute; opacity: 0; }
-        .tech-view label { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .75rem; border-radius: .5rem; cursor: pointer; color: var(--rl-neutral-950); }
-        .tech-view input:checked + label { background: var(--rl-primary-500); color: #000; }
-        .tech-view input:focus-visible + label { outline: 2px solid var(--rl-primary-400); }
-        #skills:has(#tech-graph:checked) .tech-grid { display: none; }
-        #skills:has(#tech-grid:checked) .tech-graph { display: none; }
-        @media (prefers-reduced-motion: reduce) {
-          .service-card[open] .service-content, .tech-results { animation: none; }
-          .service-card::details-content { transition: none; }
-        }
-      `}</style>
+    <div class="w-full overflow-hidden text-neutral-950 selection:bg-primary-400/30">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <section class="scroll-mt-28 py-20 md:py-28">
           <div class="grid items-center gap-12 lg:grid-cols-[1fr_auto]">
@@ -231,7 +144,7 @@ export default function HomePage() {
               </p>
               <div class="mt-8 flex flex-wrap gap-3">
                 <RLButton
-                  href="#projects"
+                  href={getLocaleUrl("/projects")}
                   trailingIcon="i-mdi-arrow-down-right"
                   color="primary"
                   size="lg"
@@ -294,78 +207,6 @@ export default function HomePage() {
               class="hero-icons relative hidden h-[420px] w-[340px] lg:block"
               aria-label="Technologies"
             >
-              <style>{`
-                @keyframes hero-float-a {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(-10px); }
-                }
-                @keyframes hero-float-b {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(8px); }
-                }
-                @keyframes hero-float-c {
-                  0%, 100% { transform: translateY(0px) rotate(0deg); }
-                  50% { transform: translateY(-7px) rotate(3deg); }
-                }
-                @keyframes hero-orbit { to { transform: rotate(360deg); } }
-                @keyframes hero-pulse {
-                  0%, 100% { opacity: .35; transform: scale(.85); }
-                  50% { opacity: .9; transform: scale(1.15); }
-                }
-                .hero-orbit {
-                  position: absolute; inset: 55px 15px; border-radius: 50%;
-                  border: 1px dashed var(--rl-primary-600); opacity: .35;
-                  animation: hero-orbit 32s linear infinite;
-                }
-                .hero-orbit::after {
-                  content: ''; position: absolute; top: 14%; left: 12%;
-                  width: 7px; height: 7px; border-radius: 50%;
-                  background: var(--rl-primary-400); box-shadow: 0 0 14px var(--rl-primary-400);
-                }
-                .hero-orbit-inner { inset: 102px 62px; animation-direction: reverse; animation-duration: 22s; }
-                .hero-spark { animation: hero-pulse 3s ease-in-out infinite; }
-                .hero-spark:nth-last-child(2) { animation-delay: -1s; }
-                .hero-spark:last-child { animation-delay: -2s; }
-                .hero-icons [class^='hero-icon-'] > button {
-                  transition: box-shadow .35s ease, border-color .35s ease;
-                  box-shadow: 0 8px 24px var(--rl-primary-950);
-                }
-                .hero-icons [class^='hero-icon-']:hover,
-                .hero-icons [class^='hero-icon-']:focus-within { z-index: 10; }
-                .hero-icons [class^='hero-icon-'] > button:hover,
-                .hero-icons [class^='hero-icon-'] > button:focus-visible {
-                  border-color: var(--rl-primary-400);
-                  box-shadow: 0 0 28px var(--rl-primary-800);
-                  outline: 2px solid var(--rl-primary-400); outline-offset: 3px;
-                }
-                .hero-tooltip {
-                  position: absolute; bottom: calc(100% + 12px); left: 50%;
-                  transform: translate(-50%, 4px); width: 190px; padding: 10px 12px;
-                  border: 1px solid var(--rl-primary-600); border-radius: 10px;
-                  background: var(--rl-neutral-50); color: var(--rl-neutral-950);
-                  box-shadow: 0 8px 24px var(--rl-primary-950); font-size: 12px;
-                  line-height: 1.4; opacity: 0; visibility: hidden; pointer-events: none;
-                  transition: opacity .2s ease, transform .2s ease, visibility .2s;
-                }
-                .hero-tooltip strong { display: block; margin-bottom: 3px; font-size: 13px; }
-                .hero-icons [class^='hero-icon-']:hover .hero-tooltip,
-                .hero-icons [class^='hero-icon-']:focus-within .hero-tooltip {
-                  opacity: 1; visibility: visible; transform: translate(-50%, 0);
-                }
-                .hero-icon-a { animation: hero-float-a 4s ease-in-out infinite; }
-                .hero-icon-b { animation: hero-float-b 5s ease-in-out infinite; }
-                .hero-icon-c { animation: hero-float-c 6s ease-in-out infinite; }
-                .hero-icon-d { animation: hero-float-a 3.5s ease-in-out infinite 0.8s; }
-                .hero-icon-e { animation: hero-float-b 4.5s ease-in-out infinite 1.2s; }
-                .hero-icon-f { animation: hero-float-c 5.5s ease-in-out infinite 0.4s; }
-                .hero-icon-g { animation: hero-float-a 4.8s ease-in-out infinite 1.6s; }
-                @media (prefers-reduced-motion: reduce) {
-                  .hero-icon-a, .hero-icon-b, .hero-icon-c, .hero-icon-d,
-                  .hero-icon-e, .hero-icon-f, .hero-icon-g, .hero-orbit,
-                .hero-spark { animation: none; }
-                  .hero-tooltip, .hero-icons [class^='hero-icon-'] > button { transition: none; }
-                }
-              `}</style>
               {/* Glowing backdrop blob */}
               <div class="absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_50%_50%,var(--rl-primary-900),transparent_70%)] opacity-40" />
               <div class="hero-orbit" />
@@ -821,48 +662,46 @@ export default function HomePage() {
               <p class="mt-3 text-sm text-neutral-950/50">{t("home.sections.work.description")}</p>
             </div>
             <a
-              href="https://github.com/MironescuOctavian?tab=repositories"
+              href={getLocaleUrl("/projects")}
               class="text-sm text-neutral-950/60 transition hover:text-primary-200"
             >
-              {t("home.sections.work.repositories")}{" "}
-              <span class="i-mdi-arrow-top-right ml-1 inline-block" />
+              {t("page.projects.all")} <span class="i-mdi-arrow-top-right ml-1 inline-block" />
             </a>
           </div>
           <div class="grid gap-5 md:grid-cols-2">
-            {projects.map((p) => (
-              <a
-                href={p.href}
-                class={`group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-950/[.02] transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_12px_32px_var(--rl-primary-950)] ${p.featured ? "md:col-span-2 md:grid md:grid-cols-2" : ""}`}
-              >
-                <div class="overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={`${p.featured ? p.title : projectLabel(p.title)} — ${t("home.sections.work.preview")}`}
-                    loading="lazy"
-                    class="h-56 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div class="flex flex-col justify-center p-6">
-                  <p class="text-xs uppercase tracking-widest text-primary-200">
-                    {projectLabel(p.type)} · {projectLabel(p.status)}
-                  </p>
-                  <h3 class="mt-3 text-2xl font-semibold">
-                    {p.featured ? p.title : projectLabel(p.title)}
-                  </h3>
-                  <p class="mt-3 text-sm leading-6 text-neutral-950/45">
-                    {p.description
-                      ? projectLabel(p.description)
-                      : p.featured
-                        ? t("home.sections.work.portfolioDescription")
-                        : t("home.sections.work.comingDescription")}
-                  </p>
-                  <span class="mt-6 text-sm text-neutral-950/65">
-                    {t("home.sections.work.view")}{" "}
-                    <span class="i-mdi-arrow-top-right ml-1 inline-block" />
-                  </span>
-                </div>
-              </a>
-            ))}
+            {projects
+              .filter((p) => !p.isPlaceholder)
+              .map((p) => (
+                <a
+                  href={p.href.startsWith("/") ? getLocaleUrl(p.href) : p.href}
+                  class={`group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-950/[.02] transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_12px_32px_var(--rl-primary-950)] `}
+                >
+                  <div class="flex h-56 items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,var(--rl-primary-900),transparent)]">
+                    {p.image ? (
+                      <img
+                        src={p.image}
+                        alt=""
+                        loading="lazy"
+                        class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                      />
+                    ) : (
+                      <span
+                        class={`${p.icon} inline-block size-16 text-primary-400`}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </div>
+                  <div class="flex flex-col justify-center p-6">
+                    <p class="text-xs uppercase tracking-widest text-primary-200">{p.category}</p>
+                    <h3 class="mt-3 text-2xl font-semibold">{p.title}</h3>
+                    <p class="mt-3 text-sm leading-6 text-neutral-950/45">{p.description}</p>
+                    <span class="mt-6 text-sm text-neutral-950/65">
+                      {t("home.sections.work.view")}{" "}
+                      <span class="i-mdi-arrow-top-right ml-1 inline-block" />
+                    </span>
+                  </div>
+                </a>
+              ))}
           </div>
         </section>
 

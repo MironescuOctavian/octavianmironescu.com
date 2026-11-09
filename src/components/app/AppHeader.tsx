@@ -1,6 +1,5 @@
 import { type Component, createSignal, onSettled, For } from "solid-js";
 import { RLHeader } from "@rimelight/ui/components/header/RLHeader.tsx";
-import { RLNavigationMenu } from "@rimelight/ui/components/navigation-menu/RLNavigationMenu.tsx";
 import { RLThemeSelector } from "@rimelight/ui/components/theme-selector/RLThemeSelector.tsx";
 import { RLLocaleSelector } from "@rimelight/ui/components/locale-selector/RLLocaleSelector.tsx";
 import { RLSlideover } from "@rimelight/ui/components/slideover/RLSlideover.tsx";
@@ -15,14 +14,12 @@ const sectionLinks = [
   { label: "About", id: "about" },
   { label: "Skills", id: "skills" },
   { label: "Projects", id: "projects" },
-  { label: "Services", id: "skills" },
+  { label: "Services", id: "contact" },
 ];
 
 const headerNavItems = [
   { label: "About", href: "/#about" },
   { label: "Skills", href: "/#skills" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Services", href: "/#contact" },
 ];
 
 export const AppHeader: Component<AppHeaderProps> = (props) => {
@@ -53,6 +50,13 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
       contain={true}
       fixed={true}
       stackIndex={props.stackIndex ?? 50}
+      ui={{
+        container: () =>
+          "mx-auto flex max-w-7xl flex-row items-center justify-between gap-2 h-16 md:h-18 px-5 sm:px-8",
+        leading: () => "flex-none min-w-0 flex items-center justify-start",
+        center: () => "hidden xl:flex flex-1 min-w-0 items-center justify-start ml-12",
+        trailing: () => "flex-none min-w-0 flex items-center justify-end",
+      }}
       class="border-b-2 border-primary-700 bg-neutral-50/95 text-neutral-950 backdrop-blur-xl"
       leadingSlot={
         <div class="flex items-center gap-4">
@@ -77,29 +81,51 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
         </div>
       }
       centerSlot={
-        <RLNavigationMenu
-          items={headerNavItems}
+        <nav
           aria-label="Main navigation"
-          class="hidden min-w-0 flex-1 items-center justify-center lg:flex"
-          ui={{
-            root: () => "hidden min-w-0 flex-1 items-center justify-center lg:flex",
-            list: () => "flex items-center justify-center gap-2 list-none m-0 p-0",
-            link: () =>
-              "rounded-full px-4 py-2 text-sm font-bold tracking-wide text-neutral-950/90 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-900/40 hover:text-primary-300 focus-visible:outline-2 focus-visible:outline-primary-300",
-          }}
-        />
+          class="hidden min-w-0 flex-1 items-center justify-start xl:flex"
+        >
+          <For each={headerNavItems}>
+            {(link) => (
+              <a
+                href={getLocaleUrl(link.href)}
+                class="rounded-full px-3 py-2 text-sm font-bold tracking-wide text-neutral-950/90 transition-colors hover:bg-primary-900/40 hover:text-primary-300"
+              >
+                {link.label}
+              </a>
+            )}
+          </For>
+          <a
+            href={getLocaleUrl("/#projects")}
+            class="rounded-full px-3 py-2 text-sm font-bold tracking-wide text-neutral-950/90 transition-colors hover:bg-primary-900/40 hover:text-primary-300"
+          >
+            {t("page.projects.title")}
+          </a>
+          <a
+            href={getLocaleUrl("/#contact")}
+            class="rounded-full px-3 py-2 text-sm font-bold tracking-wide text-neutral-950/90 transition-colors hover:bg-primary-900/40 hover:text-primary-300"
+          >
+            Services
+          </a>
+        </nav>
       }
       trailingSlot={
-        <div class="flex items-center gap-2.5 sm:gap-3">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <a
+            href={getLocaleUrl("/projects")}
+            class="hidden md:inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
+          >
+            {t("page.projects.title")}
+          </a>
           <a
             href={getLocaleUrl("/blog")}
-            class="hidden md:inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-4 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
+            class="hidden md:inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
           >
             {t("app.header.nav.blog")}
           </a>
           <a
             href={getLocaleUrl("/resume")}
-            class="hidden md:inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-4 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
+            class="hidden md:inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
           >
             {t("app.header.nav.resume")}
           </a>
@@ -118,7 +144,7 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
             color="primary"
           />
 
-          <div class="block lg:hidden">
+          <div class="block xl:hidden">
             <RLSlideover
               side="right"
               title={t("app.header.menu.title") ?? "Navigation"}
@@ -144,6 +170,12 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
                       </a>
                     )}
                   </For>
+                  <a
+                    href={getLocaleUrl("/projects")}
+                    class="rounded-lg px-4 py-2.5 text-base font-semibold text-primary-400"
+                  >
+                    {t("page.projects.all")}
+                  </a>
                   <hr class="my-2 border-primary-500/30" />
                   <a
                     href={getLocaleUrl("/blog")}

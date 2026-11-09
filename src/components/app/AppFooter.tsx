@@ -13,6 +13,11 @@ export default function AppFooter() {
       leadingIcon: "i-mdi-home-outline",
     },
     {
+      label: t("page.projects.title"),
+      href: "/projects",
+      leadingIcon: "i-lucide-code-xml",
+    },
+    {
       label: t("app.header.nav.blog") ?? "Blog",
       href: "/blog",
       leadingIcon: "i-mdi-post-outline",

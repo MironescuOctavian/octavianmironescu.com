@@ -4,6 +4,10 @@ import { createDocumentHead } from "@rimelight/seo/head";
 import { getLocaleInfo } from "@rimelight/i18n";
 import { getDocumentTheme } from "@rimelight/ui/theme";
 import "virtual:uno.css";
+import "./styles/home.css";
+import "./styles/atmosphere.css";
+import "./styles/resume.css";
+import "./styles/privacy.css";
 
 export default function Document(props: ParentProps) {
   useHead(createDocumentHead());

@@ -36,19 +36,53 @@
     "resume": {
       "meta": {
         "title": "Currículo",
-        "description": "Currículo de Mironescu Octavian, desenvolvedor de software Java e web."
+        "description": "Currículo de Mironescu Octavian, desenvolvedor de software Java e full-stack web."
       },
       "hero": {
+        "eyebrow": "Curriculum Vitae",
+        "availability": "Disponível para funções Backend e Full-Stack",
         "title": "Olá! Eu sou Mironescu Octavian",
-        "description": "Sou desenvolvedor de software Java e web.",
+        "description": "Desenvolvedor de software especializado em sistemas backend resilientes com Java, Kotlin e Spring Boot, além de aplicações web modernas em TypeScript e SolidJS. Experiência em arquitetura de APIs, modelagem de dados relacionais e NoSQL, fluxos em nuvem e entrega ponta a ponta.",
         "action": {
-          "hire": "Contrate-me"
+          "hire": "Contrate-me",
+          "projects": "Explorar projetos",
+          "print": "Imprimir / Salvar PDF"
         }
       },
       "sidebar": {
+        "badge": "Dossiê do Desenvolvedor",
         "name": "Mironescu Octavian",
-        "title": "Desenvolvedor de software",
-        "location": "Bucareste, Romênia"
+        "title": "Desenvolvedor de Software Java e Full-Stack Web",
+        "location": "Bucareste, Romênia",
+        "workModeLabel": "Modo de trabalho",
+        "workModeValue": "Remoto / Híbrido",
+        "timezoneLabel": "Fuso horário",
+        "timezoneValue": "EET (UTC+2)"
+      },
+      "highlights": {
+        "heading": "Resumo Profissional",
+        "items": {
+          "experience": {
+            "label": "Experiência",
+            "value": "3+ Anos",
+            "detail": "Sistemas backend em produção, pipelines em nuvem e entregas para clientes"
+          },
+          "backend": {
+            "label": "Núcleo Backend",
+            "value": "Java, Kotlin e Spring",
+            "detail": "APIs REST e GraphQL, arquiteturas PostgreSQL e MongoDB"
+          },
+          "web": {
+            "label": "Web e Edge",
+            "value": "TypeScript e SolidJS",
+            "detail": "Plataformas web SSR, Docker, AWS e deploys na Cloudflare"
+          },
+          "education": {
+            "label": "Educação",
+            "value": "Mestrado em Computação",
+            "detail": "Mestrado e Bacharelado — Universidade Ovidius (2018–2023)"
+          }
+        }
       },
       "aria": {
         "sidebar": {
@@ -94,7 +128,9 @@
         "basic": "Básico"
       },
       "skills": {
+        "eyebrow": "Competências",
         "heading": "Habilidades",
+        "subheading": "Principais áreas de foco e desenvolvimento",
         "java": {
           "title": "Desenvolvedor de software Java",
           "description": "Projeto, construo e mantenho aplicações corporativas e serviços de backend usando a linguagem Java e seu vasto ecossistema."
@@ -109,7 +145,9 @@
         }
       },
       "tech": {
+        "eyebrow": "Ecossistema",
         "heading": "Tecnologias e ferramentas",
+        "subheading": "Frameworks, bibliotecas e ferramentas",
         "group": {
           "web-dev": "Linguagens e ferramentas"
         },
@@ -121,7 +159,9 @@
         }
       },
       "experience": {
-        "heading": "Experiência"
+        "eyebrow": "Experiência",
+        "heading": "Experiência",
+        "subheading": "Trajetória profissional e funções técnicas"
       },
       "exp": {
         "summary": {
@@ -133,18 +173,11 @@
       },
       "experiences": [
         {
-          "company": "Property Pass",
-          "period": "Junho 2022 - Novembro 2022",
-          "tags": ["Kotlin", "Java", "Spring Boot", "MongoDB", "GraphQL"],
-          "role": "Programador júnior",
-          "location": "Utrecht, Países Baixos - Remoto",
-          "summary": "Desenvolvi, construí e mantive a aplicação por trás do site da empresa, que gerenciava passaportes imobiliários para proprietários de imóveis comerciais.",
-          "responsibilities": [
-            "Desenvolvimento de uma aplicação Spring Boot escrita em Kotlin, voltada ao comércio imobiliário.",
-            "Criação e gestão de dados em um cluster MongoDB.",
-            "Escrita de pipelines de agregação no MongoDB para análises destinadas aos stakeholders.",
-            "Refatoração da documentação do projeto."
-          ]
+          "role": "Freelancer",
+          "period": "Fevereiro 2024 - Presente",
+          "location": "Bucareste, Romênia - Presencial/Remoto",
+          "summary": "Desenvolvi, testei e mantive aplicações full-stack, serviços backend e plataformas web para clientes sob contrato.",
+          "tags": ["TypeScript", "SolidJS", "Java", "Cloudflare", "Docker"]
         },
         {
           "company": "CoruScript",
@@ -159,34 +192,62 @@
           ]
         },
         {
-          "role": "Freelancer",
-          "period": "Fevereiro 2024 - Presente",
-          "location": "Bucareste, Romênia - Presencial/Remoto",
-          "summary": "Escrevi, testei e mantive software e sites para diversos clientes sob contrato."
+          "company": "Property Pass",
+          "period": "Junho 2022 - Novembro 2022",
+          "tags": ["Kotlin", "Java", "Spring Boot", "MongoDB", "GraphQL"],
+          "role": "Programador júnior",
+          "location": "Utrecht, Países Baixos - Remoto",
+          "summary": "Desenvolvi, construí e mantive a aplicação por trás do site da empresa, que gerenciava passaportes imobiliários para proprietários de imóveis comerciais.",
+          "responsibilities": [
+            "Desenvolvimento de uma aplicação Spring Boot escrita em Kotlin, voltada ao comércio imobiliário.",
+            "Criação e gestão de dados em um cluster MongoDB.",
+            "Escrita de pipelines de agregação no MongoDB para análises destinadas aos stakeholders.",
+            "Refatoração da documentação do projeto."
+          ]
         }
       ],
       "education": [
         {
-          "degree": "Bacharelado em Ciência da Computação",
-          "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2018 - 2021"
-        },
-        {
           "degree": "Mestrado em Ciência da Computação",
           "school": "OVID - Universitatea Ovidius Constanța",
           "period": "2021 - 2023"
+        },
+        {
+          "degree": "Bacharelado em Ciência da Computação",
+          "school": "OVID - Universitatea Ovidius Constanța",
+          "period": "2018 - 2021"
         }
       ],
       "headings": {
+        "academicsEyebrow": "Formação",
         "education": "Educação",
+        "portfolioEyebrow": "Portfólio",
         "projects": "Projetos",
+        "certificationsEyebrow": "Certificações",
         "certifications": "Certificações"
       },
       "projects": [
         {
+          "name": "octavianmironescu.com e Ecossistema Rimelight",
+          "role": "Criador e Desenvolvedor Principal",
+          "period": "2024 - Presente",
+          "href": "https://github.com/MironescuOctavian/octavianmironescu.com",
+          "summary": "Portfólio multilíngue, blog e ecossistema modular de pacotes SolidJS 2.0 (@rimelight/ui, i18n, seo, cms, auth, security) na Cloudflare Workers.",
+          "tags": ["SolidJS", "TypeScript", "UnoCSS", "Cloudflare"]
+        },
+        {
+          "name": "Conversor de Fuso Horário",
+          "role": "Criador e Desenvolvedor",
+          "period": "2025",
+          "href": "https://timezone-converter.omironescu.workers.dev/en/",
+          "summary": "Relógio mundial interativo, utilitário de comparação de fusos horários e gerador de timestamps do Discord para equipes distribuídas.",
+          "tags": ["SolidJS", "TypeScript", "Cloudflare Workers"]
+        },
+        {
           "name": "Bot de automação para Discord",
           "role": "Desenvolvedor e mantenedor",
           "period": "2024",
+          "summary": "Serviço de automação em Java orientado a eventos integrado ao Discord Developer Portal para fluxos de servidor e moderação.",
           "tags": ["Java", "Discord Developer Portal"]
         }
       ],
@@ -307,6 +368,22 @@
           "title": "Tecnologias que uso",
           "description": "As ferramentas que uso para criar, entregar e manter software."
         }
+      }
+    },
+    "projects": {
+      "title": "Projetos",
+      "eyebrow": "Criados com prop?sito",
+      "description": "Aplica??es, ferramentas e pacotes que concebo, desenvolvo e mantenho. Conhe?a o trabalho por tr?s do c?digo.",
+      "all": "Ver todos os projetos",
+      "view": "Explorar projeto",
+      "packagesTitle": "Pacotes",
+      "packages": {
+        "ui": "Componentes personaliz?veis e elementos de interface para SolidJS.",
+        "i18n": "Internacionaliza??o, rotas localizadas e ferramentas de tradu??o.",
+        "seo": "Metadados, dados estruturados e pr?vias de partilha social.",
+        "auth": "Autentica??o e gest?o de sess?es para aplica??es.",
+        "security": "Cabe?alhos de seguran?a, pol?ticas de conte?do e prote??o de pedidos.",
+        "cms": "Cole??es de conte?do, publica??o e ferramentas de gest?o."
       }
     }
   },
@@ -454,7 +531,7 @@
           "description": "Fluxos práticos de build, contêineres e cloud para manter o software em movimento.",
           "points": [
             "Aplicações em contêineres e builds reproduzíveis",
-            "Implantação em plataformas cloud e edge",
+            "Implantação, roteamento e escalabilidade em cloud e edge",
             "Configuração, gestão de ambientes e preparação de versões",
             "Diagnóstico e melhorias após a implantação"
           ]

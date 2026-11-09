@@ -21,6 +21,7 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   builder: { sharedPlugins: true },
+  server: { host: true },
   plugins: [
     cloudflare(),
 
@@ -30,7 +31,7 @@ export default defineConfig({
       serverFunctions: true,
     }),
 
-    fileRoutes({ types: ".cloudflare/types/file-routes.d.ts" }),
+    fileRoutes({ types: ".cloudflare/types/file-routes.d.ts", codeSplitting: false }),
 
     seo({
       id: "octavianmironescu.com",
@@ -106,6 +107,8 @@ export default defineConfig({
           "i-mdi-shield-check-outline",
           "i-mdi-file-document-outline",
           "i-mdi-message-text-outline",
+          "i-lucide-globe",
+          "i-lucide-code-xml",
         ],
       },
       colors: {

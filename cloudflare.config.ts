@@ -36,7 +36,7 @@ export default defineConfig({
           period: 60,
         },
       }),
-      CONSTRUCTION_MODE: bindings.text("true"),
+      CONSTRUCTION_MODE: bindings.text("false"),
       CONSTRUCTION_PASSPHRASE: bindings.secret(),
       CONTACT_OWNER_EMAIL: bindings.text("owner@octavianmironescu.com"),
     },

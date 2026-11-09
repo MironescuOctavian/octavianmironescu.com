@@ -36,19 +36,53 @@
     "resume": {
       "meta": {
         "title": "Resume",
-        "description": "Resume of Mironescu Octavian, Java & Web Software Developer."
+        "description": "Resume of Mironescu Octavian, Java & Full-Stack Web Developer."
       },
       "hero": {
+        "eyebrow": "Curriculum Vitae",
+        "availability": "Available for Backend & Full-Stack Roles",
         "title": "Hey! I'm Mironescu Octavian",
-        "description": "I'm a Java & Web Software Developer.",
+        "description": "Software developer specializing in resilient Java, Kotlin, and Spring Boot backend systems alongside modern TypeScript and SolidJS web applications. Experienced in API architecture, relational & NoSQL data modeling, cloud workflows, and end-to-end product delivery.",
         "action": {
-          "hire": "Hire me"
+          "hire": "Hire me",
+          "projects": "Explore projects",
+          "print": "Print / Save PDF"
         }
       },
       "sidebar": {
+        "badge": "Developer Dossier",
         "name": "Mironescu Octavian",
-        "title": "Software Developer",
-        "location": "Bucharest, Romania"
+        "title": "Java & Full-Stack Web Developer",
+        "location": "Bucharest, Romania",
+        "workModeLabel": "Work Mode",
+        "workModeValue": "Remote / Hybrid",
+        "timezoneLabel": "Time Zone",
+        "timezoneValue": "EET (UTC+2)"
+      },
+      "highlights": {
+        "heading": "Career Snapshot",
+        "items": {
+          "experience": {
+            "label": "Experience",
+            "value": "3+ Years",
+            "detail": "Production backend systems, cloud pipelines & client delivery"
+          },
+          "backend": {
+            "label": "Backend Core",
+            "value": "Java, Kotlin & Spring",
+            "detail": "REST & GraphQL APIs, PostgreSQL & MongoDB architectures"
+          },
+          "web": {
+            "label": "Web & Edge",
+            "value": "TypeScript & SolidJS",
+            "detail": "SSR web platforms, Docker, AWS & Cloudflare deployments"
+          },
+          "education": {
+            "label": "Education",
+            "value": "M.Sc. Computer Science",
+            "detail": "Master's & Bachelor's — Ovidius University (2018–2023)"
+          }
+        }
       },
       "aria": {
         "sidebar": {
@@ -94,7 +128,9 @@
         "basic": "Basic"
       },
       "skills": {
+        "eyebrow": "Competencies",
         "heading": "Skills",
+        "subheading": "Core areas of focus & development",
         "java": {
           "title": "Java Software Developer",
           "description": "Designing, building, and maintaining enterprise-level applications and backend services using the Java programming language and its vast ecosystem."
@@ -109,7 +145,9 @@
         }
       },
       "tech": {
+        "eyebrow": "Ecosystem",
         "heading": "Technologies & Tools",
+        "subheading": "Frameworks, libraries, and tooling",
         "group": {
           "web-dev": "Languages & Tools"
         },
@@ -121,7 +159,9 @@
         }
       },
       "experience": {
-        "heading": "Experience"
+        "eyebrow": "Experience",
+        "heading": "Experience",
+        "subheading": "Professional journey & technical roles"
       },
       "exp": {
         "summary": {
@@ -133,18 +173,11 @@
       },
       "experiences": [
         {
-          "company": "Property Pass",
-          "period": "June 2022 - November 2022",
-          "tags": ["Kotlin", "Java", "Spring Boot", "MongoDB", "GraphQL"],
-          "role": "Junior Programmer",
-          "location": "Utrecht, Netherlands - Remote",
-          "summary": "Developed, built and maintained the application behind the company's website that handled real estate passports for commercial real estate owners.",
-          "responsibilities": [
-            "Development of a Spring Boot based application written in Kotlin related to real estate commerce.",
-            "Creating and managing data in a MongoDB cluster.",
-            "Writing aggregation pipelines for MongoDB data for analytics breakdowns for stakeholders.",
-            "Refactoring project documentation."
-          ]
+          "role": "Freelancing",
+          "period": "February 2024 - Present",
+          "location": "Bucharest, Romania - On-site/Remote",
+          "summary": "Wrote, tested, and maintained full-stack software, backend services, and web platforms for clients on a contract basis.",
+          "tags": ["TypeScript", "SolidJS", "Java", "Cloudflare", "Docker"]
         },
         {
           "company": "CoruScript",
@@ -159,34 +192,62 @@
           ]
         },
         {
-          "role": "Freelancing",
-          "period": "February 2024 - Present",
-          "location": "Bucharest, Romania - On-site/Remote",
-          "summary": "Wrote, tested, and maintained software and websites for various clients on a contract basis."
+          "company": "Property Pass",
+          "period": "June 2022 - November 2022",
+          "tags": ["Kotlin", "Java", "Spring Boot", "MongoDB", "GraphQL"],
+          "role": "Junior Programmer",
+          "location": "Utrecht, Netherlands - Remote",
+          "summary": "Developed, built and maintained the application behind the company's website that handled real estate passports for commercial real estate owners.",
+          "responsibilities": [
+            "Development of a Spring Boot based application written in Kotlin related to real estate commerce.",
+            "Creating and managing data in a MongoDB cluster.",
+            "Writing aggregation pipelines for MongoDB data for analytics breakdowns for stakeholders.",
+            "Refactoring project documentation."
+          ]
         }
       ],
       "education": [
         {
-          "degree": "Bachelor's Degree in Computer Science",
-          "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2018 - 2021"
-        },
-        {
           "degree": "Master's Degree in Computer Science",
           "school": "OVID - Universitatea Ovidius Constanța",
           "period": "2021 - 2023"
+        },
+        {
+          "degree": "Bachelor's Degree in Computer Science",
+          "school": "OVID - Universitatea Ovidius Constanța",
+          "period": "2018 - 2021"
         }
       ],
       "headings": {
+        "academicsEyebrow": "Academics",
         "education": "Education",
+        "portfolioEyebrow": "Portfolio",
         "projects": "Projects",
+        "certificationsEyebrow": "Certifications",
         "certifications": "Certifications"
       },
       "projects": [
         {
+          "name": "octavianmironescu.com & Rimelight Ecosystem",
+          "role": "Creator & Lead Developer",
+          "period": "2024 - Present",
+          "href": "https://github.com/MironescuOctavian/octavianmironescu.com",
+          "summary": "Multilingual portfolio, blog, and modular SolidJS 2.0 package ecosystem (@rimelight/ui, i18n, seo, cms, auth, security) deployed on Cloudflare Workers.",
+          "tags": ["SolidJS", "TypeScript", "UnoCSS", "Cloudflare"]
+        },
+        {
+          "name": "Timezone Converter",
+          "role": "Creator & Developer",
+          "period": "2025",
+          "href": "https://timezone-converter.omironescu.workers.dev/en/",
+          "summary": "Interactive world clock, timezone comparison utility, and Discord timestamp generator built for distributed teams.",
+          "tags": ["SolidJS", "TypeScript", "Cloudflare Workers"]
+        },
+        {
           "name": "Discord Automation Bot",
           "role": "Developer & Maintainer",
           "period": "2024",
+          "summary": "Event-driven Java automation service integrating with the Discord Developer Portal for server workflows and moderation.",
           "tags": ["Java", "Discord Developer Portal"]
         }
       ],
@@ -228,6 +289,22 @@
     },
     "privacy-policy": {
       "heading": "Privacy Policy"
+    },
+    "projects": {
+      "title": "Projects",
+      "eyebrow": "Built with purpose",
+      "description": "Applications, tools, and packages I design, build, and maintain. A closer look at the work behind the code.",
+      "all": "View all projects",
+      "view": "Explore project",
+      "packagesTitle": "Packages",
+      "packages": {
+        "ui": "Themeable components and interface primitives for SolidJS.",
+        "i18n": "Internationalization, localized routes, and translation tools.",
+        "seo": "Page metadata, structured data, and social sharing previews.",
+        "auth": "Authentication and session management for applications.",
+        "security": "Security headers, content policies, and request protection.",
+        "cms": "Content collections, publishing, and content management tools."
+      }
     }
   },
   "app": {
@@ -374,7 +451,7 @@
           "description": "Practical build, container, and cloud workflows that keep software moving.",
           "points": [
             "Containerized applications and repeatable build workflows",
-            "Deployment to cloud and edge platforms",
+            "Deployment, routing, and scaling across cloud and edge platforms",
             "Configuration, environment management, and release preparation",
             "Troubleshooting and improvements after deployment"
           ]
