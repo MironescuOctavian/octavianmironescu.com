@@ -37,14 +37,15 @@ export const projects: Project[] = [
     status: "Live",
   },
   {
-    id: "discord-bot",
-    title: "Discord Automation Bot",
-    description: "A Java project for Discord automation, developed and maintained since 2024.",
-    href: "/resume#resume-projects-heading",
-    icon: "i-mdi-discord",
-    category: "Automation",
-    tags: ["Java", "Discord"],
-    status: "Active",
+    id: "pomodoro-kitty",
+    title: "Pomodoro Kitty",
+    description:
+      "A cozy Pomodoro timer with a little feline friend. Focus together, earn treats, and care for your kitty during breaks.",
+    href: "https://pomodoro-kitty.omironescu.workers.dev/en/",
+    icon: "i-lucide-cat",
+    category: "Productivity",
+    tags: ["SolidJS", "TypeScript", "Cloudflare"],
+    status: "Live",
   },
   {
     id: "spring-cloud-microservices",

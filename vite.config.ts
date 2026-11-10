@@ -109,6 +109,7 @@ export default defineConfig({
           "i-mdi-message-text-outline",
           "i-lucide-globe",
           "i-lucide-code-xml",
+          "i-lucide-cat",
         ],
       },
       colors: {
