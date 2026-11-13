@@ -83,7 +83,7 @@ export default function AppRouteLayout(props: RouteSectionProps) {
         <Show when={isHomePage()}>
           <AppSidebar />
         </Show>
-        <RLMain class="min-w-0 !pt-0 !min-h-[calc(100vh-var(--rl-header-height,4.5rem))]">
+        <RLMain class="w-full min-w-0 !pt-0 !min-h-[calc(100vh-var(--rl-header-height,4.5rem))]">
           {props.children}
         </RLMain>
       </div>

@@ -35,7 +35,7 @@ export default function ProjectsPage() {
               href={project.href.startsWith("/") ? getLocaleUrl(project.href) : project.href}
               class="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-xl border border-primary-600/60 bg-neutral-100 transition duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_8px_24px_var(--rl-primary-900)]"
             >
-              <div class="relative flex h-36 items-center justify-center overflow-hidden border-b border-primary-600/30 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--rl-primary-500)_10%,transparent),var(--rl-neutral-50))]">
+              <div class="relative flex aspect-video w-full items-center justify-center overflow-hidden border-b border-primary-600/30 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--rl-primary-500)_10%,transparent),var(--rl-neutral-50))]">
                 {project.image ? (
                   <img
                     src={project.image}

@@ -8,6 +8,7 @@ import type { PublicEntry } from "@rimelight/cms/solid";
 import { SOCIAL_LINKS } from "#components/app/SocialLinks";
 import { projects } from "#components/app/projects";
 import { blogCover } from "#components/app/blogCovers";
+import { mergeBlogPosts } from "#components/app/extraBlogs";
 import { createMemo, createSignal, onSettled, For, Loading, Show } from "solid-js";
 
 const tech = [
@@ -85,14 +86,17 @@ const packages = [
 export default function HomePage() {
   const recentPosts = createMemo<PublicEntry[]>(async () => {
     const request = getRequestEvent()?.request;
-    const path = "/api/content/collections/blog?limit=3";
+    const path = "/api/content/collections/blog?limit=50";
     try {
       const response = await fetch(request ? new URL(path, request.url).toString() : path, {
         headers: request?.headers.get("cookie") ? { cookie: request.headers.get("cookie")! } : {},
       });
-      return response.ok ? ((await response.json()) as { entries: PublicEntry[] }).entries : [];
+      const cms = response.ok
+        ? ((await response.json()) as { entries: PublicEntry[] }).entries
+        : [];
+      return mergeBlogPosts(cms).slice(0, 3);
     } catch {
-      return [];
+      return mergeBlogPosts([]).slice(0, 3);
     }
   });
   const techLabel = (key: string) => t.raw<string>(`home.sections.technologies.labels.${key}`, key);
@@ -674,7 +678,7 @@ export default function HomePage() {
                 href={p.href.startsWith("/") ? getLocaleUrl(p.href) : p.href}
                 class="group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_12px_32px_var(--rl-primary-950)]"
               >
-                <div class="flex h-56 items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--rl-primary-500)_10%,transparent),var(--rl-neutral-50))]">
+                <div class="flex aspect-video w-full items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--rl-primary-500)_10%,transparent),var(--rl-neutral-50))]">
                   {p.image ? (
                     <img
                       src={p.image}

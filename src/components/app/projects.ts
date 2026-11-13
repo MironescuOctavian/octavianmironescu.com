@@ -13,6 +13,18 @@ export interface Project {
 // Shared by the home page and project directory.
 export const projects: Project[] = [
   {
+    id: "portfolio",
+    title: "octavianmironescu.com",
+    description:
+      "My personal corner of the web: a multilingual portfolio, resume, and blog built with the Rimelight ecosystem.",
+    href: "https://github.com/MironescuOctavian/octavianmironescu.com",
+    icon: "i-lucide-code-xml",
+    category: "Website",
+    tags: ["SolidJS", "Rimelight", "Cloudflare"],
+    image: "/projects/portfolio.svg",
+    status: "Live",
+  },
+  {
     id: "timezone-converter",
     title: "Timezone Converter",
     description:
@@ -25,17 +37,6 @@ export const projects: Project[] = [
     status: "Live",
   },
   {
-    id: "portfolio",
-    title: "octavianmironescu.com",
-    description:
-      "My personal corner of the web: a multilingual portfolio, resume, and blog built with the Rimelight ecosystem.",
-    href: "https://github.com/MironescuOctavian/octavianmironescu.com",
-    icon: "i-lucide-code-xml",
-    category: "Website",
-    tags: ["SolidJS", "Rimelight", "Cloudflare"],
-    status: "Live",
-  },
-  {
     id: "pomodoro-kitty",
     title: "Pomodoro Kitty",
     description:
@@ -44,6 +45,7 @@ export const projects: Project[] = [
     icon: "i-lucide-cat",
     category: "Productivity",
     tags: ["SolidJS", "TypeScript", "Cloudflare"],
+    image: "/projects/pomodoro-kitty.svg",
     status: "Live",
   },
   {
@@ -55,6 +57,7 @@ export const projects: Project[] = [
     icon: "i-lucide-gamepad-2",
     category: "Application",
     tags: ["SolidJS", "TypeScript", "Cloudflare"],
+    image: "/projects/steam-next.svg",
     status: "Live",
   },
 ];

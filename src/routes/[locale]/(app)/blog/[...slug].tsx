@@ -4,13 +4,13 @@ import { useHead } from "@solidjs/web";
 import { createPageHead } from "@rimelight/seo/head";
 import { PageRenderer, content, type PublicEntry } from "@rimelight/cms/solid";
 import { RLDate } from "@rimelight/ui/components/date/RLDate.tsx";
-import { t, getCurrentLocale } from "@rimelight/i18n";
+import { t, getCurrentLocale, getLocaleUrl } from "@rimelight/i18n";
 import { blogCover } from "#components/app/blogCovers";
+import { findExtraBlogPost } from "#components/app/extraBlogs";
 
 /**
- * A blog post, read from the CMS delivery API (`/api/content/collections/blog/:slug`). Mentions
- * arrive already resolved (colour + link), so PageRenderer needs no extra setup. `?preview=`
- * (from the dashboard's "Open draft preview") shows the draft instead of the published version.
+ * A blog post, read from the CMS delivery API (`/api/content/collections/blog/:slug`) or
+ * the bundled static articles. `?preview=` shows a CMS draft preview.
  */
 export default function BlogPostPage() {
   const params = useParams<{ locale: string; slug?: string }>();
@@ -21,7 +21,11 @@ export default function BlogPostPage() {
     async () => {
       const slug = params.slug?.replace(/\/+$/, "");
       if (!slug) return null;
-      return content.entry("blog", slug, search.preview);
+      if (!search.preview) {
+        const local = findExtraBlogPost(slug);
+        if (local) return local;
+      }
+      return (await content.entry("blog", slug, search.preview)) ?? findExtraBlogPost(slug);
     },
     { loadingValue: null },
   );
@@ -43,6 +47,13 @@ export default function BlogPostPage() {
       fallback={<div class="p-16 text-center text-neutral-400">{t("app.loading.post")}</div>}
     >
       <article class="mx-auto max-w-5xl px-5 py-20 sm:px-8 md:py-28">
+        <a
+          href={getLocaleUrl("/blog")}
+          class="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary-400 transition-colors hover:text-primary-300"
+        >
+          <span class="i-lucide-chevron-left size-4" aria-hidden="true" />
+          <span>{t("page.blog.meta.title")}</span>
+        </a>
         <header class="mb-12">
           <div class="mb-4 text-xs font-semibold uppercase tracking-[.3em] text-primary-400">
             <RLDate date={post()?.publishedAt || post()?.updatedAt || new Date()} />

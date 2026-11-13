@@ -61,11 +61,11 @@ export const AppSidebar: Component = () => {
   return (
     <aside
       aria-label="Section navigation"
-      class="hidden lg:flex flex-col justify-center shrink-0 w-52 sticky top-[var(--rl-header-height,4.5rem)] self-start h-[calc(100vh-var(--rl-header-height,4.5rem))] bg-transparent text-neutral-950 z-30 px-4"
+      class="hidden xl:flex flex-col justify-center fixed left-3 top-[var(--rl-header-height,4.5rem)] h-[calc(100vh-var(--rl-header-height,4.5rem))] w-40 bg-transparent text-neutral-950 z-30 pointer-events-none"
     >
       <nav
         aria-label="Home sections"
-        class="mx-auto flex w-full max-w-[10.5rem] flex-col items-stretch justify-center gap-2"
+        class="pointer-events-auto flex w-full flex-col items-stretch justify-center gap-2"
       >
         <For each={SIDEBAR_SECTIONS}>
           {(section) => {
