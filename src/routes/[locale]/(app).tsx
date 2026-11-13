@@ -75,6 +75,10 @@ export default function AppRouteLayout(props: RouteSectionProps) {
           <span />
           <span />
         </div>
+        <div class="site-atmosphere-orbits site-atmosphere-orbits-bl">
+          <span />
+          <span />
+        </div>
         <div class="site-atmosphere-stars" />
         <CodeAtmosphere />
       </div>

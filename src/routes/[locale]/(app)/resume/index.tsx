@@ -48,27 +48,14 @@ export interface EducationItem {
   degree: string;
   school: string;
   period: string;
+  summary?: string;
+  highlights?: string[];
+  tags?: string[];
 }
 
 export interface CertificationItem {
   title: string;
   issuer: string;
-}
-
-export interface DatePeriod {
-  start: string;
-  end: string;
-}
-
-export interface ResumeProject {
-  name: string;
-  role?: string;
-  period: DatePeriod;
-  href?: string;
-  "image-src"?: string;
-  summary?: string;
-  highlights?: string[];
-  tags?: string[];
 }
 
 const AVATAR_SRC = "/images/avatar.jpg";
@@ -258,7 +245,6 @@ export default function ResumePage() {
   const experiences = () => t.raw<ExperienceItem[]>("page.resume.experiences", []);
   const education = () => t.raw<EducationItem[]>("page.resume.education", []);
   const certifications = () => t.raw<CertificationItem[]>("page.resume.certifications", []);
-  const projects = () => t.raw<ResumeProject[]>("page.resume.projects", []);
 
   useHead(() =>
     createPageHead({
@@ -272,7 +258,7 @@ export default function ResumePage() {
       <script type="application/ld+json" innerHTML={RESUME_JSON_LD} />
       <div class="mx-auto max-w-6xl px-5 sm:px-8 py-12 md:py-16 space-y-14 md:space-y-16">
         {/* Profile Hero Section */}
-        <section class="resume-hero grid items-center gap-8 lg:grid-cols-[1.28fr_0.72fr] lg:gap-10">
+        <section class="resume-hero grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
           {/* Left Column: Executive Summary */}
           <div>
             <div class="mb-3 flex flex-wrap items-center gap-2.5">
@@ -337,32 +323,40 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Right Column: Compact Developer Dossier Card */}
-          <aside class="w-full max-w-[330px] lg:ml-auto">
-            <div class="resume-dossier w-full rounded-2xl border border-primary-600/50 bg-neutral-100 p-3.5 sm:p-4">
-              {/* Compact Portrait with Left Sky Trimmed & Lower Crop */}
-              <div class="relative aspect-[5/4] w-full overflow-hidden rounded-xl border border-primary-500/45 bg-neutral-50">
-                <img
-                  src={AVATAR_SRC}
-                  alt={t("page.resume.sidebar.name")}
-                  width="320"
-                  height="256"
-                  fetchpriority="high"
-                  decoding="async"
-                  class="h-full w-full object-cover object-[84%_76%] origin-[88%_76%] scale-[1.28]"
-                />
-                <div class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-gradient-to-t from-neutral-50/90 via-neutral-50/35 to-transparent px-3 pt-6 pb-2">
-                  <span class="text-[9px] font-bold uppercase tracking-[.18em] text-primary-400">
+          {/* Right Column: Full-Size Developer Dossier Card with Smaller Portrait */}
+          <aside class="w-full">
+            <div class="resume-dossier w-full rounded-2xl border border-primary-600/50 bg-neutral-100 p-4 sm:p-5">
+              {/* Compact Portrait + Identity Row */}
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div class="relative aspect-[7/6] w-36 shrink-0 overflow-hidden rounded-xl border border-primary-500/45 bg-neutral-50">
+                  <img
+                    src={AVATAR_SRC}
+                    alt={t("page.resume.sidebar.name")}
+                    width="144"
+                    height="124"
+                    fetchpriority="high"
+                    decoding="async"
+                    class="h-full w-full object-cover object-[82%_70%] origin-[92%_65%] scale-[1.12]"
+                  />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <span class="block text-[10px] font-bold uppercase tracking-[.2em] text-primary-400">
                     {t("page.resume.sidebar.badge")}
                   </span>
+                  <h2 class="mt-1 text-lg font-bold leading-snug text-neutral-950 sm:text-xl">
+                    {t("page.resume.sidebar.name")}
+                  </h2>
+                  <p class="mt-0.5 text-xs font-medium text-neutral-950/65 sm:text-sm">
+                    {t("page.resume.sidebar.title")}
+                  </p>
                   <a
                     href="https://en.wikipedia.org/wiki/Bucharest"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1 rounded-full border border-primary-600/45 bg-neutral-50/90 px-2 py-0.5 text-[10px] font-semibold text-neutral-950 transition-colors hover:border-primary-400 hover:text-primary-300"
+                    class="mt-2.5 inline-flex items-center gap-1.5 rounded-full border border-primary-600/45 bg-neutral-50 px-2.5 py-1 text-xs font-semibold text-neutral-950 transition-colors hover:border-primary-400 hover:text-primary-300"
                   >
                     <span
-                      class="i-lucide-map-pin size-2.5 shrink-0 text-primary-400"
+                      class="i-lucide-map-pin size-3 shrink-0 text-primary-400"
                       aria-hidden="true"
                     />
                     <span>{t("page.resume.sidebar.location")}</span>
@@ -371,14 +365,14 @@ export default function ResumePage() {
               </div>
 
               {/* Profile Metadata Grid */}
-              <div class="mt-2.5 grid grid-cols-2 gap-1.5 text-xs">
+              <div class="mt-4 grid grid-cols-2 gap-2.5 text-sm">
                 <For each={aboutDetails()}>
                   {(detail) => (
-                    <div class="rounded-xl border border-primary-600/25 bg-neutral-50 px-2.5 py-2">
-                      <span class="block text-[9px] font-semibold uppercase tracking-wider text-neutral-950/50">
+                    <div class="rounded-xl border border-primary-600/25 bg-neutral-50 px-3 py-2.5">
+                      <span class="block text-[10px] font-semibold uppercase tracking-wider text-neutral-950/50">
                         {detail.label}
                       </span>
-                      <span class="mt-0.5 block text-xs font-bold text-neutral-950">
+                      <span class="mt-0.5 block text-xs font-bold text-neutral-950 sm:text-sm">
                         {detail.value}
                       </span>
                     </div>
@@ -387,25 +381,25 @@ export default function ResumePage() {
               </div>
 
               {/* Spoken Languages */}
-              <div class="mt-3 border-t border-primary-600/25 pt-3">
-                <div class="mb-2 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[.2em] text-primary-400">
-                  <span class="i-lucide-globe size-3" aria-hidden="true" />
+              <div class="mt-4 border-t border-primary-600/25 pt-4">
+                <div class="mb-2.5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.2em] text-primary-400">
+                  <span class="i-lucide-globe size-3.5" aria-hidden="true" />
                   <span>{t("page.resume.languages.heading")}</span>
                 </div>
 
-                <div class="grid gap-1.5 sm:grid-cols-3">
+                <div class="grid gap-2 sm:grid-cols-3">
                   <For each={languages}>
                     {(lang) => (
-                      <div class="rounded-xl border border-primary-600/25 bg-neutral-50 px-2.5 py-1.5">
-                        <div class="mb-1.5 flex items-center justify-between gap-1 text-[11px]">
+                      <div class="rounded-xl border border-primary-600/25 bg-neutral-50 px-3 py-2">
+                        <div class="mb-2 flex items-center justify-between gap-1 text-xs">
                           <span class="truncate font-bold text-neutral-950">
                             {t(`page.resume.${lang.nameKey.replace(/_/g, ".")}`)}
                           </span>
-                          <span class="shrink-0 text-[9px] font-semibold text-primary-400">
+                          <span class="shrink-0 text-[10px] font-semibold text-primary-400">
                             {t(`page.resume.${lang.levelKey.replace(/_/g, ".")}`)}
                           </span>
                         </div>
-                        <div class="grid grid-cols-5 gap-0.5" aria-hidden="true">
+                        <div class="grid grid-cols-5 gap-1" aria-hidden="true">
                           <For each={[20, 40, 60, 80, 100]}>
                             {(threshold) => (
                               <span
@@ -615,47 +609,80 @@ export default function ResumePage() {
           </For>
         </section>
 
-        {/* Education & Projects Section */}
-        <div class="resume-section-lazy grid gap-8 border-t-2 border-primary-600/40 pt-12 md:pt-14 md:grid-cols-2">
-          {/* Education */}
-          <section id="education" aria-labelledby="resume-education-heading" class="scroll-mt-24">
-            <div class="mb-5">
-              <p class="mb-1.5 text-[11px] font-semibold tracking-[.3em] text-primary-400 uppercase">
-                {t("page.resume.headings.academicsEyebrow")}
-              </p>
-              <h2
-                id="resume-education-heading"
-                class="text-2xl font-bold tracking-tight text-primary-500 sm:text-3xl"
-              >
-                {t("page.resume.headings.education")}
-              </h2>
-            </div>
+        {/* Academics Section */}
+        <section
+          id="education"
+          aria-labelledby="resume-education-heading"
+          class="resume-section-lazy scroll-mt-24 border-t-2 border-primary-600/40 pt-12 md:pt-14"
+        >
+          <div class="mb-7">
+            <p class="mb-1.5 text-[11px] font-semibold tracking-[.3em] text-primary-400 uppercase">
+              {t("page.resume.headings.academicsEyebrow")}
+            </p>
+            <h2
+              id="resume-education-heading"
+              class="text-2xl font-bold tracking-tight text-primary-500 sm:text-3xl"
+            >
+              {t("page.resume.headings.education")}
+            </h2>
+          </div>
 
-            <div class="space-y-3.5">
-              <For each={education()}>
-                {(edu) => (
-                  <div class="rounded-2xl border border-primary-600/50 bg-neutral-100 p-5 transition-colors duration-300 hover:border-primary-400">
-                    <div class="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 class="text-base font-bold text-neutral-950 sm:text-lg">
-                          {edu.degree}
-                        </h4>
-                        <p class="mt-1 text-sm text-neutral-950/65">{edu.school}</p>
-                      </div>
-                      <span class="rounded-full border border-primary-600/50 bg-neutral-50 px-3 py-0.5 text-xs font-semibold text-primary-400 shrink-0">
-                        {edu.period}
-                      </span>
+          <div class="grid gap-5 md:grid-cols-2">
+            <For each={education()}>
+              {(edu) => (
+                <article class="flex flex-col rounded-2xl border border-primary-600/50 bg-neutral-100 p-6 transition-colors duration-300 hover:border-primary-400">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="text-base font-bold text-neutral-950 sm:text-lg">{edu.degree}</h4>
+                      <p class="mt-1 text-sm font-medium text-neutral-950/65">{edu.school}</p>
                     </div>
+                    <span class="rounded-full border border-primary-600/50 bg-neutral-50 px-3 py-0.5 text-xs font-semibold text-primary-400 shrink-0">
+                      {edu.period}
+                    </span>
                   </div>
-                )}
-              </For>
-            </div>
 
-            <Show when={certifications().length > 0}>
-              <div class="mt-6 space-y-3.5">
-                <p class="text-[11px] font-semibold tracking-[.3em] text-primary-400 uppercase">
-                  {t("page.resume.headings.certificationsEyebrow")}
-                </p>
+                  <Show when={edu.summary}>
+                    <p class="mt-3 text-sm leading-6 text-neutral-950/75">{edu.summary}</p>
+                  </Show>
+
+                  <Show when={edu.highlights && edu.highlights.length > 0}>
+                    <ul class="mt-3.5 space-y-2 text-sm text-neutral-950/75">
+                      <For each={edu.highlights}>
+                        {(item) => (
+                          <li class="flex items-start gap-2.5">
+                            <span
+                              class="mt-2 size-1.5 shrink-0 rounded-full bg-primary-400"
+                              aria-hidden="true"
+                            />
+                            <span>{item}</span>
+                          </li>
+                        )}
+                      </For>
+                    </ul>
+                  </Show>
+
+                  <Show when={edu.tags && edu.tags.length > 0}>
+                    <div class="mt-auto pt-4 flex flex-wrap gap-1.5">
+                      <For each={edu.tags}>
+                        {(tag) => (
+                          <span class="rounded-full border border-primary-600/30 bg-neutral-50 px-2.5 py-0.5 text-xs font-medium text-neutral-950/80">
+                            {tag}
+                          </span>
+                        )}
+                      </For>
+                    </div>
+                  </Show>
+                </article>
+              )}
+            </For>
+          </div>
+
+          <Show when={certifications().length > 0}>
+            <div class="mt-8 space-y-3.5">
+              <p class="text-[11px] font-semibold tracking-[.3em] text-primary-400 uppercase">
+                {t("page.resume.headings.certificationsEyebrow")}
+              </p>
+              <div class="grid gap-4 sm:grid-cols-2">
                 <For each={certifications()}>
                   {(cert) => (
                     <div class="rounded-2xl border border-primary-600/50 bg-neutral-100 p-5 transition-colors duration-300 hover:border-primary-400">
@@ -665,75 +692,9 @@ export default function ResumePage() {
                   )}
                 </For>
               </div>
-            </Show>
-          </section>
-
-          {/* Projects */}
-          <section id="projects" aria-labelledby="resume-projects-heading" class="scroll-mt-24">
-            <div class="mb-5">
-              <p class="mb-1.5 text-[11px] font-semibold tracking-[.3em] text-primary-400 uppercase">
-                {t("page.resume.headings.portfolioEyebrow")}
-              </p>
-              <h2
-                id="resume-projects-heading"
-                class="text-2xl font-bold tracking-tight text-primary-500 sm:text-3xl"
-              >
-                {t("page.resume.headings.projects")}
-              </h2>
             </div>
-
-            <div class="space-y-3.5">
-              <For each={projects()}>
-                {(proj) => (
-                  <div class="rounded-2xl border border-primary-600/50 bg-neutral-100 p-5 transition-colors duration-300 hover:border-primary-400">
-                    <div class="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 class="text-base font-bold text-neutral-950 sm:text-lg">
-                          <Show when={proj.href} fallback={proj.name}>
-                            <a
-                              href={proj.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              class="group inline-flex items-center gap-1.5 transition-colors hover:text-primary-400"
-                            >
-                              <span>{proj.name}</span>
-                              <span
-                                class="i-mdi-arrow-top-right inline-block size-4 text-primary-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                aria-hidden="true"
-                              />
-                            </a>
-                          </Show>
-                        </h4>
-                        <Show when={proj.role}>
-                          <p class="mt-1 text-sm font-medium text-primary-400/90">{proj.role}</p>
-                        </Show>
-                      </div>
-                      <span class="rounded-full border border-primary-600/50 bg-neutral-50 px-3 py-0.5 text-xs font-semibold text-primary-400 shrink-0">
-                        {typeof proj.period === "string" ? proj.period : proj.period.start}
-                      </span>
-                    </div>
-
-                    <Show when={proj.summary}>
-                      <p class="mt-2.5 text-sm leading-6 text-neutral-950/70">{proj.summary}</p>
-                    </Show>
-
-                    <Show when={proj.tags && proj.tags.length > 0}>
-                      <div class="mt-3.5 flex flex-wrap gap-1.5">
-                        <For each={proj.tags}>
-                          {(tag) => (
-                            <span class="rounded-full border border-primary-600/30 bg-neutral-50 px-2.5 py-0.5 text-xs font-medium text-neutral-950/80">
-                              {tag}
-                            </span>
-                          )}
-                        </For>
-                      </div>
-                    </Show>
-                  </div>
-                )}
-              </For>
-            </div>
-          </section>
-        </div>
+          </Show>
+        </section>
       </div>
     </div>
   );

@@ -25,6 +25,58 @@ export async function execute<T, R>(
 }`,
   },
   {
+    name: "EdgeWorker.ts",
+    language: "Cloudflare",
+    position: "code-panel-edge",
+    source: `export default {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext,
+  ): Promise<Response> {
+    const key = request.headers.get('CF-Connecting-IP') ?? 'local';
+    const { success } = await env.RATE_LIMIT.limit({ key });
+    if (!success) {
+      return Response.json({ error: 'Rate limit exceeded' }, { status: 429 });
+    }
+
+    const row = await env.DB.prepare(
+      'SELECT slug, title FROM entries WHERE status = ?1 LIMIT 6',
+    )
+      .bind('published')
+      .all();
+
+    ctx.waitUntil(recordEdgeHit(env, request.url));
+    return Response.json(row.results);
+  },
+};`,
+  },
+  {
+    name: "MetricsQuery.sql",
+    language: "PostgreSQL / D1",
+    position: "code-panel-sql",
+    source: `WITH recent_traces AS (
+  SELECT
+    route_slug,
+    edge_region,
+    latency_ms,
+    ROW_NUMBER() OVER (
+      PARTITION BY edge_region
+      ORDER BY recorded_at DESC
+    ) AS sample_rank
+  FROM worker_request_traces
+  WHERE status_code = 200
+)
+SELECT
+  edge_region,
+  COUNT(*) AS requests,
+  ROUND(AVG(latency_ms), 2) AS avg_ms
+FROM recent_traces
+WHERE sample_rank <= 50
+GROUP BY edge_region
+ORDER BY avg_ms ASC;`,
+  },
+  {
     name: "ProjectService.java",
     language: "Java / Spring",
     position: "code-panel-java",
@@ -52,7 +104,7 @@ public class ProjectService {
 function highlight(line: string) {
   return line
     .split(
-      /(\b(?:export|async|function|interface|readonly|return|await|const|try|finally|public|private|final|class|var|new|SELECT|FROM|WHERE|AND|GROUP BY|ORDER BY|WITH|AS|JOIN|ON|OVER|PARTITION BY|DESC)\b|'[^']*'|@\w+|\b\d+\b)/g,
+      /(\b(?:export|default|async|function|interface|readonly|return|await|const|if|try|finally|public|private|final|class|var|new|SELECT|FROM|WHERE|AND|GROUP BY|ORDER BY|WITH|AS|JOIN|ON|OVER|PARTITION BY|DESC|ASC|LIMIT|COUNT|AVG|ROUND|ROW_NUMBER)\b|'[^']*'|@\w+|\b\d+\b)/g,
     )
     .map((token, index) => (
       <span

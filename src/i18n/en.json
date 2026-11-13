@@ -210,12 +210,26 @@
         {
           "degree": "Master's Degree in Computer Science",
           "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2021 - 2023"
+          "period": "2021 - 2023",
+          "summary": "Graduate coursework focused on advanced software architectures, distributed systems, algorithm analysis, and scalable data engineering.",
+          "highlights": [
+            "Distributed computing, concurrent programming, and service-oriented backend design",
+            "Advanced database architectures, data modeling, and query performance",
+            "Applied intelligent systems, computational modeling, and research methodology"
+          ],
+          "tags": ["Software Architecture", "Distributed Systems", "Advanced Databases", "Research"]
         },
         {
           "degree": "Bachelor's Degree in Computer Science",
           "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2018 - 2021"
+          "period": "2018 - 2021",
+          "summary": "Core computer science foundations spanning algorithms, data structures, object-oriented engineering, operating systems, and web technologies.",
+          "highlights": [
+            "Data structures, algorithm design, discrete mathematics, and computational complexity",
+            "Object-oriented programming with Java, operating systems, and computer networks",
+            "Relational database design with SQL, software engineering practices, and web fundamentals"
+          ],
+          "tags": ["Algorithms & Data Structures", "Java & OOP", "Operating Systems", "SQL & Web"]
         }
       ],
       "headings": {

@@ -210,12 +210,26 @@
         {
           "degree": "Master în Informatică",
           "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2021 - 2023"
+          "period": "2021 - 2023",
+          "summary": "Studii postuniversitare axate pe arhitecturi software avansate, sisteme distribuite, analiza algoritmilor și ingineria datelor la scară.",
+          "highlights": [
+            "Calcul distribuit, programare concurentă și proiectare backend orientată pe servicii",
+            "Arhitecturi avansate de baze de date, modelare și optimizare de interogări",
+            "Sisteme inteligente aplicate, modelare computațională și metodologie de cercetare"
+          ],
+          "tags": ["Arhitectură Software", "Sisteme Distribuite", "Baze de Date", "Cercetare"]
         },
         {
           "degree": "Licență în Informatică",
           "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2018 - 2021"
+          "period": "2018 - 2021",
+          "summary": "Pregătire de bază în informatică: algoritmică, structuri de date, programare orientată pe obiecte, sisteme de operare și tehnologii web.",
+          "highlights": [
+            "Structuri de date, proiectarea algoritmilor, matematică discretă și complexitate",
+            "Programare orientată pe obiecte cu Java, sisteme de operare și rețele de calculatoare",
+            "Proiectare de baze de date relaționale SQL, inginerie software și bazele dezvoltării web"
+          ],
+          "tags": ["Algoritmi și Structuri", "Java și POO", "Sisteme de Operare", "SQL și Web"]
         }
       ],
       "headings": {

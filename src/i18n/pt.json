@@ -210,12 +210,31 @@
         {
           "degree": "Mestrado em Ciência da Computação",
           "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2021 - 2023"
+          "period": "2021 - 2023",
+          "summary": "Pós-graduação focada em arquiteturas de software avançadas, sistemas distribuídos, análise de algoritmos e engenharia de dados escalável.",
+          "highlights": [
+            "Computação distribuída, programação concorrente e design de backend orientado a serviços",
+            "Arquiteturas avançadas de bancos de dados, modelagem e desempenho de consultas",
+            "Sistemas inteligentes aplicados, modelagem computacional e metodologia de pesquisa"
+          ],
+          "tags": [
+            "Arquitetura de Software",
+            "Sistemas Distribuídos",
+            "Bancos de Dados",
+            "Pesquisa"
+          ]
         },
         {
           "degree": "Bacharelado em Ciência da Computação",
           "school": "OVID - Universitatea Ovidius Constanța",
-          "period": "2018 - 2021"
+          "period": "2018 - 2021",
+          "summary": "Base sólida em ciência da computação abrangendo algoritmos, estruturas de dados, programação orientada a objetos, sistemas operacionais e web.",
+          "highlights": [
+            "Estruturas de dados, projeto de algoritmos, matemática discreta e complexidade computacional",
+            "Programação orientada a objetos com Java, sistemas operacionais e redes de computadores",
+            "Bancos de dados relacionais com SQL, engenharia de software e fundamentos web"
+          ],
+          "tags": ["Algoritmos e Estruturas", "Java e POO", "Sistemas Operacionais", "SQL e Web"]
         }
       ],
       "headings": {
