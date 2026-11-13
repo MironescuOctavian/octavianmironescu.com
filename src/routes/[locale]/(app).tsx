@@ -2,6 +2,7 @@ import CodeAtmosphere from "#components/app/CodeAtmosphere";
 import type { RouteSectionProps } from "@solidjs/router";
 import { onSettled } from "solid-js";
 import AppHeader from "#components/app/AppHeader";
+import AppSidebar from "#components/app/AppSidebar";
 import AppFooter from "#components/app/AppFooter";
 import { RLMain } from "@rimelight/ui/components/main/RLMain.tsx";
 import { RLScrollToTop } from "@rimelight/ui/components/scroll-to-top/RLScrollToTop.tsx";
@@ -72,7 +73,12 @@ export default function AppRouteLayout(props: RouteSectionProps) {
         <CodeAtmosphere />
       </div>
       <AppHeader />
-      <RLMain>{props.children}</RLMain>
+      <div class="flex flex-1 pt-[var(--rl-header-height,4rem)] md:pt-[var(--rl-header-height,4.5rem)]">
+        <AppSidebar />
+        <RLMain class="min-w-0 !pt-0 !min-h-[calc(100vh-var(--rl-header-height,4.5rem))]">
+          {props.children}
+        </RLMain>
+      </div>
       <AppFooter />
       <RLScrollToTop />
       <RLShortcuts />

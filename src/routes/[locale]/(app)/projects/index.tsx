@@ -74,7 +74,7 @@ export default function ProjectsPage() {
                   </For>
                 </div>
                 <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary-400 sm:text-sm">
-                  {project.isPlaceholder ? "View repository" : t("page.projects.view")}{" "}
+                  {t("page.projects.view")}{" "}
                   <span
                     class="i-mdi-arrow-top-right inline-block size-3.5 sm:size-4"
                     aria-hidden="true"

@@ -110,6 +110,13 @@ export default defineConfig({
           "i-lucide-globe",
           "i-lucide-code-xml",
           "i-lucide-cat",
+          "i-lucide-gamepad-2",
+          "i-lucide-user",
+          "i-lucide-sparkles",
+          "i-lucide-folder-git-2",
+          "i-lucide-briefcase",
+          "i-lucide-panel-left-close",
+          "i-lucide-panel-left-open",
         ],
       },
       colors: {

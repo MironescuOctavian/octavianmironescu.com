@@ -669,39 +669,37 @@ export default function HomePage() {
             </a>
           </div>
           <div class="grid gap-5 md:grid-cols-2">
-            {projects
-              .filter((p) => !p.isPlaceholder)
-              .map((p) => (
-                <a
-                  href={p.href.startsWith("/") ? getLocaleUrl(p.href) : p.href}
-                  class={`group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-950/[.02] transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_12px_32px_var(--rl-primary-950)] `}
-                >
-                  <div class="flex h-56 items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,var(--rl-primary-900),transparent)]">
-                    {p.image ? (
-                      <img
-                        src={p.image}
-                        alt=""
-                        loading="lazy"
-                        class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                      />
-                    ) : (
-                      <span
-                        class={`${p.icon} inline-block size-16 text-primary-400`}
-                        aria-hidden="true"
-                      />
-                    )}
-                  </div>
-                  <div class="flex flex-col justify-center p-6">
-                    <p class="text-xs uppercase tracking-widest text-primary-200">{p.category}</p>
-                    <h3 class="mt-3 text-2xl font-semibold">{p.title}</h3>
-                    <p class="mt-3 text-sm leading-6 text-neutral-950/45">{p.description}</p>
-                    <span class="mt-6 text-sm text-neutral-950/65">
-                      {t("home.sections.work.view")}{" "}
-                      <span class="i-mdi-arrow-top-right ml-1 inline-block" />
-                    </span>
-                  </div>
-                </a>
-              ))}
+            {projects.map((p) => (
+              <a
+                href={p.href.startsWith("/") ? getLocaleUrl(p.href) : p.href}
+                class={`group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-950/[.02] transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_12px_32px_var(--rl-primary-950)] `}
+              >
+                <div class="flex h-56 items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,var(--rl-primary-900),transparent)]">
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt=""
+                      loading="lazy"
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <span
+                      class={`${p.icon} inline-block size-16 text-primary-400`}
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
+                <div class="flex flex-col justify-center p-6">
+                  <p class="text-xs uppercase tracking-widest text-primary-200">{p.category}</p>
+                  <h3 class="mt-3 text-2xl font-semibold">{p.title}</h3>
+                  <p class="mt-3 text-sm leading-6 text-neutral-950/45">{p.description}</p>
+                  <span class="mt-6 text-sm text-neutral-950/65">
+                    {t("home.sections.work.view")}{" "}
+                    <span class="i-mdi-arrow-top-right ml-1 inline-block" />
+                  </span>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
 
