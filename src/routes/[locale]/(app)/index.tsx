@@ -158,13 +158,13 @@ export default function HomePage() {
                   color="primary"
                   variant="outline"
                   size="lg"
-                  class="rounded-lg border-2 border-primary-600 bg-transparent font-semibold text-neutral-950 transition-all duration-300 hover:border-primary-400 hover:bg-primary-900/10"
+                  class="rounded-lg border-2 border-primary-600 bg-neutral-100 font-semibold text-neutral-950 transition-all duration-300 hover:border-primary-400 hover:bg-neutral-200"
                 >
                   {t("home.sections.hero.download")}
                 </RLButton>
               </div>
               {/* Live clock */}
-              <div class="mt-7 inline-flex h-12 items-center gap-3 rounded-xl border-2 border-primary-500 bg-primary-500/10 px-4 text-neutral-950 shadow-[0_2px_12px_var(--rl-primary-950)]">
+              <div class="mt-7 inline-flex h-12 items-center gap-3 rounded-xl border-2 border-primary-500 bg-neutral-100 px-4 text-neutral-950 shadow-[0_2px_12px_var(--rl-primary-950)]">
                 <span
                   class="i-mdi-clock-outline inline-block size-6 shrink-0 text-primary-400"
                   aria-hidden="true"
@@ -195,7 +195,7 @@ export default function HomePage() {
                       color="primary"
                       variant="outline"
                       size="xl"
-                      class="rounded-xl border border-primary-700 bg-primary-950/30 text-primary-400 transition-all hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/50 hover:text-primary-200"
+                      class="rounded-xl border border-primary-600/60 bg-neutral-100 text-primary-400 transition-all hover:-translate-y-0.5 hover:border-primary-400 hover:bg-neutral-200 hover:text-primary-200"
                     />
                   )}
                 </For>
@@ -317,7 +317,7 @@ export default function HomePage() {
         <RLContainer>
           <section
             aria-label={t("home.sections.technologies.stack")}
-            class="overflow-hidden py-8 rounded-3xl border-2 border-primary-500 bg-primary-950/30"
+            class="overflow-hidden py-8 rounded-3xl border-2 border-primary-500 bg-neutral-50"
           >
             <RLMarquee speed={45}>
               {tech.map((item) => (
@@ -325,7 +325,7 @@ export default function HomePage() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="mx-3 inline-flex shrink-0 items-center gap-3 rounded-full border-2 border-primary-600 bg-neutral-100 px-6 py-3 text-sm font-semibold text-neutral-950/90 shadow-[0_0_20px_var(--rl-primary-900)] transition hover:border-primary-400 hover:bg-primary-900 focus-visible:outline-2 focus-visible:outline-primary-400"
+                  class="mx-3 inline-flex shrink-0 items-center gap-3 rounded-full border-2 border-primary-600 bg-neutral-100 px-6 py-3 text-sm font-semibold text-neutral-950/90 shadow-[0_0_20px_var(--rl-primary-900)] transition hover:border-primary-400 hover:bg-neutral-200 focus-visible:outline-2 focus-visible:outline-primary-400"
                 >
                   <span class={`inline-block size-7 shrink-0 ${item.icon}`} />
                   {item.name}
@@ -396,8 +396,8 @@ export default function HomePage() {
                 points: t.array<string>("home.sections.services.delivery.points"),
               },
             ].map((s) => (
-              <details class="service-card group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-100 transition-colors duration-300 hover:border-primary-500 open:border-primary-500 open:bg-primary-950/50">
-                <summary class="flex min-h-24 cursor-pointer list-none items-center gap-4 p-6 transition-colors hover:bg-primary-900/40 [&::-webkit-details-marker]:hidden">
+              <details class="service-card group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-100 transition-colors duration-300 hover:border-primary-500 open:border-primary-500 open:bg-neutral-100">
+                <summary class="flex min-h-24 cursor-pointer list-none items-center gap-4 p-6 transition-colors hover:bg-neutral-200 [&::-webkit-details-marker]:hidden">
                   <span class={`inline-block size-8 shrink-0 text-primary-400 ${s.i}`} />
                   <span class="flex-1 text-lg font-medium">{s.n}</span>
                   <span class="i-mdi-plus inline-block size-6 text-primary-400 transition-transform duration-300 group-open:rotate-45" />
@@ -433,7 +433,7 @@ export default function HomePage() {
                     type="button"
                     aria-pressed={activeTechGroup() === category ? "true" : "false"}
                     onClick={() => setActiveTechGroup(category)}
-                    class={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-primary-400 ${activeTechGroup() === category ? "border-primary-500 bg-primary-500 text-black shadow-[0_4px_16px_var(--rl-primary-800)]" : "border-primary-600 bg-neutral-50 text-neutral-950/80 hover:border-primary-400 hover:bg-primary-900/40 hover:text-neutral-950"}`}
+                    class={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-primary-400 ${activeTechGroup() === category ? "border-primary-500 bg-primary-500 text-black shadow-[0_4px_16px_var(--rl-primary-800)]" : "border-primary-600 bg-neutral-50 text-neutral-950/80 hover:border-primary-400 hover:bg-neutral-200 hover:text-neutral-950"}`}
                   >
                     {category === "All" ? t("home.sections.technologies.all") : techLabel(category)}
                   </button>
@@ -595,7 +595,7 @@ export default function HomePage() {
               .filter((group) => activeTechGroup() === "All" || activeTechGroup() === group.title)
               .map((group) =>
                 group.items.map((item) => (
-                  <div class="group flex items-center gap-3 rounded-xl border border-primary-600/60 bg-neutral-100 p-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/20 hover:shadow-[0_6px_20px_var(--rl-primary-950)]">
+                  <div class="group flex items-center gap-3 rounded-xl border border-primary-600/60 bg-neutral-100 p-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-neutral-200 hover:shadow-[0_6px_20px_var(--rl-primary-950)]">
                     <span class={`inline-block size-7 shrink-0 ${item.icon}`} aria-hidden="true" />
                     <div class="min-w-0 flex-1">
                       <p class="truncate font-bold text-neutral-950">{item.name}</p>
@@ -611,7 +611,7 @@ export default function HomePage() {
 
         <section
           aria-label={t("home.sections.highlights.title")}
-          class="my-8 grid overflow-hidden rounded-2xl border border-primary-600 bg-neutral-50 sm:grid-cols-2 lg:grid-cols-4"
+          class="my-8 grid overflow-hidden rounded-2xl border border-primary-600 bg-neutral-100 sm:grid-cols-2 lg:grid-cols-4"
         >
           {[
             {
@@ -640,7 +640,7 @@ export default function HomePage() {
             },
           ].map((stat) => (
             <div class="border-t border-primary-600/30 p-6 first:border-t-0 sm:border-l sm:border-t-0 sm:first:border-l-0 lg:p-8">
-              <span class="mb-4 inline-flex size-10 items-center justify-center rounded-xl bg-primary-700/20 text-primary-400">
+              <span class="mb-4 inline-flex size-10 items-center justify-center rounded-xl border border-primary-500/30 bg-neutral-50 text-primary-400">
                 <span class={`inline-block size-5 ${stat.icon}`} aria-hidden="true" />
               </span>
               <p class="text-3xl font-bold">{stat.n}</p>
@@ -672,9 +672,9 @@ export default function HomePage() {
             {projects.map((p) => (
               <a
                 href={p.href.startsWith("/") ? getLocaleUrl(p.href) : p.href}
-                class={`group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-950/[.02] transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_12px_32px_var(--rl-primary-950)] `}
+                class="group overflow-hidden rounded-2xl border-2 border-primary-600 bg-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_12px_32px_var(--rl-primary-950)]"
               >
-                <div class="flex h-56 items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,var(--rl-primary-900),transparent)]">
+                <div class="flex h-56 items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--rl-primary-500)_10%,transparent),var(--rl-neutral-50))]">
                   {p.image ? (
                     <img
                       src={p.image}
@@ -703,8 +703,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section class="border-t-2 border-primary-600 py-20">
-          <div class="grid items-center gap-8 rounded-3xl border-2 border-primary-600 bg-[radial-gradient(ellipse_at_90%_20%,var(--rl-secondary-800),transparent_45%),rgba(255,255,255,.02)] p-8 md:grid-cols-[1fr_auto] md:p-12">
+        <section class="border-t-2 border-primary-600/40 py-20">
+          <div class="grid items-center gap-8 rounded-3xl border-2 border-primary-600 bg-[radial-gradient(ellipse_at_90%_20%,color-mix(in_srgb,var(--rl-primary-500)_10%,transparent),transparent_50%)] bg-neutral-100 p-8 md:grid-cols-[1fr_auto] md:p-12">
             <div>
               <p class="mb-3 text-xs font-semibold tracking-[.3em] text-primary-400 uppercase">
                 PACKAGES
@@ -718,7 +718,7 @@ export default function HomePage() {
               </p>
               <div class="mt-6 flex flex-wrap gap-2">
                 {packages.map((name) => (
-                  <span class="rounded-full border border-primary-500 px-3 py-2 text-[0.7rem] font-medium text-neutral-950">
+                  <span class="rounded-full border border-primary-500 bg-neutral-50 px-3 py-2 text-[0.7rem] font-medium text-neutral-950">
                     {name}
                   </span>
                 ))}
@@ -726,7 +726,7 @@ export default function HomePage() {
             </div>
             <a
               href="https://www.npmjs.com/search?q=%40rimelight"
-              class="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-400/30 px-5 py-3 text-sm text-primary-100 transition hover:bg-primary-400/10"
+              class="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-400/30 bg-neutral-50 px-5 py-3 text-sm text-primary-100 transition hover:border-primary-400 hover:bg-neutral-200"
             >
               {t("home.sections.packages.explore")} <span class="i-mdi-arrow-top-right" />
             </a>
@@ -810,7 +810,7 @@ export default function HomePage() {
               @MironescuOctavian <span class="i-mdi-arrow-top-right ml-1 inline-block" />
             </a>
           </div>
-          <div class="overflow-x-auto rounded-2xl border-2 border-primary-600 bg-[#17130b] p-5 sm:p-8">
+          <div class="overflow-x-auto rounded-2xl border-2 border-primary-600 bg-neutral-100 p-5 sm:p-8">
             <img
               src="https://ghchart.rshah.org/ffbf00/MironescuOctavian"
               alt={t("home.sections.activity.calendarAlt")}
@@ -821,7 +821,7 @@ export default function HomePage() {
         </section>
 
         <section id="contact" class="scroll-mt-28 border-t-2 border-primary-600/40 py-20 md:py-24">
-          <div class="relative overflow-hidden rounded-3xl border border-primary-600/50 bg-[radial-gradient(ellipse_at_50%_0%,var(--rl-secondary-800),transparent_55%),var(--rl-neutral-50)] p-8 md:p-12">
+          <div class="relative overflow-hidden rounded-3xl border border-primary-600/50 bg-[radial-gradient(ellipse_at_50%_0%,color-mix(in_srgb,var(--rl-primary-500)_8%,transparent),transparent_55%)] bg-neutral-100 p-8 md:p-12">
             <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
               <div class="flex w-full flex-col items-center">
                 <p class="mb-3 text-xs font-semibold tracking-[.3em] text-primary-400 uppercase">

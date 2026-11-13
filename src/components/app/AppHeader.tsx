@@ -73,19 +73,19 @@ export const AppHeader: Component<AppHeaderProps> = (props) => {
         <nav aria-label="Primary pages" class="flex items-center justify-center gap-2">
           <a
             href={getLocaleUrl("/projects")}
-            class="inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3.5 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
+            class="inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3.5 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-neutral-200 hover:text-primary-300 sm:text-sm"
           >
             {t("page.projects.title")}
           </a>
           <a
             href={getLocaleUrl("/blog")}
-            class="inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3.5 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
+            class="inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3.5 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-neutral-200 hover:text-primary-300 sm:text-sm"
           >
             {t("app.header.nav.blog")}
           </a>
           <a
             href={getLocaleUrl("/resume")}
-            class="inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3.5 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-900/40 hover:text-primary-300 sm:text-sm"
+            class="inline-flex h-9 items-center justify-center rounded-full border border-primary-600/70 px-3.5 text-xs font-bold text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-neutral-200 hover:text-primary-300 sm:text-sm"
           >
             {t("app.header.nav.resume")}
           </a>

@@ -33,9 +33,9 @@ export default function ProjectsPage() {
             <a
               id={project.id}
               href={project.href.startsWith("/") ? getLocaleUrl(project.href) : project.href}
-              class="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-xl border border-primary-600/60 bg-neutral-100/90 transition duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_8px_24px_var(--rl-primary-900)]"
+              class="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-xl border border-primary-600/60 bg-neutral-100 transition duration-300 hover:-translate-y-1 hover:border-primary-400 hover:shadow-[0_8px_24px_var(--rl-primary-900)]"
             >
-              <div class="relative flex h-36 items-center justify-center overflow-hidden border-b border-primary-600/30 bg-[radial-gradient(ellipse_at_center,var(--rl-primary-900),var(--rl-neutral-50))]">
+              <div class="relative flex h-36 items-center justify-center overflow-hidden border-b border-primary-600/30 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--rl-primary-500)_10%,transparent),var(--rl-neutral-50))]">
                 {project.image ? (
                   <img
                     src={project.image}
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
                   {project.category}
                 </span>
                 {project.status && (
-                  <span class="absolute right-3 top-2.5 rounded-full border border-primary-500/30 bg-primary-950/80 px-2 py-0.5 text-[10px] font-medium tracking-wide text-primary-300 backdrop-blur-sm">
+                  <span class="absolute right-3 top-2.5 rounded-full border border-primary-500/35 bg-neutral-50/95 px-2 py-0.5 text-[10px] font-medium tracking-wide text-primary-300 backdrop-blur-sm">
                     {project.status}
                   </span>
                 )}
@@ -67,7 +67,7 @@ export default function ProjectsPage() {
                 <div class="mt-3.5 flex flex-wrap gap-1.5">
                   <For each={project.tags}>
                     {(tag) => (
-                      <span class="rounded-full border border-primary-600/30 px-2 py-0.5 text-[11px] text-neutral-950/65">
+                      <span class="rounded-full border border-primary-600/30 bg-neutral-50 px-2 py-0.5 text-[11px] text-neutral-950/75">
                         {tag}
                       </span>
                     )}
@@ -105,7 +105,7 @@ export default function ProjectsPage() {
             {(pkg) => (
               <a
                 href={`https://www.npmjs.com/package/${pkg.name}`}
-                class="group flex flex-col rounded-xl border border-primary-600/40 bg-neutral-100/90 p-5 transition duration-200 hover:-translate-y-1 hover:border-primary-400"
+                class="group flex flex-col rounded-xl border border-primary-600/40 bg-neutral-100 p-5 transition duration-200 hover:-translate-y-1 hover:border-primary-400"
               >
                 <div class="mb-4 flex items-center justify-between">
                   <span class="flex size-9 items-center justify-center rounded-lg border border-primary-600/30 bg-primary-500/10 text-primary-400">

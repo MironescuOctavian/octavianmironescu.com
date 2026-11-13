@@ -1,6 +1,7 @@
 import CodeAtmosphere from "#components/app/CodeAtmosphere";
-import type { RouteSectionProps } from "@solidjs/router";
-import { onSettled } from "solid-js";
+import { useLocation, type RouteSectionProps } from "@solidjs/router";
+import { onSettled, Show } from "solid-js";
+import { getLocaleUrl } from "@rimelight/i18n";
 import AppHeader from "#components/app/AppHeader";
 import AppSidebar from "#components/app/AppSidebar";
 import AppFooter from "#components/app/AppFooter";
@@ -13,9 +14,14 @@ import { RLLayoutGrid } from "@rimelight/ui/components/layout-grid/RLLayoutGrid.
 
 // Primary application route layout wrapping header, footer, and ambient backdrop.
 export default function AppRouteLayout(props: RouteSectionProps) {
-  onSettled(() => {
-    const normalizePath = (p: string) => p.replace(/\/+$/, "") || "/";
+  const location = useLocation();
+  const normalizePath = (p: string) => p.replace(/\/+$/, "") || "/";
+  const isHomePage = () => {
+    const current = normalizePath(location.pathname);
+    return current === "/" || current === normalizePath(getLocaleUrl("/"));
+  };
 
+  onSettled(() => {
     const handleAnchorClick = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
@@ -74,7 +80,9 @@ export default function AppRouteLayout(props: RouteSectionProps) {
       </div>
       <AppHeader />
       <div class="flex flex-1 pt-[var(--rl-header-height,4rem)] md:pt-[var(--rl-header-height,4.5rem)]">
-        <AppSidebar />
+        <Show when={isHomePage()}>
+          <AppSidebar />
+        </Show>
         <RLMain class="min-w-0 !pt-0 !min-h-[calc(100vh-var(--rl-header-height,4.5rem))]">
           {props.children}
         </RLMain>
